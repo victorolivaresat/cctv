@@ -1,0 +1,19 @@
+.bg-login {
+  background-color: #161616;;
+}
+
+.login-card {
+  width: 380px;
+}
+
+.logo-login {
+  width: 220px !important;
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+
+.blue {
+  color: blue !important
+}

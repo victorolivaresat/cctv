@@ -1,0 +1,5 @@
+.bank-buttons-container > .btn {
+    display: block;
+    margin-bottom: 0; /* Eliminar el margen inferior */
+    background-color: #444; /* Color gris claro */
+  }
