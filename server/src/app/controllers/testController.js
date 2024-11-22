@@ -1,6 +1,6 @@
-const TestSamsung = require("../../models/alertCctv/TestSamsung");
-const TestHv = require("../../models/alertCctv/TestHv");
-const sequelize = require("../../../config/database");
+const TestSamsung = require("../models/alertCctv/TestSamsung");
+const TestHv = require("../models/alertCctv/TestHv");
+const sequelize = require("../../config/database");
 
 const getTestHv = async (req, res) => {
   try {

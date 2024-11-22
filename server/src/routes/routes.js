@@ -1,13 +1,12 @@
 const routes = require('express').Router();
 
-
-const alertsCctvRoutes = require('./alertsCctvRoutes');
+const emailRoutes = require('./emailRoutes');
 const githubRoutes = require('./githubRoutes');
 const authRoutes = require('./authRoutes');
 const testRoutes = require('./testRoutes');
 const userRoutes = require('./userRoutes');
 
-routes.use(alertsCctvRoutes);
+routes.use(emailRoutes);
 routes.use(authRoutes);
 routes.use(testRoutes);
 routes.use(userRoutes);

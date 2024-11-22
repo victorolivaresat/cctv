@@ -1,17 +1,7 @@
-const { Sequelize, DataTypes, Model } = require("sequelize");
-const sequelize = require("../../config/database");
+const { DataTypes, Model } = require("sequelize");
+const sequelize = require("../../config/database").sequelize;
 
-class CustomTheme extends Model {
-  /**
-   * Helper method for defining associations.
-   * This method is not a part of Sequelize lifecycle.
-   * The `models/index` file will call this method automatically.
-   */
-  static associate(models) {
-    // define association here
-    this.belongsTo(models.User, { foreignKey: 'userId', as: 'user' });
-  }
-}
+class CustomTheme extends Model {}
 
 CustomTheme.init(
   {
@@ -20,37 +10,41 @@ CustomTheme.init(
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
+      field: 'id',
     },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      field: 'user_id',
     },
     darkMode: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: false,
+      field: 'dark_mode',
     },
     fontSize: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: 14,
+      type: DataTypes.STRING,
+      allowNull: false,
+      field: 'font_size',
     },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
+      field: 'created_at',
     },
     updatedAt: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
+      field: 'updated_at',
     },
   },
   {
     sequelize,
     modelName: "CustomTheme",
-    tableName: "CustomTheme",
+    tableName: "custom_theme",
     timestamps: true,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   }
 );
 

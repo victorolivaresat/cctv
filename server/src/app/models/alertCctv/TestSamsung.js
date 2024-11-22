@@ -1,11 +1,7 @@
 const { Sequelize, DataTypes, Model } = require("sequelize");
-const sequelize = require("../../../config/database");
+const { sequelize } = require("../../../config/database");
 
-class TestSamsung extends Model {
-  /**
-   * Helper method for defining associations.
-   */
-}
+class TestSamsung extends Model {}
 
 TestSamsung.init(
   {
@@ -14,33 +10,39 @@ TestSamsung.init(
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
+      field: 'id',
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      field: 'name',
     },
     macAddress: {
       type: DataTypes.STRING,
       allowNull: false,
+      field: 'mac_address',
     },
     eventName: {
       type: DataTypes.STRING,
       allowNull: false,
+      field: 'event_name',
     },
     message: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
+      field: 'message',
     },
-    datetime: {
+    dateTime: {
       type: DataTypes.DATE,
       allowNull: false,
+      field: 'datetime',
     },
   },
   {
     sequelize,
     modelName: "TestSamsung",
-    tableName: "TestSamsung",
-    timestamps: false,
+    tableName: "test_samsung",
+    timestamps: false, 
   }
 );
 

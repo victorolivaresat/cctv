@@ -1,8 +1,8 @@
-const EventSamsung = require("../../models/alertCctv/EventSamsung");
-const EventHv = require("../../models/alertCctv/EventHv");
-const sequelize = require("../../../config/database");
-const SuportEventSamsung = require("../../models/alertCctv/SuportEventSamsung");
-const SuportEventHv = require("../../models/alertCctv/SuportEventHv");
+const EventSamsung = require("../models/alertCctv/EventSamsung");
+const EventHv = require("../models/alertCctv/EventHv");
+const sequelize = require("../../config/database");
+const SuportEventSamsung = require("../models/alertCctv/SuportEventSamsung");
+const SuportEventHv = require("../models/alertCctv/SuportEventHv");
 
 //const transporter = require("../../../config/mailConfig");
 

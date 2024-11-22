@@ -1,6 +1,6 @@
 const CustomTheme = require("../models/CustomTheme");
 
-getTheme = async (req, res) => {
+const getTheme = async (req, res) => {
   try {
     const theme = await CustomTheme.findOne({
       where: { userId: req.params.userId },
@@ -14,7 +14,7 @@ getTheme = async (req, res) => {
   }
 };
 
-updateTheme = async (req, res) => {
+const updateTheme = async (req, res) => {
   try {
     const { darkMode } = req.body;
     const theme = await CustomTheme.findOne({

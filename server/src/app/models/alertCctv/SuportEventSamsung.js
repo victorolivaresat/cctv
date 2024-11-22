@@ -1,70 +1,81 @@
 const { Sequelize, DataTypes, Model } = require("sequelize");
-const sequelize = require("../../../config/database");
+const { sequelize } = require("../../../config/database");
 
-class SuportEventSamsung extends Model {}
+class SuportEventHv extends Model {}
 
-SuportEventSamsung.init(
+SuportEventHv.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
       primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
+      field: 'id',
     },
     idEventSamsung: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      field: 'id_event_samsung',
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      field: 'name',
     },
     macAddress: {
       type: DataTypes.STRING,
       allowNull: false,
+      field: 'mac_address',
     },
     eventName: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
+      field: 'event_name',
     },
     dateTime: {
       type: DataTypes.DATE,
       allowNull: false,
+      field: 'date_time',
     },
     status: {
-      type: DataTypes.ENUM("new", "pending", "completed"),
-      allowNull: true,
-      defaultValue: "new",
-    },
-    attachment: {
       type: DataTypes.STRING,
       allowNull: true,
+      field: 'status',
     },
     observations: {
       type: DataTypes.TEXT,
       allowNull: true,
+      field: 'observations',
+    },
+    attachment: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      field: 'attachment',
     },
     typeDvr: {
-        type: DataTypes.STRING,
-        allowNull: true,
+      type: DataTypes.STRING,
+      allowNull: false,
+      field: 'type_dvr',
     },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
+      field: 'created_at',
     },
     updatedAt: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
+      field: 'updated_at',
     },
   },
   {
     sequelize,
-    modelName: "SuportEventSamsung",
-    tableName: "SuportEventSamsung",
+    modelName: "SuportEventHv",
+    tableName: "suport_event_samsung",
     timestamps: true,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   }
 );
 
-module.exports = SuportEventSamsung;
+module.exports = SuportEventHv;

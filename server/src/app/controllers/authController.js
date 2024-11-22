@@ -1,14 +1,15 @@
-
 const { createToken } = require("../utils/jwt");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
-const Login = async (req, res) => {
+const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ where: { email } });
+
+    console.log(user);
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -28,8 +29,9 @@ const Login = async (req, res) => {
       message: "Logged in successfully",
       id: user.id,
       email: user.email,
-      firstName: user.firstName,
-      lastName: user.lastName,
+      username: user.username,
+      profileImage: user.profileImage,
+      isActive: user.isActive,
       token,
     });
   } catch (error) {
@@ -37,7 +39,7 @@ const Login = async (req, res) => {
   }
 };
 
-const Logout = async (req, res) => {
+const logout = async (req, res) => {
   try {
     res.clearCookie("token");
     res.status(200).json({ message: "Logged out successfully" });
@@ -68,29 +70,29 @@ const verifyToken = async (req, res) => {
 
   if (!token) {
     return res.status(401).json({ error: "Unauthorized" });
-  };
+  }
 
   jwt.verify(token, process.env.JWT_SECRET, async (err, decodedToken) => {
-
     if (err) {
       return res.status(401).json({ error: "Unauthorized" });
-    };
+    }
 
     const user = await User.findByPk(decodedToken.userId);
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });
-    } 
+    }
 
-    return res.json({ 
+    return res.json({
       userId: user.id,
       email: user.email,
+      username: user.username,
+      profileImage: user.profileImage,
+      isActive: user.isActive,
       message: "Authorized",
       success: true,
     });
-
   });
-    
 };
-  
-module.exports = { Login, Logout, profile, verifyToken };
+
+module.exports = { login, logout, profile, verifyToken };

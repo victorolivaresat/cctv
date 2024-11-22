@@ -1,11 +1,7 @@
 const { Sequelize, DataTypes, Model } = require("sequelize");
-const sequelize = require("../../../config/database");
+const { sequelize } = require("../../../config/database");
 
-class TestHv extends Model {
-  /**
-   * Helper method for defining associations.
-   */
-}
+class TestHv extends Model {}
 
 TestHv.init(
   {
@@ -14,24 +10,28 @@ TestHv.init(
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
+      field: 'id',
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      field: 'name',
     },
     message: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: false,
+      field: 'message',
     },
     date: {
       type: DataTypes.DATE,
       allowNull: false,
+      field: 'date',
     },
   },
   {
     sequelize,
     modelName: "TestHv",
-    tableName: "TestHv",
+    tableName: "test_hv",
     timestamps: false,
   }
 );

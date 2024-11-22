@@ -13,8 +13,8 @@ const authRequired = require('../app/middleware/validateToken');
  * description: Auth API
  */
 // Auth
-routes.post("/auth/login", validateSchema(loginSchema), authController.Login);
-routes.post("/auth/logout", authController.Logout);
+routes.post("/auth/login", validateSchema(loginSchema), authController.login);
+routes.post("/auth/logout", authController.logout);
 routes.get("/profile", authRequired, authController.profile);
 routes.get("/auth/verify-token", authController.verifyToken);
 

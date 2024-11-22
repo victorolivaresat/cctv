@@ -14,13 +14,15 @@ const createUser = async (req, res) => {
     });
 
     res.status(201).json({
-      message: "User created succesfully",
+      message: "User created successfully",
       id: user.id,
       email: user.email,
       createdAt: user.createdAt,
     });
   } catch (error) {
-    res.status(500).json({ error: "Error creating user", message: error.errors[0].message });
+    res
+      .status(500)
+      .json({ error: "Error creating user", message: error.errors[0].message });
   }
 };
 
