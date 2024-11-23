@@ -5,7 +5,7 @@ import { Card } from "react-bootstrap";
 import Chart from "react-apexcharts";
 
 const ChartSamsungEvent = () => {
-  const darkMode = useDarkMode();
+  const darkMode = useDarkMode;
 
   const getOptions = (darkMode) => {
     const background = darkMode ? "#323949" : "#fff";
@@ -87,16 +87,16 @@ const ChartSamsungEvent = () => {
       const newOptions = getOptions(darkMode);
       const data = await eventsSamsungDataChart();
       const categories = [...new Set(data.map((item) => item.name))];
-      const eventTypes = [...new Set(data.map((item) => item.eventType))];
+      const eventTypes = [...new Set(data.map((item) => item.event_type))];
   
       const series = eventTypes.map((type) => {
         return {
           name: type,
           data: categories.map((category) => {
             const item = data.find(
-              (item) => item.name === category && item.eventType === type
+              (item) => item.name === category && item.event_type === type
             );
-            return item ? Number(item.eventCount) : 0;
+            return item ? Number(item.event_count) : 0;
           }),
         };
       });
@@ -141,6 +141,7 @@ const ChartSamsungEvent = () => {
     };
   
     fetchData();
+
   }, [darkMode]);
 
   return (

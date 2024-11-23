@@ -22,7 +22,7 @@ const Dashboard = () => {
           <ChartHvEvent />
         </Col>
         <Col lg={6}>
-          <ChartSamsungEvent className="mb-3" />
+           <ChartSamsungEvent className="mb-3" /> 
         </Col>
       </Row>
     </>

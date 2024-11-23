@@ -1,6 +1,6 @@
 const EventSamsung = require("../models/alertCctv/EventSamsung");
 const EventHv = require("../models/alertCctv/EventHv");
-const sequelize = require("../../config/database");
+const { sequelize } = require("../../config/database");
 const SuportEventSamsung = require("../models/alertCctv/SuportEventSamsung");
 const SuportEventHv = require("../models/alertCctv/SuportEventHv");
 
@@ -171,31 +171,43 @@ const getEventsSamsungByEventType = async (req, res) => {
       attributes: ["id", "name", "event_name"],
     });
 
+    console.log(events);
+
     let groupedEvents = {};
 
     events.forEach((event) => {
-      const eventName = JSON.parse(event.event_name);
-      const eventTypes = Object.keys(eventName);
 
-      eventTypes.forEach((eventType) => {
-        const key = `${event.name}-${eventType}`;
+      console.log(event.id);
+      console.log(event.name);
+      console.log(event.event_name);
+      // if (event.event_name) {
+      //   const event_name = JSON.parse(event.event_name);
+      //   const event_types = Object.keys(event_name);
 
-        if (groupedEvents[key]) {
-          groupedEvents[key].eventCount += 1;
-        } else {
-          groupedEvents[key] = {
-            id: event.id,
-            name: event.name,
-            eventType,
-            eventCount: 1,
-          };
-        }
-      });
+      //   event_types.forEach((event_name) => {
+      //     if (event_name.includes("Video Loss:")) {
+      //       const key = `${event.name}-${event_type}`;
+
+      //       if (groupedEvents[key]) {
+      //         groupedEvents[key].event_count += 1;
+      //       } else {
+      //         groupedEvents[key] = {
+      //           id: event.id,
+      //           name: event.name,
+      //           event_type,
+      //           event_count: 1,
+      //         };
+      //       }
+      //     }
+      //   });
+      // }
     });
 
     const processedEvents = Object.values(groupedEvents);
 
-    processedEvents.sort((a, b) => b.eventCount - a.eventCount);
+    processedEvents.sort((a, b) => b.event_count - a.event_count);
+
+    console.log(processedEvents);
 
     return res.json(processedEvents.slice(0, 20));
   } catch (error) {
