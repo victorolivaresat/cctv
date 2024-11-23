@@ -12,8 +12,8 @@ routes.get('/tests/hv/duplicates', authRequired, testController.removeDuplicateT
 routes.get('/tests/hv/counts', authRequired, testController.getCountOfTestHv);
 routes.get('/tests/hv', authRequired, testController.getTestHv);
 routes.get('/tests/hv/count-distinct-name', authRequired, testController.getDistinctNameHvCount);
-routes.put('/tests/samsung/:id', authRequired, testController.updateTestSamsungObservations);
-routes.put('/tests/hv/:id', authRequired, testController.updateTestHvObservations);
+// routes.put('/tests/samsung/:id', authRequired, testController.updateTestSamsungObservations);
+// routes.put('/tests/hv/:id', authRequired, testController.updateTestHvObservations);
 
 // Rutas para eventController
 routes.get('/events/samsung', authRequired, eventController.getEventsSamsung);
@@ -29,5 +29,6 @@ routes.put('/events/samsung/observations/:id', authRequired, eventController.put
 routes.put('/events/hv/observations/:id', authRequired, eventController.putUpdateAddObservations);
 routes.get('/events/suport-hv', authRequired, eventController.getSuportEventsHv);
 routes.get('/events/suport-samsung', authRequired, eventController.getSuportEventsSamsung);
+routes.get('/events/notifications', eventController.getNewNotificationsCount);
 
 module.exports = routes;

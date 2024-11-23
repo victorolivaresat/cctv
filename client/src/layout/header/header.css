@@ -1,0 +1,31 @@
+/* header.css */
+
+.dropdown-alerts .dropdown-toggle::after,
+.dropdown-users .dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-alerts .dropdown-menu {
+  width: 250px !important ;
+}
+
+.dropdown-alerts .dropdown-toggle::after,
+.dropdown-users .dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-alerts .dropdown-menu {
+  width: 250px !important;
+}
+
+@keyframes bell-alert {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(-15deg); }
+  50% { transform: rotate(0); }
+  75% { transform: rotate(15deg); }
+  100% { transform: rotate(0); }
+}
+
+.bell-alert {
+  animation: bell-alert 0.5s ease-in-out infinite;
+}

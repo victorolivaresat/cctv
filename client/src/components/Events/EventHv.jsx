@@ -4,7 +4,7 @@ import { MdApps, MdRefresh, MdCircle, MdEmail, MdVideoFile, MdUpdate } from "rea
 import { FaPlus } from "react-icons/fa";
 import PropTypes from "prop-types";
 import { eventsHv, distinctNameHvCount, updateEventHvStatus, putUpdateAddObservations } from "../../api/events";
-import DarkModeContext from "../../contexts/DarkModeContext";
+import  useDarkMode from "../../hooks/useDarkMode";
 import { formatDate } from "../../utils/DateUtils";
 import DataTableBase from "../../utils/DataTable";
 import FilterForm from "./FilterForm";
@@ -30,7 +30,7 @@ const EventHv = () => {
   const [showModal, setShowModal] = useState(false);
   const [currentObservation, setCurrentObservation] = useState("");
   const [selectedRow, setSelectedRow] = useState(null);
-  const darkMode = useContext(DarkModeContext);
+  const darkMode = useDarkMode();
 
   // Filtros
   const [filterEventType, setFilterEventType] = useState("");

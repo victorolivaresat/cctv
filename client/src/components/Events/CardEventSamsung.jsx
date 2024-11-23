@@ -1,16 +1,16 @@
 import { FaVideo, FaClock, FaCheck, FaCalendar } from "react-icons/fa";
-import DarkModeContext from "../../contexts/DarkModeContext";
+import useDarkMode from "../../hooks/useDarkMode";
 import logoSamsung from "../../assets/img/samsung.png";
 import logoDarkSamsung from "../../assets/img/samsung_dark.png";
 import { Row, Col, Card, Form } from "react-bootstrap";
 import { lastEventsSamsung } from "../../api/events";
 import { formatDate } from "../../utils/DateUtils";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 
 const CardEventSamsung = () => {
   const [eventsData, setEventsData] = useState([]);
   const [eventLimit, setEventLimit] = useState(2);
-  const darkMode = useContext(DarkModeContext);
+  const darkMode = useDarkMode();
 
   useEffect(() => {
     const fetchEventsData = async () => {
@@ -34,12 +34,11 @@ const CardEventSamsung = () => {
       <Row>
         <div className="mb-1">
           <img
-            className="float-end mt-2"
+            className="mt-2"
             src={darkMode ? logoDarkSamsung : logoSamsung}
             alt="Hikvision"
             width="100"
           />
-          <h4 className="text-primary-emphasis">Events Samsung</h4>
         </div>
 
         <Col md={12} className="mb-3">
@@ -55,8 +54,6 @@ const CardEventSamsung = () => {
               >
                 <option value="2">2</option>
                 <option value="4">4</option>
-                <option value="6">6</option>
-                <option value="8">8</option>
               </Form.Select>
             </Col>
           </Form.Group>
@@ -66,8 +63,8 @@ const CardEventSamsung = () => {
           <Col key={index} lg={6} md={12}>
             <Card className="mb-4 shadow bg-blue text-bg-primary p-2">
               <Card.Body>
-                <Card.Title className="bg-light text-primary px-3 mb-4 py-2 rounded-3 ">
-                  <FaCheck /> &nbsp;
+                <Card.Title className="fs-6 bg-light text-primary px-3 mb-4 py-2 rounded-3 ">
+                  <FaCheck size={15}/> &nbsp;
                   {event.name}
                 </Card.Title>
                 {event.eventName && (
@@ -75,14 +72,7 @@ const CardEventSamsung = () => {
                     <div className="mb-3">
                       <FaVideo /> &nbsp; Eventname:
                     </div>
-                    {Object.entries(JSON.parse(event.eventName)).map(
-                      ([key, value]) => (
-                        <pre key={key} className="blink">
-                          <span>{key} </span>
-                          {value}
-                        </pre>
-                      )
-                    )}
+                    { event.eventName }
                   </div>
                 )}
                 <Card.Text className="px-2">

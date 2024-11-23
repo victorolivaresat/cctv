@@ -1,7 +1,8 @@
-import { useAuth } from "../contexts/AuthContext";
+
 import { Navigate, Outlet } from "react-router-dom";
 import LoaderPage from "../utils/LoaderPage";
 import { useState, useEffect } from "react";
+import { useAuth } from "../hooks/useAuth";
 import "./Routes.css";
 
 const ProtectedRoute = () => {

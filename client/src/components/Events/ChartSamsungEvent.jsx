@@ -1,11 +1,11 @@
-import DarkModeContext from "../../contexts/DarkModeContext";
 import { eventsSamsungDataChart } from "../../api/events";
-import { useState, useEffect, useContext } from "react";
+import  useDarkMode from "../../hooks/useDarkMode";
+import { useState, useEffect } from "react";
 import { Card } from "react-bootstrap";
 import Chart from "react-apexcharts";
 
 const ChartSamsungEvent = () => {
-  const darkMode = useContext(DarkModeContext);
+  const darkMode = useDarkMode();
 
   const getOptions = (darkMode) => {
     const background = darkMode ? "#323949" : "#fff";

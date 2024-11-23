@@ -3,7 +3,6 @@ import CardEventSamsung from "../../components/Events/CardEventSamsung";
 import ChartHvEvent from "../../components/Events/ChartHvEvent";
 import CardEventHv from "../../components/Events/CardEventHv";
 import { Row, Col } from "react-bootstrap";
-
 import "./Dashboard.css";
 
 const Dashboard = () => {

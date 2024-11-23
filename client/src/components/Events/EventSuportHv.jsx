@@ -6,8 +6,8 @@ import {
     MdCircle,
   } from "react-icons/md";
   import logoDarkSamsung from "../../assets/img/samsung_dark.png";
-  import DarkModeContext from "../../contexts/DarkModeContext";
-  import { useEffect, useState, useContext } from "react";
+  import useDarkMode from "../../hooks/useDarkMode";
+  import { useEffect, useState } from "react";
   import logoHikvision from "../../assets/img/hikvision.png";
   import { formatDate } from "../../utils/DateUtils";
   import DataTableBase from "../../utils/DataTable";
@@ -19,7 +19,7 @@ import {
     const [testsCountData, setTestsCountData] = useState(0);
     const [eventsData, setEventsData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const darkMode = useContext(DarkModeContext);
+    const darkMode = useDarkMode();
   
     const fetchEventsData = async () => {
       setIsLoading(true);

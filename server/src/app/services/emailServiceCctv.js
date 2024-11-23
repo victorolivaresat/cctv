@@ -227,13 +227,13 @@ const processAndSaveEmails = async (io = null) => {
 const processEmailServer = async (req) => {
   // Obtener el socket.io desde el middleware
   console.log("Iniciando");
-  const io = req.io;
+  // const io = req.io;
   try {
     const emails = await getAndFlagUnreadMessages();
 
     if (emails.length === 0) {
       console.log("No hay correos para procesar desde el servidor.");
-      io.emit("nothingToProcess");
+      // io.emit("nothingToProcess");
       return;
     }
 
@@ -266,10 +266,10 @@ const processEmailServer = async (req) => {
       await markMessageAsRead(uid);
     }
     console.log("Correos procesados y guardados correctamente.");
-    io.emit("allEmailsProcessed");
+    // io.emit("allEmailsProcessed");
   } catch (error) {
     console.error("Error al procesar y guardar correos:", error);
-    io.emit("imapConnectionError", { message: "Error al procesar y guardar correos" });
+    // io.emit("imapConnectionError", { message: "Error al procesar y guardar correos" });
     throw error;
   }
 };

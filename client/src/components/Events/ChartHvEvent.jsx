@@ -1,11 +1,11 @@
-import DarkModeContext from "../../contexts/DarkModeContext";
-import { useState, useEffect, useContext } from "react";
 import { eventsHvDataChart } from "../../api/events";
+import  useDarkMode from "../../hooks/useDarkMode";
+import { useState, useEffect } from "react";
 import { Card } from "react-bootstrap";
 import Chart from "react-apexcharts";
 
 const ChartHvEvent = () => {
-  const darkMode = useContext(DarkModeContext);
+  const darkMode = useDarkMode();
 
   const getOptions = (darkMode) => {
     const background = darkMode ? "#323949" : "#fff";
@@ -86,6 +86,8 @@ const ChartHvEvent = () => {
     const fetchData = async () => {
       const newOptions = getOptions(darkMode);
       const data = await eventsHvDataChart();
+
+      console.log(data);
       const categories = [...new Set(data.map((item) => item.name))];
       const eventTypes = [...new Set(data.map((item) => item.eventType))];
   

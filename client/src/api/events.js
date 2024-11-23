@@ -49,8 +49,6 @@ export const updateEventHvStatus = async (id, status) => {
   }
 };
 
-
-
 export const putUpdateAddObservations = async (id, observations) => {
   try {
     const { data } = await axios.put(`/events/put/update/add/observations/${id}`, { observations });
@@ -71,7 +69,6 @@ export const eventsSuportSamsung = async () => {
   return data;
 };
 
-
 export const updateEventSamsungStatus = async (id, status) => {
   try {
     const { data } = await axios.put(`/events/samsung/${id}`, { status });
@@ -89,4 +86,9 @@ export const putUpdateAddObservationsSamsung = async (id, observations) => {
   } catch (error) {
     console.error("Error updating event add observations samsung:", error);
   }
+};
+
+export const getNewNotificationsCount = async () => {
+  const { data } = await axios.get("/events/notifications");
+  return data;
 };

@@ -10,9 +10,7 @@ const SuportEventHv = require("../models/alertCctv/SuportEventHv");
 const getEventsHv = async (req, res) => {
   try {
     const events = await EventHv.findAll({
-      order: [
-        ['createdAt', 'DESC']
-      ]
+      order: [["createdAt", "DESC"]],
     });
     return res.json(events);
   } catch (error) {
@@ -153,9 +151,9 @@ const updateEventHvObservations = async (req, res) => {
 const getEventsHvByEventType = async (req, res) => {
   try {
     const events = await EventHv.findAll({
-      attributes: ["name", [sequelize.fn("SUM", 1), "eventCount"], "eventType"],
-      group: ["name", "eventType"],
-      order: [[sequelize.literal("eventCount"), "DESC"]],
+      attributes: ["name", [sequelize.fn("SUM", 1), "event_count"], "event_type"],
+      group: ["name", "event_type"],
+      order: [[sequelize.literal("event_count"), "DESC"]],
       limit: 20,
     });
 
@@ -170,16 +168,16 @@ const getEventsHvByEventType = async (req, res) => {
 const getEventsSamsungByEventType = async (req, res) => {
   try {
     const events = await EventSamsung.findAll({
-      attributes: ["id", "name", "eventName"],
+      attributes: ["id", "name", "event_name"],
     });
 
     let groupedEvents = {};
 
-    events.forEach(event => {
-      const eventName = JSON.parse(event.eventName);
+    events.forEach((event) => {
+      const eventName = JSON.parse(event.event_name);
       const eventTypes = Object.keys(eventName);
-      
-      eventTypes.forEach(eventType => {
+
+      eventTypes.forEach((eventType) => {
         const key = `${event.name}-${eventType}`;
 
         if (groupedEvents[key]) {
@@ -211,7 +209,7 @@ const getDistinctNameSamsungCount = async (req, res) => {
   try {
     const count = await EventSamsung.count({
       distinct: true,
-      col: 'name'
+      col: "name",
     });
 
     return res.json(count);
@@ -246,9 +244,7 @@ const putUpdateAddObservations = async (req, res) => {
 const getSuportEventsHv = async (req, res) => {
   try {
     const events = await SuportEventHv.findAll({
-      order: [
-        ['createdAt', 'DESC']
-      ]
+      order: [["createdAt", "DESC"]],
     });
     return res.json(events);
   } catch (error) {
@@ -285,14 +281,34 @@ const putUpdateAddObservationsSamsung = async (req, res) => {
       "Error al actualizar la observacion del evento de Validacion Samsung:",
       error
     );
-    res.status(500).send("Error al actualizar la observacion de Validacion Samsung");
+    res
+      .status(500)
+      .send("Error al actualizar la observacion de Validacion Samsung");
   }
 };
 
 
+const getNewNotificationsCount = async (req, res) => {
+  try {
+    const samsungCount = await EventSamsung.count({
+      where: { status: 'new' }
+    });
 
+    const hvCount = await EventHv.count({
+      where: { status: 'new' }
+    });
 
+    const notifications = {
+      samsung: samsungCount,
+      hv: hvCount
+    };
 
+    return res.json(notifications);
+  } catch (error) {
+    console.error("Error al obtener las notificaciones nuevas:", error);
+    res.status(500).send("Error al obtener las notificaciones nuevas");
+  }
+};
 
 module.exports = {
   getEventsHv,
@@ -310,5 +326,5 @@ module.exports = {
   getSuportEventsHv,
   getSuportEventsSamsung,
   putUpdateAddObservationsSamsung,
+  getNewNotificationsCount,
 };
-

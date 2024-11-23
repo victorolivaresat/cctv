@@ -23,12 +23,6 @@ app.use(
   express.static(path.join(__dirname, "../src/assets/attachments"))
 );
 
-app.use((err, req, res, next) => {
-  console.error(`Error en la ruta ${req.path}: ${err.stack}`);
-  res.status(500).send("Something broke!");
-});
-
-
 // Función para habilitar CORS
 app.use(
   cors({
