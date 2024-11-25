@@ -3,6 +3,7 @@ const EventHv = require("../models/alertCctv/EventHv");
 const { sequelize } = require("../../config/database");
 const SuportEventSamsung = require("../models/alertCctv/SuportEventSamsung");
 const SuportEventHv = require("../models/alertCctv/SuportEventHv");
+const moment = require("moment");
 
 //const transporter = require("../../../config/mailConfig");
 
@@ -118,10 +119,7 @@ const updateEventHvStatus = async (req, res) => {
     await event.save();
     return res.json(event);
   } catch (error) {
-    console.error(
-      "Error al actualizar el estado del evento de EventHv:",
-      error
-    );
+    console.error("Error al actualizar el estado del evento:", error);
     res.status(500).send("Error al actualizar el estado del evento");
   }
 };
@@ -151,10 +149,14 @@ const updateEventHvObservations = async (req, res) => {
 const getEventsHvByEventType = async (req, res) => {
   try {
     const events = await EventHv.findAll({
-      attributes: ["name", [sequelize.fn("SUM", 1), "event_count"], "event_type"],
+      attributes: [
+        "name",
+        [sequelize.fn("SUM", 1), "event_count"],
+        "event_type",
+      ],
       group: ["name", "event_type"],
       order: [[sequelize.literal("event_count"), "DESC"]],
-      limit: 20,
+      limit: 10,
     });
 
     return res.json(events);
@@ -164,51 +166,55 @@ const getEventsHvByEventType = async (req, res) => {
   }
 };
 
-// Funcion para obtener los eventos de EventHv agrupados por tipo de evento
+// Función para obtener eventos de EventSamsung agrupados por tipo de evento
 const getEventsSamsungByEventType = async (req, res) => {
   try {
+    // Buscar todos los eventos con los atributos necesarios
     const events = await EventSamsung.findAll({
-      attributes: ["id", "name", "event_name"],
+      attributes: ["id", "name", "eventName"],
+      order: [["createdAt", "DESC"]],
+      limit: 10,
     });
 
-    console.log(events);
+    const keywords = [
+      "No Space on Disk",
+      "Disk Error",
+      "Video Loss",
+      "Motion detection",
+      "testing",
+    ];
 
     let groupedEvents = {};
 
     events.forEach((event) => {
+      const { id, name, eventName } = event.dataValues;
 
-      console.log(event.id);
-      console.log(event.name);
-      console.log(event.event_name);
-      // if (event.event_name) {
-      //   const event_name = JSON.parse(event.event_name);
-      //   const event_types = Object.keys(event_name);
+      if (eventName) {
+        keywords.forEach((keyword) => {
+          if (eventName.includes(keyword)) {
+            const key = `${name}-${keyword}`;
 
-      //   event_types.forEach((event_name) => {
-      //     if (event_name.includes("Video Loss:")) {
-      //       const key = `${event.name}-${event_type}`;
-
-      //       if (groupedEvents[key]) {
-      //         groupedEvents[key].event_count += 1;
-      //       } else {
-      //         groupedEvents[key] = {
-      //           id: event.id,
-      //           name: event.name,
-      //           event_type,
-      //           event_count: 1,
-      //         };
-      //       }
-      //     }
-      //   });
-      // }
+            if (groupedEvents[key]) {
+              groupedEvents[key].event_count += 1;
+            } else {
+              groupedEvents[key] = {
+                id,
+                name,
+                event_type: keyword,
+                event_count: 1,
+              };
+            }
+          }
+        });
+      }
     });
 
-    const processedEvents = Object.values(groupedEvents);
+    // Convertir los resultados agrupados en un arreglo y ordenarlos por la cantidad de eventos
+    const processedEvents = Object.values(groupedEvents).sort(
+      (a, b) => b.event_count - a.event_count
+    );
 
-    processedEvents.sort((a, b) => b.event_count - a.event_count);
-
-    console.log(processedEvents);
-
+    // Retornar los 20 eventos principales como respuesta
     return res.json(processedEvents.slice(0, 20));
   } catch (error) {
     console.error("Error al obtener los eventos de Samsung:", error);
@@ -299,20 +305,19 @@ const putUpdateAddObservationsSamsung = async (req, res) => {
   }
 };
 
-
 const getNewNotificationsCount = async (req, res) => {
   try {
     const samsungCount = await EventSamsung.count({
-      where: { status: 'new' }
+      where: { status: "new" },
     });
 
     const hvCount = await EventHv.count({
-      where: { status: 'new' }
+      where: { status: "new" },
     });
 
     const notifications = {
       samsung: samsungCount,
-      hv: hvCount
+      hv: hvCount,
     };
 
     return res.json(notifications);
@@ -321,6 +326,35 @@ const getNewNotificationsCount = async (req, res) => {
     res.status(500).send("Error al obtener las notificaciones nuevas");
   }
 };
+
+const getEventHvDetail = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const event = await EventHv.findByPk(id);
+    if (!event) {
+      return res.status(404).send("Evento no encontrado");
+    }
+    return res.json(event);
+  } catch (error) {
+    console.error("Error al obtener el detalle del evento de EventHv:", error);
+    res.status(500).send("Error al obtener el detalle del evento");
+  }
+}
+
+const getEventSamsungDetail = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const event = await EventSamsung.findByPk(id);
+    if (!event) {
+      return res.status(404).send("Evento no encontrado");
+    }
+    return res.json(event);
+  } catch (error) {
+    console.error("Error al obtener el detalle del evento de EventSamsung:", error);
+    res.status(500).send("Error al obtener el detalle del evento");
+  }
+}
+
 
 module.exports = {
   getEventsHv,
@@ -339,4 +373,6 @@ module.exports = {
   getSuportEventsSamsung,
   putUpdateAddObservationsSamsung,
   getNewNotificationsCount,
+  getEventHvDetail,
+  getEventSamsungDetail
 };

@@ -9,8 +9,11 @@ const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME
     options: {
       encrypt: true,
       trustServerCertificate: true,
+      useUTC: false,
+      dateFirst: 1,
     },
   },
+  timezone: '-05:00',
 });
 
 const connect = async () => {

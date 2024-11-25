@@ -17,6 +17,7 @@ const CardEventSamsung = () => {
       try {
         const data = await lastEventsSamsung(eventLimit);
         setEventsData(data);
+        console.log(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -64,23 +65,29 @@ const CardEventSamsung = () => {
             <Card className="mb-4 shadow bg-blue text-bg-primary p-2">
               <Card.Body>
                 <Card.Title className="fs-6 bg-light text-primary px-3 mb-4 py-2 rounded-3 ">
-                  <FaCheck size={15}/> &nbsp;
+                  <FaCheck size={15} /> &nbsp;
                   {event.name}
                 </Card.Title>
                 {event.eventName && (
                   <div className="px-2">
-                    <div className="mb-3">
+                    <div className="mb-1">
                       <FaVideo /> &nbsp; Eventname:
                     </div>
-                    { event.eventName }
+                    <div className="event-details">
+                      <pre className="blink">
+                        <span></span>
+                        {event.eventName}
+                      </pre>
+                    </div>
                   </div>
                 )}
-                <Card.Text className="px-2">
-                  <FaClock /> &nbsp; Date: &nbsp;
+
+                <Card.Text className="mt-3 px-2">
+                  <FaClock /> &nbsp;Event Time DVR: &nbsp;
                   {formatDate(event.dateTime)}
                 </Card.Text>
                 <Card.Text className="px-2">
-                  <FaCalendar /> &nbsp; Date: &nbsp;
+                  <FaCalendar /> &nbsp;Created Date: &nbsp;
                   {formatDate(event.createdAt)}
                 </Card.Text>
               </Card.Body>

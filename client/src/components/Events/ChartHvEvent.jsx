@@ -1,11 +1,11 @@
+import { eventsHvDataChart } from "../../api/events";
 import  useDarkMode from "../../hooks/useDarkMode";
 import { useState, useEffect } from "react";
-import { eventsHvDataChart } from "../../api/events";
 import { Card } from "react-bootstrap";
 import Chart from "react-apexcharts";
 
 const ChartHvEvent = () => {
-  const darkMode = useDarkMode;
+  const { darkMode } = useDarkMode();
 
   const getOptions = (darkMode) => {
     const background = darkMode ? "#323949" : "#fff";
@@ -78,7 +78,7 @@ const ChartHvEvent = () => {
   };
 
   const [state, setState] = useState({
-    options: getOptions(darkMode),
+    options: getOptions(darkMode[0]),
     series: [],
   });
 
@@ -148,7 +148,7 @@ const ChartHvEvent = () => {
       <Card className="shadow">
         <Card.Body>
           <Card.Text>Eventos Hikvision</Card.Text>
-          <Chart options={state.options} series={state.series} type="bar" height={400} />
+          <Chart className="text-uppercase" options={state.options} series={state.series} type="bar" height={400} />
         </Card.Body>
       </Card>
     </>

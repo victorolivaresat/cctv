@@ -31,4 +31,7 @@ routes.get('/events/suport-hv', authRequired, eventController.getSuportEventsHv)
 routes.get('/events/suport-samsung', authRequired, eventController.getSuportEventsSamsung);
 routes.get('/events/notifications', eventController.getNewNotificationsCount);
 
+routes.get('/events/hv/:id', eventController.getEventHvDetail);
+routes.get('/events/samsung/:id', eventController.getEventSamsungDetail);
+
 module.exports = routes;

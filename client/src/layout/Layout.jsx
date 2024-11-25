@@ -14,7 +14,7 @@ const URL_IMAGE_LIGHT = "url('../src/assets/img/login_bg_ligth.svg')";
 const Layout = () => {
  
   const [show, setShow] = useState(false);
-  const [darkMode] = useDarkMode();
+  const { darkMode } = useDarkMode();
   const location = useLocation();
   
   console.log(darkMode);

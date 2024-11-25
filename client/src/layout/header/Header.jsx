@@ -27,6 +27,9 @@ const Header = ({ handleShow, handleClose }) => {
     };
 
     fetchNotifications();
+    const intervalId = setInterval(fetchNotifications, 5000);
+
+    return () => clearInterval(intervalId);
   }, [setNotifications]);
 
   if (location.pathname === "/login") {

@@ -83,7 +83,7 @@ const renderLogo = (darkMode) => {
     >
       <img
         id="at-logo"
-        src={darkMode ? LogoDark : Logo}
+        src={darkMode[0] ? LogoDark : Logo}
         alt="ATLogo"
         draggable="false"
         width={150}

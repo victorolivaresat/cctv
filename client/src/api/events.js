@@ -27,16 +27,17 @@ export const eventsHvDataChart = async () => {
 
 export const eventsSamsungDataChart = async () => {
   const { data } = await axios.get("/events/samsung/event-type");
+  console.log(data);
   return data;
 };
 
 export const distinctNameHvCount = async () => {
-  const { data } = await axios.get("/events/hv/count-distinct-name");
+  const { data } = await axios.get("/tests/hv/count-distinct-name");
   return data;
 };
 
 export const distinctNameSamsungCount = async () => {
-  const { data } = await axios.get("/events/samsung/count-distinct-name");
+  const { data } = await axios.get("/test/samsung/count-distinct-name");
   return data;
 };
 
@@ -49,10 +50,12 @@ export const updateEventHvStatus = async (id, status) => {
   }
 };
 
-export const putUpdateAddObservations = async (id, observations) => {
+
+export const updateAddObservations = async (id, observations) => {
   try {
-    const { data } = await axios.put(`/events/put/update/add/observations/${id}`, { observations });
+    const { data } = await axios.put(`/events/hv/observations/${id}`, { observations });
     console.log(id,observations);
+
     return data;
   } catch (error) {
     console.error("Error updating event add observations:", error);
@@ -91,4 +94,26 @@ export const putUpdateAddObservationsSamsung = async (id, observations) => {
 export const getNewNotificationsCount = async () => {
   const { data } = await axios.get("/events/notifications");
   return data;
+};
+
+export const getEventHvDetail = async (id) => {
+  try {
+    const { data } = await axios.get(`/events/hv/${id}`);
+
+    console.log(data);
+    return data;
+
+   
+  } catch (error) {
+    console.error("Error fetching event detail for Hikvision:", error);
+  }
+};
+
+export const getEventSamsungDetail = async (id) => {
+  try {
+    const { data } = await axios.get(`/events/samsung/${id}`);
+    return data;
+  } catch (error) {
+    console.error("Error fetching event detail for Samsung:", error);
+  }
 };

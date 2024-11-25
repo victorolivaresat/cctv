@@ -5,7 +5,7 @@ import { Card } from "react-bootstrap";
 import Chart from "react-apexcharts";
 
 const ChartSamsungEvent = () => {
-  const darkMode = useDarkMode;
+  const { darkMode } = useDarkMode();
 
   const getOptions = (darkMode) => {
     const background = darkMode ? "#323949" : "#fff";
@@ -71,7 +71,7 @@ const ChartSamsungEvent = () => {
         align: "left",
       },
       subtitle: {
-        text: " Hikvision Events for the last 30 days",
+        text: "Samsung Events for the last 30 days",
         align: "left",
       },
     };
@@ -148,8 +148,8 @@ const ChartSamsungEvent = () => {
     <>
       <Card className="shadow">
         <Card.Body>
-          <Card.Text>Eventos Hikvision</Card.Text>
-          <Chart options={state.options} series={state.series} type="bar" height={400} />
+          <Card.Text>Eventos Samsung</Card.Text>
+          <Chart className="text-uppercase" options={state.options} series={state.series} type="bar" height={400} />
         </Card.Body>
       </Card>
     </>

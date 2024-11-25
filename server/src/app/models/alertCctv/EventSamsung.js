@@ -7,9 +7,9 @@ EventSamsung.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
       primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
       field: 'id',
     },
     name: {
@@ -60,11 +60,9 @@ EventSamsung.init(
   },
   {
     sequelize,
-    modelName: 'EventSamsung',
-    tableName: 'event_samsung',
+    modelName: "EventSamsung",
+    tableName: "event_samsung",
     timestamps: true,
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
   }
 );
 

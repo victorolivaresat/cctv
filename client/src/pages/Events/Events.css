@@ -3,24 +3,35 @@
   height: 100vh;
 }
 
-.status-new,
-.status-pending,
-.status-completed {
-  margin: 0.5rem;
-  border-radius: 50px;
-}
-
 .status-new {
-  background-color: #2377d1;
-  color: #ffffff;
+  margin: 0.75rem;
+  border-radius: 1.5rem;
+  background: #a8d0ed;
+  color: #1761b0;
 }
 
 .status-pending {
-  background-color: #fff825;
-  color: #1c1e00;
+  margin: 0.75rem;
+  border-radius: 1.5rem;
+  background: #fffd88;
+  color: #6e690b;
 }
 
 .status-completed {
-  background-color: #2da976;
-  color: #ffffff;
+  margin: 0.75rem;
+  border-radius: 1.5rem;
+  background: #abeed2;
+  color: #229263;
+}
+
+.event-details {
+  max-height: 55px;
+  overflow-y: auto;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.blink {
+  white-space: pre-wrap;
 }
