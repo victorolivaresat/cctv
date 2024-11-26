@@ -25,13 +25,16 @@ import logoHikvision from "../../assets/img/hikvision.png";
 
 const EventHv = () => {
   // Estados
-  const [currentObservation, setCurrentObservation] = useState("");
+  const [currentObservation, setCurrentObservation] = useState(null);
+  const [showModalDetail, setShowModalDetail] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("new");
+  const [currentDetail, setCurrentDetail] = useState({});
   const [selectedRowsId, setSelectedRowsId] = useState([]);
+  const [showModalObs, setShowModalObs] = useState(false);
   const [testsCountData, setTestsCountData] = useState(0);
-  const [selectedRow, setSelectedRow] = useState(null);
+  const [selectedRow, setSelectedRow] = useState("");
   const [eventsData, setEventsData] = useState([]);
-  const [showModal, setShowModal] = useState(false);
+  
   const darkMode = useDarkMode();
 
   // Filtros
@@ -96,6 +99,16 @@ const EventHv = () => {
       (filterNameLower ? nameLower.includes(filterNameLower) : true)
     );
   });
+
+  const getEventHvDetails = async (id) => {
+    try {
+      const data = await getEventHvDetail(id);
+      setShowModalDetail(true);
+      setCurrentDetail(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   const getStatusName = (status) => {
     const statusNames = {
@@ -168,7 +181,7 @@ const EventHv = () => {
           <FaComment  className={row.observations ? "text-warning" : ""}/>
         </a>
         <a href="#!" className="me-2"
-          onClick={() => getEventHvDetail(row.id)}
+          onClick={() => getEventHvDetails(row.id)}
         >
           <FaEye/>
         </a>
@@ -210,10 +223,11 @@ const EventHv = () => {
   const handleShowModal = (row) => {
     setSelectedRow(row);
     setCurrentObservation(row.observations);
-    setShowModal(true);
+    setShowModalDetail(true);
   };
 
-  const handleCloseModal = () => setShowModal(false);
+  const handleCloseModalObs = () => setShowModalObs(false);
+  const handleCloseModalDetail = () => setShowModalDetail(false);
 
   const handleSaveObservation = async (updatedObservation) => {
     if (selectedRow) {
@@ -222,7 +236,7 @@ const EventHv = () => {
       try {
         await updateAddObservations(selectedRow.id, updatedObservation);
         handleFetchEvents();
-        handleCloseModal();
+        handleCloseModalObs();
       } catch (error) {
         console.error("Error updating observation:", error);
       }
@@ -436,12 +450,20 @@ const EventHv = () => {
 
       {/* Modal de observaciones */}
       <ObservationModal
-        show={showModal}
-        handleClose={handleCloseModal}
+        show={showModalObs}
+        handleClose={handleCloseModalObs}
         observation={currentObservation}
         setObservation={setCurrentObservation}
         handleSave={handleSaveObservation}
       />
+
+      {/* Modal de detalle de evento */}
+      <DetailHikvision
+        show={showModalDetail}
+        handleClose={handleCloseModalDetail}
+        detail={currentDetail}
+      />
+
     </>
   );
 };
