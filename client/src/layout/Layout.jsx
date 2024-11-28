@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import useDarkMode from "../hooks/useDarkMode";
 import { Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import AppRoutes from "../routes/Routes";
+import AppRoutes from "../routes/routes"
 import Sidebar from "./sidebar/Sidebar";
 import Header from "./header/Header";
 

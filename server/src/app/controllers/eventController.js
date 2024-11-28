@@ -1,9 +1,10 @@
+const SuportEventSamsung = require("../models/alertCctv/SuportEventSamsung");
+const SuportEventHv = require("../models/alertCctv/SuportEventHv");
 const EventSamsung = require("../models/alertCctv/EventSamsung");
 const EventHv = require("../models/alertCctv/EventHv");
 const { sequelize } = require("../../config/database");
-const SuportEventSamsung = require("../models/alertCctv/SuportEventSamsung");
-const SuportEventHv = require("../models/alertCctv/SuportEventHv");
-const moment = require("moment");
+const { format } = require("../utils/dateUtils");
+const { Op } = require("sequelize");
 
 //const transporter = require("../../../config/mailConfig");
 
@@ -283,7 +284,7 @@ const getSuportEventsSamsung = async (req, res) => {
 };
 
 // Funcion para actualizar la observacion de un evento de EventSamsung
-const putUpdateAddObservationsSamsung = async (req, res) => {
+const updateAddObservationsSamsung = async (req, res) => {
   const { id } = req.params;
   const { observations } = req.body;
   try {
@@ -339,7 +340,7 @@ const getEventHvDetail = async (req, res) => {
     console.error("Error al obtener el detalle del evento de EventHv:", error);
     res.status(500).send("Error al obtener el detalle del evento");
   }
-}
+};
 
 const getEventSamsungDetail = async (req, res) => {
   const { id } = req.params;
@@ -350,11 +351,30 @@ const getEventSamsungDetail = async (req, res) => {
     }
     return res.json(event);
   } catch (error) {
-    console.error("Error al obtener el detalle del evento de EventSamsung:", error);
+    console.error(
+      "Error al obtener el detalle del evento de EventSamsung:",
+      error
+    );
     res.status(500).send("Error al obtener el detalle del evento");
   }
-}
+};
 
+const deleteDuplicateEventsHv = async (req, res) => {
+  const { startDate, endDate } = req.query;
+  try {
+    const start = format(startDate);
+    const end = format(endDate);
+
+    await sequelize.query("EXEC DeleteDuplicateEventsHv :startDate, :endDate", {
+      replacements: { startDate: start, endDate: end },
+    });
+
+    return res.json({ message: "Eventos duplicados eliminados" });
+  } catch (error) {
+    console.error("Error al eliminar eventos duplicados:", error);
+    res.status(500).send("Error al eliminar eventos duplicados");
+  }
+};
 
 module.exports = {
   getEventsHv,
@@ -371,8 +391,9 @@ module.exports = {
   putUpdateAddObservations,
   getSuportEventsHv,
   getSuportEventsSamsung,
-  putUpdateAddObservationsSamsung,
+  updateAddObservationsSamsung,
   getNewNotificationsCount,
   getEventHvDetail,
-  getEventSamsungDetail
+  getEventSamsungDetail,
+  deleteDuplicateEventsHv,
 };

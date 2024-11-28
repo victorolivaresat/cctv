@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 const CardEventHv = () => {
   const [eventsData, setEventsData] = useState([]);
   const [eventLimit, setEventLimit] = useState(2);
-  const darkMode = useDarkMode();
+  const { darkMode } = useDarkMode();
 
   useEffect(() => {
     const fetchEventsData = async () => {
@@ -37,7 +37,7 @@ const CardEventHv = () => {
             className="mt-2"
             src={ darkMode ? logoDarkHv : logoHikvision}
             alt="Hikvision"
-            width="100"
+            width="120"
           />
         </div>
 
@@ -71,14 +71,10 @@ const CardEventHv = () => {
                   <FaVideo /> &nbsp; Event Type: &nbsp;
                   {event.eventType}
                 </Card.Text>
-                {event.cameraName && (
-                  <pre>
-                    <Card.Text className="card-text text-success px-2 fs-6">
-                      <FaCamera /> &nbsp; Camera Name: &nbsp;
-                      {event.cameraName}
-                    </Card.Text>
-                  </pre>
-                )}
+                <Card.Text className="card-text text-success px-2 fs-6">
+                  <FaCamera /> &nbsp; Camera Name: &nbsp;
+                  {event.cameraName == "null" ? "Sin datos" : event.cameraName}
+                </Card.Text>
                 <Card.Text className="card-text px-2 fs-6 ">
                   <FaClock /> &nbsp; Event Time: &nbsp;
                   {formatDate(event.eventTime)}

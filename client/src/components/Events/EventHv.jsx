@@ -1,21 +1,22 @@
-import { Button, Card, Form, InputGroup, Col, Row } from "react-bootstrap";
-import { FaDownload, FaEye, FaFilter, FaTimes } from "react-icons/fa";
+import { formatDate, getTomorrowDate, getYesterdayDate, formatDateInput } from "../../utils/DateUtils";
+import { Button, Form, InputGroup, Col, Row } from "react-bootstrap";
+import { FaEye, FaFilter, FaTimes, FaUndo } from "react-icons/fa";
+import ExcelExport from "../../utils/ExcelExport";
 import useDarkMode from "../../hooks/useDarkMode";
-import { formatDate } from "../../utils/DateUtils";
 import DataTableBase from "../../utils/DataTable";
 import ObservationModal from "./ObservationsModal";
-import DetailHikvision from "./DetailHikvision";
 import { MdApps, MdCircle } from "react-icons/md";
+import DetailHikvision from "./DetailHikvision";
 import { useState, useEffect } from "react";
 import { FaComment } from "react-icons/fa";
-import { CSVLink } from "react-csv";
+import { toast } from "react-toastify";
 import PropTypes from "prop-types";
-import { format } from "date-fns";
 import {
   eventsHv,
   distinctNameHvCount,
   updateEventHvStatus,
   updateAddObservations,
+  deleteDuplicateEventsHv,
   getEventHvDetail,
 } from "../../api/events";
 
@@ -34,13 +35,17 @@ const EventHv = () => {
   const [testsCountData, setTestsCountData] = useState(0);
   const [selectedRow, setSelectedRow] = useState("");
   const [eventsData, setEventsData] = useState([]);
-  
-  const darkMode = useDarkMode();
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const { darkMode } = useDarkMode();
 
+  let yesterday = getYesterdayDate();
+  let tomorrow = getTomorrowDate();
+  
   // Filtros
   const [filterEventType, setFilterEventType] = useState("");
-  const [filterStartDate, setFilterStartDate] = useState("");
-  const [filterEndDate, setFilterEndDate] = useState("");
+  const [filterStartDate, setFilterStartDate] = useState(formatDateInput(yesterday));
+  const [filterEndDate, setFilterEndDate] = useState(formatDateInput(tomorrow));
   const [filterStatus, setFilterStatus] = useState("");
   const [filterName, setFilterName] = useState("");
 
@@ -129,30 +134,40 @@ const EventHv = () => {
       name: "Nombre Tienda",
       selector: (row) => row.name,
       sortable: true,
-      minWidth: "200px",
+      minWidth: "150px",
+      maxWidth: "200px",
     },
     {
       name: "Evento",
       selector: (row) => row.eventType,
       sortable: true,
-      minWidth: "200px",
+      minWidth: "150px",
+      maxWidth: "200px",
     },
     {
       name: "Camara(s)",
-      selector: (row) => row.cameraName ? (row.cameraName === "null" ? "-" : row.cameraName) : "-",
-      minWidth: "200px",
+      selector: (row) =>
+        row.cameraName
+          ? row.cameraName === "null"
+            ? "-"
+            : row.cameraName
+          : "-",
+          minWidth: "150px",
+          maxWidth: "200px",
     },
     {
       name: "Dvr Fecha",
       selector: (row) => formatDate(row.eventTime),
       sortable: true,
       minWidth: "150px",
+      maxWidth: "180px",
     },
     {
       name: "Fecha Creacion At",
       selector: (row) => formatDate(row.createdAt),
       sortable: true,
       minWidth: "150px",
+      maxWidth: "180px",
     },
     {
       name: "Estado",
@@ -170,26 +185,27 @@ const EventHv = () => {
       ],
       sortable: true,
       minWidth: "50px",
+      maxWidth: "120px",
     },
     {
-      name: "Accciones",
+      name: "",
       cell: (row) => (
         <>
-        <a href="#!" className="me-2"
-          onClick={() => handleShowModal(row)}
-        >
-          <FaComment  className={row.observations ? "text-warning" : ""}/>
-        </a>
-        <a href="#!" className="me-2"
-          onClick={() => getEventHvDetails(row.id)}
-        >
-          <FaEye/>
-        </a>
+          <a href="#!" className="me-2 py-1 px-2 bg-secondary-subtle rounded-3" onClick={() => handleShowModal(row)}>
+            <FaComment className={row.observations ? "text-warning" : "text-primary"} />
+          </a>
+          <a
+            href="#!"
+            className="me-2 py-1 px-2 bg-danger-subtle rounded-3"
+            onClick={() => getEventHvDetails(row.id)}
+          >
+            <FaEye />
+          </a>
         </>
-        
       ),
       sortable: true,
       minWidth: "50px",
+      maxWidth: "80px",
     },
   ];
 
@@ -206,7 +222,6 @@ const EventHv = () => {
   };
 
   const updateStatus = async (status) => {
-
     console.log("Selected rows ID:", selectedRowsId);
     console.log("Selected status:", status);
     try {
@@ -223,7 +238,7 @@ const EventHv = () => {
   const handleShowModal = (row) => {
     setSelectedRow(row);
     setCurrentObservation(row.observations);
-    setShowModalDetail(true);
+    setShowModalObs(true);
   };
 
   const handleCloseModalObs = () => setShowModalObs(false);
@@ -243,81 +258,77 @@ const EventHv = () => {
     }
   };
 
-  const handleExportToCSV = () => {
-    if (eventsData.length === 0) {
-      return null; 
-    }
-
-    const csvData = eventsData
-      .filter((transaction) => transaction.name)
-      .map((transaction) => {
-        const date = new Date(transaction.createdAt);
-        const formattedDate = format(date, "dd-MM-yyyy HH:mm:ss");
-
-        return {
-          NombreTienda: transaction.name,
-          TipoEvento: transaction.eventType,
-          FechaCreacion: formattedDate,
-          Status: transaction.status,
-          Observacion: transaction.observations,
-        };
-      });
-
-    if (csvData.length === 0) {
-      return null;
-    }
-
-    const fileName = "detalles_transacciones_HikVision.csv";
-
-    return (
-      <CSVLink
-        data={csvData}
-        filename={fileName}
-        className="bg-success text-light p-2 rounded-2 mb-2"
-        style={{ marginTop: "15px", display: "block", textAlign: "center" }}
-      >
-        <span
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <FaDownload style={{ marginRight: "5px" }} /> Descargar CSV
-        </span>
-      </CSVLink>
-    );
-  };
-
   const onClear = (callback) => {
     if (callback) {
       callback({ target: { value: "" } });
     }
-  }
+  };
+
+  const handleDeleteDuplicates = async () => {
+    if (!startDate || !endDate) {
+      toast.error("Por favor, seleccione una fecha de inicio y fin");
+      return;
+    }
+
+    try {
+      const data = await deleteDuplicateEventsHv(startDate, endDate);
+      handleFetchEvents();
+      toast.success("Eventos duplicados eliminados");
+      setStartDate("");
+      setEndDate("");
+      console.log("Duplicate events deleted:", data);
+    } catch (error) {
+      toast.error("Error al eliminar eventos duplicados");
+      console.error("Error deleting duplicate events:", error);
+    }
+  };
 
   return (
-    <>
-      <Card className="my-2">
-        <Row>
-          <Col lg={6}>
-            <img
-              className="m-2"
-              src={darkMode ? logoDarkHv : logoHikvision}
-              alt="Hikvision"
-              width="100"
-            />
-          </Col>
-          <Col lg={6} className="d-flex justify-content-end">
-            <div className="d-flex align-items-center">
-              <MdCircle className="text-success" />
-              &nbsp; Connected Hikvision DVR: {testsCountData}
-            </div>
-          </Col>
-        </Row>
-      </Card>
-      <div>
-        <Row className="d-flex justify-content-between align-items-center">
-          <Col md={4}>
+    <Row className="p-4">
+      <Col md={2} className="p-4 bg-dark-subtle rounded-3">
+        <div>
+          <img
+            className="mb-3"
+            src={darkMode ? logoDarkHv : logoHikvision}
+            alt="Hikvision"
+            width="120"
+          />
+        </div>
+
+        <div className="mb-3">
+          <MdCircle className="text-success" />
+          &nbsp; Connected DVR: {testsCountData}
+        </div>
+
+        <Form.Group className=" border-2 bg-body-tertiary p-3 rounded-3">
+          <Form.Control
+            type="date"
+            value={startDate}
+            className="mb-3"
+            onChange={(e) => setStartDate(e.target.value)}
+            placeholder="Fecha de inicio"
+          />
+          <Form.Control
+            type="date"
+            value={endDate}
+            className="mb-3"
+            onChange={(e) => setEndDate(e.target.value)}
+            placeholder="Fecha de fin"
+          />
+          <Button
+            className="w-100"
+            size="sm"
+            variant="danger"
+            onClick={handleDeleteDuplicates}
+          >
+            <FaTimes /> &nbsp; Eliminar Duplicados
+          </Button>
+        </Form.Group>
+      </Col>
+
+      <Col md={10} className="px-4">
+        <Row className="d-flex justify-content-between align-items-center bg-body-tertiary p-3 mb-4 rounded-3">
+          <Col md={6}>
             <InputGroup className="my-1">
               <Form.Control
                 type="date"
@@ -337,7 +348,7 @@ const EventHv = () => {
                     onClick={() => {
                       handleStartDateFilterChange({ target: { value: "" } });
                       handleEndDateFilterChange({ target: { value: "" } });
-                      onClear(); // Opcional: Si quieres una función adicional para manejar la limpieza
+                      onClear();
                     }}
                   />
                 ) : (
@@ -370,6 +381,10 @@ const EventHv = () => {
             </InputGroup>
           </Col>
 
+          <Col md={2}>
+            <ExcelExport data={filteredEventsData} fileName="hikvision" />
+          </Col>
+
           <Col md={4}>
             <InputGroup className="my-1">
               <Form.Control
@@ -377,7 +392,9 @@ const EventHv = () => {
                 value={selectedStatus}
                 onChange={handleStatusChange}
               >
-                <option value="">Escoger Estado</option>
+                <option value="" disabled>
+                  Elegir un Estado
+                </option>
                 <option value="new">Nuevo</option>
                 <option value="pending">Pendiente</option>
                 <option value="completed">Completado</option>
@@ -388,13 +405,12 @@ const EventHv = () => {
                 onClick={() => onClear(updateStatus(selectedStatus))}
                 className="ml-2"
               >
-                Actualizar Estado
+                <FaUndo className="me-2"/>
+                Actualizar
               </Button>
             </InputGroup>
           </Col>
-        </Row>
 
-        <Row className="d-flex justify-content-between align-items-center">
           <Col md={4}>
             <InputGroup className="my-1">
               <Form.Control
@@ -432,23 +448,17 @@ const EventHv = () => {
               </InputGroup.Text>
             </InputGroup>
           </Col>
-
-          <Col md={4}>
-            <div className="my-1">{handleExportToCSV()}</div>
-          </Col>
         </Row>
-      </div>
 
-      {/* Tabla de datos */}
-      <DataTableBase
-        columns={columns}
-        data={filteredEventsData}
-        paginationPerPage={10}
-        selectableRows
-        onSelectedRowsChange={handleRowSelection}
-      />
+        <DataTableBase
+          columns={columns}
+          data={filteredEventsData}
+          paginationPerPage={10}
+          selectableRows
+          onSelectedRowsChange={handleRowSelection}
+        />
+      </Col>
 
-      {/* Modal de observaciones */}
       <ObservationModal
         show={showModalObs}
         handleClose={handleCloseModalObs}
@@ -457,14 +467,12 @@ const EventHv = () => {
         handleSave={handleSaveObservation}
       />
 
-      {/* Modal de detalle de evento */}
       <DetailHikvision
         show={showModalDetail}
         handleClose={handleCloseModalDetail}
         detail={currentDetail}
       />
-
-    </>
+    </Row>
   );
 };
 

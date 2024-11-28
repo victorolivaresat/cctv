@@ -7,6 +7,7 @@ export const eventsHv = async () => {
 
 export const eventsSamsung = async () => {
   const { data } = await axios.get("/events/samsung");
+  console.log(data);
   return data;
 };
 
@@ -37,7 +38,7 @@ export const distinctNameHvCount = async () => {
 };
 
 export const distinctNameSamsungCount = async () => {
-  const { data } = await axios.get("/test/samsung/count-distinct-name");
+  const { data } = await axios.get("/events/samsung/count-distinct-name");
   return data;
 };
 
@@ -49,7 +50,6 @@ export const updateEventHvStatus = async (id, status) => {
     console.error("Error updating event status:", error);
   }
 };
-
 
 export const updateAddObservations = async (id, observations) => {
   try {
@@ -81,9 +81,10 @@ export const updateEventSamsungStatus = async (id, status) => {
   }
 };
 
-export const putUpdateAddObservationsSamsung = async (id, observations) => {
+
+export const updateAddObservationsSamsung = async (id, observations) => {
   try {
-    const { data } = await axios.put(`/events/put/update/add/observations/samsung/${id}`, { observations });
+    const { data } = await axios.put(`/events/samsung/observations/${id}`, { observations });
     console.log(id,observations);
     return data;
   } catch (error) {
@@ -115,5 +116,16 @@ export const getEventSamsungDetail = async (id) => {
     return data;
   } catch (error) {
     console.error("Error fetching event detail for Samsung:", error);
+  }
+};
+
+export const deleteDuplicateEventsHv = async (startDate, endDate) => {
+  try {
+    const { data } = await axios.delete(`/events/hv/delete-duplicates`, {
+      params: { startDate, endDate },
+    });
+    return data;
+  } catch (error) {
+    console.error("Error deleting duplicate events for Hikvision:", error);
   }
 };

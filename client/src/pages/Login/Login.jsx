@@ -15,7 +15,7 @@ const Login = () => {
   const { isAuthenticated } = useAuth();
   const { loginUser } = useAuth();
   const navigate = useNavigate();
-  const darkMode = useDarkMode();
+  const { darkMode } = useDarkMode();
   
   const onSubmit = async (data) => {
     const { email, password } = data;

@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 const CardEventSamsung = () => {
   const [eventsData, setEventsData] = useState([]);
   const [eventLimit, setEventLimit] = useState(2);
-  const darkMode = useDarkMode();
+  const { darkMode } = useDarkMode();
 
   useEffect(() => {
     const fetchEventsData = async () => {
@@ -38,7 +38,7 @@ const CardEventSamsung = () => {
             className="mt-2"
             src={darkMode ? logoDarkSamsung : logoSamsung}
             alt="Hikvision"
-            width="100"
+            width="120"
           />
         </div>
 

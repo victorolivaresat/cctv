@@ -7,13 +7,13 @@ const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME
   port: process.env.DB_PORT,
   dialectOptions: {
     options: {
-      encrypt: true,
-      trustServerCertificate: true,
+      encrypt: false,
+      trustServerCertificate: false,
       useUTC: false,
-      dateFirst: 1,
     },
   },
-  timezone: '-05:00',
+  timezone: false,
+  charset: 'utf8',
 });
 
 const connect = async () => {

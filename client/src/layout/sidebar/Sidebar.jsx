@@ -1,19 +1,22 @@
 import TeamCard from "../../components/templates/TeamCard";
-import useDarkMode from "../../hooks/useDarkMode";
 import LogoDark from "../../assets/img/logo_dark.png";
-import { FaChartBar, FaTasks } from "react-icons/fa";
+import { FaChartBar, FaVideo } from "react-icons/fa";
+import useDarkMode from "../../hooks/useDarkMode";
 import { Offcanvas, Nav } from "react-bootstrap";
 import Logo from "../../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./sidebar.css";
 
+import { MdFiberDvr } from "react-icons/md";
+
 const Sidebar = ({ show, handleClose }) => {
   const darkMode = useDarkMode();
 
   const navigationItems = [
     { to: "/", text: "Dashboard", icon: <FaChartBar /> },
-    { to: "/events", text: "Events", icon: <FaTasks /> },
+    { to: "/hikvision", text: "Hikvision", icon: <FaVideo /> },
+    { to: "/samsung", text: "Samsung", icon: <MdFiberDvr /> },
   ];
 
   const renderNavigationLinks = () => {

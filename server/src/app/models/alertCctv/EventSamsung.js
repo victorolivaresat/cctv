@@ -1,5 +1,6 @@
 const { DataTypes, Model } = require("sequelize");
 const { sequelize } = require("../../../config/database");
+const { format } = require("../../utils/dateUtils");
 
 class EventSamsung extends Model {}
 
@@ -62,7 +63,9 @@ EventSamsung.init(
     sequelize,
     modelName: "EventSamsung",
     tableName: "event_samsung",
-    timestamps: true,
+    timestamps: false,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   }
 );
 

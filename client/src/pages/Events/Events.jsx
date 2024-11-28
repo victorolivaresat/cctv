@@ -1,7 +1,7 @@
 import { Tab, Row, Col, Nav, Card } from 'react-bootstrap';
 import EventSamsung from "../../components/Events/EventSamsung";
 import EventHv from "../../components/Events/EventHv";
-import "./Events.css";
+import "./events.css";
 
 const Events = () => {
   return (

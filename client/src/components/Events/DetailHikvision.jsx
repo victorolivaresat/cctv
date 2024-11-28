@@ -1,27 +1,47 @@
-import { Modal } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
+import { formatDate } from "../../utils/DateUtils";
+import { FaCheck, FaCopy } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const DetailHikvision = ({ show, handleClose, detail }) => {
   const formatCameraName = (name) => {
-    if (!name) return "";
+    if (!name || name == 'null' || name == "") return "Sin datos";
     const parts = name.split(")");
     return parts.map((part, index) => (
       <span key={index}>
         {part}
-        {index < parts.length - 2 && ")"}
-        {index < parts.length - 2 && <br />}
+        {index < parts.length - 1 && ")"}
+        {index < parts.length - 1 && <br />}
       </span>
     ));
+  };
+
+  const copyToClipboard = () => {
+    const text = `
+      Nombre: ${detail.name}
+      Evento: ${detail.eventType}
+      Cámara: ${detail.cameraName}
+      Estado: ${detail.status === "new" ? "Nuevo" : detail.status === "pending" ? "Pendiente" : "Completado"}
+      Fecha DVR: ${formatDate(detail.eventTime)}
+      Registrado: ${formatDate(detail.createdAt)}
+      Observaciones: ${detail.observations ? detail.observations : "-"}
+    `;
+    navigator.clipboard.writeText(text).then(() => {
+      toast.info("¡Detalle copiado al portapapeles!");
+    }).catch((err) => {
+      console.error("Error al copiar al portapapeles: ", err);
+    });
   };
 
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Detalle del evento</Modal.Title>
+        <Modal.Title>Detalle del Evento</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className="fs-6">
         <p className="p-2 bg-danger bg-opacity-50 rounded-3">
-          <strong>{detail.name}</strong>
+          <strong><FaCheck />&nbsp; {detail.name}</strong>
         </p>
         <div className="p-2">
           <p>
@@ -45,12 +65,18 @@ const DetailHikvision = ({ show, handleClose, detail }) => {
             )}
           </p>
           <p>
-            <strong>Fecha DVR: </strong> {detail.eventTime}
+            <strong>Fecha DVR: </strong> {formatDate(detail.eventTime)}
           </p>
           <p>
-            <strong>Registrado: </strong> {detail.createdAt}
+            <strong>Registrado: </strong> {formatDate(detail.createdAt)}
+          </p>
+          <p>
+            <strong>Observaciones: </strong> {detail.observations ? detail.observations : "-"}
           </p>
         </div>
+        <Button variant="secondary" onClick={copyToClipboard}>
+          <FaCopy /> Copiar
+        </Button>
       </Modal.Body>
     </Modal>
   );

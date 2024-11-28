@@ -107,7 +107,7 @@ const FilterForm = ({
           variant="success"
           onClick={() => updateStatus(selectedStatus)}
         >
-          Update Status
+          Actualizar Estado
         </Button>
       </InputGroup>
     </Form>
