@@ -9,6 +9,8 @@ const http = require("http");
 require("dotenv").config();
 const app = express();
 
+const { processEmails } = require("./app/services/emailConfig");
+
 // Puerto de la aplicación
 const port = process.env.PORT || 5000;
 
@@ -50,5 +52,8 @@ async function startServer() {
     console.error("Failed to start server:", error);
   }
 }
+
+// Iniciar el proceso de escucha de correos electrónicos
+processEmails('Prueba', '2024-08-02');
 
 startServer();

@@ -1,72 +1,71 @@
 const { DataTypes, Model } = require("sequelize");
-const { sequelize } = require("../../../config/database");
-const { format } = require("../../utils/dateUtils");
+const { sequelize } = require("../../config/database");
 
-class EventSamsung extends Model {}
+class EventHv extends Model {}
 
-EventSamsung.init(
+EventHv.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
-      field: 'id',
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: 'name',
     },
-    macAddress: {
+    event_type: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: 'mac_address',
     },
-    eventName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      field: 'event_name',
-    },
-    dateTime: {
+    event_time: {
       type: DataTypes.DATE,
       allowNull: false,
-      field: 'date_time',
+    },
+    dvr_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    dvr_serial_number: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    camera_name: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     status: {
       type: DataTypes.STRING,
       allowNull: true,
-      field: 'status',
+      defaultValue: "new",
     },
     observations: {
       type: DataTypes.TEXT,
       allowNull: true,
-      field: 'observations',
     },
     attachment: {
       type: DataTypes.STRING,
       allowNull: true,
-      field: 'attachment',
+      field: "attachment",
     },
-    createdAt: {
+    created_at: {
       type: DataTypes.DATE,
       allowNull: false,
-      field: 'created_at',
     },
-    updatedAt: {
+    updated_at: {
       type: DataTypes.DATE,
       allowNull: false,
-      field: 'updated_at',
     },
   },
   {
     sequelize,
-    modelName: "EventSamsung",
-    tableName: "event_samsung",
-    timestamps: false,
+    modelName: "EventHv",
+    tableName: "event_hv",
+    timestamps: true,
     createdAt: 'created_at',
     updatedAt: 'updated_at',
   }
 );
 
-module.exports = EventSamsung;
+module.exports = EventHv;

@@ -4,36 +4,32 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-
-    const statusValues = ['new', 'pending', 'completed'];
-    
-    await queryInterface.createTable('EventSamsung', {
+    await queryInterface.createTable('event_samsung', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name:{
+      name: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      macAddress:{
+      mac_address: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      eventName:{
+      event_name: {
         allowNull: false,
-        type: Sequelize.TEXT
+        type: Sequelize.STRING
       },
-      dateTime:{
+      event_time: {
         allowNull: false,
         type: Sequelize.DATE
       },
       status: {
-        type: Sequelize.ENUM(...statusValues),
-        allowNull: true,
-        defaultValue: 'new'
+        type: Sequelize.STRING,
+        allowNull: true
       },
       observations: {
         type: Sequelize.TEXT,
@@ -43,20 +39,18 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP')
       }
     });
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('EventsSamsung');
+    await queryInterface.dropTable('event_samsung');
   }
 };

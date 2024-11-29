@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes, Model } = require("sequelize");
-const { sequelize } = require("../../../config/database");
+const { sequelize } = require("../../config/database");
 
 class TestHv extends Model {}
 
@@ -10,22 +10,18 @@ TestHv.init(
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
-      field: 'id',
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: 'name',
     },
     message: {
       type: DataTypes.TEXT,
       allowNull: false,
-      field: 'message',
     },
-    date: {
+    event_time: {
       type: DataTypes.DATE,
       allowNull: false,
-      field: 'date',
     },
   },
   {

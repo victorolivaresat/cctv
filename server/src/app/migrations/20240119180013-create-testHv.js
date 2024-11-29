@@ -4,22 +4,22 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('TestHv', {
+    await queryInterface.createTable('test_hv', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name:{
+      name: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      message:{
+      message: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
-      date:{
+      event_time: {
         allowNull: false,
         type: Sequelize.DATE
       },
@@ -27,6 +27,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('TestHv');
+    await queryInterface.dropTable('test_hv');
   }
 };

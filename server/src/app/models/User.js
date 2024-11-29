@@ -26,32 +26,27 @@ User.init(
       allowNull: false,
       field: 'password',
     },
-    profileImage: {
+    profile_image: {
       type: DataTypes.STRING,
       allowNull: true,
-      field: 'profile_image',
     },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      field: 'username',
     },
-    isActive: {
+    is_active: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true,
-      field: 'is_active',
     },
-    createdAt: {
+    created_at: {
       type: DataTypes.DATE,
       allowNull: false,
-      field: 'created_at',
     },
-    updatedAt: {
+    updated_at: {
       type: DataTypes.DATE,
       allowNull: false,
-      field: 'updated_at',
     },
   },
   {

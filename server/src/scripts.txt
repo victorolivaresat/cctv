@@ -1,7 +1,6 @@
 Cmd migration:
 npx sequelize-cli db:migrate 
 
-
 Revert
 npx sequelize-cli db:migrate:undo
 
@@ -19,5 +18,12 @@ npx sequelize-cli migration:generate --name create-testsHv
 npx sequelize-cli migration:generate --name create-eventsSamsung
 npx sequelize-cli migration:generate --name create-testsSamsung
 
+npx sequelize-cli migration:generate --name create-interbankCompany
+npx sequelize-cli migration:generate --name create-bcpAlert
+npx sequelize-cli migration:generate --name create-bcpNotify
+npx sequelize-cli migration:generate --name create-bcpOwnAccount
+npx sequelize-cli migration:generate --name create-cncBbva
+
+npx sequelize-cli migration:generate --name create-data
 <======================================================>
 

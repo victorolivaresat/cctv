@@ -1,7 +1,5 @@
-const SuportEventSamsung = require("../models/alertCctv/SuportEventSamsung");
-const SuportEventHv = require("../models/alertCctv/SuportEventHv");
-const EventSamsung = require("../models/alertCctv/EventSamsung");
-const EventHv = require("../models/alertCctv/EventHv");
+const EventSamsung = require("../models/EventSamsung");
+const EventHv = require("../models/EventHv");
 const { sequelize } = require("../../config/database");
 const { format } = require("../utils/dateUtils");
 const { Op } = require("sequelize");

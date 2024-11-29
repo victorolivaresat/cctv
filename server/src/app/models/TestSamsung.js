@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes, Model } = require("sequelize");
-const { sequelize } = require("../../../config/database");
+const { sequelize } = require("../../config/database");
 
 class TestSamsung extends Model {}
 
@@ -10,32 +10,26 @@ TestSamsung.init(
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      field: 'id',
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: 'name',
     },
-    macAddress: {
+    mac_address: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: 'mac_address',
     },
-    eventName: {
+    event_name: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: 'event_name',
     },
     message: {
       type: DataTypes.TEXT,
       allowNull: false,
-      field: 'message',
     },
-    dateTime: {
+    event_time: {
       type: DataTypes.DATE,
       allowNull: false,
-      field: 'datetime',
     },
   },
   {

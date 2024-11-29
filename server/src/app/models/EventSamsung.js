@@ -1,82 +1,63 @@
 const { DataTypes, Model } = require("sequelize");
-const { sequelize } = require("../../../config/database");
+const { sequelize } = require("../../config/database");
+const { format } = require("../utils/dateUtils");
 
-class EventHv extends Model {}
+class EventSamsung extends Model {}
 
-EventHv.init(
+EventSamsung.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
-      field: "id",
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: "name",
     },
-    eventType: {
+    mac_address: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: "event_type",
     },
-    eventTime: {
+    event_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    event_time: {
       type: DataTypes.DATE,
       allowNull: false,
-      field: "event_time",
-    },
-    dvrName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      field: "dvr_name",
-    },
-    dvrSerialNumber: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      field: "dvr_serial_number",
-    },
-    cameraName: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      field: "camera_name",
     },
     status: {
       type: DataTypes.STRING,
       allowNull: true,
-      defaultValue: "new",
-      field: "status",
     },
     observations: {
       type: DataTypes.TEXT,
       allowNull: true,
-      field: "observations",
+      field: 'observations',
     },
     attachment: {
       type: DataTypes.STRING,
       allowNull: true,
-      field: "attachment",
     },
-    createdAt: {
+    created_at: {
       type: DataTypes.DATE,
       allowNull: false,
-      field: "created_at",
     },
-    updatedAt: {
+    updated_at: {
       type: DataTypes.DATE,
       allowNull: false,
-      field: "updated_at",
     },
   },
   {
     sequelize,
-    modelName: "EventHv",
-    tableName: "event_hv",
-    timestamps: false,
+    modelName: "EventSamsung",
+    tableName: "event_samsung",
+    timestamps: true,
     createdAt: 'created_at',
     updatedAt: 'updated_at',
   }
 );
 
-module.exports = EventHv;
+module.exports = EventSamsung;
