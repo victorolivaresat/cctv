@@ -12,7 +12,7 @@ const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME
       useUTC: false,
     },
   },
-  timezone: false,
+  timezone: '-05:00',
   charset: 'utf8',
 });
 

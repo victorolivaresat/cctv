@@ -206,7 +206,6 @@ const processEmails = async (folder, sinceDate) => {
   }
 };
 
-
 // Función para marcar un mensaje como leído
 async function processEmailWithAttachments(message) {
   const parsedEmail = await simpleParser(message);

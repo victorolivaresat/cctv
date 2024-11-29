@@ -6,7 +6,6 @@ const ObservationsModal = ({ show, handleClose, observation, setObservation, han
   const [localObservations, setLocalObservations] = useState(observation);
 
   useEffect(() => {
-    console.log("Observation prop changed:", observation);
     setLocalObservations(observation);
   }, [observation]);
 
@@ -28,8 +27,13 @@ const ObservationsModal = ({ show, handleClose, observation, setObservation, han
     handleClose();
   };
 
+  const handleModalClose = () => {
+    setLocalObservations("");
+    handleClose();
+  };
+
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleModalClose}>
       <Modal.Header closeButton>
         <Modal.Title>Observaciones</Modal.Title>
       </Modal.Header>

@@ -16,9 +16,6 @@ const Layout = () => {
   const [show, setShow] = useState(false);
   const { darkMode } = useDarkMode();
   const location = useLocation();
-  
-  console.log(darkMode);
-
   const isLoginPage = location.pathname === '/login';
 
   const handleShow = (value) => setShow(value);

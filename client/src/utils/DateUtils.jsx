@@ -1,36 +1,29 @@
-// dateUtils.js
+import { format, subDays, addDays } from 'date-fns';
 
 export const formatDate = (date) => {
-  const formattedDate = new Date(date);
-  const day = formattedDate.getDate().toString().padStart(2, "0");
-  const month = (formattedDate.getMonth() + 1).toString().padStart(2, "0");
-  const year = formattedDate.getFullYear();
-  const hours = formattedDate.getHours().toString().padStart(2, "0");
-  const minutes = formattedDate.getMinutes().toString().padStart(2, "0");
-  const seconds = formattedDate.getSeconds().toString().padStart(2, "0");
-  return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+  return format(new Date(date), 'dd/MM/yyyy HH:mm:ss');
 };
 
 export const getYesterdayDate = () => {
-  const date = new Date();
-  date.setDate(date.getDate() - 2);
-  date.setHours(date.getHours() - 5);
-  return date;
+  return subDays(new Date(), 1);
 };
 
 export const getTomorrowDate = () => {
-  const date = new Date();
-  date.setDate(date.getDate() + 1);
-  date.setHours(date.getHours() - 5);
-  return date;
+  return addDays(new Date(), 1);
 };
 
 export const formatDateInput = (date) => {
-  const formattedDate = new Date(date);
-  const day = formattedDate.getDate().toString().padStart(2, "0");
-  const month = (formattedDate.getMonth() + 1).toString().padStart(2, "0");
-  const year = formattedDate.getFullYear();
-  return `${year}-${month}-${day}`;
+  return format(new Date(date), 'yyyy-MM-dd');
 };
 
+export const formatDateInputTime = (date) => {
+  return format(new Date(date), 'yyyy-MM-ddTHH:mm:ss');
+};
 
+export const validateDateRange = (startDate, endDate, maxDays = 60) => {
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+  const diffTime = Math.abs(end - start);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  return diffDays <= maxDays;
+};

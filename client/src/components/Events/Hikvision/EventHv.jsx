@@ -3,33 +3,29 @@ import {
   getTomorrowDate,
   getYesterdayDate,
   formatDateInput,
-} from "../../utils/DateUtils";
+  validateDateRange,
+} from "../../../utils/DateUtils";
 import { Button, Form, InputGroup, Col, Row, Alert } from "react-bootstrap";
 import { FaEye, FaFilter, FaTimes, FaUndo } from "react-icons/fa";
-import ExcelExport from "../../utils/ExcelExport";
-import useDarkMode from "../../hooks/useDarkMode";
-import DataTableBase from "../../utils/DataTable";
+import { useState, useEffect } from "react";
+import ExcelExport from "../../../utils/ExcelExport";
+import useDarkMode from "../../../hooks/useDarkMode";
+import DataTableBase from "../../../utils/DataTable";
 import ObservationModal from "./ObservationsModal";
 import { MdApps, MdCircle } from "react-icons/md";
 import DetailHikvision from "./DetailHikvision";
-import { useState, useEffect } from "react";
 import { FaComment } from "react-icons/fa";
-import { toast } from "react-toastify";
 import PropTypes from "prop-types";
 import {
   eventsHv,
   distinctNameHvCount,
   updateEventHvStatus,
   updateAddObservations,
-  deleteDuplicateEventsHv,
-  getEventHvDetail,
-} from "../../api/events";
+} from "../../../api/events";
 
 // Iconos y recursos
 import logoDarkHv from "../../assets/img/hikvision_dark.png";
 import logoHikvision from "../../assets/img/hikvision.png";
-
-import ProcessEmails from "./ProcessEmails";
 
 const EventHv = () => {
   // Estados
@@ -38,40 +34,52 @@ const EventHv = () => {
   const [selectedStatus, setSelectedStatus] = useState("new");
   const [currentDetail, setCurrentDetail] = useState({});
   const [selectedRowsId, setSelectedRowsId] = useState([]);
+  const [toggledClearRows, setToggleClearRows] = useState(false);
   const [showModalObs, setShowModalObs] = useState(false);
   const [testsCountData, setTestsCountData] = useState(0);
   const [selectedRow, setSelectedRow] = useState("");
   const [eventsData, setEventsData] = useState([]);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
   const { darkMode } = useDarkMode();
 
-  let yesterday = getYesterdayDate();
-  let tomorrow = getTomorrowDate();
 
   // Filtros
+  const [startDate, setStartDate] = useState(formatDateInput(getYesterdayDate()));
+  const [endDate, setEndDate] = useState(formatDateInput(getTomorrowDate()));
   const [filterEventType, setFilterEventType] = useState("");
-  const [filterStartDate, setFilterStartDate] = useState(formatDateInput(yesterday));
-  const [filterEndDate, setFilterEndDate] = useState(formatDateInput(tomorrow));
   const [filterStatus, setFilterStatus] = useState("");
   const [filterName, setFilterName] = useState("");
 
-
-
   useEffect(() => {
-    handleFetchEvents();
     handleFetchTestsCount();
   }, []);
 
-  const handleFetchEvents = async () => {
+  useEffect(() => {
+    if (startDate && endDate) {
+      handleFetchEvents(startDate, endDate);
+    }
+  }, [startDate, endDate]);
+
+  // Eventos
+  const handleFetchEvents = async (startDate, endDate) => {
     try {
-      const data = await eventsHv();
+      if (new Date(startDate) > new Date(endDate)) {
+        alert("La fecha de inicio no puede ser mayor a la fecha final");
+        return;
+      }
+
+      if (!validateDateRange(startDate, endDate)) {
+        alert("El rango de fechas no puede ser mayor a 60 días");
+        return;
+      }
+
+      const data = await eventsHv(startDate, endDate);
       setEventsData(data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
+  // Hikvision Count Events distinct name
   const handleFetchTestsCount = async () => {
     try {
       const data = await distinctNameHvCount();
@@ -86,10 +94,8 @@ const EventHv = () => {
     console.log(e.target.value);
   };
 
-  const handleStartDateFilterChange = handleFilterChange(setFilterStartDate);
-  const handleEndDateFilterChange = handleFilterChange(setFilterEndDate);
-  const handleStatusFilterChange = handleFilterChange(setFilterStatus);
   const handleEventTypeFilterChange = handleFilterChange(setFilterEventType);
+  const handleStatusFilterChange = handleFilterChange(setFilterStatus);
   const handleNameFilterChange = handleFilterChange(setFilterName);
 
   const filteredEventsData = eventsData.filter((event) => {
@@ -98,14 +104,9 @@ const EventHv = () => {
     const filterStatusLower = filterStatus.toLowerCase();
     const filterNameLower = filterName.toLowerCase();
     const statusLower = event.status.toLowerCase();
-    const eventDate = new Date(event.event_time);
-    const startDate = new Date(filterStartDate);
     const nameLower = event.name.toLowerCase();
-    const endDate = new Date(filterEndDate);
 
     return (
-      (!filterStartDate || eventDate >= startDate) &&
-      (!filterEndDate || eventDate <= endDate) &&
       (filterStatusLower ? statusLower.includes(filterStatusLower) : true) &&
       (filterEventTypeLower
         ? eventTypeLower.includes(filterEventTypeLower)
@@ -114,14 +115,9 @@ const EventHv = () => {
     );
   });
 
-  const getEventHvDetails = async (id) => {
-    try {
-      const data = await getEventHvDetail(id);
-      setShowModalDetail(true);
-      setCurrentDetail(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+  const getEventHvDetails = (row) => {
+    setShowModalDetail(true);
+    setCurrentDetail(row);
   };
 
   const getStatusName = (status) => {
@@ -193,7 +189,7 @@ const EventHv = () => {
         },
       ],
       sortable: true,
-      minWidth: "50px",
+      minWidth: "80px",
       maxWidth: "120px",
     },
     {
@@ -212,7 +208,7 @@ const EventHv = () => {
           <a
             href="#!"
             className="me-2 py-1 px-2 bg-danger-subtle rounded-3"
-            onClick={() => getEventHvDetails(row.id)}
+            onClick={() => getEventHvDetails(row)}
           >
             <FaEye />
           </a>
@@ -230,10 +226,10 @@ const EventHv = () => {
 
   const handleRowSelection = ({ selectedRows }) => {
     setSelectedRowsId(selectedRows.map((row) => row.id));
-    console.log(
-      "Selected rows:",
-      selectedRows.map((row) => row.id)
-    );
+  };
+
+  const handleClearRows = () => {
+    setToggleClearRows(!toggledClearRows);
   };
 
   const updateStatus = async (status) => {
@@ -243,8 +239,8 @@ const EventHv = () => {
       const data = await Promise.all(
         selectedRowsId.map((id) => updateEventHvStatus(id, status))
       );
-      handleFetchEvents();
-      setSelectedRowsId([]);
+      handleFetchEvents(startDate, endDate);
+      handleClearRows();
       console.log("Status updated:", data);
     } catch (error) {
       console.error("Error updating status:", error);
@@ -257,52 +253,39 @@ const EventHv = () => {
     setShowModalObs(true);
   };
 
-  const handleCloseModalObs = () => setShowModalObs(false);
-  const handleCloseModalDetail = () => setShowModalDetail(false);
-
   const handleSaveObservation = async (updatedObservation) => {
     if (selectedRow) {
       console.log("Saving observation:", updatedObservation);
       console.log("Selected row ID:", selectedRow.id);
       try {
         await updateAddObservations(selectedRow.id, updatedObservation);
-        handleFetchEvents();
+        handleFetchEvents(startDate, endDate);
+        setCurrentObservation("");
         handleCloseModalObs();
+        //setShowModalObs(false);
       } catch (error) {
         console.error("Error updating observation:", error);
       }
     }
   };
 
-  const onClear = (callback) => {
-    if (callback) {
-      callback({ target: { value: "" } });
-    }
-  };
-
-  const handleDeleteDuplicates = async () => {
-    if (!startDate || !endDate) {
-      toast.error("Por favor, seleccione una fecha de inicio y fin");
-      return;
-    }
-
-    try {
-      const data = await deleteDuplicateEventsHv(startDate, endDate);
-      handleFetchEvents();
-      toast.success("Eventos duplicados eliminados");
-      setStartDate("");
-      setEndDate("");
-      console.log("Duplicate events deleted:", data);
-    } catch (error) {
-      toast.error("Error al eliminar eventos duplicados");
-      console.error("Error deleting duplicate events:", error);
-    }
-  };
+  const handleCloseModalObs = () => { setShowModalObs(false); };
+  const handleCloseModalDetail = () => { setShowModalDetail(false); };
 
   const ExpandedComponent = ({ data }) => {
-    const attachments = JSON.parse(data.attachment);
+    let attachments = data.attachment;
 
-    if (!attachments || attachments.length === 0) return "No existen archivos adjuntos";
+    if (!attachments || attachments.length === 0 || !attachments === "") {
+      return (
+        <div className="m-3">
+          <Alert variant="warning">
+            <p>No hay archivos adjuntos</p>
+          </Alert>
+        </div>
+      );
+    }
+
+    attachments = JSON.parse(attachments);
 
     return (
       <div className="m-3">
@@ -327,7 +310,7 @@ const EventHv = () => {
 
   return (
     <Row className="p-4">
-      <Col md={2} className="p-4 bg-dark-subtle rounded-3">
+      <Col md={2} className="p-4 mb-4 bg-dark-subtle rounded-3">
         <div>
           <img
             className="mb-3"
@@ -341,37 +324,6 @@ const EventHv = () => {
           <MdCircle className="text-success" />
           &nbsp; Connected DVR: {testsCountData}
         </div>
-
-        <Form.Group className=" border-2 bg-body-tertiary p-3 rounded-3">
-          <Form.Control
-            type="date"
-            value={startDate}
-            className="mb-3"
-            onChange={(e) => setStartDate(e.target.value)}
-            placeholder="Fecha de inicio"
-          />
-          <Form.Control
-            type="date"
-            value={endDate}
-            className="mb-3"
-            onChange={(e) => setEndDate(e.target.value)}
-            placeholder="Fecha de fin"
-          />
-          <Button
-            className="w-100"
-            size="sm"
-            variant="danger"
-            onClick={handleDeleteDuplicates}
-          >
-            <FaTimes /> &nbsp; Eliminar Duplicados
-          </Button>
-        </Form.Group>
-
-        <hr className="my-4" />
-
-        <ProcessEmails />
-
-        
       </Col>
 
       <Col md={10} className="px-4">
@@ -380,23 +332,22 @@ const EventHv = () => {
             <InputGroup className="my-1">
               <Form.Control
                 type="date"
-                value={filterStartDate}
-                onChange={handleStartDateFilterChange}
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
                 placeholder="Fecha inicial"
               />
               <Form.Control
                 type="date"
-                value={filterEndDate}
-                onChange={handleEndDateFilterChange}
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
                 placeholder="Fecha final"
               />
               <InputGroup.Text>
-                {filterStartDate || filterEndDate ? (
+                {startDate || endDate ? (
                   <FaTimes
                     onClick={() => {
-                      handleStartDateFilterChange({ target: { value: "" } });
-                      handleEndDateFilterChange({ target: { value: "" } });
-                      onClear();
+                      setStartDate("");
+                      setEndDate("");
                     }}
                   />
                 ) : (
@@ -414,14 +365,18 @@ const EventHv = () => {
                 onChange={handleStatusFilterChange}
                 placeholder="Filter by status"
               >
-                <option value="">Filtro Estado</option>
+                <option value="">Estado</option>
                 <option value="new">Nuevo</option>
                 <option value="pending">Pendiente</option>
                 <option value="completed">Completado</option>
               </Form.Control>
               <InputGroup.Text>
                 {filterStatus ? (
-                  <FaTimes onClick={() => onClear(handleStatusFilterChange)} />
+                  <FaTimes
+                    onClick={() =>
+                      handleStatusFilterChange({ target: { value: "" } })
+                    }
+                  />
                 ) : (
                   <FaFilter />
                 )}
@@ -450,7 +405,7 @@ const EventHv = () => {
               <Button
                 size="sm"
                 variant="success"
-                onClick={() => onClear(updateStatus(selectedStatus))}
+                onClick={() => updateStatus(selectedStatus)}
                 className="ml-2"
               >
                 <FaUndo className="me-2" />
@@ -465,11 +420,15 @@ const EventHv = () => {
                 type="text"
                 value={filterName}
                 onChange={handleNameFilterChange}
-                placeholder="Filtro Nombre Tienda"
+                placeholder="Tienda"
               />
               <InputGroup.Text>
                 {filterName ? (
-                  <FaTimes onClick={() => onClear(handleNameFilterChange)} />
+                  <FaTimes
+                    onClick={() =>
+                      handleNameFilterChange({ target: { value: "" } })
+                    }
+                  />
                 ) : (
                   <FaFilter />
                 )}
@@ -483,12 +442,14 @@ const EventHv = () => {
                 type="text"
                 value={filterEventType}
                 onChange={handleEventTypeFilterChange}
-                placeholder="Filtro Tipo Evento"
+                placeholder="Evento"
               />
               <InputGroup.Text>
                 {filterEventType ? (
                   <FaTimes
-                    onClick={() => onClear(handleEventTypeFilterChange)}
+                    onClick={() =>
+                      handleEventTypeFilterChange({ target: { value: "" } })
+                    }
                   />
                 ) : (
                   <FaFilter />
@@ -506,6 +467,7 @@ const EventHv = () => {
           expandableRows
           selectableRows
           onSelectedRowsChange={handleRowSelection}
+          clearSelectedRows={toggledClearRows}
         />
       </Col>
 

@@ -1,7 +1,8 @@
 import axios from "./axios";
-
-export const eventsHv = async () => {
-  const { data } = await axios.get("/events/hv");
+export const eventsHv = async (startDate, endDate) => {
+  const { data } = await axios.get("/events/hv", {
+    params: { startDate, endDate },
+  });
   return data;
 };
 

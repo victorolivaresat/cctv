@@ -1,10 +1,10 @@
 import { FaVideo, FaClock, FaCheck, FaCalendar } from "react-icons/fa";
-import useDarkMode from "../../hooks/useDarkMode";
+import useDarkMode from "../../../hooks/useDarkMode";
 import logoSamsung from "../../assets/img/samsung.png";
 import logoDarkSamsung from "../../assets/img/samsung_dark.png";
 import { Row, Col, Card, Form } from "react-bootstrap";
-import { lastEventsSamsung } from "../../api/events";
-import { formatDate } from "../../utils/DateUtils";
+import { lastEventsSamsung } from "../../../api/events";
+import { formatDate } from "../../../utils/DateUtils";
 import { useEffect, useState } from "react";
 
 const CardEventSamsung = () => {

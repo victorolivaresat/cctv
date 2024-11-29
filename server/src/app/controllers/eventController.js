@@ -8,8 +8,16 @@ const { Op } = require("sequelize");
 
 // Funcion para obtener todos los eventos de EventHv
 const getEventsHv = async (req, res) => {
+  const { startDate, endDate } = req.query;
+
+  console.log(startDate, endDate);
   try {
     const events = await EventHv.findAll({
+      where: {
+        created_at: {
+          [Op.between]: [new Date(startDate), new Date(endDate)],
+        },
+      },
       order: [["created_at", "DESC"]],
     });
     return res.json(events);

@@ -2,9 +2,9 @@ import { FaVideo, FaCamera, FaClock, FaCheck, FaCalendar } from "react-icons/fa"
 import logoDarkHv from "../../assets/img/hikvision_dark.png";
 import logoHikvision from "../../assets/img/hikvision.png";
 import { Row, Col, Card, Form } from "react-bootstrap";
-import { formatDate } from "../../utils/DateUtils";
-import useDarkMode from "../../hooks/useDarkMode";
-import { lastEventsHv } from "../../api/events";
+import { formatDate } from "../../../utils/DateUtils";
+import useDarkMode from "../../../hooks/useDarkMode";
+import { lastEventsHv } from "../../../api/events";
 import { useEffect, useState } from "react";
 
 const CardEventHv = () => {

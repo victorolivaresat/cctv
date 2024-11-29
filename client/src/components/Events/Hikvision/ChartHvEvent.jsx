@@ -1,5 +1,5 @@
-import { eventsHvDataChart } from "../../api/events";
-import  useDarkMode from "../../hooks/useDarkMode";
+import { eventsHvDataChart } from "../../../api/events";
+import  useDarkMode from "../../../hooks/useDarkMode";
 import { useState, useEffect } from "react";
 import { Card } from "react-bootstrap";
 import Chart from "react-apexcharts";

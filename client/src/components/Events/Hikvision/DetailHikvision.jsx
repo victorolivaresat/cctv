@@ -1,12 +1,12 @@
+import { formatDate } from "../../../utils/DateUtils";
 import { Modal, Button } from "react-bootstrap";
-import PropTypes from "prop-types";
-import { formatDate } from "../../utils/DateUtils";
 import { FaCheck, FaCopy } from "react-icons/fa";
 import { toast } from "react-toastify";
+import PropTypes from "prop-types";
 
 const DetailHikvision = ({ show, handleClose, detail }) => {
   const formatCameraName = (name) => {
-    if (!name || name == 'null' || name == "") return "Sin datos";
+    if (!name || name == "null" || name == "") return "Sin datos";
     const parts = name.split(")");
     return parts.map((part, index) => (
       <span key={index}>
@@ -22,16 +22,25 @@ const DetailHikvision = ({ show, handleClose, detail }) => {
       Nombre: ${detail.name}
       Evento: ${detail.event_type}
       Cámara: ${detail.camera_name}
-      Estado: ${detail.status === "new" ? "Nuevo" : detail.status === "pending" ? "Pendiente" : "Completado"}
+      Estado: ${
+        detail.status === "new"
+          ? "Nuevo"
+          : detail.status === "pending"
+          ? "Pendiente"
+          : "Completado"
+      }
       Fecha DVR: ${formatDate(detail.event_time)}
       Registrado: ${formatDate(detail.created_at)}
       Observaciones: ${detail.observations ? detail.observations : "-"}
     `;
-    navigator.clipboard.writeText(text).then(() => {
-      toast.info("¡Detalle copiado al portapapeles!");
-    }).catch((err) => {
-      console.error("Error al copiar al portapapeles: ", err);
-    });
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        toast.info("¡Detalle copiado al portapapeles!");
+      })
+      .catch((err) => {
+        console.error("Error al copiar al portapapeles: ", err);
+      });
   };
 
   return (
@@ -41,7 +50,10 @@ const DetailHikvision = ({ show, handleClose, detail }) => {
       </Modal.Header>
       <Modal.Body className="fs-6">
         <p className="p-2 bg-danger text-bg-danger rounded-3">
-          <strong><FaCheck />&nbsp; {detail.name}</strong>
+          <strong>
+            <FaCheck />
+            &nbsp; {detail.name}
+          </strong>
         </p>
         <div className="p-2">
           <p>
@@ -57,7 +69,9 @@ const DetailHikvision = ({ show, handleClose, detail }) => {
           <p className="mt-3">
             <strong>Estado: &nbsp;</strong>
             {detail.status === "new" ? (
-              <span className="px-3 bg-primary bg-opacity-25 rounded-4">Nuevo</span>
+              <span className="px-3 bg-primary bg-opacity-25 rounded-4">
+                Nuevo
+              </span>
             ) : detail.status === "pending" ? (
               <span className="px-3 bg-warning rounded-4">Pendiente</span>
             ) : (
@@ -65,13 +79,14 @@ const DetailHikvision = ({ show, handleClose, detail }) => {
             )}
           </p>
           <p>
-            <strong>Fecha DVR: </strong> {formatDate(detail.event_time)}
+            {/* <strong>Fecha DVR: </strong> {formatDate(detail.event_time)} */}
           </p>
           <p>
-            <strong>Registrado: </strong> {formatDate(detail.created_at)}
+            {/* <strong>Registrado: </strong> {formatDate(detail.created_at)} */}
           </p>
           <p>
-            <strong>Observaciones: </strong> {detail.observations ? detail.observations : "-"}
+            <strong>Observaciones: </strong>{" "}
+            {detail.observations ? detail.observations : "-"}
           </p>
         </div>
         <Button variant="secondary" onClick={copyToClipboard}>

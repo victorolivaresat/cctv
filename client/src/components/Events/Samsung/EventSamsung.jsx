@@ -1,13 +1,14 @@
 import { MdApps, MdVideocam, MdCheck, MdCircle } from "react-icons/md";
-import FilterForm from "./FilterForm/FilterFormSamsung";
-import ObservationModal from "./ObservationsModal";
+import FilterForm from "./FilterFormSamsung";
+import ObservationModal from "../ObservationsModal";
 import { Alert, Row, Col } from "react-bootstrap";
-import { formatDate } from "../../utils/DateUtils";
-import DataTableBase from "../../utils/DataTable";
-import useDarkMode from "../../hooks/useDarkMode";
+import { formatDate } from "../../../utils/DateUtils";
+import DataTableBase from "../../../utils/DataTable";
+import useDarkMode from "../../../hooks/useDarkMode";
 import { FaEye, FaComment } from "react-icons/fa";
-import DetailSamsung from "./DetailSamsung";
+import DetailSamsung from "../DetailSamsung";
 import { useEffect, useState } from "react";
+
 
 import PropsTypes from "prop-types";
 import {
@@ -16,7 +17,7 @@ import {
   updateEventSamsungStatus,
   updateAddObservationsSamsung,
   getEventSamsungDetail,
-} from "../../api/events";
+} from "../../../api/events";
 
 // Importar logos
 import logoDarkSamsung from "../../assets/img/samsung_dark.png";

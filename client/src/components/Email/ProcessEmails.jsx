@@ -1,5 +1,5 @@
 import { processEmail } from "../../api/email";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { useState, useEffect, useCallback } from "react";
 
 const ProcessEmails = () => {
@@ -27,7 +27,7 @@ const ProcessEmails = () => {
   }, [handleProcessEmail]);
 
   return (
-    <Container className="mt-4">
+    <div className="mt-4">
       <p>Procesar Correos Electrónicos</p>
       <Form
         onSubmit={(e) => {
@@ -62,7 +62,7 @@ const ProcessEmails = () => {
           Procesar Correos
         </Button>
       </Form>
-    </Container>
+    </div>
   );
 };
 

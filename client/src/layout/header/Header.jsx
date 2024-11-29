@@ -19,8 +19,6 @@ const Header = ({ handleShow, handleClose }) => {
       try {
         const data = await getNewNotificationsCount();
         setNotifications(data);
-
-        console.log(data);
       } catch (error) {
         console.error("Error fetching notifications:", error);
       }
