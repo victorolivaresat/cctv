@@ -4,10 +4,8 @@ const EventHv = require("../models/EventHv");
 const TestHv = require("../models/TestHv");
 const { extractDataFromBody } = require("../utils/emailUtils");
 
-/*****************************************/
-//======== Funciones Samsung ============//
-/*****************************************/
 
+//======== Funciones Samsung ============//
 const processTestSamsungEmail = async (parsedEmail, senderName, macAddress) => {
   const testMessage = "This testing E-mail";
 
@@ -69,17 +67,15 @@ const processSamsung = async (parsedEmail) => {
   }
 };
 
-/*****************************************/
 //======== Funciones Hikvision ==========//
-/*****************************************/
 const processTestHikvisionEmail = async (parsedEmail, senderName) => {
   const body = parsedEmail.text;
-  const emailDate = parsedEmail.date;
+  const eventTime = parsedEmail.date;
 
   await TestHv.create({
     name: senderName,
     message: body,
-    date: emailDate,
+    event_time: eventTime,
   });
 };
 
@@ -90,17 +86,10 @@ const processRegularHikvisionEmail = async (
 ) => {
   const body = parsedEmail.text;
 
-  // const eventTime = new Date(parsedEmail.date).toISOString(); // Convertir a formato ISO 8601
-  //   const createdAt = new Date().toISOString(); // Convertir a formato ISO 8601
-  //   const updatedAt = new Date().toISOString();
-
   await EventHv.create({
     name: senderName,
     event_type: extractDataFromBody(body, /EVENT TYPE:\s*(.*)/),
-    event_time:
-      new Date(
-        extractDataFromBody(body, /EVENT TIME:\s*(.*)/).replace(",", " ")
-      ) || null,
+    event_time: new Date(extractDataFromBody(body, /EVENT TIME:\s*(.*)/).replace(",", " ")) || null,
     dvr_name: extractDataFromBody(body, /DVR NAME:\s*(.*)/),
     dvr_serial_number: extractDataFromBody(body, /DVR S\/N:\s*(.*)/),
     camera_name: extractDataFromBody(body, /CAMERA NAME\(NUM\):\s*(.*)/),
@@ -108,10 +97,13 @@ const processRegularHikvisionEmail = async (
   });
 };
 
-const processHikvision = async (parsedEmail, senderName, attachmentData) => {
-  const body = parsedEmail.text;
-
-  if (body.includes("TEST MESSAGE FROM")) {
+const processHikvision = async (
+  subject,
+  parsedEmail,
+  senderName,
+  attachmentData
+) => {
+  if (subject.includes("TEST MESSAGE FROM")) {
     await processTestHikvisionEmail(parsedEmail, senderName);
   } else {
     await processRegularHikvisionEmail(parsedEmail, senderName, attachmentData);

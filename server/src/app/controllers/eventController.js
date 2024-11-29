@@ -10,7 +10,7 @@ const { Op } = require("sequelize");
 const getEventsHv = async (req, res) => {
   try {
     const events = await EventHv.findAll({
-      order: [["createdAt", "DESC"]],
+      order: [["created_at", "DESC"]],
     });
     return res.json(events);
   } catch (error) {

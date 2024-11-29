@@ -3,8 +3,10 @@ const { parseEmailSubject, extractSenderName } = require("../utils/emailUtils");
 const { processSamsung, processHikvision } = require("./emailParsing");
 const { saveAttachmentLocally } = require("../utils/saveAttachments");
 const { simpleParser } = require("mailparser");
+const moment = require('moment-timezone');
 const { v4: uuidv4 } = require("uuid");
 const Imap = require("imap");
+const { date } = require("zod");
 require("dotenv").config();
 
 /*
@@ -71,10 +73,12 @@ const getEmailData = () => {
 };
 
 // Función para obtener los mensajes no leídos
-const getAndFlagUnreadMessages = async (folder, sinceDate) => {
+const getMessagesbyDate = async (folder, exactDate) => {
   return new Promise((resolve, reject) => {
     const imap = getImapConnection();
     let emails = [];
+
+    const dateInUTC = moment.tz(exactDate, "America/Lima").utc().format("DD-MMM-YYYY");
 
     imap.once("ready", () => {
       imap.openBox(folder, false, (err, box) => {
@@ -84,15 +88,15 @@ const getAndFlagUnreadMessages = async (folder, sinceDate) => {
           return;
         }
 
-        imap.search(["UNSEEN", ["SINCE", sinceDate]], (searchErr, results) => {
+        imap.search([["ON", dateInUTC]], (searchErr, results) => {
           if (searchErr) {
-            console.error("Error searching for unread messages:", searchErr);
+            console.error("Error searching for messages on date:", searchErr);
             reject(searchErr);
             return;
           }
 
           if (results.length === 0) {
-            console.log("No hay mensajes no leídos.");
+            console.log("No hay mensajes en esta fecha.");
             imap.end();
             resolve([]);
             return;
@@ -125,7 +129,7 @@ const getAndFlagUnreadMessages = async (folder, sinceDate) => {
           });
 
           f.once("end", () => {
-            console.log("Mensajes no leídos recuperados.");
+            console.log("Mensajes recuperados.");
             imap.end();
             resolve(emails);
           });
@@ -139,6 +143,7 @@ const getAndFlagUnreadMessages = async (folder, sinceDate) => {
     });
   });
 };
+
 
 // Función para mover un mensaje a la carpeta "procesados"
 const moveMessageToProcessed = async (uid, sourceFolder, targetFolder) => {
@@ -172,7 +177,7 @@ const moveMessageToProcessed = async (uid, sourceFolder, targetFolder) => {
 // Función para procesar y guardar los correos electrónicos
 const processEmails = async (folder, sinceDate) => {
   try {
-    const emails = await getAndFlagUnreadMessages(folder, sinceDate);
+    const emails = await getMessagesbyDate(folder, sinceDate);
 
     if (emails.length === 0) {
       return;
@@ -189,8 +194,7 @@ const processEmails = async (folder, sinceDate) => {
       console.log("Datos de los archivos adjuntos:", attachmentsData);
       console.log("Fecha del correo:", parsedEmail.date);
 
-      await processHikvision(parsedEmail, senderName, attachmentsData);
-      await markMessageAsRead(uid);
+      await processHikvision(subject, parsedEmail, senderName, attachmentsData);
       await moveMessageToProcessed(uid, folder, 'procesados');
     }
     console.log("Correos procesados y guardados correctamente.");
@@ -209,7 +213,7 @@ async function processEmailWithAttachments(message) {
 
   if (!parsedEmail.attachments || parsedEmail.attachments.length === 0) {
     console.log("No hay archivos adjuntos en este correo.");
-    return [];
+    return "";
   }
 
   const maxAttachments = 4;
@@ -227,13 +231,12 @@ async function processEmailWithAttachments(message) {
       attachment.content,
       uniqueFilename
     );
-
-    console.log(uniqueFilename);
-
     savedAttachments.push({
       filename: attachment.filename,
       path: uniqueFilename,
     });
+
+    console.log({ result: savedPath, message: "Paths generados" });
   }
 
   return JSON.stringify(savedAttachments);

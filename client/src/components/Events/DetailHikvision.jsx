@@ -20,11 +20,11 @@ const DetailHikvision = ({ show, handleClose, detail }) => {
   const copyToClipboard = () => {
     const text = `
       Nombre: ${detail.name}
-      Evento: ${detail.eventType}
-      Cámara: ${detail.cameraName}
+      Evento: ${detail.event_type}
+      Cámara: ${detail.camera_name}
       Estado: ${detail.status === "new" ? "Nuevo" : detail.status === "pending" ? "Pendiente" : "Completado"}
-      Fecha DVR: ${formatDate(detail.eventTime)}
-      Registrado: ${formatDate(detail.createdAt)}
+      Fecha DVR: ${formatDate(detail.event_time)}
+      Registrado: ${formatDate(detail.created_at)}
       Observaciones: ${detail.observations ? detail.observations : "-"}
     `;
     navigator.clipboard.writeText(text).then(() => {
@@ -40,17 +40,17 @@ const DetailHikvision = ({ show, handleClose, detail }) => {
         <Modal.Title>Detalle del Evento</Modal.Title>
       </Modal.Header>
       <Modal.Body className="fs-6">
-        <p className="p-2 bg-danger bg-opacity-50 rounded-3">
+        <p className="p-2 bg-danger text-bg-danger rounded-3">
           <strong><FaCheck />&nbsp; {detail.name}</strong>
         </p>
         <div className="p-2">
           <p>
-            <strong>Evento: </strong> {detail.eventType}
+            <strong>Evento: </strong> {detail.event_type}
           </p>
           <div className="p-2 bg-body-tertiary rounded-2">
             <span className="">Cámara: </span>
             <p className="overflow-auto" style={{ height: "50px" }}>
-              {formatCameraName(detail.cameraName)}
+              {formatCameraName(detail.camera_name)}
             </p>
           </div>
 
@@ -65,10 +65,10 @@ const DetailHikvision = ({ show, handleClose, detail }) => {
             )}
           </p>
           <p>
-            <strong>Fecha DVR: </strong> {formatDate(detail.eventTime)}
+            <strong>Fecha DVR: </strong> {formatDate(detail.event_time)}
           </p>
           <p>
-            <strong>Registrado: </strong> {formatDate(detail.createdAt)}
+            <strong>Registrado: </strong> {formatDate(detail.created_at)}
           </p>
           <p>
             <strong>Observaciones: </strong> {detail.observations ? detail.observations : "-"}

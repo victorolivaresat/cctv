@@ -1,5 +1,10 @@
-import { formatDate, getTomorrowDate, getYesterdayDate, formatDateInput } from "../../utils/DateUtils";
-import { Button, Form, InputGroup, Col, Row } from "react-bootstrap";
+import {
+  formatDate,
+  getTomorrowDate,
+  getYesterdayDate,
+  formatDateInput,
+} from "../../utils/DateUtils";
+import { Button, Form, InputGroup, Col, Row, Alert } from "react-bootstrap";
 import { FaEye, FaFilter, FaTimes, FaUndo } from "react-icons/fa";
 import ExcelExport from "../../utils/ExcelExport";
 import useDarkMode from "../../hooks/useDarkMode";
@@ -24,6 +29,8 @@ import {
 import logoDarkHv from "../../assets/img/hikvision_dark.png";
 import logoHikvision from "../../assets/img/hikvision.png";
 
+import ProcessEmails from "./ProcessEmails";
+
 const EventHv = () => {
   // Estados
   const [currentObservation, setCurrentObservation] = useState(null);
@@ -41,13 +48,15 @@ const EventHv = () => {
 
   let yesterday = getYesterdayDate();
   let tomorrow = getTomorrowDate();
-  
+
   // Filtros
   const [filterEventType, setFilterEventType] = useState("");
   const [filterStartDate, setFilterStartDate] = useState(formatDateInput(yesterday));
   const [filterEndDate, setFilterEndDate] = useState(formatDateInput(tomorrow));
   const [filterStatus, setFilterStatus] = useState("");
   const [filterName, setFilterName] = useState("");
+
+
 
   useEffect(() => {
     handleFetchEvents();
@@ -85,11 +94,11 @@ const EventHv = () => {
 
   const filteredEventsData = eventsData.filter((event) => {
     const filterEventTypeLower = filterEventType.toLowerCase();
-    const eventTypeLower = event.eventType.toLowerCase();
+    const eventTypeLower = event.event_type.toLowerCase();
     const filterStatusLower = filterStatus.toLowerCase();
     const filterNameLower = filterName.toLowerCase();
     const statusLower = event.status.toLowerCase();
-    const eventDate = new Date(event.eventTime);
+    const eventDate = new Date(event.event_time);
     const startDate = new Date(filterStartDate);
     const nameLower = event.name.toLowerCase();
     const endDate = new Date(filterEndDate);
@@ -139,7 +148,7 @@ const EventHv = () => {
     },
     {
       name: "Evento",
-      selector: (row) => row.eventType,
+      selector: (row) => row.event_type,
       sortable: true,
       minWidth: "150px",
       maxWidth: "200px",
@@ -147,24 +156,24 @@ const EventHv = () => {
     {
       name: "Camara(s)",
       selector: (row) =>
-        row.cameraName
-          ? row.cameraName === "null"
+        row.camera_name
+          ? row.camera_name === "null"
             ? "-"
-            : row.cameraName
+            : row.camera_name
           : "-",
-          minWidth: "150px",
-          maxWidth: "200px",
+      minWidth: "150px",
+      maxWidth: "200px",
     },
     {
-      name: "Dvr Fecha",
-      selector: (row) => formatDate(row.eventTime),
+      name: "Fecha Evento(DVR)",
+      selector: (row) => formatDate(row.event_time),
       sortable: true,
       minWidth: "150px",
       maxWidth: "180px",
     },
     {
-      name: "Fecha Creacion At",
-      selector: (row) => formatDate(row.createdAt),
+      name: "Fecha de Creación",
+      selector: (row) => formatDate(row.created_at),
       sortable: true,
       minWidth: "150px",
       maxWidth: "180px",
@@ -191,8 +200,14 @@ const EventHv = () => {
       name: "",
       cell: (row) => (
         <>
-          <a href="#!" className="me-2 py-1 px-2 bg-secondary-subtle rounded-3" onClick={() => handleShowModal(row)}>
-            <FaComment className={row.observations ? "text-warning" : "text-primary"} />
+          <a
+            href="#!"
+            className="me-2 py-1 px-2 bg-secondary-subtle rounded-3"
+            onClick={() => handleShowModal(row)}
+          >
+            <FaComment
+              className={row.observations ? "text-warning" : "text-primary"}
+            />
           </a>
           <a
             href="#!"
@@ -229,6 +244,7 @@ const EventHv = () => {
         selectedRowsId.map((id) => updateEventHvStatus(id, status))
       );
       handleFetchEvents();
+      setSelectedRowsId([]);
       console.log("Status updated:", data);
     } catch (error) {
       console.error("Error updating status:", error);
@@ -283,6 +299,32 @@ const EventHv = () => {
     }
   };
 
+  const ExpandedComponent = ({ data }) => {
+    const attachments = JSON.parse(data.attachment);
+
+    if (!attachments || attachments.length === 0) return "No existen archivos adjuntos";
+
+    return (
+      <div className="m-3">
+        <Alert variant="info">
+          <div className="d-flex flex-wrap">
+            {Array.isArray(attachments) &&
+              attachments.map((file, index) => (
+                <div key={index} className="mt-3 p-2">
+                  <p>{file.filename}</p>
+                  <img
+                    src={`http://localhost:5000/attachments/${file.path}`}
+                    alt={file.filename}
+                    width={250}
+                  />
+                </div>
+              ))}
+          </div>
+        </Alert>
+      </div>
+    );
+  };
+
   return (
     <Row className="p-4">
       <Col md={2} className="p-4 bg-dark-subtle rounded-3">
@@ -324,6 +366,12 @@ const EventHv = () => {
             <FaTimes /> &nbsp; Eliminar Duplicados
           </Button>
         </Form.Group>
+
+        <hr className="my-4" />
+
+        <ProcessEmails />
+
+        
       </Col>
 
       <Col md={10} className="px-4">
@@ -405,7 +453,7 @@ const EventHv = () => {
                 onClick={() => onClear(updateStatus(selectedStatus))}
                 className="ml-2"
               >
-                <FaUndo className="me-2"/>
+                <FaUndo className="me-2" />
                 Actualizar
               </Button>
             </InputGroup>
@@ -454,6 +502,8 @@ const EventHv = () => {
           columns={columns}
           data={filteredEventsData}
           paginationPerPage={10}
+          expandableRowsComponent={ExpandedComponent}
+          expandableRows
           selectableRows
           onSelectedRowsChange={handleRowSelection}
         />

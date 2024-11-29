@@ -1,12 +1,12 @@
-const { processAndSaveEmails } = require('../services/emailServiceCctv');
+const { processEmails } = require("../../app/services/emailConfig");
 
-const readAndProcessUnreadEmails = async (req, res) => {
+const proccesAllEmails = async (req, res) => {
 
-  const io = req.io;
+ const { date, folder } = req.query;
 
   try {
-    await processAndSaveEmails(io);
-    res.send("Correos no leídos procesados.");
+    await processEmails(folder, date);
+    res.json({ message: "Correos no leídos procesados." });
   } catch (error) {
     console.error("Error en el procesamiento de correos:", error);
     res.status(500).send("Error al procesar correos no leídos.");
@@ -14,4 +14,4 @@ const readAndProcessUnreadEmails = async (req, res) => {
 };
 
 
-module.exports = { readAndProcessUnreadEmails };
+module.exports = { proccesAllEmails };
