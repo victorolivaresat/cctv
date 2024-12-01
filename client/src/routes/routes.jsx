@@ -5,6 +5,7 @@ import NotFound from "../pages/NotFound/NotFound";
 import Hikvision from "../pages/Hikvision/Events";
 import Samsung from "../pages/Samsung/Events";
 import ProtectedRoute from "./ProtectedRoute";
+import Email from "../pages/Email/Email";
 import Login from "../pages/Login/Login";
 
 
@@ -15,6 +16,7 @@ const AppRoutes = () => (
       <Route path="/dashboard" element={ <RouteTransition> <Dashboard /> </RouteTransition>} />
       <Route path="/hikvision" element={ <RouteTransition> <Hikvision /> </RouteTransition>} />
       <Route path="/samsung" element={ <RouteTransition> <Samsung /> </RouteTransition>} />
+      <Route path="/email" element={ <RouteTransition> <Email /> </RouteTransition>} />
       <Route path="*" element={ <RouteTransition> <NotFound /> </RouteTransition>} />
     </Route>
     <Route path="*" element={<Navigate to="/login" />} />

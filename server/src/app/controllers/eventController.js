@@ -140,12 +140,12 @@ const getEventHvDetail = async (req, res) => {
   }
 };
 
-const deleteDuplicateEventsHv = async (req, res) => {
+const removeDuplicateEventsHv = async (req, res) => {
   const { date } = req.query;
   try {
     const formattedDate = format(date);
 
-    await sequelize.query("EXEC DeleteDuplicateEventsHv :date", {
+    await sequelize.query("EXEC RemoveDuplicatesByDate :date", {
       replacements: { date: formattedDate },
     });
 
@@ -387,5 +387,5 @@ module.exports = {
   getNewNotificationsCount,
   getEventHvDetail,
   getEventSamsungDetail,
-  deleteDuplicateEventsHv,
+  removeDuplicateEventsHv,
 };

@@ -28,11 +28,8 @@ routes.get('/events/hv/event-type', authRequired, eventController.getEventsHvByE
 routes.put('/events/samsung/observations/:id', authRequired, eventController.updateAddObservationsSamsung);
 routes.put('/events/hv/observations/:id', authRequired, eventController.putUpdateAddObservations);
 routes.get('/events/notifications', eventController.getNewNotificationsCount);
-
 routes.get('/events/hv/:id', eventController.getEventHvDetail);
 routes.get('/events/samsung/:id', eventController.getEventSamsungDetail);
-routes.delete('/events/hv/delete-duplicates', authRequired, eventController.deleteDuplicateEventsHv);
-
-
+routes.delete('/events/hv/remove-duplicates', authRequired, eventController.removeDuplicateEventsHv);
 
 module.exports = routes;

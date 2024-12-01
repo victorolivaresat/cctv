@@ -79,12 +79,6 @@ const DetailHikvision = ({ show, handleClose, detail }) => {
             )}
           </p>
           <p>
-            <strong>Fecha DVR: </strong> {formatDate(detail.event_time)}
-          </p>
-          <p>
-            <strong>Registrado: </strong> {formatDate(detail.created_at)}
-          </p>
-          <p>
             <strong>Observaciones: </strong>{" "}
             {detail.observations ? detail.observations : "-"}
           </p>
