@@ -6,7 +6,7 @@ import { formatDate } from "../../../utils/DateUtils";
 import DataTableBase from "../../../utils/DataTable";
 import useDarkMode from "../../../hooks/useDarkMode";
 import { FaEye, FaComment } from "react-icons/fa";
-import DetailSamsung from "../DetailSamsung";
+import DetailSamsung from "./DetailSamsung";
 import { useEffect, useState } from "react";
 
 
@@ -20,8 +20,8 @@ import {
 } from "../../../api/events";
 
 // Importar logos
-import logoDarkSamsung from "../../assets/img/samsung_dark.png";
-import logoSamsung from "../../assets/img/samsung.png";
+import logoDarkSamsung from "../../../assets/img/samsung_dark.png";
+import logoSamsung from "../../../assets/img/samsung.png";
 
 const EventSamsung = () => {
   const [selectedStatus, setSelectedStatus] = useState("new");

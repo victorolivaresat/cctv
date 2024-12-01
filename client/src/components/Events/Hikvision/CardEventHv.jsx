@@ -1,6 +1,6 @@
 import { FaVideo, FaCamera, FaClock, FaCheck, FaCalendar } from "react-icons/fa";
-import logoDarkHv from "../../assets/img/hikvision_dark.png";
-import logoHikvision from "../../assets/img/hikvision.png";
+import logoDarkHv from "../../../assets/img/hikvision_dark.png";
+import logoHikvision from "../../../assets/img/hikvision.png";
 import { Row, Col, Card, Form } from "react-bootstrap";
 import { formatDate } from "../../../utils/DateUtils";
 import useDarkMode from "../../../hooks/useDarkMode";
@@ -17,6 +17,7 @@ const CardEventHv = () => {
       try {
         const data = await lastEventsHv(eventLimit);
         setEventsData(data);
+        console.log("Data fetched successfully:", data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -69,19 +70,19 @@ const CardEventHv = () => {
                 </Card.Title>
                 <Card.Text className="card-text text-primary px-2 fs-6 blink">
                   <FaVideo /> &nbsp; Event Type: &nbsp;
-                  {event.eventType}
+                  {event.event_type}
                 </Card.Text>
                 <Card.Text className="card-text text-success px-2 fs-6">
                   <FaCamera /> &nbsp; Camera Name: &nbsp;
-                  {event.cameraName == "null" ? "Sin datos" : event.cameraName}
+                  {event.camera_name == "null" ? "Sin datos" : event.camera_name}
                 </Card.Text>
                 <Card.Text className="card-text px-2 fs-6 ">
                   <FaClock /> &nbsp; Event Time: &nbsp;
-                  {formatDate(event.eventTime)}
+                  {formatDate(event.event_time)}
                 </Card.Text>
                 <Card.Text className="card-text text-info px-2 fs-6 ">
                   <FaCalendar /> &nbsp; Created Date: &nbsp;
-                  {formatDate(event.createdAt)}
+                  {formatDate(event.created_at)}
                 </Card.Text>
               </Card.Body>
             </Card>

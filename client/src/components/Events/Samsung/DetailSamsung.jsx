@@ -1,4 +1,4 @@
-import { formatDate } from "../../utils/DateUtils";
+import { formatDate } from "../../../utils/DateUtils";
 import { FaCheck, FaCopy } from "react-icons/fa";
 import { Modal, Button } from "react-bootstrap";
 import { toast } from "react-toastify";

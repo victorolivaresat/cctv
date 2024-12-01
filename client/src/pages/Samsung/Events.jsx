@@ -1,4 +1,4 @@
-import EventSamsung from "../../components/Events/EventSamsung";
+import EventSamsung from "../../components/Events/Samsung/EventSamsung";
 
 const Events = () => {
   return <EventSamsung />;

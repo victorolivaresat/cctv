@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import { getTheme, updateTheme } from "../api/users";
-import * as authAPI from "../api/authAPI";
+import * as authAPI from "../api/auth";
 import { toast } from "react-toastify";
 import PropTypes from "prop-types";
 import cookie from "js-cookie";

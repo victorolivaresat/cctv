@@ -1,42 +1,43 @@
 import {
-  formatDate,
-  getTomorrowDate,
-  getYesterdayDate,
-  formatDateInput,
-  validateDateRange,
-} from "../../../utils/DateUtils";
-import { Button, Form, InputGroup, Col, Row, Alert } from "react-bootstrap";
-import { FaEye, FaFilter, FaTimes, FaUndo } from "react-icons/fa";
-import { useState, useEffect } from "react";
-import ExcelExport from "../../../utils/ExcelExport";
-import useDarkMode from "../../../hooks/useDarkMode";
-import DataTableBase from "../../../utils/DataTable";
-import ObservationModal from "./ObservationsModal";
-import { MdApps, MdCircle } from "react-icons/md";
-import DetailHikvision from "./DetailHikvision";
-import { FaComment } from "react-icons/fa";
-import PropTypes from "prop-types";
-import {
   eventsHv,
   distinctNameHvCount,
   updateEventHvStatus,
   updateAddObservations,
 } from "../../../api/events";
 
+import {
+  formatDate,
+  formatDateInput,
+  getTomorrowDate,
+  getYesterdayDate,
+  validateDateRange,
+} from "../../../utils/DateUtils";
+import { Button, Form, InputGroup, Col, Row, Alert } from "react-bootstrap";
+import { FaEye, FaFilter, FaTimes, FaUndo } from "react-icons/fa";
+import ExcelExport from "../../../utils/ExcelExport";
+import useDarkMode from "../../../hooks/useDarkMode";
+import DataTableBase from "../../../utils/DataTable";
+import ObservationModal from "../ObservationsModal";
+import { MdApps, MdCircle } from "react-icons/md";
+import DetailHikvision from "./DetailHikvision";
+import { useState, useEffect } from "react";
+import { FaComment } from "react-icons/fa";
+import PropTypes from "prop-types";
+
 // Iconos y recursos
-import logoDarkHv from "../../assets/img/hikvision_dark.png";
-import logoHikvision from "../../assets/img/hikvision.png";
+import logoDarkHv from "../../../assets/img/hikvision_dark.png";
+import logoHikvision from "../../../assets/img/hikvision.png";
 
 const EventHv = () => {
   // Estados
   const [currentObservation, setCurrentObservation] = useState(null);
+  const [toggledClearRows, setToggleClearRows] = useState(false);
   const [showModalDetail, setShowModalDetail] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("new");
-  const [currentDetail, setCurrentDetail] = useState({});
   const [selectedRowsId, setSelectedRowsId] = useState([]);
-  const [toggledClearRows, setToggleClearRows] = useState(false);
   const [showModalObs, setShowModalObs] = useState(false);
   const [testsCountData, setTestsCountData] = useState(0);
+  const [currentDetail, setCurrentDetail] = useState({});
   const [selectedRow, setSelectedRow] = useState("");
   const [eventsData, setEventsData] = useState([]);
   const { darkMode } = useDarkMode();
@@ -89,11 +90,13 @@ const EventHv = () => {
     }
   };
 
+  // Funciones
   const handleFilterChange = (filterFunction) => (e) => {
     filterFunction(e.target.value);
     console.log(e.target.value);
   };
 
+  // Funciones de filtro
   const handleEventTypeFilterChange = handleFilterChange(setFilterEventType);
   const handleStatusFilterChange = handleFilterChange(setFilterStatus);
   const handleNameFilterChange = handleFilterChange(setFilterName);
@@ -115,11 +118,13 @@ const EventHv = () => {
     );
   });
 
+  // Obtener detalles del evento
   const getEventHvDetails = (row) => {
     setShowModalDetail(true);
     setCurrentDetail(row);
   };
 
+  // Obtener nombre del estado
   const getStatusName = (status) => {
     const statusNames = {
       new: "Nuevo",
@@ -129,6 +134,7 @@ const EventHv = () => {
     return statusNames[status];
   };
 
+  // Columnas de la tabla
   const columns = [
     {
       cell: () => <MdApps style={{ fill: "#43a047" }} />,
@@ -220,18 +226,22 @@ const EventHv = () => {
     },
   ];
 
+  // Funciones de actualización
   const handleStatusChange = (event) => {
     setSelectedStatus(event.target.value);
   };
 
+  // Funciones de selección
   const handleRowSelection = ({ selectedRows }) => {
     setSelectedRowsId(selectedRows.map((row) => row.id));
   };
 
+  // Funciones de actualización
   const handleClearRows = () => {
     setToggleClearRows(!toggledClearRows);
   };
 
+  // 
   const updateStatus = async (status) => {
     console.log("Selected rows ID:", selectedRowsId);
     console.log("Selected status:", status);
@@ -247,6 +257,7 @@ const EventHv = () => {
     }
   };
 
+  // Observaciones
   const handleShowModal = (row) => {
     setSelectedRow(row);
     setCurrentObservation(row.observations);
@@ -272,6 +283,7 @@ const EventHv = () => {
   const handleCloseModalObs = () => { setShowModalObs(false); };
   const handleCloseModalDetail = () => { setShowModalDetail(false); };
 
+  // Componente expandido
   const ExpandedComponent = ({ data }) => {
     let attachments = data.attachment;
 

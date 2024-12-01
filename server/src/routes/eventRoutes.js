@@ -27,8 +27,6 @@ routes.put('/events/hv/:id', authRequired, eventController.updateEventHvStatus);
 routes.get('/events/hv/event-type', authRequired, eventController.getEventsHvByEventType);
 routes.put('/events/samsung/observations/:id', authRequired, eventController.updateAddObservationsSamsung);
 routes.put('/events/hv/observations/:id', authRequired, eventController.putUpdateAddObservations);
-routes.get('/events/suport-hv', authRequired, eventController.getSuportEventsHv);
-routes.get('/events/suport-samsung', authRequired, eventController.getSuportEventsSamsung);
 routes.get('/events/notifications', eventController.getNewNotificationsCount);
 
 routes.get('/events/hv/:id', eventController.getEventHvDetail);

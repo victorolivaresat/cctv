@@ -1,7 +1,7 @@
-import ChartSamsungEvent from "../../components/Events/ChartSamsungEvent";
-import CardEventSamsung from "../../components/Events/CardEventSamsung";
-import ChartHvEvent from "../../components/Events/ChartHvEvent";
-import CardEventHv from "../../components/Events/CardEventHv";
+import ChartSamsungEvent from "../../components/Events/Samsung/ChartSamsungEvent";
+import CardEventSamsung from "../../components/Events/Samsung/CardEventSamsung";
+import ChartHvEvent from "../../components/Events/Hikvision/ChartHvEvent";
+import CardEventHv from "../../components/Events/Hikvision/CardEventHv";
 import { Row, Col } from "react-bootstrap";
 import "./Dashboard.css";
 

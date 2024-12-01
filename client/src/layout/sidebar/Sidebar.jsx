@@ -1,4 +1,4 @@
-import TeamCard from "../../components/templates/TeamCard";
+import TeamCard from "../../components/Layout/TeamCard";
 import LogoDark from "../../assets/img/logo_dark.png";
 import { FaChartBar, FaVideo } from "react-icons/fa";
 import useDarkMode from "../../hooks/useDarkMode";

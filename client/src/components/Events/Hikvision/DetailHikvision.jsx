@@ -69,20 +69,20 @@ const DetailHikvision = ({ show, handleClose, detail }) => {
           <p className="mt-3">
             <strong>Estado: &nbsp;</strong>
             {detail.status === "new" ? (
-              <span className="px-3 bg-primary bg-opacity-25 rounded-4">
+              <span className="px-3 text-bg-primary bg-primary rounded-4">
                 Nuevo
               </span>
             ) : detail.status === "pending" ? (
-              <span className="px-3 bg-warning rounded-4">Pendiente</span>
+              <span className="px-3 text-bg-warning bg-warning rounded-4">Pendiente</span>
             ) : (
-              <span className="px-3 bg-success rounded-4">Completado</span>
+              <span className="px-3 text-bg-success bg-success rounded-4">Completado</span>
             )}
           </p>
           <p>
-            {/* <strong>Fecha DVR: </strong> {formatDate(detail.event_time)} */}
+            <strong>Fecha DVR: </strong> {formatDate(detail.event_time)}
           </p>
           <p>
-            {/* <strong>Registrado: </strong> {formatDate(detail.created_at)} */}
+            <strong>Registrado: </strong> {formatDate(detail.created_at)}
           </p>
           <p>
             <strong>Observaciones: </strong>{" "}

@@ -1,10 +1,13 @@
 const EventSamsung = require("../models/EventSamsung");
-const EventHv = require("../models/EventHv");
 const { sequelize } = require("../../config/database");
 const { format } = require("../utils/dateUtils");
+const EventHv = require("../models/EventHv");
 const { Op } = require("sequelize");
 
-//const transporter = require("../../../config/mailConfig");
+
+/**************************************************************************/
+/********************** Eventos de Hikvision ******************************/
+/**************************************************************************/
 
 // Funcion para obtener todos los eventos de EventHv
 const getEventsHv = async (req, res) => {
@@ -27,6 +30,138 @@ const getEventsHv = async (req, res) => {
   }
 };
 
+// Funcion para obtener los últimos eventos de EventHv
+const getLastEventsHv = async (req, res) => {
+  const limit = parseInt(req.query.limit) || 5;
+  try {
+    const events = await EventHv.findAll({
+      limit: limit,
+      order: [["created_at", "DESC"]],
+    });
+    return res.json(events);
+  } catch (error) {
+    console.error("Error al obtener los últimos eventos de EventHv:", error);
+    res.status(500).send("Error al obtener los últimos eventos");
+  }
+};
+
+// Funcion para actualizar el estado de un evento de EventHv
+const updateEventHvStatus = async (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body;
+  try {
+    const event = await EventHv.findByPk(id);
+    if (!event) {
+      return res.status(404).send("Evento no encontrado");
+    }
+    event.status = status;
+    await event.save();
+    return res.json(event);
+  } catch (error) {
+    console.error("Error al actualizar el estado del evento:", error);
+    res.status(500).send("Error al actualizar el estado del evento");
+  }
+};
+
+// Funcion para actualizar las observaciones de un evento de EventHv
+const updateEventHvObservations = async (req, res) => {
+  const { id } = req.params;
+  const { observations } = req.body;
+  try {
+    const event = await EventHv.findByPk(id);
+    if (!event) {
+      return res.status(404).send("Evento no encontrado");
+    }
+    event.observations = observations;
+    await event.save();
+    return res.json(event);
+  } catch (error) {
+    console.error(
+      "Error al actualizar las observaciones del evento de EventHv:",
+      error
+    );
+    res.status(500).send("Error al actualizar las observaciones del evento");
+  }
+};
+
+// Funcion para obtener los eventos de EventHv agrupados por tipo de evento
+const getEventsHvByEventType = async (req, res) => {
+  try {
+    const events = await EventHv.findAll({
+      attributes: [
+        "name",
+        [sequelize.fn("SUM", 1), "event_count"],
+        "event_type",
+      ],
+      group: ["name", "event_type"],
+      order: [[sequelize.literal("event_count"), "DESC"]],
+      limit: 10,
+    });
+
+    return res.json(events);
+  } catch (error) {
+    console.error("Error al obtener los eventos de Hikvision:", error);
+    res.status(500).send("Error al obtener los eventos de Hikvision");
+  }
+};
+
+// Funcion para actualizar la observacion de un evento de EventHv
+const putUpdateAddObservations = async (req, res) => {
+  const { id } = req.params;
+  const { observations } = req.body;
+  try {
+    const event = await EventHv.findByPk(id);
+    if (!event) {
+      return res.status(404).send("Evento no encontrado");
+    }
+    event.observations = observations;
+    await event.save();
+    return res.json(event);
+  } catch (error) {
+    console.error(
+      "Error al actualizar la observacion del evento de Validacion:",
+      error
+    );
+    res.status(500).send("Error al actualizar la observacion de Validacion");
+  }
+};
+
+const getEventHvDetail = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const event = await EventHv.findByPk(id);
+    if (!event) {
+      return res.status(404).send("Evento no encontrado");
+    }
+    return res.json(event);
+  } catch (error) {
+    console.error("Error al obtener el detalle del evento de EventHv:", error);
+    res.status(500).send("Error al obtener el detalle del evento");
+  }
+};
+
+const deleteDuplicateEventsHv = async (req, res) => {
+  const { date } = req.query;
+  try {
+    const formattedDate = format(date);
+
+    await sequelize.query("EXEC DeleteDuplicateEventsHv :date", {
+      replacements: { date: formattedDate },
+    });
+
+    return res.json({ message: "Eventos duplicados eliminados" });
+  } catch (error) {
+    console.error("Error al eliminar eventos duplicados:", error);
+    res.status(500).send("Error al eliminar eventos duplicados");
+  }
+};
+
+
+/**************************************************************************/
+/*********************** Eventos de Samsung *******************************/
+/**************************************************************************/
+
+
 // Funcion para obtener todos los eventos de EventSamsung
 const getEventsSamsung = async (req, res) => {
   try {
@@ -35,21 +170,6 @@ const getEventsSamsung = async (req, res) => {
   } catch (error) {
     console.error("Error al obtener los eventos:", error);
     res.status(500).send("Error al obtener los eventos");
-  }
-};
-
-// Funcion para obtener los últimos eventos de EventHv
-const getLastEventsHv = async (req, res) => {
-  const limit = parseInt(req.query.limit) || 5;
-  try {
-    const events = await EventHv.findAll({
-      limit: limit,
-      order: [["createdAt", "DESC"]],
-    });
-    return res.json(events);
-  } catch (error) {
-    console.error("Error al obtener los últimos eventos de EventHv:", error);
-    res.status(500).send("Error al obtener los últimos eventos");
   }
 };
 
@@ -113,65 +233,6 @@ const updateEventSamsungObservations = async (req, res) => {
   }
 };
 
-// Funcion para actualizar el estado de un evento de EventHv
-const updateEventHvStatus = async (req, res) => {
-  const { id } = req.params;
-  const { status } = req.body;
-  try {
-    const event = await EventHv.findByPk(id);
-    if (!event) {
-      return res.status(404).send("Evento no encontrado");
-    }
-    event.status = status;
-    await event.save();
-    return res.json(event);
-  } catch (error) {
-    console.error("Error al actualizar el estado del evento:", error);
-    res.status(500).send("Error al actualizar el estado del evento");
-  }
-};
-
-// Funcion para actualizar las observaciones de un evento de EventHv
-const updateEventHvObservations = async (req, res) => {
-  const { id } = req.params;
-  const { observations } = req.body;
-  try {
-    const event = await EventHv.findByPk(id);
-    if (!event) {
-      return res.status(404).send("Evento no encontrado");
-    }
-    event.observations = observations;
-    await event.save();
-    return res.json(event);
-  } catch (error) {
-    console.error(
-      "Error al actualizar las observaciones del evento de EventHv:",
-      error
-    );
-    res.status(500).send("Error al actualizar las observaciones del evento");
-  }
-};
-
-// Funcion para obtener los eventos de EventHv agrupados por tipo de evento
-const getEventsHvByEventType = async (req, res) => {
-  try {
-    const events = await EventHv.findAll({
-      attributes: [
-        "name",
-        [sequelize.fn("SUM", 1), "event_count"],
-        "event_type",
-      ],
-      group: ["name", "event_type"],
-      order: [[sequelize.literal("event_count"), "DESC"]],
-      limit: 10,
-    });
-
-    return res.json(events);
-  } catch (error) {
-    console.error("Error al obtener los eventos de Hikvision:", error);
-    res.status(500).send("Error al obtener los eventos de Hikvision");
-  }
-};
 
 // Función para obtener eventos de EventSamsung agrupados por tipo de evento
 const getEventsSamsungByEventType = async (req, res) => {
@@ -244,50 +305,6 @@ const getDistinctNameSamsungCount = async (req, res) => {
   }
 };
 
-// Funcion para actualizar la observacion de un evento de EventHv
-const putUpdateAddObservations = async (req, res) => {
-  const { id } = req.params;
-  const { observations } = req.body;
-  try {
-    const event = await EventHv.findByPk(id);
-    if (!event) {
-      return res.status(404).send("Evento no encontrado");
-    }
-    event.observations = observations;
-    await event.save();
-    return res.json(event);
-  } catch (error) {
-    console.error(
-      "Error al actualizar la observacion del evento de Validacion:",
-      error
-    );
-    res.status(500).send("Error al actualizar la observacion de Validacion");
-  }
-};
-
-// Funcion para obtener todos los eventos de SuportEventHv
-const getSuportEventsHv = async (req, res) => {
-  try {
-    const events = await SuportEventHv.findAll({
-      order: [["createdAt", "DESC"]],
-    });
-    return res.json(events);
-  } catch (error) {
-    console.error("Error al obtener los eventos de SuportEventHv:", error);
-    res.status(500).send("Error al obtener los eventos de SuportEventHv");
-  }
-};
-
-// Funcion para obtener todos los eventos de SuportEventSamsung
-const getSuportEventsSamsung = async (req, res) => {
-  try {
-    const events = await SuportEventSamsung.findAll();
-    return res.json(events);
-  } catch (error) {
-    console.error("Error al obtener los eventos de SuportEventSamsung:", error);
-    res.status(500).send("Error al obtener los eventos de SuportEventSamsung");
-  }
-};
 
 // Funcion para actualizar la observacion de un evento de EventSamsung
 const updateAddObservationsSamsung = async (req, res) => {
@@ -334,20 +351,6 @@ const getNewNotificationsCount = async (req, res) => {
   }
 };
 
-const getEventHvDetail = async (req, res) => {
-  const { id } = req.params;
-  try {
-    const event = await EventHv.findByPk(id);
-    if (!event) {
-      return res.status(404).send("Evento no encontrado");
-    }
-    return res.json(event);
-  } catch (error) {
-    console.error("Error al obtener el detalle del evento de EventHv:", error);
-    res.status(500).send("Error al obtener el detalle del evento");
-  }
-};
-
 const getEventSamsungDetail = async (req, res) => {
   const { id } = req.params;
   try {
@@ -365,22 +368,7 @@ const getEventSamsungDetail = async (req, res) => {
   }
 };
 
-const deleteDuplicateEventsHv = async (req, res) => {
-  const { startDate, endDate } = req.query;
-  try {
-    const start = format(startDate);
-    const end = format(endDate);
 
-    await sequelize.query("EXEC DeleteDuplicateEventsHv :startDate, :endDate", {
-      replacements: { startDate: start, endDate: end },
-    });
-
-    return res.json({ message: "Eventos duplicados eliminados" });
-  } catch (error) {
-    console.error("Error al eliminar eventos duplicados:", error);
-    res.status(500).send("Error al eliminar eventos duplicados");
-  }
-};
 
 module.exports = {
   getEventsHv,
@@ -395,8 +383,6 @@ module.exports = {
   getEventsSamsungByEventType,
   getDistinctNameSamsungCount,
   putUpdateAddObservations,
-  getSuportEventsHv,
-  getSuportEventsSamsung,
   updateAddObservationsSamsung,
   getNewNotificationsCount,
   getEventHvDetail,
