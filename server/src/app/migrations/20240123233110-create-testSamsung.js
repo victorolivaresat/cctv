@@ -4,30 +4,30 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('TestSamsung', {
+    await queryInterface.createTable('test_samsung', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name:{
+      name: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      macAddress:{
+      mac_address: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      eventName:{
+      event_name: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      message:{
+      message: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
-      datetime:{
+      event_time: {
         allowNull: false,
         type: Sequelize.DATE
       },
@@ -35,6 +35,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('TestSamsung');
+    await queryInterface.dropTable('test_samsung');
   }
 };

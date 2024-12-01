@@ -1,23 +1,22 @@
 import { Button, Form, Container, Row, Col, Card } from "react-bootstrap";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import DarkModeContext from "../../contexts/DarkModeContext";
-import { useAuth } from "../../contexts/AuthContext";
-import LogoDark from "../../assets/img/logo_dark.png";
+import useDarkMode from "../../hooks/useDarkMode";
+import { useAuth } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import Logo from "../../assets/img/logo.png";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import "./Login.css";
+import "./login.css";
 
+import LogoDark from "../../assets/img/logo_dark.png";
+import Logo from "../../assets/img/logo.png";
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors }, } = useForm();
+  const { isAuthenticated } = useAuth();
   const { loginUser } = useAuth();
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth();
-  const darkMode = useContext(DarkModeContext);
-
-
+  const { darkMode } = useDarkMode();
+  
   const onSubmit = async (data) => {
     const { email, password } = data;
     await loginUser(email, password);
@@ -42,13 +41,13 @@ const Login = () => {
             alt="Logo"
           />
           <Card className="login-card rounded-5 shadow p-4">
-            <Card.Title className="text-center my-4 fs-2 my-5 fw-bold">
-              Login
+            <Card.Title className="text-center my-4 fw-bold">
+              Iniciar Sesión
               </Card.Title>
             <Card.Body>
               <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group className="mb-4">
-                  <Form.Label>Email</Form.Label>
+                  <Form.Label>Email:</Form.Label>
                   <Form.Control
                     type="email"
                     autoFocus
@@ -68,7 +67,7 @@ const Login = () => {
                       </a>
                     </small>
                   </div>
-                  <Form.Label>Contraseña</Form.Label>
+                  <Form.Label>Contraseña:</Form.Label>
                   <div className="input-group">
                     <Form.Control
                       type={showPassword ? "text" : "password"}
@@ -90,7 +89,7 @@ const Login = () => {
                   )}
                 </Form.Group>
                 <Button
-                  className="mb-3 btn-lg d-block w-100 rounded-5"
+                  className="mb-3d-block w-100 rounded-5"
                   variant="primary"
                   type="submit"
                 >

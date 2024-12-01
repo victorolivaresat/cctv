@@ -1,60 +1,47 @@
-import DarkModeContext from "../../contexts/DarkModeContext";
-import { Offcanvas, Nav, Button } from "react-bootstrap";
+import TeamCard from "../../components/Layout/TeamCard";
 import LogoDark from "../../assets/img/logo_dark.png";
-import { useAuth } from "../../contexts/AuthContext";
-import { FaChartBar, FaTasks  } from "react-icons/fa";
-import { BsBoxArrowRight } from "react-icons/bs";
+import { FaChartBar, FaVideo } from "react-icons/fa";
+import useDarkMode from "../../hooks/useDarkMode";
+import { Offcanvas, Nav } from "react-bootstrap";
 import Logo from "../../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
-import { useContext } from "react";
-import TeamCard from "./TeamCard";
-import "./Sidebar.css";
-import { useState } from "react";
+import "./sidebar.css";
+
+import { MdFiberDvr } from "react-icons/md";
 
 const Sidebar = ({ show, handleClose }) => {
-
-  const { logoutUser } = useAuth();
-  const darkMode = useContext(DarkModeContext);
-  const [submenuVisible, setSubmenuVisible] = useState(false);
+  const darkMode = useDarkMode();
 
   const navigationItems = [
     { to: "/", text: "Dashboard", icon: <FaChartBar /> },
-    { to: "/events", text: "Events", icon: <FaTasks /> },
-    { to: "/events/suport", text: "Events-Suport", icon: <FaTasks /> },
+    { to: "/hikvision", text: "Hikvision", icon: <FaVideo /> },
+    { to: "/samsung", text: "Samsung", icon: <MdFiberDvr /> },
   ];
-
-  const handleNavLinkClick = () => {
-    handleClose();
-  };
-
-  const handleTransactionClick = () => {
-    // Mostrar u ocultar submenús cuando se hace clic en la opción "Transaction"
-    setSubmenuVisible(!submenuVisible);
-  };
 
   const renderNavigationLinks = () => {
     return navigationItems.map((item, index) => (
       <div key={index}>
         <NavLink
           to={item.to}
-          className="sidebar-header"
-          onClick={item.submenu ? handleTransactionClick : handleNavLinkClick}
+          className={({ isActive }) =>
+            isActive ? "active-link d-flex align-items-center gap-2" : "sidebar-link d-flex align-items-center gap-2"
+          }
+          onClick={handleClose}
         >
-          <span className="d-flex align-items-center gap-2">
-            {item.icon}
-            {item.text}
-          </span>
+          {item.icon}
+          {item.text}
         </NavLink>
-        {/* Renderizar submenú si existe y es visible */}
-        {item.submenu && submenuVisible && (
+        {item.submenu &&  (
           <div className="sub-menu">
             {item.submenu.map((subItem, subIndex) => (
               <NavLink
                 key={subIndex}
                 to={subItem.to}
-                className="sidebar-sublink"
-                onClick={handleNavLinkClick}
+                className={({ isActive }) =>
+                  isActive ? "active-sublink" : "sidebar-sublink"
+                }
+                onClick={handleClose}
               >
                 <span className="d-flex align-items-center gap-1">
                   {subItem.icon}
@@ -68,15 +55,6 @@ const Sidebar = ({ show, handleClose }) => {
     ));
   };
 
-  const handleLogout = async () => {
-    try {
-      await logoutUser();
-      handleClose();
-    } catch (error) {
-      console.error("Error al cerrar sesión: ", error);
-    }
-  };
-
   return (
     <div>
       <Offcanvas
@@ -85,25 +63,13 @@ const Sidebar = ({ show, handleClose }) => {
         scroll={true}
         backdrop={true}
         className="offcanvas sidebar shadow-sm"
-        onMouseLeave={handleClose}
       >
         <Offcanvas.Header closeButton>{renderLogo(darkMode)}</Offcanvas.Header>
         <hr />
         <Offcanvas.Body className="p-2">
           <Nav defaultActiveKey="/dashboard" className="flex-column">
-            <span className="sidebar-header">Admin Elements</span>
             {renderNavigationLinks()}
-            <hr />
-            <span className="sidebar-header">Users Management</span>
-            <hr />
             <TeamCard />
-            <Button
-              onClick={handleLogout}
-              className="d-flex align-items-center justify-content-center gap-2 mx-3"
-              variant="outline-primary"
-            >
-              <BsBoxArrowRight /> Log Out
-            </Button>
           </Nav>
         </Offcanvas.Body>
       </Offcanvas>
@@ -120,7 +86,7 @@ const renderLogo = (darkMode) => {
     >
       <img
         id="at-logo"
-        src={darkMode ? LogoDark : Logo}
+        src={darkMode[0] ? LogoDark : Logo}
         alt="ATLogo"
         draggable="false"
         width={150}

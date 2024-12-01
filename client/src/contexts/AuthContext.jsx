@@ -1,7 +1,6 @@
-/* eslint-disable react-refresh/only-export-components */
-import { createContext, useState, useContext, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 import { getTheme, updateTheme } from "../api/users";
-import * as authAPI from "../api/authAPI";
+import * as authAPI from "../api/auth";
 import { toast } from "react-toastify";
 import PropTypes from "prop-types";
 import cookie from "js-cookie";
@@ -13,7 +12,6 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
 
-
   const authenticateUser = (user) => {
     setCurrentUser(user);
     setIsAuthenticated(true);
@@ -24,7 +22,6 @@ export const AuthProvider = ({ children }) => {
       const data = await authAPI.login(email, password);
       if (data) {
         authenticateUser(data);
-
         const theme = await getTheme(data.id);
         window.localStorage.setItem("theme", theme.darkMode);
         toast.success("¡Bienvenido!");
@@ -81,7 +78,6 @@ export const AuthProvider = ({ children }) => {
         setIsAuthenticated(true);
         setCurrentUser(res);
         setLoading(false);
-
       } catch (error) {
         console.log(error);
         setIsAuthenticated(false);
@@ -99,8 +95,8 @@ export const AuthProvider = ({ children }) => {
     loginUser,
     logoutUser,
     isAuthenticated,
-    loading,
     updateThemeUser,
+    loading,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
@@ -109,5 +105,3 @@ export const AuthProvider = ({ children }) => {
 AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export const useAuth = () => useContext(AuthContext);

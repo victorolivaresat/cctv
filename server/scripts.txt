@@ -19,14 +19,5 @@ npx sequelize-cli migration:generate --name create-testsHv
 npx sequelize-cli migration:generate --name create-eventsSamsung
 npx sequelize-cli migration:generate --name create-testsSamsung
 
-npx sequelize-cli migration:generate --name create-suportEventHv
-npx sequelize-cli migration:generate --name create-suportEventSamsung
-
-
-npx sequelize-cli migration:generate --name create-interbankCompany
-npx sequelize-cli migration:generate --name create-bcpAlert
-npx sequelize-cli migration:generate --name create-bcpNotify
-npx sequelize-cli migration:generate --name create-bcpOwnAccount
-npx sequelize-cli migration:generate --name create-cncBbva
 <======================================================>
 

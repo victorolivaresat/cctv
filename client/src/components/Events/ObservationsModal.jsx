@@ -1,37 +1,41 @@
-import { useState, useEffect } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 const ObservationsModal = ({ show, handleClose, observation, setObservation, handleSave }) => {
   const [localObservations, setLocalObservations] = useState(observation);
 
   useEffect(() => {
-    console.log("Observation prop changed:", observation); // Verifica el valor de la observación cuando el prop cambia
     setLocalObservations(observation);
   }, [observation]);
 
   const handleObservationsChange = (event) => {
     const newObservations = event.target.value;
-    console.log("Local observations updated:", newObservations); // Verifica el nuevo valor al cambiar el textarea
+    console.log("Local observations updated:", newObservations);
     setLocalObservations(newObservations);
   };
 
   const saveObservations = () => {
-    console.log("Saving observations..."); // Mensaje de depuración al intentar guardar
+    console.log("Saving observations..."); 
     if (localObservations.trim() === "") {
       alert("Observations cannot be empty.");
       return;
     }
-    console.log("Observations to be saved:", localObservations); // Verifica el valor que se va a guardar
+    console.log("Observations to be saved:", localObservations); 
     setObservation(localObservations);
     handleSave(localObservations);
     handleClose();
   };
 
+  const handleModalClose = () => {
+    setLocalObservations("");
+    handleClose();
+  };
+
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleModalClose}>
       <Modal.Header closeButton>
-        <Modal.Title>{`Edit Observations`}</Modal.Title>
+        <Modal.Title>Observaciones</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form.Control
@@ -39,15 +43,12 @@ const ObservationsModal = ({ show, handleClose, observation, setObservation, han
           rows={3}
           value={localObservations}
           onChange={handleObservationsChange}
-          placeholder="Enter your observations here..."
+          placeholder="Ingrese las observaciones del evento..."
         />
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
         <Button variant="primary" onClick={saveObservations}>
-          Save Changes
+          Guardar Cambios
         </Button>
       </Modal.Footer>
     </Modal>

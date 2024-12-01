@@ -1,11 +1,7 @@
-const { Sequelize, DataTypes, Model } = require("sequelize");
-const sequelize = require("../../config/database");
+const { DataTypes, Model } = require("sequelize");
+const sequelize = require("../../config/database").sequelize;
 
-class User extends Model {
-  /**
-   * Helper method for defining associations.
-   */
-}
+class User extends Model {}
 
 User.init(
   {
@@ -13,14 +9,8 @@ User.init(
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
-    },
-    firstName: {
-      type: DataTypes.STRING,
       allowNull: false,
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      field: 'id',
     },
     email: {
       type: DataTypes.STRING,
@@ -29,21 +19,43 @@ User.init(
       validate: {
         isEmail: true,
       },
+      field: 'email',
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
+      field: 'password',
     },
-    profileImage: {
+    profile_image: {
       type: DataTypes.STRING,
       allowNull: true,
+    },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    is_active: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
+    },
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    updated_at: {
+      type: DataTypes.DATE,
+      allowNull: false,
     },
   },
   {
     sequelize,
     modelName: "User",
-    tableName: "Users",
+    tableName: "users",
     timestamps: true,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   }
 );
 

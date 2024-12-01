@@ -5,41 +5,39 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
 
-    const statusValues = ['new', 'pending', 'completed'];
-
-    await queryInterface.createTable('EventHv', {
+    await queryInterface.createTable('event_hv', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name:{
+      name: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      eventType: {
+      event_type: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      eventTime: {
+      event_time: {
         type: Sequelize.DATE,
         allowNull: false
       },
-      dvrName: {
+      dvr_name: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      dvrSerialNumber: {
+      dvr_serial_number: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      cameraName: {
+      camera_name: {
         type: Sequelize.STRING,
         allowNull: true
       },
       status: {
-        type: Sequelize.ENUM(...statusValues),
+        type: Sequelize.STRING,
         allowNull: true,
         defaultValue: 'new'
       },
@@ -48,26 +46,22 @@ module.exports = {
         allowNull: true
       },
       attachment: {
-        type: [Sequelize.TEXT],
-        allowNull: true,
-        defaultValue: []
+        type: Sequelize.STRING,
+        allowNull: true
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP')
       }
     });
 
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('EventHv');
+    await queryInterface.dropTable('event_hv');
   }
 };
-

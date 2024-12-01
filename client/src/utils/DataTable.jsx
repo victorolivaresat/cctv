@@ -1,8 +1,8 @@
 import DataTable, { createTheme } from "react-data-table-component";
-import DarkModeContext from "../contexts/DarkModeContext";
-import { useContext, useEffect, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import LoaderDataTable from "./LoaderDataTable";
+import useDarkMode from "../hooks/useDarkMode";
+import { useEffect, useState } from "react";
 
 createTheme(
   "myDarkTheme",
@@ -27,7 +27,7 @@ createTheme(
       disabled: "rgba(0,0,0,.12)",
     },
     highlightOnHover: {
-      default: "#073642",
+      default: "#21242b",
       text: "rgba(255,255,255,0.87)",
     },
   },
@@ -35,7 +35,7 @@ createTheme(
 );
 
 const DataTableBase = (props) => {
-  const darkMode = useContext(DarkModeContext);
+  const { darkMode } = useDarkMode();
   const sortIcon = <IoIosArrowDown />;
   const [pending, setPending] = useState(true);
 

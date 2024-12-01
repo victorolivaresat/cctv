@@ -186,11 +186,50 @@
 
 
 @keyframes blink {
-  0% {opacity: 1;}
-  50% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .blink {
+  white-space: pre-wrap;
   animation: blink 1s infinite;
+}
+
+
+.status-new {
+  margin: 0.75rem;
+  border-radius: 1.5rem;
+  background: #a8d0ed;
+  color: #1761b0;
+}
+
+.status-pending {
+  margin: 0.75rem;
+  border-radius: 1.5rem;
+  background: #fffd88;
+  color: #6e690b;
+}
+
+.status-completed {
+  margin: 0.75rem;
+  border-radius: 1.5rem;
+  background: #abeed2;
+  color: #229263;
+}
+
+.event-details {
+  max-height: 55px;
+  overflow-y: auto;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
