@@ -69,13 +69,6 @@ const DetailSamsung = ({ show, handleClose, detail }) => {
             </span>
           )}
         </p>
-
-        <p>
-          <strong>Fecha DVR: </strong> {formatDate(detail.dateTime)}
-        </p>
-        <p>
-          <strong>Registrado: </strong> {formatDate(detail.createdAt)}
-        </p>
         <p>
           <strong>Observaciones: </strong>{" "}
           {detail.observations ? detail.observations : "-"}

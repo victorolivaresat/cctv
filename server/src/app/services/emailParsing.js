@@ -4,24 +4,25 @@ const EventHv = require("../models/EventHv");
 const TestHv = require("../models/TestHv");
 const { extractDataFromBody } = require("../utils/emailUtils");
 
-
 //======== Funciones Samsung ============//
 const processTestSamsungEmail = async (parsedEmail, senderName, macAddress) => {
   const testMessage = "This testing E-mail";
 
   await TestSamsung.create({
     name: senderName,
-    macAddress: macAddress,
-    eventName: "Test Email",
+    mac_address: macAddress,
+    event_name: "Test Email",
     message: testMessage,
-    datetime: parsedEmail.date,
+    event_time: parsedEmail.date,
   });
 };
 
+// Procesa el email de Samsung
 const processRegularSamsungEmail = async (
   parsedEmail,
   senderName,
-  macAddress
+  macAddress,
+  attachmentData
 ) => {
   const bodySections = parsedEmail.text
     .split("\n")
@@ -31,39 +32,44 @@ const processRegularSamsungEmail = async (
         .findIndex((line) => line.includes("MAC address:")) + 1
     );
 
-  let eventData = {};
-  let currentEvent = null;
+  let eventData = bodySections
+    .filter((section) => section.trim() !== "")
+    .map((section) => section.trim())
+    .join(" ");
 
-  bodySections.forEach((section) => {
-    if (section.trim() === "") return;
-
-    if (section.match(/^[A-Za-z ]+:/)) {
-      currentEvent = section.trim();
-      eventData[currentEvent] = "";
-    } else if (currentEvent) {
-      eventData[currentEvent] += section.trim() + " ";
-    }
-  });
+  // Corregir "Vdieo" u otras variantes a "Video"
+  eventData = eventData.replace(/\bVdieo\b/gi, "Video");
 
   await EventSamsung.create({
     name: senderName,
-    macAddress: macAddress,
-    eventName: JSON.stringify(eventData),
-    dateTime: parsedEmail.date,
+    mac_address: macAddress,
+    event_name: eventData,
+    event_time: parsedEmail.date,
+    status: "new",
+    attachment: attachmentData,
   });
 };
 
-const processSamsung = async (parsedEmail) => {
+
+// Procesa el email de Samsung
+const processSamsung = async (
+  subject,
+  parsedEmail,
+  notSenderName,
+  attachmentData
+) => {
   const body = parsedEmail.text;
   const macAddress = extractDataFromBody(body, /MAC address:\s*(.*)/);
   const senderInfo = parsedEmail.from.text;
   const senderName = senderInfo.match(/<([^>]*)>/)[1];
   const testMessage = "This testing E-mail";
 
+  console.log("Sender Name:", senderName);
+
   if (body.includes(testMessage)) {
     await processTestSamsungEmail(parsedEmail, senderName, macAddress);
   } else {
-    await processRegularSamsungEmail(parsedEmail, senderName, macAddress);
+    await processRegularSamsungEmail(parsedEmail, senderName, macAddress, attachmentData);
   }
 };
 

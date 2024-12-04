@@ -14,12 +14,14 @@ import {
 } from "../../../utils/DateUtils";
 import { Button, Form, InputGroup, Col, Row, Alert } from "react-bootstrap";
 import { FaEye, FaFilter, FaTimes, FaUndo } from "react-icons/fa";
+
 import ExcelExport from "../../../utils/ExcelExport";
 import useDarkMode from "../../../hooks/useDarkMode";
 import DataTableBase from "../../../utils/DataTable";
 import ObservationModal from "../ObservationsModal";
 import { MdApps, MdCircle } from "react-icons/md";
 import DetailHikvision from "./DetailHikvision";
+import RemoveDuplicate from "./RemoveDuplicate";
 import { useState, useEffect } from "react";
 import { FaComment } from "react-icons/fa";
 import PropTypes from "prop-types";
@@ -308,7 +310,7 @@ const EventHv = () => {
                 <div key={index} className="mt-3 p-2">
                   <p>{file.filename}</p>
                   <img
-                    src={`http://localhost:5000/attachments/${file.path}`}
+                    src={`http://localhost:5000/attachments/${file.filename}`}
                     alt={file.filename}
                     width={250}
                   />
@@ -336,6 +338,11 @@ const EventHv = () => {
           <MdCircle className="text-success" />
           &nbsp; Connected DVR: {testsCountData}
         </div>
+
+        <hr className="mb-3" />
+
+        <RemoveDuplicate />
+
       </Col>
 
       <Col md={10} className="px-4">

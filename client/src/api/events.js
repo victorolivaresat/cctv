@@ -127,7 +127,9 @@ export const removeDuplicateEventsHv = async (date) => {
     const { data } = await axios.delete(`/events/hv/remove-duplicates`, {
       params: { date },
     });
+
     return data;
+    
   } catch (error) {
     console.error("Error deleting duplicate events for Hikvision:", error);
   }

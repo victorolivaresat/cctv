@@ -3,20 +3,30 @@ import { Form, Button } from "react-bootstrap";
 import { useState, useEffect, useCallback } from "react";
 
 const ProcessEmails = () => {
-  const [folder, setFolder] = useState("Prueba");
-  const [date, setDate] = useState(() => {
+  const folder = "INBOX";
+  const [startDate, setStartDate] = useState(() => {
     const today = new Date();
-    return today.toISOString().split("T")[0];
+    return today.toISOString().slice(0, 16);
   });
+  const [endDate, setEndDate] = useState(() => {
+    const today = new Date();
+    return today.toISOString().slice(0, 16);
+  });
+  const [brand, setBrand] = useState("hikvision");
 
   const handleProcessEmail = useCallback(async () => {
     try {
-      const result = await processEmail(folder, date);
+      console.log("Procesando correos...");
+      console.log("Carpeta:", folder);
+      console.log("Fecha de inicio:", startDate);
+      console.log("Fecha de fin:", endDate);
+      console.log("Marca:", brand);
+      const result = await processEmail(folder, startDate, endDate, brand);
       console.log("Resultado del procesamiento de correos:", result);
     } catch (error) {
       console.error("Error al procesar correos:", error);
     }
-  }, [folder, date]);
+  }, [folder, startDate, endDate, brand]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,26 +47,46 @@ const ProcessEmails = () => {
         className="bg-body-tertiary p-3 rounded shadow-sm"
       >
         <Form.Group className="mb-3">
-          <Form.Label htmlFor="folderSelect">Seleccionar Carpeta:</Form.Label>
-          <Form.Select
-            id="folderSelect"
-            value={folder}
-            onChange={(e) => setFolder(e.target.value)}
-            className="form-select"
-          >
-            <option value="Prueba">PRUEBA</option>
-            <option value="PROCESADOS">PROCESADOS</option>
-          </Form.Select>
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label htmlFor="date">Fecha:</Form.Label>
+          <Form.Label htmlFor="folderInput">Carpeta:</Form.Label>
           <Form.Control
-            type="date"
-            id="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+            type="text"
+            id="folderInput"
+            value={folder}
+            readOnly
             className="form-control"
           />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label htmlFor="startDate">Fecha y Hora de Inicio:</Form.Label>
+          <Form.Control
+            type="datetime-local"
+            id="startDate"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            className="form-control"
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label htmlFor="endDate">Fecha y Hora de Fin:</Form.Label>
+          <Form.Control
+            type="datetime-local"
+            id="endDate"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+            className="form-control"
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label htmlFor="brandSelect">Seleccionar Marca:</Form.Label>
+          <Form.Select
+            id="brandSelect"
+            value={brand}
+            onChange={(e) => setBrand(e.target.value)}
+            className="form-select"
+          >
+            <option value="hikvision">Hikvision</option>
+            <option value="samsung">Samsung</option>
+          </Form.Select>
         </Form.Group>
         <Button type="submit" variant="primary" size="sm" className="w-100">
           Procesar Correos

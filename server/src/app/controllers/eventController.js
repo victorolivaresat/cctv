@@ -145,6 +145,8 @@ const removeDuplicateEventsHv = async (req, res) => {
   try {
     const formattedDate = format(date);
 
+    console.log("Fecha formateada:", formattedDate);
+
     await sequelize.query("EXEC RemoveDuplicatesByDate :date", {
       replacements: { date: formattedDate },
     });
@@ -179,7 +181,7 @@ const getLastEventsSamsung = async (req, res) => {
   try {
     const events = await EventSamsung.findAll({
       limit: limit,
-      order: [["createdAt", "DESC"]],
+      order: [["created_at", "DESC"]],
     });
     return res.json(events);
   } catch (error) {
@@ -233,14 +235,13 @@ const updateEventSamsungObservations = async (req, res) => {
   }
 };
 
-
 // Función para obtener eventos de EventSamsung agrupados por tipo de evento
 const getEventsSamsungByEventType = async (req, res) => {
   try {
     // Buscar todos los eventos con los atributos necesarios
     const events = await EventSamsung.findAll({
-      attributes: ["id", "name", "eventName"],
-      order: [["createdAt", "DESC"]],
+      attributes: ["id", "name", "event_name"],
+      order: [["created_at", "DESC"]],
       limit: 10,
     });
 
@@ -255,11 +256,11 @@ const getEventsSamsungByEventType = async (req, res) => {
     let groupedEvents = {};
 
     events.forEach((event) => {
-      const { id, name, eventName } = event.dataValues;
+      const { id, name, event_name } = event.dataValues;
 
-      if (eventName) {
+      if (event_name) {
         keywords.forEach((keyword) => {
-          if (eventName.includes(keyword)) {
+          if (event_name.includes(keyword)) {
             const key = `${name}-${keyword}`;
 
             if (groupedEvents[key]) {
@@ -281,6 +282,8 @@ const getEventsSamsungByEventType = async (req, res) => {
     const processedEvents = Object.values(groupedEvents).sort(
       (a, b) => b.event_count - a.event_count
     );
+
+    console.log("Eventos agrupados:", processedEvents);
 
     // Retornar los 20 eventos principales como respuesta
     return res.json(processedEvents.slice(0, 20));
@@ -304,7 +307,6 @@ const getDistinctNameSamsungCount = async (req, res) => {
     res.status(500).send("Error al obtener la cantidad de nombres distintos");
   }
 };
-
 
 // Funcion para actualizar la observacion de un evento de EventSamsung
 const updateAddObservationsSamsung = async (req, res) => {
@@ -367,7 +369,6 @@ const getEventSamsungDetail = async (req, res) => {
     res.status(500).send("Error al obtener el detalle del evento");
   }
 };
-
 
 
 module.exports = {

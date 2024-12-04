@@ -97,9 +97,9 @@ const EventSamsung = () => {
     const filterDateTimeLower = filterDateTime.toLowerCase();
 
     const eventNameLower = event.name.toLowerCase();
-    const eventEventNameLower = event.eventName.toLowerCase();
+    const eventEventNameLower = event.event_name.toLowerCase();
     const eventStatusLower = event.status.toLowerCase();
-    const eventDateTimeLower = event.dateTime.toLowerCase();
+    const eventDateTimeLower = event.event_time.toLowerCase();
 
     return (
       (filterNameLower ? eventNameLower.includes(filterNameLower) : true) &&
@@ -142,9 +142,9 @@ const EventSamsung = () => {
     },
     {
       name: "Nombre Evento",
-      selector: (row) => row.eventName,
+      selector: (row) => row.event_name,
       cell: (row) => {
-        const eventNameParts = row.eventName.split(":");
+        const eventNameParts = row.event_name.split(":");
         return eventNameParts[0];
       },
       sortable: true,
@@ -153,14 +153,14 @@ const EventSamsung = () => {
     },
     {
       name: "Fecha Dvr",
-      selector: (row) => formatDate(row.dateTime),
+      selector: (row) => formatDate(row.event_time),
       sortable: true,
       minWidth: "150px",
       maxWidth: "200px",
     },
     {
       name: "Fecha Creacion",
-      selector: (row) => formatDate(row.createdAt),
+      selector: (row) => formatDate(row.created_at),
       sortable: true,
       minWidth: "150px",
       maxWidth: "200px",
@@ -223,7 +223,7 @@ const EventSamsung = () => {
           Event Name
         </h6>
         <MdCheck className="me-2" />
-        {data.eventName
+        {data.event_name
           .split("\n")
           .filter((line) => !line.includes(".jpg"))
           .join("\n")}

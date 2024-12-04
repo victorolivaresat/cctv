@@ -1,10 +1,10 @@
 import { FaVideo, FaClock, FaCheck, FaCalendar } from "react-icons/fa";
-import useDarkMode from "../../../hooks/useDarkMode";
-import logoSamsung from "../../../assets/img/samsung.png";
 import logoDarkSamsung from "../../../assets/img/samsung_dark.png";
+import logoSamsung from "../../../assets/img/samsung.png";
 import { Row, Col, Card, Form } from "react-bootstrap";
 import { lastEventsSamsung } from "../../../api/events";
 import { formatDate } from "../../../utils/DateUtils";
+import useDarkMode from "../../../hooks/useDarkMode";
 import { useEffect, useState } from "react";
 
 const CardEventSamsung = () => {
@@ -17,7 +17,6 @@ const CardEventSamsung = () => {
       try {
         const data = await lastEventsSamsung(eventLimit);
         setEventsData(data);
-        console.log(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -68,15 +67,15 @@ const CardEventSamsung = () => {
                   <FaCheck size={15} /> &nbsp;
                   {event.name}
                 </Card.Title>
-                {event.eventName && (
+                {event.event_name && (
                   <div className="px-2">
                     <div className="mb-1">
-                      <FaVideo /> &nbsp; Eventname:
+                      <FaVideo /> &nbsp; Event name:
                     </div>
                     <div className="event-details">
                       <pre className="blink">
                         <span></span>
-                        {event.eventName}
+                        {event.event_name}
                       </pre>
                     </div>
                   </div>
@@ -84,11 +83,11 @@ const CardEventSamsung = () => {
 
                 <Card.Text className="mt-3 px-2">
                   <FaClock /> &nbsp;Event Time DVR: &nbsp;
-                  {formatDate(event.dateTime)}
+                  {formatDate(event.event_time)}
                 </Card.Text>
                 <Card.Text className="px-2">
                   <FaCalendar /> &nbsp;Created Date: &nbsp;
-                  {formatDate(event.createdAt)}
+                  {formatDate(event.created_at)}
                 </Card.Text>
               </Card.Body>
             </Card>

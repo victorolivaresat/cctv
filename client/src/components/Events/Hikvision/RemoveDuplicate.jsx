@@ -4,11 +4,13 @@ import { FaTimes } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { useState } from "react";
 
-const DeleteDuplicate = () => {
+const RemoveDuplicate = () => {
   const [date, setDate] = useState("");
 
   const handleDeleteDuplicates = async () => {
-    if (date) {
+
+    console.log("Date:", date);
+    if (!date) {
       toast.error("Por favor, seleccione una fecha");
       return;
     }
@@ -41,11 +43,11 @@ const DeleteDuplicate = () => {
           variant="danger"
           onClick={handleDeleteDuplicates}
         >
-          <FaTimes /> &nbsp; Eliminar Duplicados
+          <FaTimes />&nbsp;Eliminar Duplicados
         </Button>
       </Form.Group>
     </div>
   );
 };
 
-export default DeleteDuplicate;
+export default RemoveDuplicate;

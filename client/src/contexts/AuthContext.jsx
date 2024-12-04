@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import { getTheme, updateTheme } from "../api/users";
-import * as authAPI from "../api/auth";
+import * as auth from "../api/auth";
 import { toast } from "react-toastify";
 import PropTypes from "prop-types";
 import cookie from "js-cookie";
@@ -19,11 +19,10 @@ export const AuthProvider = ({ children }) => {
 
   const loginUser = async (email, password) => {
     try {
-      const data = await authAPI.login(email, password);
+      const data = await auth.login(email, password);
       if (data) {
         authenticateUser(data);
-        const theme = await getTheme(data.id);
-        window.localStorage.setItem("theme", theme.darkMode);
+        await getTheme(data.id);
         toast.success("¡Bienvenido!");
       }
     } catch (error) {
@@ -34,15 +33,12 @@ export const AuthProvider = ({ children }) => {
 
   const logoutUser = async () => {
     try {
-      await authAPI.logout();
+      await auth.logout();
       cookie.remove("token");
       setCurrentUser(null);
       setIsAuthenticated(false);
-      window.localStorage.removeItem("theme");
-      toast.success("¡Hasta pronto!");
     } catch (error) {
       console.error("Error al cerrar sesión: ", error);
-      toast.error("Error al cerrar sesión. Por favor, inténtalo de nuevo.");
     }
   };
 
@@ -50,7 +46,6 @@ export const AuthProvider = ({ children }) => {
     if (!currentUser || !currentUser.userId) return;
     try {
       await updateTheme(currentUser.userId, theme);
-      window.localStorage.setItem("theme", theme);
     } catch (error) {
       console.error(`Error al actualizar el tema: ${error.message}`);
       toast.error("Error al actualizar el tema");
@@ -68,7 +63,7 @@ export const AuthProvider = ({ children }) => {
       }
 
       try {
-        const res = await authAPI.verifyToken(cookies.token);
+        const res = await auth.verifyToken(cookies.token);
         if (!res.success) {
           setIsAuthenticated(false);
           setLoading(false);

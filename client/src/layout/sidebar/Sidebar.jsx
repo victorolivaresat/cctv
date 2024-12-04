@@ -1,22 +1,22 @@
+import { FaChartBar, FaMailBulk, FaVideo } from "react-icons/fa";
 import TeamCard from "../../components/Layout/TeamCard";
 import LogoDark from "../../assets/img/logo_dark.png";
-import { FaChartBar, FaVideo } from "react-icons/fa";
 import useDarkMode from "../../hooks/useDarkMode";
 import { Offcanvas, Nav } from "react-bootstrap";
+import { MdFiberDvr } from "react-icons/md";
 import Logo from "../../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./sidebar.css";
 
-import { MdFiberDvr } from "react-icons/md";
-
 const Sidebar = ({ show, handleClose }) => {
-  const darkMode = useDarkMode();
+  const { darkMode } = useDarkMode();
 
   const navigationItems = [
     { to: "/", text: "Dashboard", icon: <FaChartBar /> },
     { to: "/hikvision", text: "Hikvision", icon: <FaVideo /> },
     { to: "/samsung", text: "Samsung", icon: <MdFiberDvr /> },
+    { to: "/email", text: "Email", icon: <FaMailBulk /> },
   ];
 
   const renderNavigationLinks = () => {
@@ -86,7 +86,7 @@ const renderLogo = (darkMode) => {
     >
       <img
         id="at-logo"
-        src={darkMode[0] ? LogoDark : Logo}
+        src={darkMode ? LogoDark : Logo}
         alt="ATLogo"
         draggable="false"
         width={150}
