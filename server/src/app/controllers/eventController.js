@@ -283,8 +283,6 @@ const getEventsSamsungByEventType = async (req, res) => {
       (a, b) => b.event_count - a.event_count
     );
 
-    console.log("Eventos agrupados:", processedEvents);
-
     // Retornar los 20 eventos principales como respuesta
     return res.json(processedEvents.slice(0, 20));
   } catch (error) {

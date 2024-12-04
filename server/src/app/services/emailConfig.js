@@ -3,8 +3,8 @@ const { parseEmailSubject, extractSenderName } = require("../utils/emailUtils");
 const { processSamsung, processHikvision } = require("./emailParsing");
 const { saveAttachmentLocally } = require("../utils/saveAttachments");
 const { simpleParser } = require("mailparser");
-const moment = require('moment-timezone');
 const { v4: uuidv4 } = require("uuid");
+const moment = require('moment');
 const Imap = require("imap");
 const { date } = require("zod");
 require("dotenv").config();
@@ -187,8 +187,12 @@ const getMessagesByDateRange = (imap, folder, startDate, endDate) => {
   return new Promise((resolve, reject) => {
     let emails = [];
 
-    const startDateInUTC = moment.tz(startDate, "America/Lima").utc().format("DD-MMM-YYYY HH:mm:ss");
-    const endDateInUTC = moment.tz(endDate, "America/Lima").utc().format("DD-MMM-YYYY HH:mm:ss");
+    const startDateInUTC = moment.tz(startDate, "America/Lima").utc().format("DD-MMM-YYYY");
+    const endDateInUTC = moment.tz(endDate, "America/Lima").utc().format("DD-MMM-YYYY");
+
+    console.log("Buscando mensajes en el rango de fechas...");
+    console.log("Fecha de inicio:", startDateInUTC);
+    console.log("Fecha de fin:", endDateInUTC);
 
     imap.openBox(folder, false, (err, box) => {
       if (err) {

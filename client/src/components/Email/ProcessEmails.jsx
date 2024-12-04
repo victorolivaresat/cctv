@@ -37,8 +37,7 @@ const ProcessEmails = () => {
   }, [handleProcessEmail]);
 
   return (
-    <div className="mt-4">
-      <p>Procesar Correos Electrónicos</p>
+    <>
       <Form
         onSubmit={(e) => {
           e.preventDefault();
@@ -59,7 +58,7 @@ const ProcessEmails = () => {
         <Form.Group className="mb-3">
           <Form.Label htmlFor="startDate">Fecha y Hora de Inicio:</Form.Label>
           <Form.Control
-            type="datetime-local"
+            type="date"
             id="startDate"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
@@ -69,7 +68,7 @@ const ProcessEmails = () => {
         <Form.Group className="mb-3">
           <Form.Label htmlFor="endDate">Fecha y Hora de Fin:</Form.Label>
           <Form.Control
-            type="datetime-local"
+            type="date"
             id="endDate"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
@@ -92,7 +91,7 @@ const ProcessEmails = () => {
           Procesar Correos
         </Button>
       </Form>
-    </div>
+    </>
   );
 };
 

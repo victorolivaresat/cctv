@@ -50,7 +50,7 @@ const DetailSamsung = ({ show, handleClose, detail }) => {
             className="my-1 p-2 bg-body-tertiary overflow-y-scroll rounded-3"
             style={{ height: "110px" }}
           >
-            {detail.eventName}
+            {detail.event_name}
           </div>
         </div>
         <p className="mt-3">

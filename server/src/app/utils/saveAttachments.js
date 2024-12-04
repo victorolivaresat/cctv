@@ -19,7 +19,6 @@ async function saveAttachmentLocally(content, filename) {
   // Guarda el archivo
   try {
       await fs.writeFile(filePath, content);
-      console.log(`Archivo guardado: ${filePath}`);
       return filePath;
   } catch (err) {
       console.error("Error al guardar el archivo adjunto", err);

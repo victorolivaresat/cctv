@@ -1,14 +1,13 @@
 import { MdApps, MdVideocam, MdCheck, MdCircle } from "react-icons/md";
-import FilterForm from "./FilterFormSamsung";
-import ObservationModal from "../ObservationsModal";
-import { Alert, Row, Col } from "react-bootstrap";
 import { formatDate } from "../../../utils/DateUtils";
 import DataTableBase from "../../../utils/DataTable";
 import useDarkMode from "../../../hooks/useDarkMode";
 import { FaEye, FaComment } from "react-icons/fa";
+import ObservationModal from "../ObservationsModal";
+import { Alert, Row, Col } from "react-bootstrap";
+import FilterForm from "./FilterFormSamsung";
 import DetailSamsung from "./DetailSamsung";
 import { useEffect, useState } from "react";
-
 
 import PropsTypes from "prop-types";
 import {
@@ -124,7 +123,6 @@ const EventSamsung = () => {
     return statusNames[status];
   };
 
-
   const columns = [
     {
       cell: () => <MdApps style={{ fill: "#43a047" }} />,
@@ -222,11 +220,10 @@ const EventSamsung = () => {
           <MdVideocam className="me-2" />
           Event Name
         </h6>
-        <MdCheck className="me-2" />
-        {data.event_name
-          .split("\n")
-          .filter((line) => !line.includes(".jpg"))
-          .join("\n")}
+        <pre>
+          <MdCheck className="me-2" />
+          {data.event_name}
+        </pre>
       </Alert>
     );
   };
@@ -241,13 +238,10 @@ const EventSamsung = () => {
 
   const handleSaveObservation = async (updatedObservation) => {
     if (selectedRow) {
-      console.log("Saving observation:", updatedObservation); 
+      console.log("Saving observation:", updatedObservation);
       console.log("Selected row ID:", selectedRow.id);
       try {
-        await updateAddObservationsSamsung(
-          selectedRow.id,
-          updatedObservation
-        );
+        await updateAddObservationsSamsung(selectedRow.id, updatedObservation);
         handleFetchEvents();
         handleCloseModal();
       } catch (error) {
