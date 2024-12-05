@@ -26,7 +26,7 @@ const config = {
     JWT_SECRET: 'secret',
     JWT_EXPIRES_IN: '1d',
   
-    CORS_ORIGIN: 'http://localhost:5173',
+    CORS_ORIGIN: ['http://prevencion.apuestatotal.at', 'http://192.168.21.35:8080', 'http://localhost:5173'],
     GIT_TOKEN: ''
   };
   
