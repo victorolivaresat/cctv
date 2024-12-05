@@ -1,17 +1,16 @@
 const { scheduleEmailProcessing } = require("./app/utils/cronJobs");
-const { connect } = require("../src/config/database");
+const { connect } = require("./config/database");
 const cookieParser = require("cookie-parser");
 const routes = require("./routes/routes");
+const config = require("../config");
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 const path = require("path");
 const http = require("http");
-require("dotenv").config();
- // Importar la función del cron job
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = config.APP_PORT;
 
 // Middlewares
 app.use(morgan("dev"));
@@ -22,7 +21,8 @@ app.use("/public", express.static(path.join(__dirname, "../public")));
 app.use("/attachments", express.static(path.join(__dirname, "../src/assets/attachments")));
 
 // Configuración de CORS
-const allowedOrigins = process.env.CORS_ORIGIN?.split(",") || [];
+const allowedOrigins = config.CORS_ORIGIN.split(",") || [];
+
 app.use(
   cors({
     origin: (origin, callback) => {

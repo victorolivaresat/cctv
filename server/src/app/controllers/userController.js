@@ -1,4 +1,3 @@
-const { createToken } = require("../utils/jwt");
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 

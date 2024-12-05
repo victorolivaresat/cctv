@@ -15,11 +15,9 @@ const processEmails = async (req, res) => {
       return res.status(400).json({ error: "Marca no soportada" });
     }
 
-    res
-      .status(200)
-      .json({
-        message: 'Correos procesados y movidos a la carpeta "procesados".',
-      });
+    res.status(200).json({
+      message: 'Correos procesados y movidos a la carpeta "procesados".',
+    });
   } catch (error) {
     console.error("Error al procesar correos:", error);
     res.status(500).json({ error: "Error al procesar correos" });
