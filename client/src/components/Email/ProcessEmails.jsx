@@ -1,15 +1,21 @@
+import { validateDateRange } from "../../utils/DateUtils";
 import { useState, useEffect, useCallback } from "react";
 import { Form, Button, Spinner } from "react-bootstrap";
 import { processEmail } from "../../api/email";
 import { toast } from "react-toastify";
-import { validateDateRange } from "../../utils/DateUtils";
+import {
+  formatDateInput,
+  getTomorrowDate,
+  getYesterdayDate,
+} from "../../utils/DateUtils";
 
 const ProcessEmails = () => {
   const folder = "INBOX";
   const [brand, setBrand] = useState("hikvision");
   const [loading, setLoading] = useState(false);
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
+
+  const [startDate, setStartDate] = useState(formatDateInput(getYesterdayDate()));
+  const [endDate, setEndDate] = useState(formatDateInput(getTomorrowDate()));
   
   const handleProcessEmail = useCallback(async () => {
     setLoading(true);

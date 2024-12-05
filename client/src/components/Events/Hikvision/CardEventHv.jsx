@@ -17,7 +17,6 @@ const CardEventHv = () => {
       try {
         const data = await lastEventsHv(eventLimit);
         setEventsData(data);
-        console.log("Data fetched successfully:", data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

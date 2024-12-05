@@ -286,7 +286,8 @@ const EventSamsung = () => {
 
         <hr className="mb-3" />
 
-        <RemoveDuplicate />
+        <RemoveDuplicate onUpdate={() => handleFetchEvents(startDate, endDate)} />
+
       </Col>
       <Col md="10" className="px-4">
         <Row className="d-flex justify-content-between align-items-center bg-body-tertiary p-3 mb-4 rounded-3">

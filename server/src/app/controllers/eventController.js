@@ -3,6 +3,7 @@ const { sequelize } = require("../../config/database");
 const { format } = require("../utils/dateUtils");
 const EventHv = require("../models/EventHv");
 const { Op } = require("sequelize");
+const moment = require("moment");
 
 /**************************************************************************/
 /********************** Eventos de Hikvision ******************************/
@@ -142,7 +143,7 @@ const getEventHvDetail = async (req, res) => {
 const removeDuplicateEventsHv = async (req, res) => {
   const { date } = req.query;
   try {
-    const formattedDate = format(date);
+    const formattedDate = moment(date).format("YYYY-MM-DD");
 
     console.log("Fecha formateada:", formattedDate);
 
@@ -382,7 +383,7 @@ const getEventSamsungDetail = async (req, res) => {
 const removeDuplicateEventsSamsung = async (req, res) => {
   const { date } = req.query;
   try {
-    const formattedDate = format(date);
+    const formattedDate = moment(date).format("YYYY-MM-DD");
 
     console.log("Fecha formateada:", formattedDate);
 

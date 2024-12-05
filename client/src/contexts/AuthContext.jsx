@@ -1,5 +1,4 @@
 import { useState, useEffect, createContext } from "react";
-import { getTheme, updateTheme } from "../api/users";
 import * as auth from "../api/auth";
 import { toast } from "react-toastify";
 import PropTypes from "prop-types";
@@ -22,7 +21,6 @@ export const AuthProvider = ({ children }) => {
       const data = await auth.login(email, password);
       if (data) {
         authenticateUser(data);
-        await getTheme(data.id);
         toast.success("¡Bienvenido!");
       }
     } catch (error) {
@@ -42,15 +40,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const updateThemeUser = async (theme) => {
-    if (!currentUser || !currentUser.userId) return;
-    try {
-      await updateTheme(currentUser.userId, theme);
-    } catch (error) {
-      console.error(`Error al actualizar el tema: ${error.message}`);
-      toast.error("Error al actualizar el tema");
-    }
-  };
 
   useEffect(() => {
     async function checkLoginStatus() {
@@ -90,7 +79,6 @@ export const AuthProvider = ({ children }) => {
     loginUser,
     logoutUser,
     isAuthenticated,
-    updateThemeUser,
     loading,
   };
 

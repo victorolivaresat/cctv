@@ -31,7 +31,6 @@ export const eventsHvDataChart = async () => {
 
 export const eventsSamsungDataChart = async () => {
   const { data } = await axios.get("/events/samsung/event-type");
-  console.log(data);
   return data;
 };
 

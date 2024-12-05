@@ -341,7 +341,7 @@ const EventHv = () => {
 
         <hr className="mb-3" />
 
-        <RemoveDuplicate />
+        <RemoveDuplicate onUpdate={() => handleFetchEvents(startDate, endDate)} />
 
       </Col>
 
