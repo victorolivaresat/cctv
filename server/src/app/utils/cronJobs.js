@@ -1,5 +1,9 @@
-const { processHikvisionEmails, processSamsungEmails } = require("../../app/services/emailConfig");
+const {
+  processHikvisionEmails,
+  processSamsungEmails,
+} = require("../../app/services/emailConfig");
 const cron = require("node-cron");
+const moment = require("moment");
 
 // Función de reintento con retraso
 const retryWithDelay = async (fn, retries = 3, delay = 5000) => {
@@ -8,8 +12,11 @@ const retryWithDelay = async (fn, retries = 3, delay = 5000) => {
       await fn();
       break;
     } catch (error) {
-      console.error(`Intento ${i + 1} fallido. Reintentando en ${delay / 1000} segundos...`);
-      if (i < retries - 1) await new Promise((resolve) => setTimeout(resolve, delay));
+      console.error(
+        `Intento ${i + 1} fallido. Reintentando en ${delay / 1000} segundos...`
+      );
+      if (i < retries - 1)
+        await new Promise((resolve) => setTimeout(resolve, delay));
       else throw error;
     }
   }
@@ -21,9 +28,15 @@ const scheduleEmailProcessing = () => {
     console.log("Iniciando el procesamiento de correos electrónicos...");
     try {
       const folder = process.env.EMAIL_FOLDER;
-      const sinceDate = new Date();
-      await retryWithDelay(() => processHikvisionEmails(folder, sinceDate));
-      await retryWithDelay(() => processSamsungEmails(folder, sinceDate));
+      const startDate = moment().startOf("day").toISOString();
+      const endDate = moment().add(1, "day").startOf("day").toISOString();
+
+      await retryWithDelay(() =>
+        processHikvisionEmails(folder, startDate, endDate)
+      );
+      await retryWithDelay(() =>
+        processSamsungEmails(folder, startDate, endDate)
+      );
       console.log("Procesamiento de correos electrónicos completado.");
     } catch (error) {
       console.error("Error crítico al procesar correos electrónicos:", error);
@@ -31,4 +44,6 @@ const scheduleEmailProcessing = () => {
   });
 };
 
-module.exports = { scheduleEmailProcessing };
+module.exports = {
+  scheduleEmailProcessing,
+};
