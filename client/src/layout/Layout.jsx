@@ -1,18 +1,13 @@
-
 import { ToastContainer } from "react-toastify";
 import { useLocation } from "react-router-dom";
 import useDarkMode from "../hooks/useDarkMode";
 import { Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import AppRoutes from "../routes/routes"
+import AppRoutes from "../routes/routes";
 import Sidebar from "./sidebar/Sidebar";
 import Header from "./header/Header";
 
-const URL_IMAGE_DARK = "url('../src/assets/img/login_bg_dark.svg')";
-const URL_IMAGE_LIGHT = "url('../src/assets/img/login_bg_ligth.svg')";
-
 const Layout = () => {
- 
   const [show, setShow] = useState(false);
   const { darkMode } = useDarkMode();
   const location = useLocation();
@@ -23,11 +18,9 @@ const Layout = () => {
   const updateBackground = () => {
     const root = document.getElementById('root');
     if (isLoginPage) {
-      root.style.backgroundImage = darkMode ? URL_IMAGE_DARK : URL_IMAGE_LIGHT;
-      root.style.backgroundSize = 'cover';
-      root.style.backgroundRepeat = 'no-repeat';
+      root.style.backgroundColor = darkMode ? "#333" : "#f5f5f5";
     } else {
-      root.style.backgroundImage = 'none';
+      root.style.backgroundColor = "transparent";
     }
   };
 
@@ -49,7 +42,7 @@ const Layout = () => {
           show={show}
           handleClose={() => handleShow(false)}
         />
-        <AppRoutes />   
+        <AppRoutes />
       </Container>
     </>
   );
