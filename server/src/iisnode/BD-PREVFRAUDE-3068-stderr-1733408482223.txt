@@ -1,0 +1,19 @@
+Application has thrown an uncaught exception and is terminated:
+Error: Cannot find module 'sequelize'
+Require stack:
+- E:\cctv\server\src\app\models\EventSamsung.js
+- E:\cctv\server\src\app\services\emailParsing.js
+- E:\cctv\server\src\app\services\emailConfig.js
+- E:\cctv\server\src\app\utils\cronJobs.js
+- E:\cctv\server\src\index.js
+- C:\Program Files\iisnode\interceptor.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1225:15)
+    at Module._load (node:internal/modules/cjs/loader:1051:27)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (E:\cctv\server\src\app\models\EventSamsung.js:1:30)
+    at Module._compile (node:internal/modules/cjs/loader:1469:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Module.require (node:internal/modules/cjs/loader:1311:19)
