@@ -31,5 +31,6 @@ routes.get('/events/notifications', eventController.getNewNotificationsCount);
 routes.get('/events/hv/:id', eventController.getEventHvDetail);
 routes.get('/events/samsung/:id', eventController.getEventSamsungDetail);
 routes.delete('/events/hv/remove-duplicates', authRequired, eventController.removeDuplicateEventsHv);
+routes.delete('/events/samsung/remove-duplicates', authRequired, eventController.removeDuplicateEventsSamsung);
 
 module.exports = routes;

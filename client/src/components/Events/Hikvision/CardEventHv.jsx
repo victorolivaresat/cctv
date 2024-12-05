@@ -1,9 +1,4 @@
-import {
-  FaVideo,
-  FaClock,
-  FaCheck,
-  FaCalendar,
-} from "react-icons/fa";
+import { FaVideo, FaClock, FaCheck, FaCalendar } from "react-icons/fa";
 import logoDarkHv from "../../../assets/img/hikvision_dark.png";
 import logoHikvision from "../../../assets/img/hikvision.png";
 import { Row, Col, Card, Form } from "react-bootstrap";
@@ -73,26 +68,25 @@ const CardEventHv = () => {
                   <FaCheck size={15} /> &nbsp;
                   {event.name}
                 </Card.Title>
-                {event.camera_name && (
-                  <div className="px-2">
-                    <div className="mb-1">
-                      <FaVideo /> &nbsp; Event Type: &nbsp;
-                      {event.event_type}
-                    </div>
-
+                <div className="px-2">
+                  <div className="mb-1">
+                    <FaVideo /> &nbsp; Event Type: &nbsp;
+                    {event.event_type}
+                  </div>
+                  {event.camera_name && (
                     <div className="event-details">
                       <pre className="blink">
                         <span></span>
                         {event.camera_name}
                       </pre>
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
                 <Card.Text className="card-text mt-3 px-2">
                   <FaClock /> &nbsp; Event Time: &nbsp;
                   {formatDate(event.event_time)}
                 </Card.Text>
-                <Card.Text className="card-text text-info px-2">
+                <Card.Text className="card-text text-primary px-2">
                   <FaCalendar /> &nbsp; Created Date: &nbsp;
                   {formatDate(event.created_at)}
                 </Card.Text>

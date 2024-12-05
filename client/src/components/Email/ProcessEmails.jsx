@@ -1,30 +1,42 @@
-import { processEmail } from "../../api/email";
-import { Form, Button } from "react-bootstrap";
 import { useState, useEffect, useCallback } from "react";
+import { Form, Button, Spinner } from "react-bootstrap";
+import { processEmail } from "../../api/email";
+import { toast } from "react-toastify";
+import { validateDateRange } from "../../utils/DateUtils";
 
 const ProcessEmails = () => {
   const folder = "INBOX";
-  const [startDate, setStartDate] = useState(() => {
-    const today = new Date();
-    return today.toISOString().slice(0, 16);
-  });
-  const [endDate, setEndDate] = useState(() => {
-    const today = new Date();
-    return today.toISOString().slice(0, 16);
-  });
   const [brand, setBrand] = useState("hikvision");
-
+  const [loading, setLoading] = useState(false);
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
+  
   const handleProcessEmail = useCallback(async () => {
+    setLoading(true);
     try {
+      
       console.log("Procesando correos...");
       console.log("Carpeta:", folder);
       console.log("Fecha de inicio:", startDate);
       console.log("Fecha de fin:", endDate);
       console.log("Marca:", brand);
+
+      if (!startDate || !endDate) {
+        toast.error("¡Las fechas de inicio y fin no pueden estar vacías!");
+        return;
+      }
+
+      if (!validateDateRange(startDate, endDate)) {
+        toast.error("¡La fecha de inicio debe ser menor a la fecha de fin!");
+        return;
+      }
       const result = await processEmail(folder, startDate, endDate, brand);
       console.log("Resultado del procesamiento de correos:", result);
+      toast.success("¡Correos procesados exitosamente!");
     } catch (error) {
       console.error("Error al procesar correos:", error);
+    } finally {
+      setLoading(false);
     }
   }, [folder, startDate, endDate, brand]);
 
@@ -87,8 +99,21 @@ const ProcessEmails = () => {
             <option value="samsung">Samsung</option>
           </Form.Select>
         </Form.Group>
-        <Button type="submit" variant="primary" size="sm" className="w-100">
-          Procesar Correos
+        <Button type="submit" variant="primary" size="sm" className="w-100" disabled={loading}>
+          {loading ? (
+            <>
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />{" "}
+              Procesando...
+            </>
+          ) : (
+            "Ejecutar"
+          )}
         </Button>
       </Form>
     </>

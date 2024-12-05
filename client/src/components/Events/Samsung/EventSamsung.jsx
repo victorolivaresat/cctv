@@ -1,75 +1,87 @@
+import { FaEye, FaComment, FaTimes, FaFilter, FaUndo } from "react-icons/fa";
+import { Alert, Row, Col, InputGroup, Form, Button } from "react-bootstrap";
 import { MdApps, MdVideocam, MdCheck, MdCircle } from "react-icons/md";
-import { formatDate } from "../../../utils/DateUtils";
+import RemoveDuplicate from "./RemoveDuplicate";
+import ObservationModal from "../ObservationsModal";
+import ExcelExport from "../../../utils/ExcelExport";
 import DataTableBase from "../../../utils/DataTable";
 import useDarkMode from "../../../hooks/useDarkMode";
-import { FaEye, FaComment } from "react-icons/fa";
-import ObservationModal from "../ObservationsModal";
-import { Alert, Row, Col } from "react-bootstrap";
-import FilterForm from "./FilterFormSamsung";
-import DetailSamsung from "./DetailSamsung";
 import { useEffect, useState } from "react";
-
-import PropsTypes from "prop-types";
+import DetailSamsung from "./DetailSamsung";
+import PropTypes from "prop-types";
 import {
   eventsSamsung,
   distinctNameSamsungCount,
   updateEventSamsungStatus,
   updateAddObservationsSamsung,
-  getEventSamsungDetail,
 } from "../../../api/events";
+import {
+  formatDate,
+  formatDateInput,
+  getTomorrowDate,
+  getYesterdayDate,
+  validateDateRange,
+} from "../../../utils/DateUtils";
 
-// Importar logos
 import logoDarkSamsung from "../../../assets/img/samsung_dark.png";
 import logoSamsung from "../../../assets/img/samsung.png";
 
 const EventSamsung = () => {
-  const [selectedStatus, setSelectedStatus] = useState("new");
-  const [selectedStatus2, setSelectedStatus2] = useState("new");
-
-  const [testsCountData, setTestsCountData] = useState(0);
-  const [eventsData, setEventsData] = useState([]);
-  const { darkMode } = useDarkMode();
-  const [selectedRowsId, setSelectedRowsId] = useState([]);
-
-  const [showModal, setShowModal] = useState(false);
-  const [selectedRow, setSelectedRow] = useState(null);
+  const [startDate, setStartDate] = useState(formatDateInput(getYesterdayDate()));
+  const [endDate, setEndDate] = useState(formatDateInput(getTomorrowDate()));
+  const [toggledClearRows, setToggleClearRows] = useState(false);
   const [currentObservation, setCurrentObservation] = useState("");
-
-  const [filterDateTime, setFilterDateTime] = useState("");
-  const [filterStatus, setFilterStatus] = useState("");
-  const [filterName, setFilterName] = useState("");
-  const [filterEventName, setFilterEventName] = useState("");
-
   const [showModalDetail, setShowModalDetail] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState("new");
+  const [filterEventName, setFilterEventName] = useState("");
+  const [selectedRowsId, setSelectedRowsId] = useState([]);
+  const [testsCountData, setTestsCountData] = useState(0);
   const [currentDetail, setCurrentDetail] = useState({});
+  const [selectedRow, setSelectedRow] = useState(null);
+  const [filterStatus, setFilterStatus] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [eventsData, setEventsData] = useState([]);
+  const [filterName, setFilterName] = useState("");
+  const { darkMode } = useDarkMode();
 
   useEffect(() => {
-    handleFetchEvents();
     handleFetchTestsCount();
   }, []);
+
+  useEffect(() => {
+    if (startDate && endDate) {
+      handleFetchEvents(startDate, endDate);
+    }
+  }, [startDate, endDate]);
 
   const handleFetchTestsCount = async () => {
     try {
       const data = await distinctNameSamsungCount();
       setTestsCountData(data);
+      console.log("Tests count data:", data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
-  const getSamsungDetails = async (id) => {
-    try {
-      const data = await getEventSamsungDetail(id);
-      setCurrentDetail(data);
-      setShowModalDetail(true);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+  const getSamsungDetails = async (row) => {
+    setShowModalDetail(true);
+    setCurrentDetail(row);
   };
 
-  const handleFetchEvents = async () => {
+  const handleFetchEvents = async (startDate, endDate) => {
     try {
-      const data = await eventsSamsung();
+      if (new Date(startDate) > new Date(endDate)) {
+        alert("La fecha de inicio no puede ser mayor a la fecha final");
+        return;
+      }
+
+      if (!validateDateRange(startDate, endDate)) {
+        alert("El rango de fechas no puede ser mayor a 60 días");
+        return;
+      }
+
+      const data = await eventsSamsung(startDate, endDate);
       setEventsData(data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -86,31 +98,20 @@ const EventSamsung = () => {
   const handleNameFilterChange = handleFilterChange(setFilterName);
   const handleStatusFilterChange = handleFilterChange(setFilterStatus);
   const handleEventNameFilterChange = handleFilterChange(setFilterEventName);
-  const handleDateTimeFilterChange = handleFilterChange(setFilterDateTime);
 
-  //Para que los filtros sean minusculas o mayusculas.
   const filteredEventsData = eventsData.filter((event) => {
     const filterNameLower = filterName.toLowerCase();
     const filterEventNameLower = filterEventName.toLowerCase();
     const filterStatusLower = filterStatus.toLowerCase();
-    const filterDateTimeLower = filterDateTime.toLowerCase();
 
     const eventNameLower = event.name.toLowerCase();
     const eventEventNameLower = event.event_name.toLowerCase();
     const eventStatusLower = event.status.toLowerCase();
-    const eventDateTimeLower = event.event_time.toLowerCase();
 
     return (
       (filterNameLower ? eventNameLower.includes(filterNameLower) : true) &&
-      (filterEventNameLower
-        ? eventEventNameLower.includes(filterEventNameLower)
-        : true) &&
-      (filterStatusLower
-        ? eventStatusLower.includes(filterStatusLower)
-        : true) &&
-      (filterDateTimeLower
-        ? eventDateTimeLower.includes(filterDateTimeLower)
-        : true)
+      (filterEventNameLower ? eventEventNameLower.includes(filterEventNameLower) : true) &&
+      (filterStatusLower ? eventStatusLower.includes(filterStatusLower) : true)
     );
   });
 
@@ -122,6 +123,11 @@ const EventSamsung = () => {
     };
     return statusNames[status];
   };
+
+    // Funciones de actualización
+    const handleClearRows = () => {
+      setToggleClearRows(!toggledClearRows);
+    };
 
   const columns = [
     {
@@ -168,14 +174,8 @@ const EventSamsung = () => {
       cell: (row) => getStatusName(row.status),
       conditionalCellStyles: [
         { when: (row) => row.status === "new", classNames: ["status-new"] },
-        {
-          when: (row) => row.status === "pending",
-          classNames: ["status-pending"],
-        },
-        {
-          when: (row) => row.status === "completed",
-          classNames: ["status-completed"],
-        },
+        { when: (row) => row.status === "pending", classNames: ["status-pending"] },
+        { when: (row) => row.status === "completed", classNames: ["status-completed"] },
       ],
       sortable: true,
       minWidth: "50px",
@@ -190,14 +190,12 @@ const EventSamsung = () => {
             className="me-2 py-1 px-2 bg-secondary-subtle rounded-3"
             onClick={() => handleShowModal(row)}
           >
-            <FaComment
-              className={row.observations ? "text-warning" : "text-primary"}
-            />
+            <FaComment className={row.observations ? "text-warning" : "text-primary"} />
           </a>
           <a
             href="#!"
             className="me-2 py-1 px-2 bg-danger-subtle rounded-3"
-            onClick={() => getSamsungDetails(row.id)}
+            onClick={() => getSamsungDetails(row)}
           >
             <FaEye className="text-danger" />
           </a>
@@ -211,11 +209,7 @@ const EventSamsung = () => {
 
   const ExpandedComponent = ({ data }) => {
     return (
-      <Alert
-        className="mx-4 my-2 border-0 shadow-sm"
-        variant="info"
-        style={{ whiteSpace: "pre-line" }}
-      >
+      <Alert className="mx-4 my-2 border-0 shadow-sm" variant="info" style={{ whiteSpace: "pre-line" }}>
         <h6>
           <MdVideocam className="me-2" />
           Event Name
@@ -242,7 +236,7 @@ const EventSamsung = () => {
       console.log("Selected row ID:", selectedRow.id);
       try {
         await updateAddObservationsSamsung(selectedRow.id, updatedObservation);
-        handleFetchEvents();
+        handleFetchEvents(startDate, endDate);
         handleCloseModal();
       } catch (error) {
         console.error("Error updating observation:", error);
@@ -254,30 +248,9 @@ const EventSamsung = () => {
     setSelectedStatus(event.target.value);
   };
 
-  const handleStatusChange2 = (event) => {
-    setSelectedStatus2(event.target.value);
-  };
-
   const handleRowSelection = ({ selectedRows }) => {
     setSelectedRowsId(selectedRows.map((row) => row.id));
-    console.log(
-      "Selected rows:",
-      selectedRows.map((row) => row.id)
-    );
-  };
-
-  const updateObservations = async (observations) => {
-    try {
-      const data = await Promise.all(
-        selectedRowsId.map((id) =>
-          updateAddObservationsSamsung(id, observations)
-        )
-      );
-      handleFetchEvents();
-      console.log("Validate updated:", data);
-    } catch (error) {
-      console.error("Error updating validate:", error);
-    }
+    console.log("Selected rows:", selectedRows.map((row) => row.id));
   };
 
   const updateStatus = async (status) => {
@@ -285,7 +258,8 @@ const EventSamsung = () => {
       const data = await Promise.all(
         selectedRowsId.map((id) => updateEventSamsungStatus(id, status))
       );
-      handleFetchEvents();
+      handleFetchEvents(startDate, endDate);
+      handleClearRows();
       console.log("Status updated:", data);
     } catch (error) {
       console.error("Error updating status:", error);
@@ -299,7 +273,7 @@ const EventSamsung = () => {
           <img
             className="mb-3"
             src={darkMode ? logoDarkSamsung : logoSamsung}
-            alt="Hikvision"
+            alt="Samsung"
             width="120"
           />
         </div>
@@ -309,36 +283,155 @@ const EventSamsung = () => {
             &nbsp; Connected DVR: {testsCountData}
           </h6>
         </div>
+
+        <hr className="mb-3" />
+
+        <RemoveDuplicate />
       </Col>
       <Col md="10" className="px-4">
-        <FilterForm
-          filterDateTime={filterDateTime}
-          handleDateTimeFilterChange={handleDateTimeFilterChange}
-          filterStatus={filterStatus}
-          handleStatusFilterChange={handleStatusFilterChange}
-          filterEventName={filterEventName}
-          handleEventNameFilterChange={handleEventNameFilterChange}
-          filterName={filterName}
-          handleNameFilterChange={handleNameFilterChange}
-          selectedStatus={selectedStatus}
-          handleStatusChange={handleStatusChange}
-          updateStatus={updateStatus}
-          selectedStatus2={selectedStatus2}
-          handleStatusChange2={handleStatusChange2}
-          updateObservations={updateObservations}
-          data={eventsData}
-        />
+        <Row className="d-flex justify-content-between align-items-center bg-body-tertiary p-3 mb-4 rounded-3">
+          <Col md={6}>
+            <InputGroup className="my-1">
+              <Form.Control
+                type="date"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+                placeholder="Fecha inicial"
+              />
+              <Form.Control
+                type="date"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+                placeholder="Fecha final"
+              />
+              <InputGroup.Text>
+                {startDate || endDate ? (
+                  <FaTimes
+                    onClick={() => {
+                      setStartDate("");
+                      setEndDate("");
+                    }}
+                  />
+                ) : (
+                  <FaFilter />
+                )}
+              </InputGroup.Text>
+            </InputGroup>
+          </Col>
+
+          <Col md={4}>
+            <InputGroup className="my-1">
+              <Form.Control
+                as="select"
+                value={filterStatus}
+                onChange={handleStatusFilterChange}
+                placeholder="Filter by status"
+              >
+                <option value="">Estado</option>
+                <option value="new">Nuevo</option>
+                <option value="pending">Pendiente</option>
+                <option value="completed">Completado</option>
+              </Form.Control>
+              <InputGroup.Text>
+                {filterStatus ? (
+                  <FaTimes
+                    onClick={() =>
+                      handleStatusFilterChange({ target: { value: "" } })
+                    }
+                  />
+                ) : (
+                  <FaFilter />
+                )}
+              </InputGroup.Text>
+            </InputGroup>
+          </Col>
+
+          <Col md={2}>
+            <ExcelExport data={filteredEventsData} fileName="samsung" />
+          </Col>
+
+          <Col md={4}>
+            <InputGroup className="my-1">
+              <Form.Control
+                as="select"
+                value={selectedStatus}
+                onChange={handleStatusChange}
+              >
+                <option value="" disabled>
+                  Elegir un Estado
+                </option>
+                <option value="new">Nuevo</option>
+                <option value="pending">Pendiente</option>
+                <option value="completed">Completado</option>
+              </Form.Control>
+              <Button
+                size="sm"
+                variant="success"
+                onClick={() => updateStatus(selectedStatus)}
+                className="ml-2"
+              >
+                <FaUndo className="me-2" />
+                Actualizar
+              </Button>
+            </InputGroup>
+          </Col>
+
+          <Col md={4}>
+            <InputGroup className="my-1">
+              <Form.Control
+                type="text"
+                value={filterName}
+                onChange={handleNameFilterChange}
+                placeholder="Tienda"
+              />
+              <InputGroup.Text>
+                {filterName ? (
+                  <FaTimes
+                    onClick={() =>
+                      handleNameFilterChange({ target: { value: "" } })
+                    }
+                  />
+                ) : (
+                  <FaFilter />
+                )}
+              </InputGroup.Text>
+            </InputGroup>
+          </Col>
+
+          <Col md={4}>
+            <InputGroup className="my-1">
+              <Form.Control
+                type="text"
+                value={filterEventName}
+                onChange={handleEventNameFilterChange}
+                placeholder="Evento"
+              />
+              <InputGroup.Text>
+                {filterEventName ? (
+                  <FaTimes
+                    onClick={() =>
+                      handleEventNameFilterChange({ target: { value: "" } })
+                    }
+                  />
+                ) : (
+                  <FaFilter />
+                )}
+              </InputGroup.Text>
+            </InputGroup>
+          </Col>
+        </Row>
+
         <DataTableBase
           columns={columns}
           data={filteredEventsData}
           paginationPerPage={10}
-          expandableRows
           expandableRowsComponent={ExpandedComponent}
+          expandableRows
           selectableRows
           onSelectedRowsChange={handleRowSelection}
+          clearSelectedRows={toggledClearRows}
         />
       </Col>
-      {/* Modal para agregar observaciones */}
       <ObservationModal
         show={showModal}
         handleClose={handleCloseModal}
@@ -346,8 +439,6 @@ const EventSamsung = () => {
         setObservation={setCurrentObservation}
         handleSave={handleSaveObservation}
       />
-
-      {/* Modal para ver detalles */}
       <DetailSamsung
         show={showModalDetail}
         handleClose={handleCloseModalDetail}
@@ -358,7 +449,7 @@ const EventSamsung = () => {
 };
 
 EventSamsung.propTypes = {
-  data: PropsTypes.array,
+  data: PropTypes.array,
 };
 
 export default EventSamsung;

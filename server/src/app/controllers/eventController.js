@@ -4,7 +4,6 @@ const { format } = require("../utils/dateUtils");
 const EventHv = require("../models/EventHv");
 const { Op } = require("sequelize");
 
-
 /**************************************************************************/
 /********************** Eventos de Hikvision ******************************/
 /**************************************************************************/
@@ -147,7 +146,7 @@ const removeDuplicateEventsHv = async (req, res) => {
 
     console.log("Fecha formateada:", formattedDate);
 
-    await sequelize.query("EXEC RemoveDuplicatesByDate :date", {
+    await sequelize.query("EXEC RemoveHikvisionDuplicatesByDate :date", {
       replacements: { date: formattedDate },
     });
 
@@ -158,16 +157,26 @@ const removeDuplicateEventsHv = async (req, res) => {
   }
 };
 
-
 /**************************************************************************/
 /*********************** Eventos de Samsung *******************************/
 /**************************************************************************/
 
-
 // Funcion para obtener todos los eventos de EventSamsung
 const getEventsSamsung = async (req, res) => {
+  const { startDate, endDate } = req.query;
+
   try {
-    const events = await EventSamsung.findAll();
+    console.log(startDate, endDate);
+
+    const events = await EventSamsung.findAll({
+      where: {
+        created_at: {
+          [Op.between]: [new Date(startDate), new Date(endDate)],
+        },
+      },
+      order: [["created_at", "DESC"]],
+    });
+
     return res.json(events);
   } catch (error) {
     console.error("Error al obtener los eventos:", error);
@@ -329,6 +338,7 @@ const updateAddObservationsSamsung = async (req, res) => {
   }
 };
 
+// Funcion para obtener la cantidad de notificaciones nuevas
 const getNewNotificationsCount = async (req, res) => {
   try {
     const samsungCount = await EventSamsung.count({
@@ -351,6 +361,7 @@ const getNewNotificationsCount = async (req, res) => {
   }
 };
 
+// Funcion para obtener el detalle de un evento de EventSamsung
 const getEventSamsungDetail = async (req, res) => {
   const { id } = req.params;
   try {
@@ -368,6 +379,23 @@ const getEventSamsungDetail = async (req, res) => {
   }
 };
 
+const removeDuplicateEventsSamsung = async (req, res) => {
+  const { date } = req.query;
+  try {
+    const formattedDate = format(date);
+
+    console.log("Fecha formateada:", formattedDate);
+
+    await sequelize.query("EXEC RemoveSamsungDuplicatesByDate :date", {
+      replacements: { date: formattedDate },
+    });
+
+    return res.json({ message: "Eventos duplicados eliminados" });
+  } catch (error) {
+    console.error("Error al eliminar eventos duplicados:", error);
+    res.status(500).send("Error al eliminar eventos duplicados");
+  }
+};
 
 module.exports = {
   getEventsHv,
@@ -387,4 +415,5 @@ module.exports = {
   getEventHvDetail,
   getEventSamsungDetail,
   removeDuplicateEventsHv,
+  removeDuplicateEventsSamsung,
 };

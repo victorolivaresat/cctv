@@ -7,9 +7,10 @@ export const eventsHv = async (startDate, endDate) => {
   return data;
 };
 
-export const eventsSamsung = async () => {
-  const { data } = await axios.get("/events/samsung");
-  console.log(data);
+export const eventsSamsung = async (startDate, endDate) => {
+  const { data } = await axios.get("/events/samsung", {
+    params: { startDate, endDate },
+  });
   return data;
 };
 
@@ -132,5 +133,17 @@ export const removeDuplicateEventsHv = async (date) => {
     
   } catch (error) {
     console.error("Error deleting duplicate events for Hikvision:", error);
+  }
+};
+
+export const removeDuplicateEventsSamsung = async (date) => {
+  try {
+    const { data } = await axios.delete(`/events/samsung/remove-duplicates`, {
+      params: { date },
+    });
+
+    return data;
+  } catch (error) {
+    console.error("Error deleting duplicate events for Samsung:", error);
   }
 };
