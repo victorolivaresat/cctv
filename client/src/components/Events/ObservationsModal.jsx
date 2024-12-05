@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 const ObservationsModal = ({ show, handleClose, observation, setObservation, handleSave }) => {
-  const [localObservations, setLocalObservations] = useState(observation);
+  const [localObservations, setLocalObservations] = useState(observation || "");
 
   useEffect(() => {
-    setLocalObservations(observation);
+    setLocalObservations(observation || "");
   }, [observation]);
 
   const handleObservationsChange = (event) => {
@@ -16,12 +16,12 @@ const ObservationsModal = ({ show, handleClose, observation, setObservation, han
   };
 
   const saveObservations = () => {
-    console.log("Saving observations..."); 
+    console.log("Saving observations...");
     if (localObservations.trim() === "") {
       alert("Observations cannot be empty.");
       return;
     }
-    console.log("Observations to be saved:", localObservations); 
+    console.log("Observations to be saved:", localObservations);
     setObservation(localObservations);
     handleSave(localObservations);
     handleClose();
@@ -38,17 +38,22 @@ const ObservationsModal = ({ show, handleClose, observation, setObservation, han
         <Modal.Title>Observaciones</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form.Control
-          as="textarea"
-          rows={3}
-          value={localObservations}
-          onChange={handleObservationsChange}
-          placeholder="Ingrese las observaciones del evento..."
-        />
+        <Form.Group controlId="observationsTextarea">
+          <Form.Label>Observaciones</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={3}
+            value={localObservations}
+            onChange={handleObservationsChange}
+          />
+        </Form.Group>
       </Modal.Body>
       <Modal.Footer>
+        <Button variant="secondary" onClick={handleModalClose}>
+          Cerrar
+        </Button>
         <Button variant="primary" onClick={saveObservations}>
-          Guardar Cambios
+          Guardar
         </Button>
       </Modal.Footer>
     </Modal>
@@ -64,4 +69,3 @@ ObservationsModal.propTypes = {
 };
 
 export default ObservationsModal;
-

@@ -1,15 +1,12 @@
 import axios from "./axios";
 
+/**
+ * Funciones relacionadas con Hikvision (HV)
+ */
 export const eventsHv = async (startDate, endDate) => {
   const { data } = await axios.get("/events/hv", {
     params: { startDate, endDate },
   });
-  return data;
-};
-
-export const eventsSamsung = async () => {
-  const { data } = await axios.get("/events/samsung");
-  console.log(data);
   return data;
 };
 
@@ -18,29 +15,13 @@ export const lastEventsHv = async (limit = 5) => {
   return data;
 };
 
-export const lastEventsSamsung = async (limit = 5) => {
-  const { data } = await axios.get(`/events/samsung/last?limit=${limit}`);
-  return data;
-};
-
 export const eventsHvDataChart = async () => {
   const { data } = await axios.get("/events/hv/event-type");
   return data;
 };
 
-export const eventsSamsungDataChart = async () => {
-  const { data } = await axios.get("/events/samsung/event-type");
-  console.log(data);
-  return data;
-};
-
 export const distinctNameHvCount = async () => {
-  const { data } = await axios.get("/tests/hv/count-distinct-name");
-  return data;
-};
-
-export const distinctNameSamsungCount = async () => {
-  const { data } = await axios.get("/events/samsung/count-distinct-name");
+  const { data } = await axios.get("/events/hv/count-distinct-name"); // Corregido
   return data;
 };
 
@@ -59,20 +40,45 @@ export const updateAddObservations = async (id, observations) => {
       observations,
     });
     console.log(id, observations);
-
     return data;
   } catch (error) {
     console.error("Error updating event add observations:", error);
   }
 };
 
-export const eventsSuportHv = async () => {
-  const { data } = await axios.get("/events/suport-hv");
+export const removeDuplicateEventsHv = async (date) => {
+  try {
+    const { data } = await axios.delete(`/events/hv/remove-duplicates`, {
+      params: { date },
+    });
+    return data;
+  } catch (error) {
+    console.error("Error deleting duplicate events for Hikvision:", error);
+  }
+};
+
+/**
+ * Funciones relacionadas con Samsung
+ */
+export const eventsSamsung = async (startDate, endDate) => {
+  const { data } = await axios.get("/events/samsung", {
+    params: { startDate, endDate },
+  });
   return data;
 };
 
-export const eventsSuportSamsung = async () => {
-  const { data } = await axios.get("/events/suport-samsung");
+export const lastEventsSamsung = async (limit = 5) => {
+  const { data } = await axios.get(`/events/samsung/last?limit=${limit}`);
+  return data;
+};
+
+export const eventsSamsungDataChart = async () => {
+  const { data } = await axios.get("/events/samsung/event-type");
+  return data;
+};
+
+export const distinctNameSamsungCount = async () => {
+  const { data } = await axios.get("/events/samsung/count-distinct-name"); // Corregido
   return data;
 };
 
@@ -97,38 +103,21 @@ export const updateAddObservationsSamsung = async (id, observations) => {
   }
 };
 
-export const getNewNotificationsCount = async () => {
-  const { data } = await axios.get("/events/notifications");
-  return data;
-};
-
-export const getEventHvDetail = async (id) => {
+export const removeDuplicateEventsSamsung = async (date) => {
   try {
-    const { data } = await axios.get(`/events/hv/${id}`);
-
-    console.log(data);
-    return data;
-  } catch (error) {
-    console.error("Error fetching event detail for Hikvision:", error);
-  }
-};
-
-export const getEventSamsungDetail = async (id) => {
-  try {
-    const { data } = await axios.get(`/events/samsung/${id}`);
-    return data;
-  } catch (error) {
-    console.error("Error fetching event detail for Samsung:", error);
-  }
-};
-
-export const removeDuplicateEventsHv = async (date) => {
-  try {
-    const { data } = await axios.delete(`/events/hv/remove-duplicates`, {
+    const { data } = await axios.delete(`/events/samsung/remove-duplicates`, {
       params: { date },
     });
     return data;
   } catch (error) {
-    console.error("Error deleting duplicate events for Hikvision:", error);
+    console.error("Error deleting duplicate events for Samsung:", error);
   }
+};
+
+/**
+ * Funciones generales
+ */
+export const getNewNotificationsCount = async () => {
+  const { data } = await axios.get("/events/notifications");
+  return data;
 };

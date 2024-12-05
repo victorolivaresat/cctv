@@ -10,7 +10,7 @@ const DetailSamsung = ({ show, handleClose, detail }) => {
   const copyToClipboard = () => {
     const text = `
       Nombre: ${detail.name}
-      Evento: ${detail.eventName}
+      Evento: ${detail.event_name}
       Estado: ${
         detail.status === "new"
           ? "Nuevo"
@@ -18,8 +18,8 @@ const DetailSamsung = ({ show, handleClose, detail }) => {
           ? "Pendiente"
           : "Completado"
       }
-      Fecha DVR: ${formatDate(detail.dateTime)}
-      Registrado: ${formatDate(detail.createdAt)}
+      Fecha DVR: ${formatDate(detail.event_time)}
+      Registrado: ${formatDate(detail.created_at)}
       Observaciones: ${detail.observations ? detail.observations : "-"}
     `;
     navigator.clipboard
@@ -50,7 +50,7 @@ const DetailSamsung = ({ show, handleClose, detail }) => {
             className="my-1 p-2 bg-body-tertiary overflow-y-scroll rounded-3"
             style={{ height: "110px" }}
           >
-            {detail.eventName}
+            {detail.event_name}
           </div>
         </div>
         <p className="mt-3">
@@ -68,13 +68,6 @@ const DetailSamsung = ({ show, handleClose, detail }) => {
               Completado
             </span>
           )}
-        </p>
-
-        <p>
-          <strong>Fecha DVR: </strong> {formatDate(detail.dateTime)}
-        </p>
-        <p>
-          <strong>Registrado: </strong> {formatDate(detail.createdAt)}
         </p>
         <p>
           <strong>Observaciones: </strong>{" "}

@@ -1,17 +1,31 @@
-const { processEmails } = require("../../app/services/emailConfig");
+const {
+  processHikvisionEmails,
+  processSamsungEmails,
+} = require("../../app/services/emailConfig");
 
-const proccesAllEmails = async (req, res) => {
-
- const { date, folder } = req.query;
+const processEmails = async (req, res) => {
+  const { folder, startDate, endDate, brand } = req.body;
 
   try {
-    await processEmails(folder, date);
-    res.json({ message: "Correos no leídos procesados." });
+    if (brand === "hikvision") {
+      await processHikvisionEmails(folder, startDate, endDate);
+    } else if (brand === "samsung") {
+      await processSamsungEmails(folder, startDate, endDate);
+    } else {
+      return res.status(400).json({ error: "Marca no soportada" });
+    }
+
+    res
+      .status(200)
+      .json({
+        message: 'Correos procesados y movidos a la carpeta "procesados".',
+      });
   } catch (error) {
-    console.error("Error en el procesamiento de correos:", error);
-    res.status(500).send("Error al procesar correos no leídos.");
+    console.error("Error al procesar correos:", error);
+    res.status(500).json({ error: "Error al procesar correos" });
   }
 };
 
-
-module.exports = { proccesAllEmails };
+module.exports = {
+  processEmails,
+};
