@@ -8,9 +8,13 @@ const morgan = require("morgan");
 const cors = require("cors");
 const path = require("path");
 const http = require("http");
+require("dotenv").config();
 
 const app = express();
-const port = config.APP_PORT;
+// Puerto de la aplicación
+const port = process.env.PORT || 5000;
+
+console.log(port)
 
 // Middlewares
 app.use(morgan("dev"));
