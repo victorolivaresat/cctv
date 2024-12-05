@@ -25,17 +25,11 @@ app.use("/public", express.static(path.join(__dirname, "../public")));
 app.use("/attachments", express.static(path.join(__dirname, "../src/assets/attachments")));
 
 // Configuración de CORS
-const allowedOrigins = config.CORS_ORIGIN.split(",") || [];
+console.log(config.CORS_ORIGIN)
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: config.CORS_ORIGIN,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
     optionsSuccessStatus: 204,
