@@ -1,9 +1,10 @@
+const config = require("../../../config");
 const https = require("https");
-const fs = require("fs");
+
 
 const USER = "victorolivaresat";
-const REPOSITORY = "notify";
-const token = process.env.GIT_TOKEN;
+const token = config.GIT_TOKEN;
+const REPOSITORY = "cctv";
 
 const getLanguages = () => {
   const url = `https://api.github.com/repos/${USER}/${REPOSITORY}/languages`;

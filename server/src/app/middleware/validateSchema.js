@@ -1,5 +1,3 @@
-const z = require("zod");
-
 const validateSchema = (schema) => (req, res, next) => {
   try {
     schema.parse(req.body);

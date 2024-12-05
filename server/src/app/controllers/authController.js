@@ -1,7 +1,7 @@
 const { createToken } = require("../utils/jwt");
+const config = require("../../../config");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
-const dotenv = require("dotenv");
 const bcrypt = require("bcryptjs");
 
 const login = async (req, res) => {
@@ -72,7 +72,7 @@ const verifyToken = async (req, res) => {
     return res.status(401).json({ error: "Unauthorized" });
   }
 
-  jwt.verify(token, process.env.JWT_SECRET, async (err, decodedToken) => {
+  jwt.verify(token, config.JWT_SECRET, async (err, decodedToken) => {
     if (err) {
       return res.status(401).json({ error: "Unauthorized" });
     }
