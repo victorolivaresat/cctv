@@ -5,7 +5,7 @@ const config = {
     DB_USERNAME: 'dba_pf',
     DB_PASSWORD: 'P455w0rd_pf',
     DB_DATABASE: 'alerts_cctv',
-    DB_HOST: 'localhost',
+    DB_HOST: '192.168.21.35',
     DB_DIALECT: 'mssql',
     DB_PORT: 1433,
   

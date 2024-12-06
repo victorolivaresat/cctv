@@ -1,0 +1,180 @@
+\\.\pipe\03dfc54b-ed06-4754-81f2-335ad17d7ea0
+[
+  'http://prevencion.apuestatotal.at',
+  'http://192.168.21.35:8080',
+  'http://localhost:5173'
+]
+Executing (default): SELECT 1+1 AS result
+Connection has been established successfully.
+Server listening on port \\.\pipe\03dfc54b-ed06-4754-81f2-335ad17d7ea0!
+[0mGET /api/v1/events/notifications [33m401[0m 4.475 ms - 44[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications [36m304[0m 19.475 ms - -[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.613 ms - 44[0m
+[0mOPTIONS /api/v1/auth/login [32m204[0m 0.486 ms - 0[0m
+Executing (default): SELECT [id], [email], [password], [profile_image], [username], [is_active], [created_at], [updated_at] FROM [users] AS [User] WHERE [User].[email] = N'prevencion@apuestatotal.com';
+User {
+  dataValues: {
+    id: 1,
+    email: 'prevencion@apuestatotal.com',
+    password: '$2b$10$dMwwNKySjxWU//SXcKXOie/rxqCJWHqRH.BUl95FO1DdiHFAceUIa',
+    profile_image: null,
+    username: 'prevencion.fraude',
+    is_active: true,
+    created_at: 2024-11-28T18:34:37.456Z,
+    updated_at: 2024-11-28T18:34:37.456Z
+  },
+  _previousDataValues: {
+    id: 1,
+    email: 'prevencion@apuestatotal.com',
+    password: '$2b$10$dMwwNKySjxWU//SXcKXOie/rxqCJWHqRH.BUl95FO1DdiHFAceUIa',
+    profile_image: null,
+    username: 'prevencion.fraude',
+    is_active: true,
+    created_at: 2024-11-28T18:34:37.456Z,
+    updated_at: 2024-11-28T18:34:37.456Z
+  },
+  uniqno: 1,
+  _changed: Set(0) {},
+  _options: {
+    isNewRecord: false,
+    _schema: null,
+    _schemaDelimiter: '',
+    raw: true,
+    attributes: [
+      'id',
+      'email',
+      'password',
+      'profile_image',
+      'username',
+      'is_active',
+      'created_at',
+      'updated_at'
+    ]
+  },
+  isNewRecord: false
+}
+[0mPOST /api/v1/auth/login [33m400[0m 135.811 ms - 33[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.555 ms - 44[0m
+Executing (default): SELECT [id], [email], [password], [profile_image], [username], [is_active], [created_at], [updated_at] FROM [users] AS [User] WHERE [User].[email] = N'prevencion@apuestatotal.com';
+User {
+  dataValues: {
+    id: 1,
+    email: 'prevencion@apuestatotal.com',
+    password: '$2b$10$dMwwNKySjxWU//SXcKXOie/rxqCJWHqRH.BUl95FO1DdiHFAceUIa',
+    profile_image: null,
+    username: 'prevencion.fraude',
+    is_active: true,
+    created_at: 2024-11-28T18:34:37.456Z,
+    updated_at: 2024-11-28T18:34:37.456Z
+  },
+  _previousDataValues: {
+    id: 1,
+    email: 'prevencion@apuestatotal.com',
+    password: '$2b$10$dMwwNKySjxWU//SXcKXOie/rxqCJWHqRH.BUl95FO1DdiHFAceUIa',
+    profile_image: null,
+    username: 'prevencion.fraude',
+    is_active: true,
+    created_at: 2024-11-28T18:34:37.456Z,
+    updated_at: 2024-11-28T18:34:37.456Z
+  },
+  uniqno: 1,
+  _changed: Set(0) {},
+  _options: {
+    isNewRecord: false,
+    _schema: null,
+    _schemaDelimiter: '',
+    raw: true,
+    attributes: [
+      'id',
+      'email',
+      'password',
+      'profile_image',
+      'username',
+      'is_active',
+      'created_at',
+      'updated_at'
+    ]
+  },
+  isNewRecord: false
+}
+[0mPOST /api/v1/auth/login [33m400[0m 101.873 ms - 33[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.662 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.497 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.634 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.476 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.491 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.610 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.461 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.454 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.418 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.520 ms - 44[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications [36m304[0m 31.628 ms - -[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.430 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.566 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.431 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.429 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.472 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.457 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.373 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.379 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.398 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.374 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.433 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.436 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.433 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.448 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.506 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.382 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.389 ms - 44[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications [33m401[0m 0.346 ms - 44[0m
+[0mGET /api/v1/events/notifications [36m304[0m 21.164 ms - -[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.379 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.374 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.395 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.373 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.388 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.380 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.370 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.380 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.370 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.400 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.373 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.369 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.379 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.534 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.369 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.381 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.373 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.373 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.366 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.364 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.439 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.368 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.362 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.362 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.371 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.345 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.356 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.356 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.366 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.376 ms - 44[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications [36m304[0m 25.277 ms - -[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.392 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.372 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.381 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.389 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.383 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.371 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.367 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.373 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.389 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.387 ms - 44[0m
+[0mGET /api/v1/events/notifications [33m401[0m 0.364 ms - 44[0m

@@ -1,0 +1,10 @@
+\\.\pipe\da49efa2-159c-4998-ae8d-bb330fad0611
+[
+  'http://prevencion.apuestatotal.at',
+  'http://192.168.21.35:8080',
+  'http://localhost:5173'
+]
+Executing (default): SELECT 1+1 AS result
+Connection has been established successfully.
+Server listening on port \\.\pipe\da49efa2-159c-4998-ae8d-bb330fad0611!
+[0mGET /api/v1/events/notifications [33m401[0m 4.464 ms - 44[0m

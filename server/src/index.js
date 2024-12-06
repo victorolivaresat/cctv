@@ -49,7 +49,7 @@ const startServer = async () => {
     server.listen(port, () => {
       console.log(`Server listening on port ${port}!`);
     });
-    scheduleEmailProcessing();
+    ///scheduleEmailProcessing();
   } catch (error) {
     console.error("Failed to start server:", error);
     process.exit(1);

@@ -30,7 +30,9 @@ import PropTypes from "prop-types";
 import logoDarkHv from "../../../assets/img/hikvision_dark.png";
 import logoHikvision from "../../../assets/img/hikvision.png";
 
+
 const EventHv = () => {
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   // Estados
   const [currentObservation, setCurrentObservation] = useState(null);
   const [toggledClearRows, setToggleClearRows] = useState(false);
@@ -310,7 +312,7 @@ const EventHv = () => {
                 <div key={index} className="mt-3 p-2">
                   <p>{file.filename}</p>
                   <img
-                    src={`http://localhost:5000/attachments/${file.filename}`}
+                    src={`${apiBaseUrl}/attachments/${file.filename}`}
                     alt={file.filename}
                     width={250}
                   />
