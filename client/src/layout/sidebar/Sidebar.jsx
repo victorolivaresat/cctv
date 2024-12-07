@@ -1,4 +1,4 @@
-import { FaChartBar, FaMailBulk, FaVideo } from "react-icons/fa";
+import { FaChartBar, FaMailBulk, FaUser, FaVideo } from "react-icons/fa";
 import TeamCard from "../../components/Layout/TeamCard";
 import LogoDark from "../../assets/img/logo_dark.png";
 import useDarkMode from "../../hooks/useDarkMode";
@@ -17,6 +17,7 @@ const Sidebar = ({ show, handleClose }) => {
     { to: "/hikvision", text: "Hikvision", icon: <FaVideo /> },
     { to: "/samsung", text: "Samsung", icon: <MdFiberDvr /> },
     { to: "/email", text: "Email", icon: <FaMailBulk /> },
+    { to: "/user", text: "User", icon: <FaUser /> },
   ];
 
   const renderNavigationLinks = () => {

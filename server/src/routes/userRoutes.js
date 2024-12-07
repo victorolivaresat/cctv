@@ -8,6 +8,7 @@ const authRequired = require('../app/middleware/validateToken');
 
 routes.post('/users', validateSchema(createUserSchema), authRequired, userController.createUser);
 routes.put('/users/:id', validateSchema(updateUserSchema), authRequired, userController.updateUser);
+routes.patch('/users/:id/status', authRequired, userController.updateUserStatus);
 routes.get('/users', authRequired, userController.getAllUsers);
 routes.get('/users/:id', authRequired, userController.getUser);
 routes.delete('/users/:id', authRequired, userController.deleteUser);

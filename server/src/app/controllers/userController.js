@@ -3,13 +3,14 @@ const bcrypt = require("bcrypt");
 
 const createUser = async (req, res) => {
   try {
-    const { firstName, lastName, email, password } = req.body;
+    const { email, password, profile_image, username, is_active } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({
-      firstName,
-      lastName,
       email,
       password: hashedPassword,
+      profile_image,
+      username,
+      is_active,
     });
 
     res.status(201).json({
@@ -60,15 +61,7 @@ const updateUser = async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    const { firstName, lastName, password, confirmPassword } = req.body;
-
-    if (firstName !== undefined) {
-      user.firstName = firstName;
-    }
-
-    if (lastName !== undefined) {
-      user.lastName = lastName;
-    }
+    const { email, password, confirmPassword, profile_image, username, is_active } = req.body;
 
     if (password !== undefined && confirmPassword !== undefined) {
       if (password !== confirmPassword) {
@@ -79,10 +72,32 @@ const updateUser = async (req, res) => {
       user.password = hashedPassword;
     }
 
+    
+    user.email = email !== undefined ? email : user.email;
+    user.profile_image = profile_image !== undefined ? profile_image : user.profile_image;
+    user.username = username !== undefined ? username : user.username;
+    user.is_active = is_active !== undefined ? is_active : user.is_active;
+
+
     await user.save();
     res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ error: "Error updating user" });
+  }
+};
+
+const updateUserStatus = async (req, res) => {
+  try {
+    const user = await User.findByPk(req.params.id);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    user.is_active = req.body.is_active;
+    await user.save();
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ error: "Error updating user status" });
   }
 };
 
@@ -105,4 +120,5 @@ module.exports = {
   getAllUsers,
   updateUser,
   deleteUser,
+  updateUserStatus,
 };

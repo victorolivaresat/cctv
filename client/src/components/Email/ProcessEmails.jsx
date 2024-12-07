@@ -8,19 +8,21 @@ import {
   getTomorrowDate,
   getYesterdayDate,
 } from "../../utils/DateUtils";
+import { FaPlay } from "react-icons/fa";
 
 const ProcessEmails = () => {
   const folder = "INBOX";
   const [brand, setBrand] = useState("hikvision");
   const [loading, setLoading] = useState(false);
 
-  const [startDate, setStartDate] = useState(formatDateInput(getYesterdayDate()));
+  const [startDate, setStartDate] = useState(
+    formatDateInput(getYesterdayDate())
+  );
   const [endDate, setEndDate] = useState(formatDateInput(getTomorrowDate()));
-  
+
   const handleProcessEmail = useCallback(async () => {
     setLoading(true);
     try {
-      
       console.log("Procesando correos...");
       console.log("Carpeta:", folder);
       console.log("Fecha de inicio:", startDate);
@@ -105,7 +107,13 @@ const ProcessEmails = () => {
             <option value="samsung">Samsung</option>
           </Form.Select>
         </Form.Group>
-        <Button type="submit" variant="primary" size="sm" className="w-100" disabled={loading}>
+        <Button
+          type="submit"
+          variant="primary"
+          size="sm"
+          className="w-100"
+          disabled={loading}
+        >
           {loading ? (
             <>
               <Spinner
@@ -118,7 +126,10 @@ const ProcessEmails = () => {
               Procesando...
             </>
           ) : (
-            "Ejecutar"
+            <>
+              <FaPlay className="me-2" />
+              Ejecutar
+            </>
           )}
         </Button>
       </Form>

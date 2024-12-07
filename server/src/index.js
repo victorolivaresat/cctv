@@ -14,8 +14,6 @@ const app = express();
 // Puerto de la aplicación
 const port = process.env.PORT || 5000;
 
-console.log(port)
-
 // Middlewares
 app.use(morgan("dev"));
 app.use(express.json());
@@ -25,8 +23,6 @@ app.use("/public", express.static(path.join(__dirname, "../public")));
 app.use("/attachments", express.static(path.join(__dirname, "../src/assets/attachments")));
 
 // Configuración de CORS
-console.log(config.CORS_ORIGIN)
-
 app.use(
   cors({
     origin: config.CORS_ORIGIN,

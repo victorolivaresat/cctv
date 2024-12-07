@@ -12,6 +12,8 @@ const moment = require("moment");
 const getEventsHv = async (req, res) => {
   const { startDate, endDate } = req.query;
 
+  console.log("startDate", startDate);
+
   if (!startDate || !endDate) {
     return res.status(400).send("Faltan los parámetros 'startDate' o 'endDate'");
   }

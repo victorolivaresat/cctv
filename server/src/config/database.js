@@ -9,7 +9,7 @@ const sequelize = new Sequelize(config.DB_DATABASE, config.DB_USERNAME, config.D
     options: {
       encrypt: false,
       trustServerCertificate: false,
-      useUTC: false,
+      useUTC: true,
     },
   },
   timezone: '-05:00',

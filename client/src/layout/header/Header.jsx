@@ -124,12 +124,10 @@ const Header = ({ handleShow, handleClose }) => {
               <div className="my-2 small text-muted">
                 {currentUser && currentUser.email}
               </div>
+              <div className="my-2 small text-muted">
+                {currentUser && currentUser.username}
+              </div>
             </div>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.2">
-              <FaCog />
-              &nbsp;Config
-            </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="#" onClick={handleLogout}>
               <FaSignOutAlt />
