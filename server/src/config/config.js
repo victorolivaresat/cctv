@@ -1,3 +1,5 @@
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
 const databaseConfig = {
     username: "dba_pf",
     password: "P455w0rd_pf",

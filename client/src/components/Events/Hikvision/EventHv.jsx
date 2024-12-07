@@ -78,6 +78,7 @@ const EventHv = () => {
       }
 
       const data = await eventsHv(startDate, endDate);
+      console.log("Data:", data);
       setEventsData(data);
     } catch (error) {
       console.error("Error fetching data:", error);
