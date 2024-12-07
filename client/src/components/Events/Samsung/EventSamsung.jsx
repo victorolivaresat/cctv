@@ -6,6 +6,7 @@ import ObservationModal from "../ObservationsModal";
 import ExcelExport from "../../../utils/ExcelExport";
 import DataTableBase from "../../../utils/DataTable";
 import useDarkMode from "../../../hooks/useDarkMode";
+import { useAuth } from "../../../hooks/useAuth";
 import { useEffect, useState } from "react";
 import DetailSamsung from "./DetailSamsung";
 import PropTypes from "prop-types";
@@ -25,6 +26,7 @@ import {
 
 import logoDarkSamsung from "../../../assets/img/samsung_dark.png";
 import logoSamsung from "../../../assets/img/samsung.png";
+import { toast } from "react-toastify";
 
 const EventSamsung = () => {
   const [startDate, setStartDate] = useState(formatDateInput(getYesterdayDate()));
@@ -43,6 +45,7 @@ const EventSamsung = () => {
   const [eventsData, setEventsData] = useState([]);
   const [filterName, setFilterName] = useState("");
   const { darkMode } = useDarkMode();
+  const { currentUser } = useAuth();
 
   useEffect(() => {
     handleFetchTestsCount();
@@ -254,15 +257,22 @@ const EventSamsung = () => {
   };
 
   const updateStatus = async (status) => {
+
+    console.log("Selected rows ID:", selectedRowsId);
+    console.log("Selected status:", status);
+    console.log("Current user:", currentUser.userId);
+
     try {
       const data = await Promise.all(
-        selectedRowsId.map((id) => updateEventSamsungStatus(id, status))
+        selectedRowsId.map((id) => updateEventSamsungStatus(id, status, currentUser.userId))
       );
       handleFetchEvents(startDate, endDate);
       handleClearRows();
       console.log("Status updated:", data);
+      toast.success("Estado actualizado correctamente");
     } catch (error) {
       console.error("Error updating status:", error);
+      toast.error("Error al actualizar el estado");
     }
   };
 

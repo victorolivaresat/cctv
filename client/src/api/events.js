@@ -25,9 +25,11 @@ export const distinctNameHvCount = async () => {
   return data;
 };
 
-export const updateEventHvStatus = async (id, status) => {
+export const updateEventHvStatus = async (id, status, changedBy) => {
+
+  console.log(id, status, changedBy);
   try {
-    const { data } = await axios.put(`/events/hv/${id}`, { status });
+    const { data } = await axios.put(`/events/hv/${id}`, { status, changedBy });
     return data;
   } catch (error) {
     console.error("Error updating event status:", error);
@@ -82,9 +84,9 @@ export const distinctNameSamsungCount = async () => {
   return data;
 };
 
-export const updateEventSamsungStatus = async (id, status) => {
+export const updateEventSamsungStatus = async (id, status, changedBy) => {
   try {
-    const { data } = await axios.put(`/events/samsung/${id}`, { status });
+    const { data } = await axios.put(`/events/samsung/${id}`, { status, changedBy });
     return data;
   } catch (error) {
     console.error("Error updating event status Samsung:", error);
@@ -118,6 +120,38 @@ export const removeDuplicateEventsSamsung = async (date) => {
  * Funciones generales
  */
 export const getNewNotificationsCount = async () => {
-  const { data } = await axios.get("/events/notifications");
+  const { data } = await axios.get("/events/notifications/count");
   return data;
 };
+
+export const getNewNotificationsCountByDate = async (startDate, endDate) => {
+  const { data } = await axios.get("/events/notifications/by-date", {
+    params: { startDate, endDate },
+  });
+  return data;
+};
+
+export const getEventSummaryByDateRange = async (startDate, endDate) => {
+  try {
+    const { data } = await axios.get("/events/summary-by-date", {
+      params: { startDate, endDate },
+    });
+    return data;
+  } catch (error) {
+    console.error("Error al obtener el resumen de eventos:", error);
+    throw error;
+  }
+};
+
+export const getEventHistoryTimeline = async (startDate, endDate) => {
+  try {
+    const { data } = await axios.get("/events/timeline", {
+      params: { startDate, endDate },
+    });
+    return data;
+  } catch (error) {
+    console.error("Error al obtener el historial de eventos:", error);
+    throw error; 
+  }
+};
+

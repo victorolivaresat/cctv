@@ -32,7 +32,7 @@ EventHv.init(
       allowNull: false,
     },
     camera_name: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
     status: {

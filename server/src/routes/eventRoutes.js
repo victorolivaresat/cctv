@@ -29,6 +29,10 @@ routes.delete('/events/samsung/remove-duplicates', authRequired, eventController
 /**
  * Rutas generales
  */
-routes.get('/events/notifications', authRequired, eventController.getNewNotificationsCount);
+routes.get('/events/notifications/count', authRequired, eventController.getNewNotificationsCount);
+routes.get('/events/notifications/by-date', authRequired, eventController.getNewNotificationsCountByDate);
+routes.get('/events/summary-by-date', authRequired, eventController.getEventSummaryByDateRange);
+routes.get('/events/timeline', authRequired, eventController.getEventHistoryTimeline);
+
 
 module.exports = routes;

@@ -1,6 +1,6 @@
 import { Container, Nav, Navbar, NavDropdown, Badge } from "react-bootstrap";
-import { FaBell, FaCog, FaSignOutAlt } from "react-icons/fa";
 import { getNewNotificationsCount } from "../../api/events";
+import { FaBell, FaSignOutAlt } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import Logo from "../../assets/img/logo.jpg";

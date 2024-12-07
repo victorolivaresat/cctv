@@ -18,6 +18,7 @@ const Sidebar = ({ show, handleClose }) => {
     { to: "/samsung", text: "Samsung", icon: <MdFiberDvr /> },
     { to: "/email", text: "Email", icon: <FaMailBulk /> },
     { to: "/user", text: "User", icon: <FaUser /> },
+    { to: "/history", text: "History", icon: <FaChartBar /> },
   ];
 
   const renderNavigationLinks = () => {

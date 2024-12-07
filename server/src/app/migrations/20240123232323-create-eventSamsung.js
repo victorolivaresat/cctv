@@ -21,7 +21,7 @@ module.exports = {
       },
       event_name: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       event_time: {
         allowNull: false,

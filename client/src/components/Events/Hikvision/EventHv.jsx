@@ -14,7 +14,6 @@ import {
 } from "../../../utils/DateUtils";
 import { Button, Form, InputGroup, Col, Row, Alert } from "react-bootstrap";
 import { FaEye, FaFilter, FaTimes, FaUndo } from "react-icons/fa";
-
 import ExcelExport from "../../../utils/ExcelExport";
 import useDarkMode from "../../../hooks/useDarkMode";
 import DataTableBase from "../../../utils/DataTable";
@@ -22,6 +21,7 @@ import ObservationModal from "../ObservationsModal";
 import { MdApps, MdCircle } from "react-icons/md";
 import DetailHikvision from "./DetailHikvision";
 import RemoveDuplicate from "./RemoveDuplicate";
+import { useAuth } from "../../../hooks/useAuth";
 import { useState, useEffect } from "react";
 import { FaComment } from "react-icons/fa";
 import PropTypes from "prop-types";
@@ -29,10 +29,12 @@ import PropTypes from "prop-types";
 // Iconos y recursos
 import logoDarkHv from "../../../assets/img/hikvision_dark.png";
 import logoHikvision from "../../../assets/img/hikvision.png";
+import { toast } from "react-toastify";
 
 
 const EventHv = () => {
   const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+  const { currentUser } = useAuth();
   // Estados
   const [currentObservation, setCurrentObservation] = useState(null);
   const [toggledClearRows, setToggleClearRows] = useState(false);
@@ -246,19 +248,23 @@ const EventHv = () => {
     setToggleClearRows(!toggledClearRows);
   };
 
-  // 
+  // Actualizar estado
   const updateStatus = async (status) => {
     console.log("Selected rows ID:", selectedRowsId);
     console.log("Selected status:", status);
+    console.log("Current user:", currentUser.userId);
+
     try {
       const data = await Promise.all(
-        selectedRowsId.map((id) => updateEventHvStatus(id, status))
+        selectedRowsId.map((id) => updateEventHvStatus(id, status, currentUser.userId))
       );
       handleFetchEvents(startDate, endDate);
       handleClearRows();
       console.log("Status updated:", data);
+      toast.success("Estado actualizado correctamente");
     } catch (error) {
       console.error("Error updating status:", error);
+      toast.error("Error al actualizar el estado");
     }
   };
 

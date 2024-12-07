@@ -1,5 +1,6 @@
 const EventSamsung = require("../models/EventSamsung");
 const { sequelize } = require("../../config/database");
+const EventHistory = require("../models/EventHistory");
 const EventHv = require("../models/EventHv");
 const { Op } = require("sequelize");
 const moment = require("moment");
@@ -15,7 +16,9 @@ const getEventsHv = async (req, res) => {
   console.log("startDate", startDate);
 
   if (!startDate || !endDate) {
-    return res.status(400).send("Faltan los parámetros 'startDate' o 'endDate'");
+    return res
+      .status(400)
+      .send("Faltan los parámetros 'startDate' o 'endDate'");
   }
 
   try {
@@ -53,10 +56,14 @@ const getLastEventsHv = async (req, res) => {
 // Actualizar el estado de un evento de EventHv
 const updateEventHvStatus = async (req, res) => {
   const { id } = req.params;
-  const { status } = req.body;
+  const { status, changedBy } = req.body;
 
-  if (!status) {
-    return res.status(400).send("El campo 'status' es requerido");
+  console.log(status, changedBy);
+
+  if (!status || !changedBy) {
+    return res
+      .status(400)
+      .send("El campo 'status' y 'changedBy' son requeridos");
   }
 
   try {
@@ -64,8 +71,23 @@ const updateEventHvStatus = async (req, res) => {
     if (!event) {
       return res.status(404).send("Evento no encontrado");
     }
+
+    const previousStatus = event.status;
+
     event.status = status;
     await event.save();
+
+    // Crear un historial de evento
+    await EventHistory.create({
+      model: "EventHv",
+      user_id: changedBy,
+      action: "Status Updated",
+      details: JSON.stringify({
+        previousStatus: previousStatus,
+        newStatus: status,
+      }),
+    });
+
     return res.json(event);
   } catch (error) {
     console.error("Error al actualizar el estado del evento:", error);
@@ -166,7 +188,6 @@ const removeDuplicateEventsHv = async (req, res) => {
   }
 };
 
-
 /**************************************************************************/
 /*********************** Eventos de Samsung *******************************/
 /**************************************************************************/
@@ -176,7 +197,9 @@ const getEventsSamsung = async (req, res) => {
   const { startDate, endDate } = req.query;
 
   if (!startDate || !endDate) {
-    return res.status(400).send("Faltan los parámetros 'startDate' o 'endDate'");
+    return res
+      .status(400)
+      .send("Faltan los parámetros 'startDate' o 'endDate'");
   }
 
   try {
@@ -214,10 +237,12 @@ const getLastEventsSamsung = async (req, res) => {
 // Actualizar el estado de un evento de EventSamsung
 const updateEventSamsungStatus = async (req, res) => {
   const { id } = req.params;
-  const { status } = req.body;
+  const { status, changedBy } = req.body;
 
-  if (!status) {
-    return res.status(400).send("El campo 'status' es requerido");
+  if (!status || !changedBy) {
+    return res
+      .status(400)
+      .send("El campo 'status' y 'changedBy' son requeridos");
   }
 
   try {
@@ -225,11 +250,28 @@ const updateEventSamsungStatus = async (req, res) => {
     if (!event) {
       return res.status(404).send("Evento no encontrado");
     }
+
+    const previousStatus = event.status;
+
     event.status = status;
     await event.save();
+
+    await EventHistory.create({
+      model: "EventSamsung",
+      user_id: changedBy,
+      action: "Status Updated",
+      details: JSON.stringify({
+        previousStatus: previousStatus,
+        newStatus: status,
+      }),
+    });
+
     return res.json(event);
   } catch (error) {
-    console.error("Error al actualizar el estado del evento de Samsung:", error);
+    console.error(
+      "Error al actualizar el estado del evento de Samsung:",
+      error
+    );
     res.status(500).send("Error al actualizar el estado del evento de Samsung");
   }
 };
@@ -252,8 +294,13 @@ const updateEventSamsungObservations = async (req, res) => {
     await event.save();
     return res.json(event);
   } catch (error) {
-    console.error("Error al actualizar observaciones del evento de Samsung:", error);
-    res.status(500).send("Error al actualizar observaciones del evento de Samsung");
+    console.error(
+      "Error al actualizar observaciones del evento de Samsung:",
+      error
+    );
+    res
+      .status(500)
+      .send("Error al actualizar observaciones del evento de Samsung");
   }
 };
 
@@ -266,8 +313,13 @@ const getDistinctNameSamsungCount = async (req, res) => {
     });
     return res.json(count);
   } catch (error) {
-    console.error("Error al obtener cantidad de nombres distintos en Samsung:", error);
-    res.status(500).send("Error al obtener cantidad de nombres distintos en Samsung");
+    console.error(
+      "Error al obtener cantidad de nombres distintos en Samsung:",
+      error
+    );
+    res
+      .status(500)
+      .send("Error al obtener cantidad de nombres distintos en Samsung");
   }
 };
 
@@ -362,7 +414,6 @@ const removeDuplicateEventsSamsung = async (req, res) => {
   }
 };
 
-
 /**************************************************************************/
 /*********************** Eventos Generales *******************************/
 /**************************************************************************/
@@ -390,6 +441,113 @@ const getNewNotificationsCount = async (req, res) => {
   }
 };
 
+const getNewNotificationsCountByDate = async (req, res) => {
+  const { startDate, endDate } = req.query;
+
+  if (!startDate || !endDate) {
+    return res.status(400).send("Los campos 'startDate' y 'endDate' son requeridos");
+  }
+
+  try {
+    const samsungCount = await EventSamsung.count({
+      where: {
+        status: "new",
+        created_at: {
+          [Op.between]: [new Date(startDate), new Date(endDate)],
+        },
+      },
+    });
+
+    const hvCount = await EventHv.count({
+      where: {
+        status: "new",
+        created_at: {
+          [Op.between]: [new Date(startDate), new Date(endDate)],
+        },
+      },
+    });
+
+    const notifications = {
+      samsung: samsungCount,
+      hv: hvCount,
+    };
+
+    return res.json(notifications);
+  } catch (error) {
+    console.error("Error al obtener las notificaciones nuevas:", error);
+    res.status(500).send("Error al obtener las notificaciones nuevas");
+  }
+};
+
+const getEventSummaryByDateRange = async (req, res) => {
+  const { startDate, endDate } = req.query;
+
+  if (!startDate || !endDate) {
+    return res
+      .status(400)
+      .send("Faltan los parámetros 'startDate' o 'endDate'");
+  }
+
+  try {
+    const formattedStartDate = moment(startDate).format("YYYY-MM-DD HH:mm:ss");
+    const formattedEndDate = moment(endDate).format("YYYY-MM-DD HH:mm:ss");
+
+    const [eventsSummary] = await sequelize.query(
+      "EXEC GetEventSummaryByDateRange :startDate, :endDate",
+      {
+        replacements: {
+          startDate: formattedStartDate,
+          endDate: formattedEndDate,
+        },
+      }
+    );
+
+    if (!eventsSummary || eventsSummary.length === 0) {
+      return res
+        .status(404)
+        .send("No se encontraron eventos en el rango de fechas proporcionado");
+    }
+
+    return res.json(eventsSummary);
+  } catch (error) {
+    console.error("Error al obtener el resumen de eventos:", error);
+    res.status(500).send("Error al obtener el resumen de eventos");
+  }
+};
+
+const getEventHistoryTimeline = async (req, res) => {
+  const { startDate, endDate } = req.query;
+
+  if (!startDate || !endDate) {
+    return res.status(400).send("Faltan los parámetros 'startDate' o 'endDate'");
+  }
+
+  const formattedStartDate = moment(startDate).format("YYYY-MM-DD HH:mm:ss");
+  const formattedEndDate = moment(endDate).format("YYYY-MM-DD HH:mm:ss");
+
+  try {
+    const eventHistory = await EventHistory.findAll({
+      where: {
+        created_at: {
+          [Op.between]: [formattedStartDate, formattedEndDate],
+        },
+      },
+      order: [["created_at", "ASC"]],
+      limit: 10,
+    });
+
+    if (eventHistory.length === 0) {
+      return res.status(404).send("No se encontraron eventos en el rango de fechas proporcionado");
+    }
+
+    return res.json(eventHistory);
+  } catch (error) {
+    console.error("Error al obtener el historial de eventos:", error);
+    res.status(500).send("Error al obtener el historial de eventos");
+  }
+};
+
+
 module.exports = {
   getEventsHv,
   getLastEventsHv,
@@ -408,4 +566,7 @@ module.exports = {
   getEventSamsungDetail,
   removeDuplicateEventsSamsung,
   getNewNotificationsCount,
+  getNewNotificationsCountByDate,
+  getEventSummaryByDateRange,
+  getEventHistoryTimeline,
 };

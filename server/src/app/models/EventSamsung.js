@@ -21,7 +21,7 @@ EventSamsung.init(
       allowNull: false,
     },
     event_name: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     event_time: {

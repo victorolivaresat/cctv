@@ -72,7 +72,7 @@ const CardEventHv = () => {
                     <FaVideo /> &nbsp; Event Type: &nbsp;
                     {event.event_type}
                   </div>
-                  {event.camera_name && (
+                  {event.camera_name && event.camera_name.trim() !== "" && event.camera_name !== 'null'  && (
                     <div className="event-details">
                       <pre className="blink">
                         <span></span>
