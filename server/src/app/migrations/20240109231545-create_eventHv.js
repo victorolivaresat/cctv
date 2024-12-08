@@ -33,7 +33,7 @@ module.exports = {
         allowNull: false
       },
       camera_name: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: true
       },
       status: {

@@ -1,15 +1,19 @@
-import { format, subDays, addDays } from 'date-fns';
+import { format } from 'date-fns';
 
 export const formatDate = (date) => {
   return format(new Date(date), 'dd/MM/yyyy HH:mm:ss');
 };
 
 export const getYesterdayDate = () => {
-  return subDays(new Date(), 1);
+  const today = new Date();
+  today.setDate(today.getDate() - 1);
+  return today.toISOString().split('T')[0];
 };
 
 export const getTomorrowDate = () => {
-  return addDays(new Date(), 1);
+  const today = new Date();
+  today.setDate(today.getDate() + 1);
+  return today.toISOString().split('T')[0];
 };
 
 export const formatDateInput = (date) => {
