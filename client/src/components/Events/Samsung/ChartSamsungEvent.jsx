@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { Card } from "react-bootstrap";
 import Chart from "react-apexcharts";
 
+//
+
 const ChartSamsungEvent = () => {
   const { darkMode } = useDarkMode();
 
@@ -39,7 +41,7 @@ const ChartSamsungEvent = () => {
       }],
       plotOptions: {
         bar: {
-          horizontal: true,
+          horizontal: false,
           dataLabels: {
             total: {
               enabled: true,
