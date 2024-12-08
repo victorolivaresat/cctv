@@ -1,8 +1,7 @@
 import useDarkMode from "../../hooks/useDarkMode";
 import { Alert } from "react-bootstrap";
-import { FaBell } from "react-icons/fa";
+import { FaCheckCircle, FaClock, FaTasks } from "react-icons/fa";
 import PropTypes from "prop-types";
-
 
 // Logo imports
 import logoDarkSamsung from "../../assets/img/samsung_dark.png";
@@ -21,38 +20,41 @@ const NewNotifications = ({ notifications }) => {
     }
     return null;
   };
+
   return (
-    <>
-      {Object.entries(notifications).map(
-        ([key, count]) =>
-          count > 0 && (
-            <Alert
-              key={key}
-              variant="info"
-              className="d-flex align-items-center justify-content-between"
-            >
-              <div className="d-flex align-items-center">
-                <FaBell className="me-3" size={20} />
-                <div>
-                  <img
-                    src={getLogo(key)}
-                    alt={`${key} logo`}
-                    className="me-3"
-                    width={90}
-                  />
-                  <p className="my-2 fs-6">{count} Nuevas notificaciones</p>
-                </div>
-              </div>
-              <span
-                className="badge rounded-pill bg-primary"
-                style={{ fontSize: "12px" }}
-              >
-                {count}
+    <div>
+      {Object.keys(notifications).map((key) => (
+        <Alert key={key} variant="light shadow" className="">
+          <div>
+            <img
+              src={getLogo(key)}
+              alt={`${key} logo`}
+              className="me-3"
+              width={90}
+            />
+            <p className="my-2 fs-5 blink">
+              Nuevas {" "}
+              <span className="badge rounded-pill bg-primary">
+                {notifications[key].new}
               </span>
-            </Alert>
-          )
-      )}
-    </>
+            </p>
+            <p className="my-2 text-success">
+              <FaCheckCircle className="me-2" />
+              Completadas: {notifications[key].completed}
+            </p>
+            <p className="my-2 text-warning">
+              <FaClock className="me-2" />
+              Pendientes: {notifications[key].pending}
+            </p>
+            <hr className="my-1" />
+            <p className="my-2">
+              <FaTasks className="me-2" />
+              Total: {notifications[key].total}
+            </p>
+          </div>
+        </Alert>
+      ))}
+    </div>
   );
 };
 

@@ -128,6 +128,8 @@ export const getNewNotificationsCountByDate = async (startDate, endDate) => {
   const { data } = await axios.get("/events/notifications/by-date", {
     params: { startDate, endDate },
   });
+
+  console.log(data);
   return data;
 };
 
