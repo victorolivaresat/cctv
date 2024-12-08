@@ -462,7 +462,7 @@ const getNewNotificationsCountByDate = async (req, res) => {
   }
 
   try {
-    const samsungCount = await EventSamsung.count({
+    const samsungNewCount = await EventSamsung.count({
       where: {
         status: "new",
         created_at: {
@@ -471,9 +471,45 @@ const getNewNotificationsCountByDate = async (req, res) => {
       },
     });
 
-    const hvCount = await EventHv.count({
+    const hvNewCount = await EventHv.count({
       where: {
         status: "new",
+        created_at: {
+          [Op.between]: [new Date(startDate), new Date(endDate)],
+        },
+      },
+    });
+
+    const samsungCompletedCount = await EventSamsung.count({
+      where: {
+        status: "completed",
+        created_at: {
+          [Op.between]: [new Date(startDate), new Date(endDate)],
+        },
+      },
+    });
+
+    const hvCompletedCount = await EventHv.count({
+      where: {
+        status: "completed",
+        created_at: {
+          [Op.between]: [new Date(startDate), new Date(endDate)],
+        },
+      },
+    });
+
+    const samsungPendingCount = await EventSamsung.count({
+      where: {
+        status: "pending",
+        created_at: {
+          [Op.between]: [new Date(startDate), new Date(endDate)],
+        },
+      },
+    });
+
+    const hvPendingCount = await EventHv.count({
+      where: {
+        status: "pending",
         created_at: {
           [Op.between]: [new Date(startDate), new Date(endDate)],
         },
@@ -481,8 +517,18 @@ const getNewNotificationsCountByDate = async (req, res) => {
     });
 
     const notifications = {
-      samsung: samsungCount,
-      hv: hvCount,
+      samsung: {
+        new: samsungNewCount,
+        completed: samsungCompletedCount,
+        pending: samsungPendingCount,
+        total: samsungNewCount + samsungCompletedCount + samsungPendingCount,
+      },
+      hv: {
+        new: hvNewCount,
+        completed: hvCompletedCount,
+        pending: hvPendingCount,
+        total: hvNewCount + hvCompletedCount + hvPendingCount,
+      },
     };
 
     return res.json(notifications);

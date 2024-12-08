@@ -4,7 +4,7 @@ import NewNotifications from "../../components/History/NewNotifications";
 import { Row, Col, Spinner, Form, Button, Card } from "react-bootstrap";
 import EventTimeline from "../../components/History/EventTimeline";
 import EventHistory from "../../components/History/EventHistory";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaBell } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import {
@@ -93,7 +93,7 @@ const History = () => {
   return (
     <div>
       <Row className="g-3 mt-2">
-        <Col sm={12} md={6} lg={3}>
+        <Col sm={12} md={6} lg={2}>
           <Card className="mb-4 shadow-sm bg-body-tertiary px-2">
             <Card.Body>
               <Form as={Row}>
@@ -127,9 +127,13 @@ const History = () => {
               </Form>
             </Card.Body>
           </Card>
+          <span className="mb-2 d-block text-primary bg-primary-subtle p-2 rounded-2">
+            <FaBell className="me-2" />
+            Notificaciones
+          </span>
           <NewNotifications notifications={notifications} />
         </Col>
-        <Col sm={12} md={6} lg={6}>
+        <Col sm={12} md={6} lg={7}>
           <EventTimeline events={eventTimeline} />
         </Col>
         <Col sm={12} md={6} lg={3}>
