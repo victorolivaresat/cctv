@@ -349,7 +349,7 @@ const DvrControl = () => {
       <Col className="p-4 mb-4 bg-dark-subtle rounded-3" md={2}>
         <p className="fs-5 mb-4">
           <FaRegEye className="me-2" />
-          DVR Controls
+          Control de DVR's
         </p>
 
         <Alert variant="info" className="mb-4">
@@ -367,7 +367,7 @@ const DvrControl = () => {
           }}
         >
           <FaPlus className="me-2" />
-          Add DVR Control
+          Registrar
         </Button>
       </Col>
 
