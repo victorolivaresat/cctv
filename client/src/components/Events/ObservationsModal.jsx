@@ -11,24 +11,21 @@ const ObservationsModal = ({ show, handleClose, observation, setObservation, han
 
   const handleObservationsChange = (event) => {
     const newObservations = event.target.value;
-    console.log("Local observations updated:", newObservations);
     setLocalObservations(newObservations);
   };
 
   const saveObservations = () => {
-    console.log("Saving observations...");
     if (localObservations.trim() === "") {
-      alert("Observations cannot be empty.");
+      alert("Las observaciones no pueden estar vacías.");
       return;
     }
-    console.log("Observations to be saved:", localObservations);
     setObservation(localObservations);
     handleSave(localObservations);
-    handleClose();
+    handleClose(); 
   };
 
   const handleModalClose = () => {
-    setLocalObservations("");
+    setLocalObservations(observation || "");
     handleClose();
   };
 

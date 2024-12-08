@@ -1,3 +1,28 @@
+import DvrControlFormModal from "../../components/DvrControl/DvrFormModal";
+import withReactContent from "sweetalert2-react-content";
+import ExcelExport from "../../utils/ExcelExport";
+import DataTableBase from "../../utils/DataTable";
+import { useState, useEffect } from "react";
+import { MdApps } from "react-icons/md";
+import { toast } from "react-toastify";
+import PropTypes from "prop-types";
+import Swal from "sweetalert2";
+import {
+  getAllDvrControls,
+  createDvrControl,
+  updateDvrControl,
+  deleteDvrControl,
+  updateDvrControlStatus,
+} from "../../api/dvrControl";
+import {
+  Form,
+  Button,
+  Row,
+  Col,
+  Alert,
+  InputGroup,
+  Card,
+} from "react-bootstrap";
 import {
   FaEdit,
   FaInfo,
@@ -9,32 +34,6 @@ import {
   FaTimes,
   FaFilter,
 } from "react-icons/fa";
-import DvrControlFormModal from "../../components/DvrControl/DvrControlFormModal";
-import withReactContent from "sweetalert2-react-content";
-import {
-  Form,
-  Button,
-  Row,
-  Col,
-  Alert,
-  InputGroup,
-  Card,
-} from "react-bootstrap";
-import ExcelExport from "../../utils/ExcelExport";
-import DataTableBase from "../../utils/DataTable";
-import { useState, useEffect } from "react";
-import { MdApps } from "react-icons/md";
-import { toast } from "react-toastify";
-import PropTypes from "prop-types";
-import Swal from "sweetalert2";
-
-import {
-  getAllDvrControls,
-  createDvrControl,
-  updateDvrControl,
-  deleteDvrControl,
-  updateDvrControlStatus,
-} from "../../api/dvrControl";
 
 const MySwal = withReactContent(Swal);
 
@@ -314,7 +313,7 @@ const DvrControl = () => {
                 <strong>Zona:</strong>&nbsp; {supervisorData.zone}
               </p>
               <p className="mb-1">
-                <strong>Jefe de Zona:</strong>&nbsp;{" "}
+                <strong>Jefe Comercial:</strong>&nbsp;{" "}
                 {supervisorData.area_manager}
               </p>
             </div>
@@ -326,8 +325,6 @@ const DvrControl = () => {
 
   // Exportar a Excel
   const handleExportToExcel = () => {
-
-
     const exportData = dvrControls.map(control => ({      
       "Tienda": control.store_name,
       "Empresa": control.company_name,
@@ -340,18 +337,16 @@ const DvrControl = () => {
       "Notas": control.notes,
       "Supervisor": control.supervisor.name,
       "Telefono Sup.": control.supervisor.phone,
-      "Jefe de Zona": control.supervisor.area_manager,
+      "Jefe Comercial": control.supervisor.area_manager,
       "Zona": control.supervisor.zone,
     }));
-
-    console.log("exportData", exportData);
 
     return exportData;
   };
 
   return (
     <Row className="p-4">
-      <Col className="p-4 mb-4 bg-dark-subtle rounded-3" md={3}>
+      <Col className="p-4 mb-4 bg-dark-subtle rounded-3" md={2}>
         <p className="fs-5 mb-4">
           <FaRegEye className="me-2" />
           DVR Controls
@@ -359,8 +354,9 @@ const DvrControl = () => {
 
         <Alert variant="info" className="mb-4">
           <FaInfo className="me-2" />
-          <strong>Info:</strong> Click on a DVR Control to edit, delete, or
-          manage its status. Use <b>Add DVR Control</b> to create a new one.
+          <strong>Info:</strong> Haz clic registro DVR para editar, eliminar o actualizar su estado. 
+          Usa el botón <b>{ "Agregar Control DVR" }</b> para crear un nuevo registro.
+
         </Alert>
         <Button
           className="w-100 mb-3"
@@ -375,7 +371,7 @@ const DvrControl = () => {
         </Button>
       </Col>
 
-      <Col className="px-4" md={9}>
+      <Col className="px-4" md={10}>
         <Card className="bg-body-tertiary mb-4">
           <Card.Body>
             <Row>
@@ -497,7 +493,7 @@ const DvrControl = () => {
                     type="text"
                     value={filterSupervisorAreaManager}
                     onChange={handleFilterSupervisorAreaManagerChange}
-                    placeholder="Jefe de zona"
+                    placeholder="Jefe Comercial"
                   />
                   <InputGroup.Text>
                     {filterSupervisorAreaManager ? (

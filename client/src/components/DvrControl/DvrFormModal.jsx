@@ -20,7 +20,7 @@ import {
 } from "react-icons/fa";
 import PropTypes from "prop-types";
 
-const DvrControlFormModal = ({ show, onHide, onSubmit, initialData }) => {
+const DvrFormModal = ({ show, onHide, onSubmit, initialData }) => {
   const [formData, setFormData] = useState({
     store_name: "",
     company_name: "",
@@ -144,7 +144,7 @@ const DvrControlFormModal = ({ show, onHide, onSubmit, initialData }) => {
     <Modal show={show} onHide={onHide} size="lg">
       <Modal.Header closeButton>
         <Modal.Title>
-          {initialData ? "Edit DVR Control" : "Create DVR Control"}
+          {initialData ? "Editar Registro" : "Crear Registro"}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -186,7 +186,7 @@ const DvrControlFormModal = ({ show, onHide, onSubmit, initialData }) => {
                     required
                   >
                     <option value="">Select Company</option>
-                    <option value="FG">FG</option>
+                    <option value="Free Games">Free Games</option>
                     <option value="IGH">IGH</option>
                   </Form.Control>
                 </InputGroup>
@@ -202,13 +202,19 @@ const DvrControlFormModal = ({ show, onHide, onSubmit, initialData }) => {
                     <FaCogs />
                   </InputGroup.Text>
                   <Form.Control
-                    type="text"
+                    as="select"
                     name="dvr_name"
                     value={formData.dvr_name}
                     onChange={handleInputChange}
                     isInvalid={!!errors.dvr_name}
                     required
-                  />
+                  >
+                    <option value="">DVR (Marca)</option>
+                    <option value="HIKVISION">Hikvision</option>
+                    <option value="SAMSUNG">Samsung</option>
+                    <option value="DAHUA">Dahua</option>
+                    <option value="Otros">Otros</option>
+                  </Form.Control>
                 </InputGroup>
                 <Form.Control.Feedback type="invalid">
                   {errors.dvr_name}
@@ -235,13 +241,17 @@ const DvrControlFormModal = ({ show, onHide, onSubmit, initialData }) => {
                     <FaEnvelope />
                   </InputGroup.Text>
                   <Form.Control
-                    type="email"
+                    as="select"
                     name="notification_email_in"
                     value={formData.notification_email_in}
                     onChange={handleInputChange}
                     isInvalid={!!errors.notification_email_in}
                     required
-                  />
+                  >
+                    <option value="">Correo de entrada</option>
+                    <option value="at.alertas@gmail.com">at.alertas@gmail.com</option>
+                    <option value="notificaciones.cctv@apuestatotal.net">notificaciones.cctv@apuestatotal.net</option>
+                  </Form.Control>
                 </InputGroup>
                 <Form.Control.Feedback type="invalid">
                   {errors.notification_email_in}
@@ -255,13 +265,29 @@ const DvrControlFormModal = ({ show, onHide, onSubmit, initialData }) => {
                     <FaEnvelope />
                   </InputGroup.Text>
                   <Form.Control
-                    type="email"
+                    as="select"
                     name="notification_email_out"
                     value={formData.notification_email_out}
                     onChange={handleInputChange}
                     isInvalid={!!errors.notification_email_out}
                     required
-                  />
+                  >
+                    <option value="">Correo de salida</option>
+                    <optgroup label="Correos Free Games">
+                      <option value="alertscctv.fg1@gmail.com">alertscctv.fg1@gmail.com</option>
+                      <option value="alertscctv.fg2@gmail.com">alertscctv.fg2@gmail.com</option>
+                      <option value="alertscctv.fg3@gmail.com">alertscctv.fg3@gmail.com</option>
+                      <option value="alertscctv.fg4@gmail.com">alertscctv.fg4@gmail.com</option>
+                      <option value="alertscctv.fg5@gmail.com">alertscctv.fg5@gmail.com</option>
+                      <option value="alertscctv.fg6@gmail.com">alertscctv.fg6@gmail.com</option>
+                    </optgroup>
+                    <optgroup label="Correos IGH">
+                      <option value="alertscctv.igh1@gmail.com">alertscctv.igh1@gmail.com</option>
+                      <option value="alertscctv.igh2@gmail.com">alertscctv.igh2@gmail.com</option>
+                      <option value="alertscctv.igh3@gmail.com">alertscctv.igh3@gmail.com</option>
+                      <option value="alertscctv.igh4@gmail.com">alertscctv.igh4@gmail.com</option>
+                    </optgroup>
+                  </Form.Control>
                 </InputGroup>
                 <Form.Control.Feedback type="invalid">
                   {errors.notification_email_out}
@@ -353,7 +379,7 @@ const DvrControlFormModal = ({ show, onHide, onSubmit, initialData }) => {
                         controlId="formSupervisorAreaManager"
                         className="mb-3"
                       >
-                        <Form.Label>Jefe de Zona</Form.Label>
+                        <Form.Label>Jefe Comercial</Form.Label>
                         <InputGroup>
                           <InputGroup.Text>
                             <FaMapMarkerAlt />
@@ -406,11 +432,11 @@ const DvrControlFormModal = ({ show, onHide, onSubmit, initialData }) => {
   );
 };
 
-DvrControlFormModal.propTypes = {
+DvrFormModal.propTypes = {
   show: PropTypes.bool.isRequired,
   onHide: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   initialData: PropTypes.object,
 };
 
-export default DvrControlFormModal;
+export default DvrFormModal;
