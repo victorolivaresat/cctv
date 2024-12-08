@@ -1,5 +1,6 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import RouteTransition from "../utils/RouteTransition";
+import DvrControl from "../pages/DvrControl/DvrControl";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import NotFound from "../pages/NotFound/NotFound";
 import Hikvision from "../pages/Hikvision/Events";
@@ -20,7 +21,9 @@ const AppRoutes = () => (
       <Route path="/samsung" element={ <RouteTransition> <Samsung /> </RouteTransition>} />
       <Route path="/email" element={ <RouteTransition> <Email /> </RouteTransition>} />
       <Route path="/user" element={ <RouteTransition> <User /> </RouteTransition>} />
+      <Route path="/dvr-control" element={ <RouteTransition> <DvrControl /> </RouteTransition>} />
       <Route path="/history" element={ <RouteTransition> <History /> </RouteTransition>} />
+      
       <Route path="*" element={ <RouteTransition> <NotFound /> </RouteTransition>} />
     </Route>
     <Route path="*" element={<Navigate to="/login" />} />

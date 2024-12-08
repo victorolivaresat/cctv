@@ -3,7 +3,7 @@ import TeamCard from "../../components/Layout/TeamCard";
 import LogoDark from "../../assets/img/logo_dark.png";
 import useDarkMode from "../../hooks/useDarkMode";
 import { Offcanvas, Nav } from "react-bootstrap";
-import { MdFiberDvr } from "react-icons/md";
+import { MdFiberDvr, MdOndemandVideo  } from "react-icons/md";
 import Logo from "../../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -15,10 +15,11 @@ const Sidebar = ({ show, handleClose }) => {
   const navigationItems = [
     { to: "/", text: "Dashboard", icon: <FaChartBar /> },
     { to: "/hikvision", text: "Hikvision", icon: <FaVideo /> },
-    { to: "/samsung", text: "Samsung", icon: <MdFiberDvr /> },
+    { to: "/samsung", text: "Samsung", icon: <MdOndemandVideo /> },
     { to: "/email", text: "Email", icon: <FaMailBulk /> },
-    { to: "/user", text: "User", icon: <FaUser /> },
+    { to: "/user", text: "Users", icon: <FaUser /> },
     { to: "/history", text: "History", icon: <FaChartBar /> },
+    { to: "/dvr-control", text: "DVR Control", icon: <MdFiberDvr /> },
   ];
 
   const renderNavigationLinks = () => {

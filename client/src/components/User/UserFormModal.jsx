@@ -1,5 +1,6 @@
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import { FaCheck } from "react-icons/fa";
 import PropTypes from "prop-types";
 
 const UserFormModal = ({ show, onHide, onSubmit, initialData }) => {
@@ -154,7 +155,8 @@ const UserFormModal = ({ show, onHide, onSubmit, initialData }) => {
             variant="primary"
             type="submit"
           >
-            {initialData ? "Update User" : "Create User"}
+            <FaCheck className="me-2" />
+            {initialData ? "Actualizar Usuario" : "Crear Usuario"}
           </Button>
         </Form>
       </Modal.Body>

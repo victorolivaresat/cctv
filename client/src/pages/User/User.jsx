@@ -3,7 +3,9 @@ import UserFormModal from "../../components/User/UserFormModal";
 import withReactContent from "sweetalert2-react-content";
 import { Form, Button, Row, Col, Alert } from "react-bootstrap";
 import DataTableBase from "../../utils/DataTable";
+import { useAuth } from "../../hooks/useAuth";
 import { useState, useEffect } from "react";
+import { MdApps } from "react-icons/md";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import {
@@ -20,6 +22,7 @@ const User = () => {
   const [users, setUsers] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
+  const { currentUser } = useAuth();
 
   useEffect(() => {
     fetchUsers();
@@ -98,6 +101,11 @@ const User = () => {
 
   const columns = [
     {
+      cell: () => <MdApps style={{ fill: "#43a047" }} />,
+      width: "50px",
+      style: { marginBottom: "-1px" },
+    },
+    {
       name: "#",
       cell: (row) => (
         <img
@@ -114,12 +122,12 @@ const User = () => {
       sortable: true,
     },
     {
-      name: "Username",
+      name: "Usuario",
       selector: (row) => row.username,
       sortable: true,
     },
     {
-      name: "Created At",
+      name: "Creado",
       selector: (row) => new Date(row.created_at).toLocaleString(),
       sortable: true,
     },
@@ -131,28 +139,35 @@ const User = () => {
           id={`is-active-switch-${row.id}`}
           checked={row.is_active}
           onChange={() => handleToggleActive(row)}
+          disabled={currentUser?.userId !==  1}
         />
       ),
       sortable: true,
     },
     {
-      name: "Actions",
+      name: "Acciones",
       cell: (row) => (
         <>
-          <a
+          <Button
             href="#"
+            variant="primary"
+            size="sm"
             onClick={() => handleEditUser(row)}
-            className="me-2 py-1 px-2 bg-primary-subtle rounded-3"
+            className="me-2 py-1 px-2 rounded-5"
+            disabled={currentUser?.userId !==  1}
           >
             <FaEdit />
-          </a>
-          <a
+          </Button>
+          <Button
             href="#"
+            variant="danger"
+            size="sm"
             onClick={() => confirmDeleteUser(row.id)}
-            className="me-2 py-1 px-2 bg-danger-subtle rounded-3"
+            className="me-2 py-1 px-2 rounded-5"
+            disabled={currentUser?.userId !==  1}
           >
             <FaTrash />
-          </a>
+          </Button>
         </>
       ),
     },
@@ -171,7 +186,6 @@ const User = () => {
           <strong>Info:</strong> Haz clic en un usuario para editar, eliminar o
           gestionar su información. Usa <b>Agregar Usuario</b> para crear uno nuevo.
         </Alert>
-
         <Button
           className="w-100 mb-3"
           size="sm"
@@ -179,6 +193,7 @@ const User = () => {
             setShowModal(true);
             setSelectedUser(null);
           }}
+          disabled={currentUser?.userId !==  1}
         >
           <FaUserPlus className="me-2" />
           Add User

@@ -384,7 +384,9 @@ const getEventsSamsungByEventType = async (req, res) => {
       (a, b) => b.event_count - a.event_count
     );
 
-    return res.json(processedEvents.slice(0, 20));
+    console.log("processedEvents:", processedEvents);
+
+    return res.json(processedEvents);
   } catch (error) {
     console.error("Error al obtener los eventos de Samsung:", error);
     res.status(500).send("Error al obtener los eventos de Samsung");
