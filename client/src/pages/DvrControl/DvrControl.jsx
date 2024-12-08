@@ -367,7 +367,7 @@ const DvrControl = () => {
           }}
         >
           <FaPlus className="me-2" />
-          Registrar
+          Agregar Control DVR
         </Button>
       </Col>
 
