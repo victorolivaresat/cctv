@@ -7,7 +7,6 @@ import {
 
 import {
   formatDate,
-  formatDateInput,
   getTomorrowDate,
   getYesterdayDate,
   validateDateRange,
@@ -50,8 +49,8 @@ const EventHv = () => {
 
 
   // Filtros
-  const [startDate, setStartDate] = useState(formatDateInput(getYesterdayDate()));
-  const [endDate, setEndDate] = useState(formatDateInput(getTomorrowDate()));
+  const [startDate, setStartDate] = useState(getYesterdayDate());
+  const [endDate, setEndDate] = useState(getTomorrowDate());
   const [filterEventType, setFilterEventType] = useState("");
   const [filterStatus, setFilterStatus] = useState("");
   const [filterName, setFilterName] = useState("");

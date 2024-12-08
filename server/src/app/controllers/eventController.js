@@ -85,6 +85,10 @@ const updateEventHvStatus = async (req, res) => {
       details: JSON.stringify({
         previousStatus: previousStatus,
         newStatus: status,
+        name: event.name,
+        eventType: event.event_type,
+        eventTime: event.event_time,
+        createdAt: event.created_at,
       }),
     });
 
@@ -256,6 +260,17 @@ const updateEventSamsungStatus = async (req, res) => {
     event.status = status;
     await event.save();
 
+    let eventName = event.event_name;
+    console.log("event_name:", eventName);
+
+    const colonIndex = eventName.indexOf(':');
+    if (colonIndex !== -1) {
+      eventName = eventName.substring(0, colonIndex);
+      console.log("Nombre del evento extraído:", eventName);
+    } else {
+      console.log("No se encontró ':' en event_name, manteniendo el valor completo");
+    }
+
     await EventHistory.create({
       model: "EventSamsung",
       user_id: changedBy,
@@ -263,6 +278,10 @@ const updateEventSamsungStatus = async (req, res) => {
       details: JSON.stringify({
         previousStatus: previousStatus,
         newStatus: status,
+        name: event.name,
+        eventType: eventName,
+        eventTime: event.event_time,
+        createdAt: event.created_at,
       }),
     });
 
@@ -330,39 +349,34 @@ const getEventsSamsungByEventType = async (req, res) => {
     const events = await EventSamsung.findAll({
       attributes: ["id", "name", "event_name"],
       order: [["created_at", "DESC"]],
-      limit: 10,
+      limit: 20,
     });
 
-    const keywords = [
-      "No Space on Disk",
-      "Disk Error",
-      "Video Loss",
-      "Motion detection",
-      "testing",
-    ];
-
+  
     let groupedEvents = {};
 
     events.forEach((event) => {
       const { id, name, event_name } = event.dataValues;
 
       if (event_name) {
-        keywords.forEach((keyword) => {
-          if (event_name.includes(keyword)) {
-            const key = `${name}-${keyword}`;
+        let eventType = event_name;
+        const colonIndex = eventType.indexOf(':');
+        if (colonIndex !== -1) {
+          eventType = eventType.substring(0, colonIndex);
+        }
 
-            if (groupedEvents[key]) {
-              groupedEvents[key].event_count += 1;
-            } else {
-              groupedEvents[key] = {
-                id,
-                name,
-                event_type: keyword,
-                event_count: 1,
-              };
-            }
-          }
-        });
+        const key = `${name}-${eventType}`;
+
+        if (groupedEvents[key]) {
+          groupedEvents[key].event_count += 1;
+        } else {
+          groupedEvents[key] = {
+            id,
+            name,
+            event_type: eventType,
+            event_count: 1,
+          };
+        }
       }
     });
 
@@ -370,7 +384,6 @@ const getEventsSamsungByEventType = async (req, res) => {
       (a, b) => b.event_count - a.event_count
     );
 
-    // Retornar los 20 eventos principales como respuesta
     return res.json(processedEvents.slice(0, 20));
   } catch (error) {
     console.error("Error al obtener los eventos de Samsung:", error);
@@ -532,8 +545,8 @@ const getEventHistoryTimeline = async (req, res) => {
           [Op.between]: [formattedStartDate, formattedEndDate],
         },
       },
-      order: [["created_at", "ASC"]],
-      limit: 10,
+      order: [["created_at", "DESC"]],
+      limit: 100,
     });
 
     if (eventHistory.length === 0) {

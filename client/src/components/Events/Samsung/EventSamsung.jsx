@@ -18,7 +18,6 @@ import {
 } from "../../../api/events";
 import {
   formatDate,
-  formatDateInput,
   getTomorrowDate,
   getYesterdayDate,
   validateDateRange,
@@ -29,8 +28,8 @@ import logoSamsung from "../../../assets/img/samsung.png";
 import { toast } from "react-toastify";
 
 const EventSamsung = () => {
-  const [startDate, setStartDate] = useState(formatDateInput(getYesterdayDate()));
-  const [endDate, setEndDate] = useState(formatDateInput(getTomorrowDate()));
+  const [startDate, setStartDate] = useState(getYesterdayDate());
+  const [endDate, setEndDate] = useState(getTomorrowDate());
   const [toggledClearRows, setToggleClearRows] = useState(false);
   const [currentObservation, setCurrentObservation] = useState("");
   const [showModalDetail, setShowModalDetail] = useState(false);
