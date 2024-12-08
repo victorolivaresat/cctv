@@ -4,6 +4,8 @@ const EventHistory = require("../models/EventHistory");
 const EventHv = require("../models/EventHv");
 const { Op } = require("sequelize");
 const moment = require("moment");
+const path = require("path");
+const fs = require("fs");
 
 /**************************************************************************/
 /********************** Eventos de Hikvision ******************************/
@@ -182,14 +184,37 @@ const removeDuplicateEventsHv = async (req, res) => {
 
   try {
     const formattedDate = moment(date).format("YYYY-MM-DD");
-    await sequelize.query("EXEC RemoveHikvisionDuplicatesByDate :date", {
+    const [results]  = await sequelize.query("EXEC RemoveHikvisionDuplicatesByDate :date", {
       replacements: { date: formattedDate },
     });
+
+    deleteAttachments(results);
+
     return res.json({ message: "Eventos duplicados eliminados" });
   } catch (error) {
     console.error("Error al eliminar duplicados:", error);
     res.status(500).send("Error al eliminar duplicados");
   }
+};
+
+const deleteAttachments = (attachments) => {
+  const attachmentsPath = path.join(__dirname, "../src/assets/attachments");
+
+  attachments.forEach((attachment) => {
+    const filePath = path.join(attachmentsPath, attachment.filename);
+
+    if (fs.existsSync(filePath)) {
+      fs.unlink(filePath, (err) => {
+        if (err) {
+          console.error(`Error al eliminar el archivo ${attachment.filename}:`, err);
+        } else {
+          console.log(`Archivo ${attachment.filename} eliminado exitosamente.`);
+        }
+      });
+    } else {
+      console.log(`El archivo ${attachment.filename} no existe.`);
+    }
+  });
 };
 
 /**************************************************************************/
