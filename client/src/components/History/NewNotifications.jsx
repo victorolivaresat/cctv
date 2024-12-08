@@ -1,6 +1,6 @@
+import { FaCheckCircle, FaClock, FaTasks } from "react-icons/fa";
 import useDarkMode from "../../hooks/useDarkMode";
 import { Alert } from "react-bootstrap";
-import { FaCheckCircle, FaClock, FaTasks } from "react-icons/fa";
 import PropTypes from "prop-types";
 
 // Logo imports

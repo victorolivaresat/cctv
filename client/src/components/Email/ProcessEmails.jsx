@@ -1,139 +1,162 @@
-import { validateDateRange } from "../../utils/DateUtils";
-import { useState, useEffect, useCallback } from "react";
-import { Form, Button, Spinner } from "react-bootstrap";
-import { processEmail } from "../../api/email";
+import { useState, useCallback } from "react";
+import {
+  Card,
+  Form,
+  Button,
+  Spinner,
+  Modal,
+  ProgressBar,
+} from "react-bootstrap";
+import { FaPlay, FaEnvelope, FaInfoCircle } from "react-icons/fa";
+import { useAuth } from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import {
-  formatDateInput,
+  validateDateRange,
   getTomorrowDate,
   getYesterdayDate,
 } from "../../utils/DateUtils";
-import { FaPlay } from "react-icons/fa";
+import { processEmail } from "../../api/email";
 
 const ProcessEmails = () => {
   const folder = "INBOX";
+  const [showModal, setShowModal] = useState(false);
   const [brand, setBrand] = useState("hikvision");
   const [loading, setLoading] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const { currentUser } = useAuth();
 
-  const [startDate, setStartDate] = useState(
-    formatDateInput(getYesterdayDate())
-  );
-  const [endDate, setEndDate] = useState(formatDateInput(getTomorrowDate()));
+  console.log("Usuario actual:", currentUser.userId);
+
+  const [startDate, setStartDate] = useState(getYesterdayDate());
+  const [endDate, setEndDate] = useState(getTomorrowDate());
 
   const handleProcessEmail = useCallback(async () => {
     setLoading(true);
+    setProgress(25);
     try {
-      console.log("Procesando correos...");
-      console.log("Carpeta:", folder);
-      console.log("Fecha de inicio:", startDate);
-      console.log("Fecha de fin:", endDate);
-      console.log("Marca:", brand);
-
       if (!startDate || !endDate) {
         toast.error("¡Las fechas de inicio y fin no pueden estar vacías!");
         return;
       }
-
       if (!validateDateRange(startDate, endDate)) {
         toast.error("¡La fecha de inicio debe ser menor a la fecha de fin!");
         return;
       }
+      setProgress(50);
       const result = await processEmail(folder, startDate, endDate, brand);
-      console.log("Resultado del procesamiento de correos:", result);
+      console.log("Resultado:", result);
+      setProgress(100);
       toast.success("¡Correos procesados exitosamente!");
     } catch (error) {
-      console.error("Error al procesar correos:", error);
+      console.error("Error:", error);
+      toast.error("Hubo un error al procesar los correos.");
     } finally {
       setLoading(false);
+      setProgress(0);
     }
   }, [folder, startDate, endDate, brand]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleProcessEmail();
-    }, 3600000);
-
-    return () => clearInterval(interval);
-  }, [handleProcessEmail]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowModal(true);
+  };
 
   return (
-    <>
-      <Form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleProcessEmail();
-        }}
-        className="bg-body-tertiary p-3 rounded shadow-sm"
-      >
-        <Form.Group className="mb-3">
-          <Form.Label htmlFor="folderInput">Carpeta:</Form.Label>
-          <Form.Control
-            type="text"
-            id="folderInput"
-            value={folder}
-            readOnly
-            className="form-control"
-          />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label htmlFor="startDate">Fecha y Hora de Inicio:</Form.Label>
-          <Form.Control
-            type="date"
-            id="startDate"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-            className="form-control"
-          />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label htmlFor="endDate">Fecha y Hora de Fin:</Form.Label>
-          <Form.Control
-            type="date"
-            id="endDate"
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
-            className="form-control"
-          />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label htmlFor="brandSelect">Seleccionar Marca:</Form.Label>
-          <Form.Select
-            id="brandSelect"
-            value={brand}
-            onChange={(e) => setBrand(e.target.value)}
-            className="form-select"
-          >
-            <option value="hikvision">Hikvision</option>
-            <option value="samsung">Samsung</option>
-          </Form.Select>
-        </Form.Group>
-        <Button
-          type="submit"
-          variant="primary"
-          size="sm"
-          className="w-100"
-          disabled={loading}
-        >
-          {loading ? (
-            <>
-              <Spinner
-                as="span"
-                animation="border"
-                size="sm"
-                role="status"
-                aria-hidden="true"
-              />{" "}
-              Procesando...
-            </>
+    <Card className="shadow-sm p-4 bg-body-tertiary">
+      <Card.Header className="text-center bg-primary text-white rounded-2">
+        <h5>
+          <FaEnvelope className="me-2" />
+          Procesar Correos
+        </h5>
+      </Card.Header>
+      <Card.Body>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3">
+            <Form.Label>Carpeta:</Form.Label>
+            <Form.Control type="text" value={folder} readOnly />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Fecha de Inicio:</Form.Label>
+            <Form.Control
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Fecha de Fin:</Form.Label>
+            <Form.Control
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Marca:</Form.Label>
+            <Form.Select
+              value={brand}
+              onChange={(e) => setBrand(e.target.value)}
+            >
+              <option value="hikvision">Hikvision</option>
+              <option value="samsung">Samsung</option>
+            </Form.Select>
+          </Form.Group>
+          {currentUser.userId === 1 ? (
+            <Button
+              type="submit"
+              variant="primary"
+              className="w-100"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <Spinner as="span" animation="border" size="sm" />{" "}
+                  Procesando...
+                </>
+              ) : (
+                <>
+                  <FaPlay className="me-2" />
+                  Ejecutar
+                </>
+              )}
+            </Button>
           ) : (
-            <>
-              <FaPlay className="me-2" />
-              Ejecutar
-            </>
+            <div className="text-center text-danger">Sin permisos</div>
           )}
-        </Button>
-      </Form>
-    </>
+        </Form>
+        {loading && (
+          <div className="mt-3">
+            <ProgressBar animated now={progress} label={`${progress}%`} />
+          </div>
+        )}
+      </Card.Body>
+
+      <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            <FaInfoCircle className="me-2" />
+            Confirmación
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          ¿Estás seguro de que deseas procesar los correos?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowModal(false)}>
+            Cancelar
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => {
+              setShowModal(false);
+              handleProcessEmail();
+            }}
+          >
+            Confirmar
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </Card>
   );
 };
 

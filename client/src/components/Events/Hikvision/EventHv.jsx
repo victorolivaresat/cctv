@@ -330,6 +330,22 @@ const EventHv = () => {
     );
   };
 
+  // Exportar a Excel
+  const handleExportToExcel = () => {
+    const exportData = eventsData.map(control => ({      
+      "Tienda": control.name,
+      "Evento": control.event_type,
+      "Camara(s)": control.camera_name,
+      "Fecha Evento(DVR)": formatDate(control.event_time),
+      "Fecha de Creación": formatDate(control.created_at),
+      "Estado": getStatusName(control.status),
+    }));
+
+    console.log("exportData", exportData);
+
+    return exportData;
+  };
+
   return (
     <Row className="p-4">
       <Col md={2} className="p-4 mb-4 bg-dark-subtle rounded-3">
@@ -412,7 +428,7 @@ const EventHv = () => {
           </Col>
 
           <Col md={2}>
-            <ExcelExport data={filteredEventsData} fileName="hikvision" />
+            <ExcelExport data={handleExportToExcel()} fileName="hikvision" />
           </Col>
 
           <Col md={4}>

@@ -2,7 +2,7 @@ const { createToken } = require("../utils/jwt");
 const config = require("../../../config");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 
 const login = async (req, res) => {
   try {
