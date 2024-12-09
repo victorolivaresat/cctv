@@ -17,6 +17,8 @@ import {
   FaPhone,
   FaMapMarkerAlt,
   FaEnvelope,
+  FaTimes,
+  FaStickyNote,
 } from "react-icons/fa";
 import PropTypes from "prop-types";
 
@@ -29,7 +31,7 @@ const DvrFormModal = ({ show, onHide, onSubmit, initialData }) => {
     notification_email_out: "",
     remote_connection_tool: "",
     remote_connection_id: "",
-    notes: "",
+    notes: [],
     supervisor_name: "",
     supervisor_phone: "",
     supervisor_area_manager: "",
@@ -46,6 +48,17 @@ const DvrFormModal = ({ show, onHide, onSubmit, initialData }) => {
       if (typeof supervisorData === "string") {
         supervisorData = JSON.parse(supervisorData);
       }
+
+      let notesData = [];
+      try {
+        notesData = JSON.parse(initialData.notes) || [];
+        if (!Array.isArray(notesData)) {
+          notesData = [];
+        }
+      } catch (e) {
+        notesData = [];
+      }
+
       setFormData({
         store_name: initialData.store_name || "",
         company_name: initialData.company_name || "",
@@ -54,7 +67,7 @@ const DvrFormModal = ({ show, onHide, onSubmit, initialData }) => {
         notification_email_out: initialData.notification_email_out || "",
         remote_connection_tool: initialData.remote_connection_tool || "",
         remote_connection_id: initialData.remote_connection_id || "",
-        notes: initialData.notes || "",
+        notes: notesData,
         supervisor_name: supervisorData.name || "",
         supervisor_phone: supervisorData.phone || "",
         supervisor_area_manager: supervisorData.area_manager || "",
@@ -69,7 +82,7 @@ const DvrFormModal = ({ show, onHide, onSubmit, initialData }) => {
         notification_email_out: "",
         remote_connection_tool: "",
         remote_connection_id: "",
-        notes: "",
+        notes: [],
         supervisor_name: "",
         supervisor_phone: "",
         supervisor_area_manager: "",
@@ -126,6 +139,7 @@ const DvrFormModal = ({ show, onHide, onSubmit, initialData }) => {
 
       const flattenedFormData = {
         ...formData,
+        notes: JSON.stringify(formData.notes),
         supervisor,
       };
 
@@ -138,6 +152,30 @@ const DvrFormModal = ({ show, onHide, onSubmit, initialData }) => {
 
       onSubmit(flattenedFormData);
     }
+  };
+
+  const handleAddNote = () => {
+    setFormData({
+      ...formData,
+      notes: [...formData.notes, ""],
+    });
+  };
+
+  const handleUpdateNote = (index, value) => {
+    const updatedNotes = [...formData.notes];
+    updatedNotes[index] = value;
+    setFormData({
+      ...formData,
+      notes: updatedNotes,
+    });
+  };
+
+  const handleDeleteNote = (index) => {
+    const updatedNotes = formData.notes.filter((_, i) => i !== index);
+    setFormData({
+      ...formData,
+      notes: updatedNotes,
+    });
   };
 
   return (
@@ -223,12 +261,27 @@ const DvrFormModal = ({ show, onHide, onSubmit, initialData }) => {
 
               <Form.Group controlId="formNotes" className="mb-3">
                 <Form.Label>Notas</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="notes"
-                  value={formData.notes}
-                  onChange={handleInputChange}
-                />
+                {formData.notes.map((note, index) => (
+                  <InputGroup className="mb-2" key={index}>
+                    <Form.Control
+                      type="text"
+                      value={note}
+                      onChange={(e) => handleUpdateNote(index, e.target.value)}
+                    />
+                    <Button
+                      variant="danger"
+                      size="sm"
+                      onClick={() => handleDeleteNote(index)}
+                    >
+                      <FaTimes />
+                    </Button>
+                  </InputGroup>
+                ))}
+                <Button className="w-100" variant="success" size="sm" onClick={handleAddNote}>
+
+                  <FaStickyNote className="me-2" />
+                  Agregar Nota
+                </Button>
               </Form.Group>
             </Col>
 
@@ -249,8 +302,12 @@ const DvrFormModal = ({ show, onHide, onSubmit, initialData }) => {
                     required
                   >
                     <option value="">Correo de entrada</option>
-                    <option value="at.alertas@gmail.com">at.alertas@gmail.com</option>
-                    <option value="notificaciones.cctv@apuestatotal.net">notificaciones.cctv@apuestatotal.net</option>
+                    <option value="at.alertas@gmail.com">
+                      at.alertas@gmail.com
+                    </option>
+                    <option value="notificaciones.cctv@apuestatotal.net">
+                      notificaciones.cctv@apuestatotal.net
+                    </option>
                   </Form.Control>
                 </InputGroup>
                 <Form.Control.Feedback type="invalid">
@@ -274,18 +331,38 @@ const DvrFormModal = ({ show, onHide, onSubmit, initialData }) => {
                   >
                     <option value="">Correo de salida</option>
                     <optgroup label="Correos Free Games">
-                      <option value="alertscctv.fg1@gmail.com">alertscctv.fg1@gmail.com</option>
-                      <option value="alertscctv.fg2@gmail.com">alertscctv.fg2@gmail.com</option>
-                      <option value="alertscctv.fg3@gmail.com">alertscctv.fg3@gmail.com</option>
-                      <option value="alertscctv.fg4@gmail.com">alertscctv.fg4@gmail.com</option>
-                      <option value="alertscctv.fg5@gmail.com">alertscctv.fg5@gmail.com</option>
-                      <option value="alertscctv.fg6@gmail.com">alertscctv.fg6@gmail.com</option>
+                      <option value="alertscctv.fg1@gmail.com">
+                        alertscctv.fg1@gmail.com
+                      </option>
+                      <option value="alertscctv.fg2@gmail.com">
+                        alertscctv.fg2@gmail.com
+                      </option>
+                      <option value="alertscctv.fg3@gmail.com">
+                        alertscctv.fg3@gmail.com
+                      </option>
+                      <option value="alertscctv.fg4@gmail.com">
+                        alertscctv.fg4@gmail.com
+                      </option>
+                      <option value="alertscctv.fg5@gmail.com">
+                        alertscctv.fg5@gmail.com
+                      </option>
+                      <option value="alertscctv.fg6@gmail.com">
+                        alertscctv.fg6@gmail.com
+                      </option>
                     </optgroup>
                     <optgroup label="Correos IGH">
-                      <option value="alertscctv.igh1@gmail.com">alertscctv.igh1@gmail.com</option>
-                      <option value="alertscctv.igh2@gmail.com">alertscctv.igh2@gmail.com</option>
-                      <option value="alertscctv.igh3@gmail.com">alertscctv.igh3@gmail.com</option>
-                      <option value="alertscctv.igh4@gmail.com">alertscctv.igh4@gmail.com</option>
+                      <option value="alertscctv.igh1@gmail.com">
+                        alertscctv.igh1@gmail.com
+                      </option>
+                      <option value="alertscctv.igh2@gmail.com">
+                        alertscctv.igh2@gmail.com
+                      </option>
+                      <option value="alertscctv.igh3@gmail.com">
+                        alertscctv.igh3@gmail.com
+                      </option>
+                      <option value="alertscctv.igh4@gmail.com">
+                        alertscctv.igh4@gmail.com
+                      </option>
                     </optgroup>
                   </Form.Control>
                 </InputGroup>
