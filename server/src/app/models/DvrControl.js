@@ -51,17 +51,11 @@ DvrControl.init(
     remote_connection_tool: { 
       type: DataTypes.STRING,
       allowNull: true,
-      validate: {
-        isIn: [["TeamViewer", "AnyDesk", "None"]],
-      },
       defaultValue: "None",
     },
     remote_connection_id: {
       type: DataTypes.STRING,
       allowNull: true,
-      validate: {
-        len: [0, 50],
-      },
     },
     notifications_status: {
       type: DataTypes.BOOLEAN,

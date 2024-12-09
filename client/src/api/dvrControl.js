@@ -35,3 +35,10 @@ export const deleteDvrControl = async (id) => {
   const { data } = await axios.delete(`dvr-controls/${id}`);
   return data;
 };
+
+
+// Obtener el estado de las notificaciones de los DvrControls
+export const getStoreStatusCounts = async () => {
+  const { data } = await axios.get('dvr-controls/status/counts');
+  return data;
+}
