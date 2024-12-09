@@ -374,7 +374,7 @@ const getEventsSamsungByEventType = async (req, res) => {
     const events = await EventSamsung.findAll({
       attributes: ["id", "name", "event_name"],
       order: [["created_at", "DESC"]],
-      limit: 20,
+      limit: 10,
     });
 
   
