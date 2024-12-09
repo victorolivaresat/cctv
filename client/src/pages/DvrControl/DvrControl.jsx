@@ -1,4 +1,5 @@
 import DvrControlFormModal from "../../components/DvrControl/DvrFormModal";
+import StatusPieChart from "../../components/DvrControl/StatusPieChart";
 import withReactContent from "sweetalert2-react-content";
 import ExcelExport from "../../utils/ExcelExport";
 import DataTableBase from "../../utils/DataTable";
@@ -13,6 +14,7 @@ import {
   updateDvrControl,
   deleteDvrControl,
   updateDvrControlStatus,
+  getStoreStatusCounts,
 } from "../../api/dvrControl";
 import {
   Form,
@@ -25,10 +27,8 @@ import {
 } from "react-bootstrap";
 import {
   FaEdit,
-  FaInfo,
   FaTrash,
   FaPlus,
-  FaRegEye,
   FaUserTie,
   FaCircle,
   FaTimes,
@@ -41,6 +41,7 @@ const DvrControl = () => {
   const [showModal, setShowModal] = useState(false);
   const [dvrControls, setDvrControls] = useState([]);
   const [selectedDvrControl, setSelectedDvrControl] = useState(null);
+  const [statusCounts, setStatusCounts] = useState([]);
 
   // Filtros
   const [filterSupervisorAreaManager, setFilterSupervisorAreaManager] = useState("");
@@ -53,6 +54,7 @@ const DvrControl = () => {
   
   useEffect(() => {
     fetchDvrControls();
+    fetchStatusCounts();
   }, []);
 
   const fetchDvrControls = async () => {
@@ -66,6 +68,15 @@ const DvrControl = () => {
       console.log("DVR Controls", deserializedData);
     } catch (error) {
       console.error("Error fetching DVR controls:", error);
+    }
+  };
+
+  const fetchStatusCounts = async () => {
+    try {
+      const data = await getStoreStatusCounts();
+      setStatusCounts(data);
+    } catch (error) {
+      console.error("Error fetching status counts:", error);
     }
   };
 
@@ -87,6 +98,7 @@ const DvrControl = () => {
       }
       setShowModal(false);
       setSelectedDvrControl(null);
+      fetchStatusCounts(); // Actualizar el gráfico de pastel
     } catch (error) {
       console.error("Error saving DVR control:", error);
     }
@@ -97,6 +109,7 @@ const DvrControl = () => {
       await deleteDvrControl(id);
       setDvrControls(dvrControls.filter((dvrControl) => dvrControl.id !== id));
       fetchDvrControls();
+      fetchStatusCounts();
     } catch (error) {
       console.error("Error deleting DVR control:", error);
     }
@@ -136,6 +149,7 @@ const DvrControl = () => {
         )
       );
       toast.success("DVR Control status updated successfully!");
+      fetchStatusCounts();
     } catch (error) {
       console.error("Error updating DVR control status:", error);
     }
@@ -177,25 +191,23 @@ const DvrControl = () => {
     const filterSupervisorNameLower = filterSupervisorName.toLowerCase();
     const filterSupervisorZoneLower = filterSupervisorZone.toLowerCase();
     const filterSupervisorAreaManagerLower = filterSupervisorAreaManager.toLowerCase();
-
-
-    const storeNameLower = control.store_name.toLowerCase();
+  
+    const storeNameLower = control.store_name ? control.store_name.toLowerCase() : "";
     const statusLower = control.notifications_status ? "active" : "inactive";
-    const companyLower = control.company_name.toLowerCase();
-    const dvrNameLower = control.dvr_name.toLowerCase();
-    const supervisorNameLower = control.supervisor.name.toLowerCase();
-    const supervisorZoneLower = control.supervisor.zone.toLowerCase();
-    const supervisorAreaManagerLower = control.supervisor.area_manager.toLowerCase();
-
-
+    const companyLower = control.company_name ? control.company_name.toLowerCase() : "";
+    const dvrNameLower = control.dvr_name ? control.dvr_name.toLowerCase() : "";
+    const supervisorNameLower = control.supervisor && control.supervisor.name ? control.supervisor.name.toLowerCase() : "";
+    const supervisorZoneLower = control.supervisor && control.supervisor.zone ? control.supervisor.zone.toLowerCase() : "";
+    const supervisorAreaManagerLower = control.supervisor && control.supervisor.area_manager ? control.supervisor.area_manager.toLowerCase() : "";
+  
     return (
-      (filterStatusLower ? statusLower.includes(filterStatusLower) : true) &&
-      (filterStoreNameLower ? storeNameLower.includes(filterStoreNameLower) : true) &&
-      (filterCompanyLower ? companyLower.includes(filterCompanyLower) : true) &&
-      (filterDvrNameLower ? dvrNameLower.includes(filterDvrNameLower) : true) &&
-      (filterSupervisorNameLower ? supervisorNameLower.includes(filterSupervisorNameLower) : true) &&
-      (filterSupervisorZoneLower ? supervisorZoneLower.includes(filterSupervisorZoneLower) : true) &&
-      (filterSupervisorAreaManagerLower ? supervisorAreaManagerLower.includes(filterSupervisorAreaManagerLower) : true)
+      (!filterStatusLower || statusLower.includes(filterStatusLower)) &&
+      (!filterStoreNameLower || storeNameLower.includes(filterStoreNameLower)) &&
+      (!filterCompanyLower || companyLower.includes(filterCompanyLower)) &&
+      (!filterDvrNameLower || dvrNameLower.includes(filterDvrNameLower)) &&
+      (!filterSupervisorNameLower || supervisorNameLower.includes(filterSupervisorNameLower)) &&
+      (!filterSupervisorZoneLower || supervisorZoneLower.includes(filterSupervisorZoneLower)) &&
+      (!filterSupervisorAreaManagerLower || supervisorAreaManagerLower.includes(filterSupervisorAreaManagerLower))
     );
   });
 
@@ -347,17 +359,8 @@ const DvrControl = () => {
   return (
     <Row className="p-4">
       <Col className="p-4 mb-4 bg-dark-subtle rounded-3" md={2}>
-        <p className="fs-5 mb-4">
-          <FaRegEye className="me-2" />
-          Control de DVR's
-        </p>
+        <StatusPieChart data={statusCounts} />
 
-        <Alert variant="info" className="mb-4">
-          <FaInfo className="me-2" />
-          <strong>Info:</strong> Haz clic registro DVR para editar, eliminar o actualizar su estado. 
-          Usa el botón <b>{ "Agregar Control DVR" }</b> para crear un nuevo registro.
-
-        </Alert>
         <Button
           className="w-100 mb-3"
           size="sm"

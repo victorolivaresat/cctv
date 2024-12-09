@@ -1,4 +1,5 @@
 const DvrControl = require("../models/DvrControl");
+const Sequelize = require("sequelize");
 
 const createDvrControl = async (req, res) => {
   try {
@@ -100,7 +101,8 @@ const updateDvrControl = async (req, res) => {
     if (notifications_status !== undefined)
       dvrControl.notifications_status = notifications_status;
     if (notes !== undefined) dvrControl.notes = notes;
-    if (supervisor !== undefined) dvrControl.supervisor = JSON.stringify(supervisor);
+    if (supervisor !== undefined)
+      dvrControl.supervisor = JSON.stringify(supervisor);
 
     // Guardar los cambios
     await dvrControl.save();
@@ -131,7 +133,7 @@ const updateDvrControlStatus = async (req, res) => {
     const dvrControl = await DvrControl.findByPk(id);
 
     if (!dvrControl) {
-      return res.status(404).json({ message: 'DVR Control not found' });
+      return res.status(404).json({ message: "DVR Control not found" });
     }
 
     dvrControl.notifications_status = notifications_status;
@@ -139,8 +141,33 @@ const updateDvrControlStatus = async (req, res) => {
 
     return res.status(200).json(dvrControl);
   } catch (error) {
-    console.error('Error updating DVR Control status:', error);
-    return res.status(500).json({ error: 'Error updating DVR Control status' });
+    console.error("Error updating DVR Control status:", error);
+    return res.status(500).json({ error: "Error updating DVR Control status" });
+  }
+};
+
+const getStoreStatusCounts = async (req, res) => {
+  try {
+    const statusCounts = await DvrControl.findAll({
+      attributes: [
+        "notifications_status",
+        [Sequelize.fn("COUNT", Sequelize.col("notifications_status")), "count"],
+      ],
+      group: ["notifications_status"],
+    });
+
+    const data = statusCounts.map((item) => ({
+      status: item.notifications_status ? "Activo" : "Inactivo",
+      count: parseInt(item.dataValues.count, 10),
+    }));
+
+    res.status(200).json(data);
+  } catch (error) {
+    console.error("Error in getStoreStatusCounts:", error);
+    res.status(500).json({
+      error: "Error retrieving store status counts",
+      message: error.message,
+    });
   }
 };
 
@@ -151,4 +178,5 @@ module.exports = {
   updateDvrControl,
   deleteDvrControl,
   updateDvrControlStatus,
+  getStoreStatusCounts,
 };
