@@ -185,7 +185,7 @@ const DvrFormModal = ({ show, onHide, onSubmit, initialData }) => {
                     onChange={handleInputChange}
                     required
                   >
-                    <option value="">Select Company</option>
+                    <option value="">Empresa</option>
                     <option value="Free Games">Free Games</option>
                     <option value="IGH">IGH</option>
                   </Form.Control>
@@ -307,7 +307,6 @@ const DvrFormModal = ({ show, onHide, onSubmit, initialData }) => {
                     onChange={handleInputChange}
                     required
                   >
-                    <option value="">Select Tool</option>
                     <option value="TeamViewer">TeamViewer</option>
                     <option value="AnyDesk">AnyDesk</option>
                     <option value="Other">Other</option>
