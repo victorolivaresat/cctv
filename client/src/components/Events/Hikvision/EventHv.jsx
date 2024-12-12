@@ -9,7 +9,6 @@ import {
   formatDate,
   getTomorrowDate,
   getYesterdayDate,
-  isSameDayAsCreation,
   validateDateRange,
 } from "../../../utils/DateUtils";
 import { Button, Form, InputGroup, Col, Row, Alert } from "react-bootstrap";
@@ -31,7 +30,6 @@ import logoDarkHv from "../../../assets/img/hikvision_dark.png";
 import logoHikvision from "../../../assets/img/hikvision.png";
 import { toast } from "react-toastify";
 
-
 const EventHv = () => {
   const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const { currentUser } = useAuth();
@@ -47,7 +45,6 @@ const EventHv = () => {
   const [selectedRow, setSelectedRow] = useState("");
   const [eventsData, setEventsData] = useState([]);
   const { darkMode } = useDarkMode();
-
 
   // Filtros
   const [startDate, setStartDate] = useState(getYesterdayDate());
@@ -148,7 +145,7 @@ const EventHv = () => {
       style: { marginBottom: "-1px" },
     },
     {
-      name: "Nombre Tienda",
+      name: "Tienda",
       selector: (row) => row.name,
       sortable: true,
       minWidth: "150px",
@@ -174,23 +171,21 @@ const EventHv = () => {
     },
     {
       name: "Fecha Evento(DVR)",
-      selector: (row) => formatDate(row.event_time, row.created_at),
+      selector: (row) => {
+        const eventTime = new Date(row.event_time);
+        const inboxDate = new Date(row.inbox_date);
+        const timeDifference = Math.abs(eventTime - inboxDate) / 1000 / 60;
+        const isMatch = timeDifference <= 2;
+        const className = isMatch ? 'text-success bg-success-subtle ' : 'text-danger bg-danger-subtle';
+        return <span className={ `${className} d-block p-1 rounded-3`}>{formatDate(row.event_time)}</span>;
+      },
       sortable: true,
       minWidth: "150px",
       maxWidth: "180px",
-      conditionalCellStyles: [
-        {
-          when: (row) => !isSameDayAsCreation(row.event_time),
-          style: {
-            backgroundColor: "red",
-            color: "white",
-          },
-        },
-      ],
     },
     {
-      name: "Fecha de Creación",
-      selector: (row) => formatDate(row.created_at),
+      name: "Fecha del correo",
+      selector: (row) => formatDate(row.inbox_date),
       sortable: true,
       minWidth: "150px",
       maxWidth: "180px",
@@ -264,7 +259,9 @@ const EventHv = () => {
 
     try {
       const data = await Promise.all(
-        selectedRowsId.map((id) => updateEventHvStatus(id, status, currentUser.userId))
+        selectedRowsId.map((id) =>
+          updateEventHvStatus(id, status, currentUser.userId)
+        )
       );
       handleFetchEvents(startDate, endDate);
       handleClearRows();
@@ -299,8 +296,12 @@ const EventHv = () => {
     }
   };
 
-  const handleCloseModalObs = () => { setShowModalObs(false); };
-  const handleCloseModalDetail = () => { setShowModalDetail(false); };
+  const handleCloseModalObs = () => {
+    setShowModalObs(false);
+  };
+  const handleCloseModalDetail = () => {
+    setShowModalDetail(false);
+  };
 
   // Componente expandido
   const ExpandedComponent = ({ data }) => {
@@ -341,13 +342,13 @@ const EventHv = () => {
 
   // Exportar a Excel
   const handleExportToExcel = () => {
-    const exportData = eventsData.map(control => ({      
-      "Tienda": control.name,
-      "Evento": control.event_type,
+    const exportData = eventsData.map((control) => ({
+      Tienda: control.name,
+      Evento: control.event_type,
       "Camara(s)": control.camera_name,
       "Fecha Evento(DVR)": formatDate(control.event_time),
       "Fecha de Creación": formatDate(control.created_at),
-      "Estado": getStatusName(control.status),
+      Estado: getStatusName(control.status),
     }));
 
     return exportData;
@@ -372,8 +373,9 @@ const EventHv = () => {
 
         <hr className="mb-3" />
 
-        <RemoveDuplicate onUpdate={() => handleFetchEvents(startDate, endDate)} />
-
+        <RemoveDuplicate
+          onUpdate={() => handleFetchEvents(startDate, endDate)}
+        />
       </Col>
 
       <Col md={10} className="px-4">
