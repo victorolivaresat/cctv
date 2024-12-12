@@ -1,1200 +1,1178 @@
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 19.427 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 8.525 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.603 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 8.336 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 8.263 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 10.727 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 8.112 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 8.305 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 8.145 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 9.560 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 8.779 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 9.162 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 8.752 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 8.977 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.005 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 9.997 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 9.024 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 10.202 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.802 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 14.789 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 9.227 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 15.684 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 9.582 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 11.223 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 9.580 ms - -[0m
+Executing (default): SELECT [id], [store_name], [company_name], [dvr_name], [notification_email_in], [notification_email_out], [remote_connection_tool], [remote_connection_id], [notifications_status], [notes], [supervisor], [created_at], [updated_at] FROM [dvr_control] AS [DvrControl];
+[0mGET /api/v1/dvr-controls [36m304[0m 29.739 ms - -[0m
+Executing (default): SELECT [notifications_status], COUNT([notifications_status]) AS [count] FROM [dvr_control] AS [DvrControl] GROUP BY [notifications_status];
+[0mGET /api/v1/dvr-controls/status/counts [36m304[0m 6.532 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 10.226 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.128 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT [id], [email], [password], [profile_image], [username], [is_active], [created_at], [updated_at] FROM [users] AS [User] WHERE [User].[id] = 2;
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/auth/verify-token [36m304[0m 10.433 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 19.950 ms - -[0m
+Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] ORDER BY [EventHv].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
+Executing (default): SELECT [id], [name], [mac_address], [event_name], [event_time], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
+[0mGET /api/v1/events/hv/last?limit=2 [36m304[0m 10.845 ms - -[0m
+[0mGET /api/v1/events/samsung/last?limit=2 [36m304[0m 7.444 ms - -[0m
+Executing (default): SELECT [name], COUNT([id]) AS [event_count], [event_type] FROM [event_hv] AS [EventHv] GROUP BY [name], [event_type] ORDER BY event_count DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
+Executing (default): SELECT [id], [name], [event_name] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
+[0mGET /api/v1/events/hv/event-type [36m304[0m 6.298 ms - -[0m
+[0mGET /api/v1/events/samsung/event-type [36m304[0m 3.838 ms - -[0m
+Executing (default): SELECT [name], COUNT([id]) AS [event_count], [event_type] FROM [event_hv] AS [EventHv] GROUP BY [name], [event_type] ORDER BY event_count DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
+Executing (default): SELECT [id], [name], [event_name] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
+[0mGET /api/v1/events/hv/event-type [36m304[0m 6.279 ms - -[0m
+[0mGET /api/v1/events/samsung/event-type [36m304[0m 4.479 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 10.217 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.371 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 10.598 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.371 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 11.130 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.729 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 10.825 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.294 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.679 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.781 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.611 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.934 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 9.933 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.064 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.668 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.006 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.885 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.315 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.133 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.092 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.063 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.569 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.904 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.884 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.003 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.277 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.200 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.429 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.076 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.466 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
 [0mGET /api/v1/events/notifications/count [36m304[0m 11.177 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-Executing (default): SELECT [id], [email], [password], [profile_image], [username], [is_active], [created_at], [updated_at] FROM [users] AS [User] WHERE [User].[id] = 1;
-[0mGET /api/v1/events/notifications/count [36m304[0m 19.147 ms - -[0m
-[0mGET /api/v1/auth/verify-token [36m304[0m 13.894 ms - -[0m
-Executing (default): SELECT [id], [store_name], [company_name], [dvr_name], [notification_email_in], [notification_email_out], [remote_connection_tool], [remote_connection_id], [notifications_status], [notes], [supervisor], [created_at], [updated_at] FROM [dvr_control] AS [DvrControl];
-[0mGET /api/v1/dvr-controls [36m304[0m 6.699 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.258 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 10.618 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.060 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 11.664 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.583 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 11.237 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.578 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 11.449 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.356 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 10.643 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.475 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.518 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.457 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
 [0mGET /api/v1/events/notifications/count [36m304[0m 11.506 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 10.810 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.111 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 11.158 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.312 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.639 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
 [0mGET /api/v1/events/notifications/count [36m304[0m 11.387 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 11.651 ms - -[0m
-Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] ORDER BY [EventHv].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
-Executing (default): SELECT [id], [name], [mac_address], [event_name], [event_time], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
-[0mGET /api/v1/events/hv/last?limit=2 [36m304[0m 11.689 ms - -[0m
-Executing (default): SELECT [id], [name], [event_name] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 20 ROWS ONLY;
-[0mGET /api/v1/events/samsung/last?limit=2 [36m304[0m 23.504 ms - -[0m
-Executing (default): SELECT [name], COUNT([id]) AS [event_count], [event_type] FROM [event_hv] AS [EventHv] GROUP BY [name], [event_type] ORDER BY event_count DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
-processedEvents: []
-[0mGET /api/v1/events/samsung/event-type [36m304[0m 32.992 ms - -[0m
-[0mGET /api/v1/events/hv/event-type [36m304[0m 36.135 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.533 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 11.281 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-Executing (default): SELECT [id], [email], [password], [profile_image], [username], [is_active], [created_at], [updated_at] FROM [users] AS [User] WHERE [User].[id] = 1;
-[0mGET /api/v1/events/notifications/count [36m304[0m 19.764 ms - -[0m
-[0mGET /api/v1/auth/verify-token [36m304[0m 9.656 ms - -[0m
-Executing (default): SELECT [id], [name], [mac_address], [event_name], [event_time], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
-Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] ORDER BY [EventHv].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
-Executing (default): SELECT [name], COUNT([id]) AS [event_count], [event_type] FROM [event_hv] AS [EventHv] GROUP BY [name], [event_type] ORDER BY event_count DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
-Executing (default): SELECT [id], [name], [event_name] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 20 ROWS ONLY;
-[0mGET /api/v1/events/samsung/last?limit=2 [36m304[0m 12.380 ms - -[0m
-[0mGET /api/v1/events/hv/last?limit=2 [36m304[0m 12.501 ms - -[0m
-processedEvents: []
-[0mGET /api/v1/events/hv/event-type [36m304[0m 10.769 ms - -[0m
-[0mGET /api/v1/events/samsung/event-type [36m304[0m 9.069 ms - -[0m
-Executing (default): SELECT [id], [store_name], [company_name], [dvr_name], [notification_email_in], [notification_email_out], [remote_connection_tool], [remote_connection_id], [notifications_status], [notes], [supervisor], [created_at], [updated_at] FROM [dvr_control] AS [DvrControl];
-[0mGET /api/v1/dvr-controls [36m304[0m 6.606 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.028 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 11.223 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 11.534 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.056 ms - -[0m
-Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] ORDER BY [EventHv].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
-Executing (default): SELECT [id], [name], [mac_address], [event_name], [event_time], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
-[0mGET /api/v1/events/hv/last?limit=2 [36m304[0m 6.416 ms - -[0m
-Executing (default): SELECT [name], COUNT([id]) AS [event_count], [event_type] FROM [event_hv] AS [EventHv] GROUP BY [name], [event_type] ORDER BY event_count DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
-[0mGET /api/v1/events/samsung/last?limit=2 [36m304[0m 23.011 ms - -[0m
-Executing (default): SELECT [id], [name], [event_name] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 20 ROWS ONLY;
-[0mGET /api/v1/events/hv/event-type [36m304[0m 29.833 ms - -[0m
-processedEvents: []
-[0mGET /api/v1/events/samsung/event-type [36m304[0m 32.312 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.137 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.650 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.784 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
 [0mGET /api/v1/events/notifications/count [36m304[0m 12.184 ms - -[0m
-Executing (default): SELECT count(DISTINCT([name])) AS [count] FROM [event_hv] AS [EventHv];
-startDate 2024-12-07
-Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] WHERE [EventHv].[created_at] BETWEEN N'2024-12-06 19:00:00.000 -05:00' AND N'2024-12-08 19:00:00.000 -05:00' ORDER BY [EventHv].[created_at] DESC;
-[0mGET /api/v1/events/hv/count-distinct-name [32m200[0m 6.219 ms - 1[0m
-[0mGET /api/v1/events/hv?startDate=2024-12-07&endDate=2024-12-09 [32m200[0m 20.838 ms - 2[0m
-Executing (default): SELECT [id], [name], [mac_address], [event_name], [event_time], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[created_at] BETWEEN N'2024-12-06 19:00:00.000 -05:00' AND N'2024-12-08 19:00:00.000 -05:00' ORDER BY [EventSamsung].[created_at] DESC;
-Executing (default): SELECT count(DISTINCT([name])) AS [count] FROM [event_samsung] AS [EventSamsung];
-[0mGET /api/v1/events/samsung?startDate=2024-12-07&endDate=2024-12-09 [32m200[0m 12.047 ms - 2[0m
-[0mGET /api/v1/events/samsung/count-distinct-name [32m200[0m 14.997 ms - 1[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 11.990 ms - -[0m
-Executing (default): SELECT [id], [email], [profile_image], [username], [is_active], [created_at], [updated_at] FROM [users] AS [User];
-[0mGET /api/v1/users [32m200[0m 8.347 ms - 1371[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.542 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 11.891 ms - -[0m
-Executing (default): EXEC GetEventSummaryByDateRange N'2024-12-07 00:00:00', N'2024-12-09 00:00:00'
-Executing (default): SELECT [id], [model], [user_id], [action], [details], [created_at] FROM [event_history] AS [EventHistory] WHERE [EventHistory].[created_at] BETWEEN N'2024-12-07 00:00:00.000 -05:00' AND N'2024-12-09 00:00:00.000 -05:00' ORDER BY [EventHistory].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 100 ROWS ONLY;
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new' AND [EventSamsung].[created_at] BETWEEN N'2024-12-06 19:00:00.000 -05:00' AND N'2024-12-08 19:00:00.000 -05:00';
-[0mGET /api/v1/events/summary-by-date?startDate=2024-12-07&endDate=2024-12-09 [33m404[0m 18.892 ms - 61[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new' AND [EventHv].[created_at] BETWEEN N'2024-12-06 19:00:00.000 -05:00' AND N'2024-12-08 19:00:00.000 -05:00';
-[0mGET /api/v1/events/timeline?startDate=2024-12-07&endDate=2024-12-09 [33m404[0m 14.785 ms - 61[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'completed' AND [EventSamsung].[created_at] BETWEEN N'2024-12-06 19:00:00.000 -05:00' AND N'2024-12-08 19:00:00.000 -05:00';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'completed' AND [EventHv].[created_at] BETWEEN N'2024-12-06 19:00:00.000 -05:00' AND N'2024-12-08 19:00:00.000 -05:00';
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'pending' AND [EventSamsung].[created_at] BETWEEN N'2024-12-06 19:00:00.000 -05:00' AND N'2024-12-08 19:00:00.000 -05:00';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'pending' AND [EventHv].[created_at] BETWEEN N'2024-12-06 19:00:00.000 -05:00' AND N'2024-12-08 19:00:00.000 -05:00';
-[0mGET /api/v1/events/notifications/by-date?startDate=2024-12-07&endDate=2024-12-09 [32m200[0m 35.344 ms - 108[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.828 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.915 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.544 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.175 ms - -[0m
-Executing (default): SELECT [id], [store_name], [company_name], [dvr_name], [notification_email_in], [notification_email_out], [remote_connection_tool], [remote_connection_id], [notifications_status], [notes], [supervisor], [created_at], [updated_at] FROM [dvr_control] AS [DvrControl];
-[0mGET /api/v1/dvr-controls [36m304[0m 5.125 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.693 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 15.648 ms - -[0m
-Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] ORDER BY [EventHv].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
-Executing (default): SELECT [id], [name], [mac_address], [event_name], [event_time], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
-[0mGET /api/v1/events/hv/last?limit=2 [36m304[0m 13.060 ms - -[0m
-Executing (default): SELECT [name], COUNT([id]) AS [event_count], [event_type] FROM [event_hv] AS [EventHv] GROUP BY [name], [event_type] ORDER BY event_count DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
-[0mGET /api/v1/events/samsung/last?limit=2 [36m304[0m 25.405 ms - -[0m
-Executing (default): SELECT [id], [name], [event_name] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 20 ROWS ONLY;
-[0mGET /api/v1/events/hv/event-type [36m304[0m 24.686 ms - -[0m
-processedEvents: []
-[0mGET /api/v1/events/samsung/event-type [36m304[0m 27.732 ms - -[0m
-Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] ORDER BY [EventHv].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 4 ROWS ONLY;
-[0mGET /api/v1/events/hv/last?limit=4 [32m200[0m 6.237 ms - 2[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.915 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.561 ms - -[0m
-Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] ORDER BY [EventHv].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
-[0mGET /api/v1/events/hv/last?limit=2 [36m304[0m 4.928 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.875 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 11.982 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.869 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.400 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.298 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.650 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.673 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 13.457 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.823 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 11.944 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.665 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.262 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.131 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.109 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.067 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.256 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.967 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.198 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 16.177 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.269 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 15.121 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.235 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.036 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.346 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.368 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.126 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 16.185 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 13.170 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 15.723 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.407 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.133 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.531 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.051 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.329 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 17.628 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.777 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 15.897 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.462 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.256 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.883 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.693 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.085 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 539.172 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.483 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 15.562 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.387 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.172 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.268 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.058 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 14.678 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 15.380 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.183 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 16.454 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.578 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.031 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.324 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.901 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.850 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 16.406 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.555 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 15.818 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.038 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.327 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.583 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.260 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.904 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 15.825 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.002 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 16.688 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.930 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.313 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.332 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.144 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.895 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 16.758 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.390 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 27.841 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.482 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.552 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.163 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.084 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.833 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 15.639 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.857 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 16.558 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.110 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.413 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 18.020 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.114 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.266 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 15.910 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.987 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 15.802 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.045 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.583 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [32m200[0m 17.161 ms - 21[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.645 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 55.812 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 16.470 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.405 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 15.888 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 19.322 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.941 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.370 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.414 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 49.984 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 16.141 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.732 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.321 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.058 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.434 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.105 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.989 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.145 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.448 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 20.319 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.464 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.882 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.134 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [32m200[0m 17.976 ms - 21[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.562 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.750 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.601 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.194 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.906 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.391 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.557 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 18.475 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.742 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [32m200[0m 16.965 ms - 21[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.653 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [32m200[0m 17.457 ms - 22[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.489 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [32m200[0m 16.378 ms - 22[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.261 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.318 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.352 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.631 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.262 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.991 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.422 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.447 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [32m200[0m 26.842 ms - 22[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [32m200[0m 17.323 ms - 22[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.514 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.080 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.447 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.220 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.378 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.267 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 18.086 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.836 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.934 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [32m200[0m 16.290 ms - 22[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.263 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.213 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.619 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.894 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.171 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.576 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.115 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.802 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.671 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.617 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.455 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.587 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.485 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.727 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.810 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.478 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [32m200[0m 18.005 ms - 20[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.542 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.174 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.217 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [32m200[0m 17.012 ms - 21[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 20.289 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.372 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 18.010 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 16.285 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 20.653 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 15.669 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT [id], [email], [password], [profile_image], [username], [is_active], [created_at], [updated_at] FROM [users] AS [User] WHERE [User].[id] = 1;
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/auth/verify-token [36m304[0m 16.471 ms - -[0m
-[0mGET /api/v1/events/notifications/count [36m304[0m 29.610 ms - -[0m
-Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] ORDER BY [EventHv].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
-Executing (default): SELECT [id], [name], [mac_address], [event_name], [event_time], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
-Executing (default): SELECT [name], COUNT([id]) AS [event_count], [event_type] FROM [event_hv] AS [EventHv] GROUP BY [name], [event_type] ORDER BY event_count DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
-Executing (default): SELECT [id], [name], [event_name] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 20 ROWS ONLY;
-[0mGET /api/v1/events/hv/last?limit=2 [32m200[0m 14.183 ms - 860[0m
-processedEvents: [
-  {
-    id: 2,
-    name: 'Red AT Pecsa 2',
-    event_type: 'Video Loss',
-    event_count: 2
-  },
-  {
-    id: 3,
-    name: 'Red AT Mesones Muro Jaen',
-    event_type: 'Video Loss',
-    event_count: 1
-  }
-]
-[0mGET /api/v1/events/samsung/last?limit=2 [32m200[0m 20.924 ms - 677[0m
-[0mGET /api/v1/events/hv/event-type [32m200[0m 13.627 ms - 862[0m
-[0mGET /api/v1/events/samsung/event-type [32m200[0m 12.750 ms - 161[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.391 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.888 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 13.006 ms - -[0m
-Executing (default): SELECT count(DISTINCT([name])) AS [count] FROM [event_hv] AS [EventHv];
-startDate 2024-12-07
-Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] WHERE [EventHv].[created_at] BETWEEN N'2024-12-06 19:00:00.000 -05:00' AND N'2024-12-08 19:00:00.000 -05:00' ORDER BY [EventHv].[created_at] DESC;
-[0mGET /api/v1/events/hv/count-distinct-name [32m200[0m 20.712 ms - 2[0m
-[0mGET /api/v1/events/hv?startDate=2024-12-07&endDate=2024-12-09 [32m200[0m 33.921 ms - 36196[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.629 ms - -[0m
-[0mGET /attachments/ef4d8f40-a630-4b0f-a563-5511e381b8b5-A04-1.jpg [32m200[0m 11.628 ms - 4566[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.709 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.473 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 13.038 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.698 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.505 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 14.811 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 13.470 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 14.227 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.965 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 13.634 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.576 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 14.138 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
 [0mGET /api/v1/events/notifications/count [36m304[0m 12.753 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 13.351 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 17.328 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.575 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 16.051 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.484 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.556 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.720 ms - 24[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 13.430 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 15.930 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 13.000 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 16.066 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.643 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.627 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.992 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 6.821 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.496 ms - 24[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 17.535 ms - -[0m
-[0mGET /api/v1/events/notifications/count [33m401[0m 0.375 ms - 44[0m
-[0mGET /api/v1/events/notifications/count [33m401[0m 0.397 ms - 44[0m
-[0mGET /api/v1/events/notifications/count [33m401[0m 0.360 ms - 44[0m
-[0mGET /api/v1/events/notifications/count [33m401[0m 0.381 ms - 44[0m
-[0mGET /api/v1/events/notifications/count [33m401[0m 0.372 ms - 44[0m
-[0mOPTIONS /api/v1/auth/login [32m204[0m 0.389 ms - 0[0m
-Executing (default): SELECT [id], [email], [password], [profile_image], [username], [is_active], [created_at], [updated_at] FROM [users] AS [User] WHERE [User].[email] = N'prevencion@apuestatotal.com';
-User {
-  dataValues: {
-    id: 1,
-    email: 'prevencion@apuestatotal.com',
-    password: '$2b$10$va5lMXl6WAFiGlak3imG4uslEqjRg44vukV6jUtvWYQDUdbsmYV1W',
-    profile_image: null,
-    username: 'prevencion.fraude',
-    is_active: true,
-    created_at: 2024-12-06T22:54:18.013Z,
-    updated_at: 2024-12-08T11:38:11.599Z
-  },
-  _previousDataValues: {
-    id: 1,
-    email: 'prevencion@apuestatotal.com',
-    password: '$2b$10$va5lMXl6WAFiGlak3imG4uslEqjRg44vukV6jUtvWYQDUdbsmYV1W',
-    profile_image: null,
-    username: 'prevencion.fraude',
-    is_active: true,
-    created_at: 2024-12-06T22:54:18.013Z,
-    updated_at: 2024-12-08T11:38:11.599Z
-  },
-  uniqno: 1,
-  _changed: Set(0) {},
-  _options: {
-    isNewRecord: false,
-    _schema: null,
-    _schemaDelimiter: '',
-    raw: true,
-    attributes: [
-      'id',
-      'email',
-      'password',
-      'profile_image',
-      'username',
-      'is_active',
-      'created_at',
-      'updated_at'
-    ]
-  },
-  isNewRecord: false
-}
-[0mPOST /api/v1/auth/login [32m200[0m 183.485 ms - 266[0m
-Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] ORDER BY [EventHv].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
-[0mGET /api/v1/events/hv/last?limit=2 [32m200[0m 5.527 ms - 860[0m
-Executing (default): SELECT [id], [name], [mac_address], [event_name], [event_time], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
-Executing (default): SELECT [name], COUNT([id]) AS [event_count], [event_type] FROM [event_hv] AS [EventHv] GROUP BY [name], [event_type] ORDER BY event_count DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
-[0mGET /api/v1/events/samsung/last?limit=2 [32m200[0m 10.216 ms - 677[0m
-Executing (default): SELECT [id], [name], [event_name] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 20 ROWS ONLY;
-[0mGET /api/v1/events/hv/event-type [32m200[0m 12.829 ms - 862[0m
-processedEvents: [
-  {
-    id: 2,
-    name: 'Red AT Pecsa 2',
-    event_type: 'Video Loss',
-    event_count: 2
-  },
-  {
-    id: 3,
-    name: 'Red AT Mesones Muro Jaen',
-    event_type: 'Video Loss',
-    event_count: 1
-  }
-]
-[0mGET /api/v1/events/samsung/event-type [32m200[0m 15.392 ms - 161[0m
-Executing (default): SELECT [name], COUNT([id]) AS [event_count], [event_type] FROM [event_hv] AS [EventHv] GROUP BY [name], [event_type] ORDER BY event_count DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
-Executing (default): SELECT [id], [name], [event_name] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 20 ROWS ONLY;
-processedEvents: [
-  {
-    id: 2,
-    name: 'Red AT Pecsa 2',
-    event_type: 'Video Loss',
-    event_count: 2
-  },
-  {
-    id: 3,
-    name: 'Red AT Mesones Muro Jaen',
-    event_type: 'Video Loss',
-    event_count: 1
-  }
-]
-[0mGET /api/v1/events/hv/event-type [36m304[0m 8.018 ms - -[0m
-[0mGET /api/v1/events/samsung/event-type [36m304[0m 6.252 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.594 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [32m200[0m 8.512 ms - 21[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.574 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.479 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.397 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 8.177 ms - -[0m
+Executing (default): SELECT [id], [email], [password], [profile_image], [username], [is_active], [created_at], [updated_at] FROM [users] AS [User] WHERE [User].[id] = 2;
+[0mGET /api/v1/events/notifications/count [36m304[0m 19.947 ms - -[0m
+[0mGET /api/v1/auth/verify-token [36m304[0m 15.738 ms - -[0m
 Executing (default): SELECT count(DISTINCT([name])) AS [count] FROM [event_hv] AS [EventHv];
-startDate 2024-12-07
-Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] WHERE [EventHv].[created_at] BETWEEN N'2024-12-06 19:00:00.000 -05:00' AND N'2024-12-08 19:00:00.000 -05:00' ORDER BY [EventHv].[created_at] DESC;
-[0mGET /api/v1/events/hv/count-distinct-name [32m200[0m 11.313 ms - 2[0m
-[0mGET /api/v1/events/hv?startDate=2024-12-07&endDate=2024-12-09 [32m200[0m 16.542 ms - 36196[0m
+startDate 2024-12-11
+Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] WHERE [EventHv].[created_at] BETWEEN N'2024-12-10 19:00:00.000 -05:00' AND N'2024-12-12 19:00:00.000 -05:00' ORDER BY [EventHv].[created_at] DESC;
+[0mGET /api/v1/events/hv/count-distinct-name [36m304[0m 9.115 ms - -[0m
+[0mGET /api/v1/events/hv?startDate=2024-12-11&endDate=2024-12-13 [36m304[0m 17.810 ms - -[0m
+[0mOPTIONS /api/v1/events/hv/remove-duplicates?date=2024-12-12 [32m204[0m 0.268 ms - 0[0m
+Executing (default): EXEC RemoveHikvisionDuplicatesByDate N'2024-12-12'
+El archivo 3d3c78e7-06e3-4913-87fd-58c71168bb02-A04-1.jpg no existe.
+El archivo 77aa897d-2996-40b1-98fb-81fb09c0400e-A04-1.jpg no existe.
+El archivo ad3bdfe5-ae7e-4d18-89b3-d8efbd7c1058-A03-1.jpg no existe.
+[0mDELETE /api/v1/events/hv/remove-duplicates?date=2024-12-12 [32m200[0m 31.031 ms - 43[0m
+startDate 2024-12-11
+Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] WHERE [EventHv].[created_at] BETWEEN N'2024-12-10 19:00:00.000 -05:00' AND N'2024-12-12 19:00:00.000 -05:00' ORDER BY [EventHv].[created_at] DESC;
+[0mGET /api/v1/events/hv?startDate=2024-12-11&endDate=2024-12-13 [32m200[0m 17.400 ms - 86063[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.785 ms - -[0m
+[0mGET /api/v1/events/notifications/count [32m200[0m 10.195 ms - 24[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.524 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 14.479 ms - -[0m
+[0mGET /attachments/57a0d0cc-4eea-4aa3-b388-4759924607e8-A04-1.jpg [32m200[0m 1.834 ms - 3780[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.365 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 14.214 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 8.175 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.989 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.964 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 14.234 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.220 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.985 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 8.040 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.743 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.327 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.682 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.438 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.185 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.225 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.967 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.268 ms - -[0m
+[0mGET /api/v1/events/notifications/count [32m200[0m 13.489 ms - 24[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.217 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 6.594 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.526 ms - 24[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.627 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.475 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 8.238 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.240 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.825 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.761 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.384 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.602 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 8.197 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 17.201 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.440 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 17.105 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.281 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.356 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.824 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.862 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.380 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 6.511 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.520 ms - 24[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.501 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.606 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.435 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.201 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.588 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.143 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.283 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.304 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.722 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.252 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.673 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.281 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.444 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 14.124 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.618 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 14.332 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 9.140 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.772 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.536 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.996 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.416 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.763 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.581 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.250 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.502 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.017 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.601 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 6.483 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.567 ms - 24[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.416 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 14.089 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.407 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 15.121 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.173 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.710 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.361 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.635 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.448 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.528 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 8.823 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.700 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.333 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.962 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 8.020 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.712 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 8.273 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 18.330 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.124 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.672 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.513 ms - 24[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.234 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.984 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 8.467 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.988 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.501 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.840 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.987 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.660 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.450 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.353 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.400 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.169 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.790 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.014 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.743 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.482 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.567 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.883 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.775 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.852 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.720 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.577 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.442 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.060 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.419 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.656 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.764 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 9.165 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.528 ms - 24[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.141 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 21.210 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.982 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.689 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 8.026 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.285 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.366 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.210 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.047 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.761 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.318 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.826 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.933 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.724 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.486 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.053 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.758 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.683 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.633 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.036 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.785 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.026 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.059 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.709 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.247 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.447 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 8.209 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 6.370 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.502 ms - 24[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
 [0mGET /api/v1/events/notifications/count [36m304[0m 7.525 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.344 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.568 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.390 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.349 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.229 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.717 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.423 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.690 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.543 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.594 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.116 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.855 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.518 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.722 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.604 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.801 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.553 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.538 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.317 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.613 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.281 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.605 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.205 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 6.431 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.510 ms - 24[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.283 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.383 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.327 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.516 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.467 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 8.191 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.675 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.532 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.706 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.688 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
 [0mGET /api/v1/events/notifications/count [36m304[0m 7.478 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.263 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 9.562 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.391 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.634 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.002 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.277 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.046 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.585 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 8.782 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.892 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.282 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 6.350 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.499 ms - 24[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.297 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.655 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.395 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.300 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 9.356 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
 [0mGET /api/v1/events/notifications/count [36m304[0m 7.803 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.179 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.593 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.173 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.271 ms - -[0m
+[0mOPTIONS /api/v1/events/hv/observations/9187 [32m204[0m 0.339 ms - 0[0m
+Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] WHERE [EventHv].[id] = N'9187';
+Executing (default): UPDATE [event_hv] SET [observations]=@0,[updated_at]=@1 WHERE [id] = @2
+[0mPUT /api/v1/events/hv/observations/9187 [32m200[0m 104.055 ms - 499[0m
+startDate 2024-12-11
+Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] WHERE [EventHv].[created_at] BETWEEN N'2024-12-10 19:00:00.000 -05:00' AND N'2024-12-12 19:00:00.000 -05:00' ORDER BY [EventHv].[created_at] DESC;
+[0mGET /api/v1/events/hv?startDate=2024-12-11&endDate=2024-12-13 [32m200[0m 20.206 ms - 86094[0m
+[0mGET /attachments/57a0d0cc-4eea-4aa3-b388-4759924607e8-A04-1.jpg [36m304[0m 0.672 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.612 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.676 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.641 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.894 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [32m200[0m 11.034 ms - 21[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.843 ms - -[0m
+[0mOPTIONS /api/v1/events/hv/observations/9187 [32m204[0m 0.231 ms - 0[0m
+Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] WHERE [EventHv].[id] = N'9187';
+[0mPUT /api/v1/events/hv/observations/9187 [32m200[0m 5.722 ms - 499[0m
+startDate 2024-12-11
+Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] WHERE [EventHv].[created_at] BETWEEN N'2024-12-10 19:00:00.000 -05:00' AND N'2024-12-12 19:00:00.000 -05:00' ORDER BY [EventHv].[created_at] DESC;
+[0mGET /api/v1/events/hv?startDate=2024-12-11&endDate=2024-12-13 [36m304[0m 20.049 ms - -[0m
+[0mOPTIONS /api/v1/events/hv/observations/5034 [32m204[0m 0.211 ms - 0[0m
+Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] WHERE [EventHv].[id] = N'5034';
+Executing (default): UPDATE [event_hv] SET [observations]=@0,[updated_at]=@1 WHERE [id] = @2
+[0mPUT /api/v1/events/hv/observations/5034 [32m200[0m 9.187 ms - 499[0m
+startDate 2024-12-11
+Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] WHERE [EventHv].[created_at] BETWEEN N'2024-12-10 19:00:00.000 -05:00' AND N'2024-12-12 19:00:00.000 -05:00' ORDER BY [EventHv].[created_at] DESC;
+[0mGET /api/v1/events/hv?startDate=2024-12-11&endDate=2024-12-13 [32m200[0m 19.471 ms - 86125[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 10.891 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.857 ms - -[0m
+[0mOPTIONS /api/v1/events/hv/5034 [32m204[0m 0.219 ms - 0[0m
+[0mOPTIONS /api/v1/events/hv/9187 [32m204[0m 0.199 ms - 0[0m
+completed 2
+Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] WHERE [EventHv].[id] = N'5034';
+Executing (default): UPDATE [event_hv] SET [status]=@0,[updated_at]=@1 WHERE [id] = @2
+completed 2
+Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] WHERE [EventHv].[id] = N'9187';
+Executing (default): INSERT INTO [event_history] ([model],[user_id],[action],[details],[created_at]) OUTPUT INSERTED.[id],INSERTED.[model],INSERTED.[user_id],INSERTED.[action],INSERTED.[details],INSERTED.[created_at] VALUES (@0,@1,@2,@3,@4);
+Executing (default): UPDATE [event_hv] SET [status]=@0,[updated_at]=@1 WHERE [id] = @2
+[0mPUT /api/v1/events/hv/5034 [32m200[0m 30.760 ms - 505[0m
+Executing (default): INSERT INTO [event_history] ([model],[user_id],[action],[details],[created_at]) OUTPUT INSERTED.[id],INSERTED.[model],INSERTED.[user_id],INSERTED.[action],INSERTED.[details],INSERTED.[created_at] VALUES (@0,@1,@2,@3,@4);
+[0mPUT /api/v1/events/hv/9187 [32m200[0m 26.341 ms - 505[0m
+startDate 2024-12-11
+Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] WHERE [EventHv].[created_at] BETWEEN N'2024-12-10 19:00:00.000 -05:00' AND N'2024-12-12 19:00:00.000 -05:00' ORDER BY [EventHv].[created_at] DESC;
+[0mGET /api/v1/events/hv?startDate=2024-12-11&endDate=2024-12-13 [32m200[0m 18.545 ms - 86137[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [32m200[0m 10.432 ms - 20[0m
+[0mGET /api/v1/events/notifications/count [32m200[0m 7.224 ms - 24[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 11.795 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.709 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 10.310 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.933 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 10.652 ms - -[0m
+[0mGET /api/v1/events/notifications/count [32m200[0m 7.790 ms - 24[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT [id], [email], [password], [profile_image], [username], [is_active], [created_at], [updated_at] FROM [users] AS [User] WHERE [User].[id] = 1;
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/auth/verify-token [36m304[0m 13.661 ms - -[0m
-[0mGET /api/v1/events/notifications/count [32m200[0m 17.385 ms - 20[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.252 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.449 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 8.189 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.932 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.826 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.971 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.848 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.693 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.958 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.635 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.657 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.793 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 8.114 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.470 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.476 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.507 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.880 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.727 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.558 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.786 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.654 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.738 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.741 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.524 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.252 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.459 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.501 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.550 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.374 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.441 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.289 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.471 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.641 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.489 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.079 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.597 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.359 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 6.806 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.221 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.402 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.229 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.490 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.241 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.322 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 6.885 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.490 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [32m200[0m 11.004 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [32m200[0m 19.517 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.216 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 2.319 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 36.981 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 26.480 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 14.771 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 2.450 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 15.604 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 15.680 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.444 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.642 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 14.770 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.070 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 8.386 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 2.410 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.938 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.046 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 8.068 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.517 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.220 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.654 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 8.263 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.498 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 12.511 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.596 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.572 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.689 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.785 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.720 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 6.441 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.524 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.089 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.869 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 6.675 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.537 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.474 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.846 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 6.646 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.502 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.014 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.355 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.147 ms - -[0m
+Executing (default): SELECT [id], [email], [password], [profile_image], [username], [is_active], [created_at], [updated_at] FROM [users] AS [User] WHERE [User].[id] = 2;
+[0mGET /api/v1/auth/verify-token [36m304[0m 4.406 ms - -[0m
 Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] ORDER BY [EventHv].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
 Executing (default): SELECT [id], [name], [mac_address], [event_name], [event_time], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
-[0mGET /api/v1/events/hv/last?limit=2 [32m200[0m 14.271 ms - 2[0m
-[0mGET /api/v1/events/samsung/last?limit=2 [36m304[0m 5.180 ms - -[0m
+[0mGET /api/v1/events/hv/last?limit=2 [32m200[0m 8.460 ms - 895[0m
+[0mGET /api/v1/events/samsung/last?limit=2 [36m304[0m 7.177 ms - -[0m
 Executing (default): SELECT [name], COUNT([id]) AS [event_count], [event_type] FROM [event_hv] AS [EventHv] GROUP BY [name], [event_type] ORDER BY event_count DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
-Executing (default): SELECT [id], [name], [event_name] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 20 ROWS ONLY;
-processedEvents: [
-  {
-    id: 2,
-    name: 'Red AT Pecsa 2',
-    event_type: 'Video Loss',
-    event_count: 2
-  },
-  {
-    id: 3,
-    name: 'Red AT Mesones Muro Jaen',
-    event_type: 'Video Loss',
-    event_count: 1
-  }
-]
-[0mGET /api/v1/events/hv/event-type [32m200[0m 8.114 ms - 2[0m
-[0mGET /api/v1/events/samsung/event-type [36m304[0m 6.262 ms - -[0m
-Executing (default): SELECT [id], [name], [event_name] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 20 ROWS ONLY;
+Executing (default): SELECT [id], [name], [event_name] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
+[0mGET /api/v1/events/hv/event-type [32m200[0m 8.950 ms - 830[0m
+[0mGET /api/v1/events/samsung/event-type [36m304[0m 4.961 ms - -[0m
+Executing (default): SELECT [id], [name], [event_name] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
 Executing (default): SELECT [name], COUNT([id]) AS [event_count], [event_type] FROM [event_hv] AS [EventHv] GROUP BY [name], [event_type] ORDER BY event_count DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
-processedEvents: [
-  {
-    id: 2,
-    name: 'Red AT Pecsa 2',
-    event_type: 'Video Loss',
-    event_count: 2
-  },
-  {
-    id: 3,
-    name: 'Red AT Mesones Muro Jaen',
-    event_type: 'Video Loss',
-    event_count: 1
-  }
-]
-[0mGET /api/v1/events/samsung/event-type [36m304[0m 10.485 ms - -[0m
-[0mGET /api/v1/events/hv/event-type [36m304[0m 7.299 ms - -[0m
+[0mGET /api/v1/events/samsung/event-type [36m304[0m 8.311 ms - -[0m
+[0mGET /api/v1/events/hv/event-type [36m304[0m 7.462 ms - -[0m
+Executing (default): SELECT count(DISTINCT([name])) AS [count] FROM [event_hv] AS [EventHv];
+startDate 2024-12-11
+Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] WHERE [EventHv].[created_at] BETWEEN N'2024-12-10 19:00:00.000 -05:00' AND N'2024-12-12 19:00:00.000 -05:00' ORDER BY [EventHv].[created_at] DESC;
+[0mGET /api/v1/events/hv/count-distinct-name [36m304[0m 9.836 ms - -[0m
+[0mGET /api/v1/events/hv?startDate=2024-12-11&endDate=2024-12-13 [32m200[0m 18.347 ms - 87491[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.038 ms - -[0m
-Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
-Executing (default): SELECT [id], [email], [password], [profile_image], [username], [is_active], [created_at], [updated_at] FROM [users] AS [User] WHERE [User].[id] = 1;
-Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/auth/verify-token [36m304[0m 7.378 ms - -[0m
-[0mGET /api/v1/events/notifications/count [36m304[0m 12.730 ms - -[0m
-Executing (default): SELECT [name], COUNT([id]) AS [event_count], [event_type] FROM [event_hv] AS [EventHv] GROUP BY [name], [event_type] ORDER BY event_count DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
-Executing (default): SELECT [id], [name], [mac_address], [event_name], [event_time], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
-Executing (default): SELECT [id], [name], [event_type], [event_time], [dvr_name], [dvr_serial_number], [camera_name], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_hv] AS [EventHv] ORDER BY [EventHv].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;
-Executing (default): SELECT [id], [name], [event_name] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 20 ROWS ONLY;
-[0mGET /api/v1/events/hv/event-type [36m304[0m 7.993 ms - -[0m
-[0mGET /api/v1/events/samsung/last?limit=2 [36m304[0m 11.414 ms - -[0m
-processedEvents: [
-  {
-    id: 2,
-    name: 'Red AT Pecsa 2',
-    event_type: 'Video Loss',
-    event_count: 2
-  },
-  {
-    id: 3,
-    name: 'Red AT Mesones Muro Jaen',
-    event_type: 'Video Loss',
-    event_count: 1
-  }
-]
-[0mGET /api/v1/events/hv/last?limit=2 [36m304[0m 9.041 ms - -[0m
-[0mGET /api/v1/events/samsung/event-type [36m304[0m 9.112 ms - -[0m
-Executing (default): SELECT [name], COUNT([id]) AS [event_count], [event_type] FROM [event_hv] AS [EventHv] GROUP BY [name], [event_type] ORDER BY event_count DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
-[0mGET /api/v1/events/hv/event-type [36m304[0m 3.646 ms - -[0m
-Executing (default): SELECT [id], [name], [event_name] FROM [event_samsung] AS [EventSamsung] ORDER BY [EventSamsung].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 20 ROWS ONLY;
-processedEvents: [
-  {
-    id: 2,
-    name: 'Red AT Pecsa 2',
-    event_type: 'Video Loss',
-    event_count: 2
-  },
-  {
-    id: 3,
-    name: 'Red AT Mesones Muro Jaen',
-    event_type: 'Video Loss',
-    event_count: 1
-  }
-]
-[0mGET /api/v1/events/samsung/event-type [36m304[0m 4.776 ms - -[0m
-Executing (default): SELECT count(DISTINCT([name])) AS [count] FROM [event_samsung] AS [EventSamsung];
-Executing (default): SELECT [id], [name], [mac_address], [event_name], [event_time], [status], [observations], [attachment], [created_at], [updated_at] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[created_at] BETWEEN N'2024-12-06 19:00:00.000 -05:00' AND N'2024-12-08 19:00:00.000 -05:00' ORDER BY [EventSamsung].[created_at] DESC;
-[0mGET /api/v1/events/samsung/count-distinct-name [32m200[0m 10.302 ms - 1[0m
-[0mGET /api/v1/events/samsung?startDate=2024-12-07&endDate=2024-12-09 [32m200[0m 5.593 ms - 968[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.581 ms - -[0m
+[0mGET /attachments/830476dc-e586-40e0-b115-73fa4db79a0f-A03-1.jpg [32m200[0m 1.502 ms - 3800[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.181 ms - -[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.946 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
-[0mGET /api/v1/events/notifications/count [36m304[0m 7.048 ms - -[0m
-Executing (default): SELECT [id], [email], [profile_image], [username], [is_active], [created_at], [updated_at] FROM [users] AS [User];
-[0mGET /api/v1/users [32m200[0m 5.040 ms - 1371[0m
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.133 ms - -[0m
 Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
 Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.387 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.489 ms - -[0m
+Executing (default): SELECT [id], [store_name], [company_name], [dvr_name], [notification_email_in], [notification_email_out], [remote_connection_tool], [remote_connection_id], [notifications_status], [notes], [supervisor], [created_at], [updated_at] FROM [dvr_control] AS [DvrControl];
+Executing (default): SELECT [notifications_status], COUNT([notifications_status]) AS [count] FROM [dvr_control] AS [DvrControl] GROUP BY [notifications_status];
+[0mGET /api/v1/dvr-controls [36m304[0m 35.677 ms - -[0m
+[0mGET /api/v1/dvr-controls/status/counts [36m304[0m 35.127 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 8.332 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 6.761 ms - -[0m
+Executing (default): EXEC GetEventSummaryByDateRange N'2024-12-11 00:00:00', N'2024-12-13 00:00:00'
+Executing (default): SELECT [id], [model], [user_id], [action], [details], [created_at] FROM [event_history] AS [EventHistory] WHERE [EventHistory].[created_at] BETWEEN N'2024-12-11 00:00:00.000 -05:00' AND N'2024-12-13 00:00:00.000 -05:00' ORDER BY [EventHistory].[created_at] DESC OFFSET 0 ROWS FETCH NEXT 100 ROWS ONLY;
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new' AND [EventSamsung].[created_at] BETWEEN N'2024-12-10 19:00:00.000 -05:00' AND N'2024-12-12 19:00:00.000 -05:00';
+[0mGET /api/v1/events/summary-by-date?startDate=2024-12-11&endDate=2024-12-13 [32m200[0m 11.144 ms - 115[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new' AND [EventHv].[created_at] BETWEEN N'2024-12-10 19:00:00.000 -05:00' AND N'2024-12-12 19:00:00.000 -05:00';
+[0mGET /api/v1/events/timeline?startDate=2024-12-11&endDate=2024-12-13 [32m200[0m 15.659 ms - 22876[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'completed' AND [EventSamsung].[created_at] BETWEEN N'2024-12-10 19:00:00.000 -05:00' AND N'2024-12-12 19:00:00.000 -05:00';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'completed' AND [EventHv].[created_at] BETWEEN N'2024-12-10 19:00:00.000 -05:00' AND N'2024-12-12 19:00:00.000 -05:00';
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'pending' AND [EventSamsung].[created_at] BETWEEN N'2024-12-10 19:00:00.000 -05:00' AND N'2024-12-12 19:00:00.000 -05:00';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'pending' AND [EventHv].[created_at] BETWEEN N'2024-12-10 19:00:00.000 -05:00' AND N'2024-12-12 19:00:00.000 -05:00';
+[0mGET /api/v1/events/notifications/by-date?startDate=2024-12-11&endDate=2024-12-13 [32m200[0m 25.720 ms - 117[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.531 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.871 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.542 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.380 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.677 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.545 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 7.504 ms - -[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.867 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.489 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.516 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.474 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.917 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.493 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.782 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.481 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.950 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 2.191 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.970 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.483 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 10.896 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.580 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.101 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.503 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 11.696 ms - -[0m
+[0mGET /api/v1/events/notifications/count [33m401[0m 1.500 ms - 24[0m
+Executing (default): SELECT count(*) AS [count] FROM [event_samsung] AS [EventSamsung] WHERE [EventSamsung].[status] = N'new';
+Executing (default): SELECT count(*) AS [count] FROM [event_hv] AS [EventHv] WHERE [EventHv].[status] = N'new';
+[0mGET /api/v1/events/notifications/count [36m304[0m 13.061 ms - -[0m

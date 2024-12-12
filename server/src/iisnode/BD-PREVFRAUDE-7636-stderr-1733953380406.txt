@@ -1,0 +1,1228 @@
+Unable to connect to the database: AccessDeniedError [SequelizeAccessDeniedError]: Login failed for user 'dba_pf'.
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24)
+    at async E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32
+    at async ConnectionManager.getConnection (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:197:7)
+    at async E:\cctv\server\node_modules\sequelize\lib\sequelize.js:305:26
+    at async Sequelize.authenticate (E:\cctv\server\node_modules\sequelize\lib\sequelize.js:457:5)
+    at async connect (E:\cctv\server\src\config\database.js:21:5)
+    at async startServer (E:\cctv\server\src\index.js:44:5) {
+  parent: ConnectionError: Login failed for user 'dba_pf'.
+      at Login7TokenHandler.onErrorMessage (E:\cctv\server\node_modules\tedious\lib\token\handler.js:186:19)
+      at Readable.<anonymous> (E:\cctv\server\node_modules\tedious\lib\token\token-stream-parser.js:19:33)
+      at Readable.emit (node:events:519:28)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushObjectMode (node:internal/streams/readable:536:3)
+      at Readable.push (node:internal/streams/readable:391:5)
+      at nextAsync (node:internal/streams/from:194:22)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    code: 'ELOGIN'
+  },
+  original: ConnectionError: Login failed for user 'dba_pf'.
+      at Login7TokenHandler.onErrorMessage (E:\cctv\server\node_modules\tedious\lib\token\handler.js:186:19)
+      at Readable.<anonymous> (E:\cctv\server\node_modules\tedious\lib\token\token-stream-parser.js:19:33)
+      at Readable.emit (node:events:519:28)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushObjectMode (node:internal/streams/readable:536:3)
+      at Readable.push (node:internal/streams/readable:391:5)
+      at nextAsync (node:internal/streams/from:194:22)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    code: 'ELOGIN'
+  }
+}
+(node:7636) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Error al obtener las notificaciones nuevas: AccessDeniedError [SequelizeAccessDeniedError]: Login failed for user 'dba_pf'.
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24)
+    at async E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32 {
+  parent: ConnectionError: Login failed for user 'dba_pf'.
+      at Login7TokenHandler.onErrorMessage (E:\cctv\server\node_modules\tedious\lib\token\handler.js:186:19)
+      at Readable.<anonymous> (E:\cctv\server\node_modules\tedious\lib\token\token-stream-parser.js:19:33)
+      at Readable.emit (node:events:519:28)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushObjectMode (node:internal/streams/readable:536:3)
+      at Readable.push (node:internal/streams/readable:391:5)
+      at nextAsync (node:internal/streams/from:194:22)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    code: 'ELOGIN'
+  },
+  original: ConnectionError: Login failed for user 'dba_pf'.
+      at Login7TokenHandler.onErrorMessage (E:\cctv\server\node_modules\tedious\lib\token\handler.js:186:19)
+      at Readable.<anonymous> (E:\cctv\server\node_modules\tedious\lib\token\token-stream-parser.js:19:33)
+      at Readable.emit (node:events:519:28)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushObjectMode (node:internal/streams/readable:536:3)
+      at Readable.push (node:internal/streams/readable:391:5)
+      at nextAsync (node:internal/streams/from:194:22)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    code: 'ELOGIN'
+  }
+}
+Error al obtener las notificaciones nuevas: AccessDeniedError [SequelizeAccessDeniedError]: Login failed for user 'dba_pf'.
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24)
+    at async E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:174:32 {
+  parent: ConnectionError: Login failed for user 'dba_pf'.
+      at Login7TokenHandler.onErrorMessage (E:\cctv\server\node_modules\tedious\lib\token\handler.js:186:19)
+      at Readable.<anonymous> (E:\cctv\server\node_modules\tedious\lib\token\token-stream-parser.js:19:33)
+      at Readable.emit (node:events:519:28)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushObjectMode (node:internal/streams/readable:536:3)
+      at Readable.push (node:internal/streams/readable:391:5)
+      at nextAsync (node:internal/streams/from:194:22)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    code: 'ELOGIN'
+  },
+  original: ConnectionError: Login failed for user 'dba_pf'.
+      at Login7TokenHandler.onErrorMessage (E:\cctv\server\node_modules\tedious\lib\token\handler.js:186:19)
+      at Readable.<anonymous> (E:\cctv\server\node_modules\tedious\lib\token\token-stream-parser.js:19:33)
+      at Readable.emit (node:events:519:28)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushObjectMode (node:internal/streams/readable:536:3)
+      at Readable.push (node:internal/streams/readable:391:5)
+      at nextAsync (node:internal/streams/from:194:22)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    code: 'ELOGIN'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 - Could not connect (sequence)
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:112:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 - Could not connect (sequence)
+      at Connection.socketError (E:\cctv\server\node_modules\tedious\lib\connection.js:1353:28)
+      at E:\cctv\server\node_modules\tedious\lib\connection.js:1146:14
+      at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+    code: 'ESOCKET',
+    [cause]: AggregateError: Could not connect (sequence)
+        at connectInSequence (E:\cctv\server\node_modules\tedious\lib\connector.js:114:9)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+        at async E:\cctv\server\node_modules\tedious\lib\connection.js:1129:20 {
+      [errors]: [Array]
+    }
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 - Could not connect (sequence)
+      at Connection.socketError (E:\cctv\server\node_modules\tedious\lib\connection.js:1353:28)
+      at E:\cctv\server\node_modules\tedious\lib\connection.js:1146:14
+      at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+    code: 'ESOCKET',
+    [cause]: AggregateError: Could not connect (sequence)
+        at connectInSequence (E:\cctv\server\node_modules\tedious\lib\connector.js:114:9)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+        at async E:\cctv\server\node_modules\tedious\lib\connection.js:1129:20 {
+      [errors]: [Array]
+    }
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runNextTicks (node:internal/process/task_queues:64:3)
+    at listOnTimeout (node:internal/timers:545:9)
+    at process.processTimers (node:internal/timers:519:7)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runNextTicks (node:internal/process/task_queues:64:3)
+    at listOnTimeout (node:internal/timers:545:9)
+    at process.processTimers (node:internal/timers:519:7)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runNextTicks (node:internal/process/task_queues:64:3)
+    at listOnTimeout (node:internal/timers:545:9)
+    at process.processTimers (node:internal/timers:519:7)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runNextTicks (node:internal/process/task_queues:64:3)
+    at listOnTimeout (node:internal/timers:545:9)
+    at process.processTimers (node:internal/timers:519:7)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runNextTicks (node:internal/process/task_queues:64:3)
+    at listOnTimeout (node:internal/timers:545:9)
+    at process.processTimers (node:internal/timers:519:7)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runNextTicks (node:internal/process/task_queues:64:3)
+    at listOnTimeout (node:internal/timers:545:9)
+    at process.processTimers (node:internal/timers:519:7)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runNextTicks (node:internal/process/task_queues:64:3)
+    at listOnTimeout (node:internal/timers:545:9)
+    at process.processTimers (node:internal/timers:519:7)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runNextTicks (node:internal/process/task_queues:64:3)
+    at listOnTimeout (node:internal/timers:545:9)
+    at process.processTimers (node:internal/timers:519:7)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 - Could not connect (sequence)
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:112:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 - Could not connect (sequence)
+      at Connection.socketError (E:\cctv\server\node_modules\tedious\lib\connection.js:1353:28)
+      at E:\cctv\server\node_modules\tedious\lib\connection.js:1146:14
+      at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+    code: 'ESOCKET',
+    [cause]: AggregateError: Could not connect (sequence)
+        at connectInSequence (E:\cctv\server\node_modules\tedious\lib\connector.js:114:9)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+        at async E:\cctv\server\node_modules\tedious\lib\connection.js:1129:20 {
+      [errors]: [Array]
+    }
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 - Could not connect (sequence)
+      at Connection.socketError (E:\cctv\server\node_modules\tedious\lib\connection.js:1353:28)
+      at E:\cctv\server\node_modules\tedious\lib\connection.js:1146:14
+      at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+    code: 'ESOCKET',
+    [cause]: AggregateError: Could not connect (sequence)
+        at connectInSequence (E:\cctv\server\node_modules\tedious\lib\connector.js:114:9)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+        at async E:\cctv\server\node_modules\tedious\lib\connection.js:1129:20 {
+      [errors]: [Array]
+    }
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 - Could not connect (sequence)
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:112:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 - Could not connect (sequence)
+      at Connection.socketError (E:\cctv\server\node_modules\tedious\lib\connection.js:1353:28)
+      at E:\cctv\server\node_modules\tedious\lib\connection.js:1146:14
+      at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+    code: 'ESOCKET',
+    [cause]: AggregateError: Could not connect (sequence)
+        at connectInSequence (E:\cctv\server\node_modules\tedious\lib\connector.js:114:9)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+        at async E:\cctv\server\node_modules\tedious\lib\connection.js:1129:20 {
+      [errors]: [Array]
+    }
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 - Could not connect (sequence)
+      at Connection.socketError (E:\cctv\server\node_modules\tedious\lib\connection.js:1353:28)
+      at E:\cctv\server\node_modules\tedious\lib\connection.js:1146:14
+      at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+    code: 'ESOCKET',
+    [cause]: AggregateError: Could not connect (sequence)
+        at connectInSequence (E:\cctv\server\node_modules\tedious\lib\connector.js:114:9)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+        at async E:\cctv\server\node_modules\tedious\lib\connection.js:1129:20 {
+      [errors]: [Array]
+    }
+  }
+}
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 in 15000ms
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:119:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 in 15000ms
+      at Connection.connectTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1222:26)
+      at Timeout._onTimeout (E:\cctv\server\node_modules\tedious\lib\connection.js:1167:12)
+      at listOnTimeout (node:internal/timers:581:17)
+      at process.processTimers (node:internal/timers:519:7) {
+    code: 'ETIMEOUT'
+  }
+}

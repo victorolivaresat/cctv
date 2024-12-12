@@ -24,7 +24,7 @@ const Sidebar = ({ show, handleClose }) => {
 
   const renderNavigationLinks = () => {
     return navigationItems.map((item, index) => (
-      <div key={index}>
+      <div key={index} className="fs-6">
         <NavLink
           to={item.to}
           className={({ isActive }) =>

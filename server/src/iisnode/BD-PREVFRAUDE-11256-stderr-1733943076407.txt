@@ -1,0 +1,31 @@
+(node:11256) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Error al obtener las notificaciones nuevas: ConnectionError [SequelizeConnectionError]: Failed to connect to 192.168.21.35:1433 - Could not connect (sequence)
+    at ConnectionManager.connect (E:\cctv\server\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:112:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ConnectionManager._connect (E:\cctv\server\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:222:24) {
+  parent: ConnectionError: Failed to connect to 192.168.21.35:1433 - Could not connect (sequence)
+      at Connection.socketError (E:\cctv\server\node_modules\tedious\lib\connection.js:1353:28)
+      at E:\cctv\server\node_modules\tedious\lib\connection.js:1146:14
+      at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+    code: 'ESOCKET',
+    [cause]: AggregateError: Could not connect (sequence)
+        at connectInSequence (E:\cctv\server\node_modules\tedious\lib\connector.js:114:9)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+        at async E:\cctv\server\node_modules\tedious\lib\connection.js:1129:20 {
+      [errors]: [Array]
+    }
+  },
+  original: ConnectionError: Failed to connect to 192.168.21.35:1433 - Could not connect (sequence)
+      at Connection.socketError (E:\cctv\server\node_modules\tedious\lib\connection.js:1353:28)
+      at E:\cctv\server\node_modules\tedious\lib\connection.js:1146:14
+      at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+    code: 'ESOCKET',
+    [cause]: AggregateError: Could not connect (sequence)
+        at connectInSequence (E:\cctv\server\node_modules\tedious\lib\connector.js:114:9)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+        at async E:\cctv\server\node_modules\tedious\lib\connection.js:1129:20 {
+      [errors]: [Array]
+    }
+  }
+}
