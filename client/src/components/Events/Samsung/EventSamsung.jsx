@@ -140,14 +140,14 @@ const EventSamsung = () => {
       },
     },
     {
-      name: "Nombre Tienda",
+      name: "Tienda",
       selector: (row) => row.name,
       sortable: true,
       minWidth: "200px",
       maxWidth: "250px",
     },
     {
-      name: "Nombre Evento",
+      name: "Evento",
       selector: (row) => row.event_name,
       cell: (row) => {
         const eventNameParts = row.event_name.split(":");
@@ -158,14 +158,21 @@ const EventSamsung = () => {
       maxWidth: "200px",
     },
     {
-      name: "Fecha Dvr",
-      selector: (row) => formatDate(row.event_time),
+      name: "Fecha Evento(DVR)",
+      selector: (row) => {
+        const eventTime = new Date(row.event_time);
+        const inboxDate = new Date(row.inbox_date);
+        const timeDifference = Math.abs(eventTime - inboxDate) / 1000 / 60;
+        const isMatch = timeDifference <= 2;
+        const className = isMatch ? 'text-success bg-success-subtle ' : 'text-danger bg-danger-subtle';
+        return <span className={ `${className} d-block p-1 rounded-3`}>{formatDate(row.event_time)}</span>;
+      },
       sortable: true,
       minWidth: "150px",
-      maxWidth: "200px",
+      maxWidth: "180px",
     },
     {
-      name: "Fecha Creacion",
+      name: "Fecha del correo",
       selector: (row) => formatDate(row.created_at),
       sortable: true,
       minWidth: "150px",

@@ -145,7 +145,7 @@ const EventHv = () => {
       style: { marginBottom: "-1px" },
     },
     {
-      name: "Nombre Tienda",
+      name: "Tienda",
       selector: (row) => row.name,
       sortable: true,
       minWidth: "150px",
@@ -175,7 +175,7 @@ const EventHv = () => {
         const eventTime = new Date(row.event_time);
         const inboxDate = new Date(row.inbox_date);
         const timeDifference = Math.abs(eventTime - inboxDate) / 1000 / 60;
-        const isMatch = timeDifference <= 1;
+        const isMatch = timeDifference <= 2;
         const className = isMatch ? 'text-success bg-success-subtle ' : 'text-danger bg-danger-subtle';
         return <span className={ `${className} d-block p-1 rounded-3`}>{formatDate(row.event_time)}</span>;
       },
@@ -184,7 +184,7 @@ const EventHv = () => {
       maxWidth: "180px",
     },
     {
-      name: "Fecha de Registro",
+      name: "Fecha del correo",
       selector: (row) => formatDate(row.inbox_date),
       sortable: true,
       minWidth: "150px",
