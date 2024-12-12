@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('dvr_control', {
+    await queryInterface.createTable("dvr_control", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -33,22 +33,22 @@ module.exports = {
       remote_connection_tool: {
         type: Sequelize.STRING,
         allowNull: true,
-        defaultValue: 'None',
+        defaultValue: "None",
       },
-      remote_connection_id: { 
+      remote_connection_id: {
         type: Sequelize.STRING,
         allowNull: true,
       },
       notifications_status: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
-        defaultValue: false, 
+        defaultValue: false,
       },
-      notes: { 
+      notes: {
         type: Sequelize.TEXT,
         allowNull: true,
       },
-      supervisor: { 
+      supervisor: {
         type: Sequelize.STRING,
         allowNull: true,
       },
@@ -57,15 +57,20 @@ module.exports = {
         allowNull: false,
         defaultValue: Sequelize.NOW,
       },
-      updated_at: { 
+      updated_at: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.NOW,
+      },
+      status: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
       },
     });
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('dvr_control');
+    await queryInterface.dropTable("dvr_control");
   },
 };

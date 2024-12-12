@@ -57,14 +57,18 @@ EventHv.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
+    inbox_date: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
   },
   {
     sequelize,
     modelName: "EventHv",
     tableName: "event_hv",
     timestamps: true,
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
+    createdAt: "created_at",
+    updatedAt: "updated_at",
   }
 );
 

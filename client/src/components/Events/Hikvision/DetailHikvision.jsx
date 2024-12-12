@@ -33,14 +33,38 @@ const DetailHikvision = ({ show, handleClose, detail }) => {
       Registrado: ${formatDate(detail.created_at)}
       Observaciones: ${detail.observations ? detail.observations : "-"}
     `;
-    navigator.clipboard
-      .writeText(text)
-      .then(() => {
-        toast.info("¡Detalle copiado al portapapeles!");
-      })
-      .catch((err) => {
-        console.error("Error al copiar al portapapeles: ", err);
-      });
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard
+        .writeText(text)
+        .then(() => {
+          toast.info("¡Detalle copiado al portapapeles!");
+        })
+        .catch((err) => {
+          console.error("Error al copiar al portapapeles: ", err);
+        });
+    } else {
+      fallbackCopyTextToClipboard(text);
+    }
+  };
+
+  const fallbackCopyTextToClipboard = (text) => {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.select();
+
+    try {
+      document.execCommand("copy");
+      toast.info("¡Detalle copiado al portapapeles!");
+    } catch (err) {
+      console.error(
+        "Error al copiar al portapapeles con método de respaldo: ",
+        err
+      );
+    }
+
+    document.body.removeChild(textArea);
   };
 
   return (
@@ -73,9 +97,13 @@ const DetailHikvision = ({ show, handleClose, detail }) => {
                 Nuevo
               </span>
             ) : detail.status === "pending" ? (
-              <span className="px-3 text-bg-warning bg-warning rounded-4">Pendiente</span>
+              <span className="px-3 text-bg-warning bg-warning rounded-4">
+                Pendiente
+              </span>
             ) : (
-              <span className="px-3 text-bg-success bg-success rounded-4">Completado</span>
+              <span className="px-3 text-bg-success bg-success rounded-4">
+                Completado
+              </span>
             )}
           </p>
           <p>

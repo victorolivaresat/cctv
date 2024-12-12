@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import { format, isSameDay } from 'date-fns';
 
 export const formatDate = (date) => {
   return format(new Date(date), 'dd/MM/yyyy HH:mm:ss');
@@ -30,4 +30,8 @@ export const validateDateRange = (startDate, endDate, maxDays = 60) => {
   const diffTime = Math.abs(end - start);
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   return diffDays <= maxDays;
+};
+
+export const isSameDayAsCreation = (eventDate, creationDate) => {
+  return isSameDay(new Date(eventDate), new Date(creationDate));
 };
