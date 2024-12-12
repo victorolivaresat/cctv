@@ -30,6 +30,7 @@ const DetailHikvision = ({ show, handleClose, detail }) => {
           : "Completado"
       }
       Fecha DVR: ${formatDate(detail.event_time)}
+      Fecha Email: ${formatDate(detail.inbox_date)}
       Registrado: ${formatDate(detail.created_at)}
       Observaciones: ${detail.observations ? detail.observations : "-"}
     `;

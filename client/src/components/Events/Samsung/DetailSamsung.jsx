@@ -19,6 +19,7 @@ const DetailSamsung = ({ show, handleClose, detail }) => {
           : "Completado"
       }
       Fecha DVR: ${formatDate(detail.event_time)}
+      Fecha Email: ${formatDate(detail.inbox_date)}
       Registrado: ${formatDate(detail.created_at)}
       Observaciones: ${detail.observations ? detail.observations : "-"}
     `;
@@ -42,10 +43,10 @@ const DetailSamsung = ({ show, handleClose, detail }) => {
   const fallbackCopyTextToClipboard = (text) => {
     const textArea = document.createElement("textarea");
     textArea.value = text;
-    textArea.style.position = "fixed"; // Evita que el elemento influya en el diseño de la página
+    textArea.style.position = "fixed"; 
     textArea.style.top = "0";
     textArea.style.left = "0";
-    textArea.style.opacity = "0"; // Invisible
+    textArea.style.opacity = "0";
     document.body.appendChild(textArea);
     textArea.focus();
     textArea.select();
