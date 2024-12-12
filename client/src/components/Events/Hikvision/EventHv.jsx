@@ -9,6 +9,7 @@ import {
   formatDate,
   getTomorrowDate,
   getYesterdayDate,
+  isSameDayAsCreation,
   validateDateRange,
 } from "../../../utils/DateUtils";
 import { Button, Form, InputGroup, Col, Row, Alert } from "react-bootstrap";
@@ -173,10 +174,19 @@ const EventHv = () => {
     },
     {
       name: "Fecha Evento(DVR)",
-      selector: (row) => formatDate(row.event_time),
+      selector: (row) => formatDate(row.event_time, row.created_at),
       sortable: true,
       minWidth: "150px",
       maxWidth: "180px",
+      conditionalCellStyles: [
+        {
+          when: (row) => !isSameDayAsCreation(row.event_time),
+          style: {
+            backgroundColor: "red",
+            color: "white",
+          },
+        },
+      ],
     },
     {
       name: "Fecha de Creación",

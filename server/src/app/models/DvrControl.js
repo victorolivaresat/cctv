@@ -48,7 +48,7 @@ DvrControl.init(
         isEmail: true,
       },
     },
-    remote_connection_tool: { 
+    remote_connection_tool: {
       type: DataTypes.STRING,
       allowNull: true,
       defaultValue: "None",
@@ -62,7 +62,7 @@ DvrControl.init(
       allowNull: false,
       defaultValue: true,
     },
-    notes: { 
+    notes: {
       type: DataTypes.TEXT,
       allowNull: true,
     },
@@ -79,6 +79,11 @@ DvrControl.init(
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
+    },
+    status: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
     },
   },
   {

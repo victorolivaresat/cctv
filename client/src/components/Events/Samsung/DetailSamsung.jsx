@@ -22,14 +22,52 @@ const DetailSamsung = ({ show, handleClose, detail }) => {
       Registrado: ${formatDate(detail.created_at)}
       Observaciones: ${detail.observations ? detail.observations : "-"}
     `;
-    navigator.clipboard
-      .writeText(text)
-      .then(() => {
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard
+        .writeText(text)
+        .then(() => {
+          toast.info("¡Detalle copiado al portapapeles!");
+        })
+        .catch((err) => {
+          console.error("Error al copiar al portapapeles: ", err);
+          toast.error("No se pudo copiar al portapapeles.");
+        });
+    } else {
+      fallbackCopyTextToClipboard(text);
+    }
+  };
+
+  // Método de respaldo
+  const fallbackCopyTextToClipboard = (text) => {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed"; // Evita que el elemento influya en el diseño de la página
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.opacity = "0"; // Invisible
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+      const successful = document.execCommand("copy");
+      if (successful) {
         toast.info("¡Detalle copiado al portapapeles!");
-      })
-      .catch((err) => {
-        console.error("Error al copiar al portapapeles: ", err);
-      });
+      } else {
+        toast.warn(
+          "No se pudo copiar el texto. Selecciona y copia manualmente."
+        );
+      }
+    } catch (err) {
+      console.error(
+        "Error al copiar al portapapeles con método de respaldo: ",
+        err
+      );
+      toast.error("No se pudo copiar al portapapeles.");
+    }
+
+    document.body.removeChild(textArea);
   };
 
   return (

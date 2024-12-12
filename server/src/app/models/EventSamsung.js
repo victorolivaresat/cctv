@@ -1,6 +1,5 @@
 const { DataTypes, Model } = require("sequelize");
 const { sequelize } = require("../../config/database");
-const { format } = require("../utils/dateUtils");
 
 class EventSamsung extends Model {}
 
@@ -35,7 +34,7 @@ EventSamsung.init(
     observations: {
       type: DataTypes.TEXT,
       allowNull: true,
-      field: 'observations',
+      field: "observations",
     },
     attachment: {
       type: DataTypes.STRING,
@@ -49,14 +48,18 @@ EventSamsung.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
+    inbox_date: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
   },
   {
     sequelize,
     modelName: "EventSamsung",
     tableName: "event_samsung",
     timestamps: true,
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
+    createdAt: "created_at",
+    updatedAt: "updated_at",
   }
 );
 

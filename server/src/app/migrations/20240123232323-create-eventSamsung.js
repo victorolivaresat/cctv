@@ -1,43 +1,43 @@
-'use strict';
+"use strict";
 
 /** @type {import('sequelize-cli').Migration} */
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('event_samsung', {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable("event_samsung", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       name: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       mac_address: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       event_name: {
         allowNull: false,
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       event_time: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       status: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: true,
       },
       observations: {
         type: Sequelize.TEXT,
-        allowNull: true
+        allowNull: true,
       },
       attachment: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: true,
       },
       created_at: {
         allowNull: false,
@@ -46,11 +46,15 @@ module.exports = {
       updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
-      }
+      },
+      inbox_date: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
     });
   },
 
-  async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('event_samsung');
-  }
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable("event_samsung");
+  },
 };

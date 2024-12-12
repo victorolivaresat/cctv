@@ -56,7 +56,11 @@ module.exports = {
       updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
-      }
+      },
+      inbox_date: {
+        allowNull: true,
+        type: Sequelize.DATE,
+      },
     });
 
   },
