@@ -33,7 +33,13 @@ import {
   FaCircle,
   FaTimes,
   FaFilter,
+  FaStore,
+  FaCheckCircle,
+  FaExclamationCircle,
+  FaTimesCircle,
 } from "react-icons/fa";
+
+import {} from "react-icons/fa";
 
 const MySwal = withReactContent(Swal);
 
@@ -44,14 +50,22 @@ const DvrControl = () => {
   const [statusCounts, setStatusCounts] = useState([]);
 
   // Filtros
-  const [filterSupervisorAreaManager, setFilterSupervisorAreaManager] = useState("");
+  const [filterSupervisorAreaManager, setFilterSupervisorAreaManager] =
+    useState("");
   const [filterSupervisorName, setFilterSupervisorName] = useState("");
   const [filterSupervisorZone, setFilterSupervisorZone] = useState("");
   const [filterStoreName, setFilterStoreName] = useState("");
   const [filterCompany, setFilterCompany] = useState("");
   const [filterDvrName, setFilterDvrName] = useState("");
-  const [filterStatus, setFilterStatus] = useState("");
-  
+  const [filterStatus, setFilterStatus] = useState("true");
+
+  const [storeStatusCounts, setStoreStatusCounts] = useState({
+    totalStores: 0,
+    operational: 0,
+    inoperative: 0,
+    closed: 0,
+  });
+
   useEffect(() => {
     fetchDvrControls();
     fetchStatusCounts();
@@ -60,9 +74,9 @@ const DvrControl = () => {
   const fetchDvrControls = async () => {
     try {
       const data = await getAllDvrControls();
-      const deserializedData = data.map(control => ({
+      const deserializedData = data.map((control) => ({
         ...control,
-        supervisor: JSON.parse(control.supervisor)
+        supervisor: JSON.parse(control.supervisor),
       }));
       setDvrControls(deserializedData);
       console.log("DVR Controls", deserializedData);
@@ -74,7 +88,13 @@ const DvrControl = () => {
   const fetchStatusCounts = async () => {
     try {
       const data = await getStoreStatusCounts();
-      setStatusCounts(data);
+      setStatusCounts(data.notificationsStatus);
+      setStoreStatusCounts({
+        totalStores: data.totalStores,
+        operational: data.operational,
+        inoperative: data.inoperative,
+        closed: data.closed,
+      });
     } catch (error) {
       console.error("Error fetching status counts:", error);
     }
@@ -132,6 +152,27 @@ const DvrControl = () => {
     });
   };
 
+  const confirmStatusChange = (dvrControl) => {
+    MySwal.fire({
+      title: "Are you sure?",
+      text: `Do you want to change the status of the notifications for DVR ${dvrControl.id}?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, change it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleToggleActive(dvrControl);
+        MySwal.fire(
+          "Changed!",
+          "DVR Control status has been updated.",
+          "success"
+        );
+      }
+    });
+  };
+
   const handleEditDvrControl = (dvrControl) => {
     setSelectedDvrControl(dvrControl);
     setShowModal(true);
@@ -139,16 +180,11 @@ const DvrControl = () => {
 
   const handleToggleActive = async (dvrControl) => {
     try {
-      const updatedDvrControl = await updateDvrControlStatus(
-        dvrControl.id,
-        !dvrControl.notifications_status
-      );
-      setDvrControls(
-        dvrControls.map((dvr) =>
-          dvr.id === dvrControl.id ? updatedDvrControl : dvr
-        )
-      );
-      toast.success("DVR Control status updated successfully!");
+      const updatedDvrControl = await updateDvrControlStatus(dvrControl.id, {
+        notifications_status: !dvrControl.notifications_status,
+      });
+      console.log("updatedDvrControl", updatedDvrControl);
+      fetchDvrControls();
       fetchStatusCounts();
     } catch (error) {
       console.error("Error updating DVR control status:", error);
@@ -190,24 +226,42 @@ const DvrControl = () => {
     const filterDvrNameLower = filterDvrName.toLowerCase();
     const filterSupervisorNameLower = filterSupervisorName.toLowerCase();
     const filterSupervisorZoneLower = filterSupervisorZone.toLowerCase();
-    const filterSupervisorAreaManagerLower = filterSupervisorAreaManager.toLowerCase();
-  
-    const storeNameLower = control.store_name ? control.store_name.toLowerCase() : "";
-    const statusLower = control.notifications_status ? "active" : "inactive";
-    const companyLower = control.company_name ? control.company_name.toLowerCase() : "";
+    const filterSupervisorAreaManagerLower =
+      filterSupervisorAreaManager.toLowerCase();
+
+    const storeNameLower = control.store_name
+      ? control.store_name.toLowerCase()
+      : "";
+    const statusLower = control.notifications_status ? "true" : "false";
+    const companyLower = control.company_name
+      ? control.company_name.toLowerCase()
+      : "";
     const dvrNameLower = control.dvr_name ? control.dvr_name.toLowerCase() : "";
-    const supervisorNameLower = control.supervisor && control.supervisor.name ? control.supervisor.name.toLowerCase() : "";
-    const supervisorZoneLower = control.supervisor && control.supervisor.zone ? control.supervisor.zone.toLowerCase() : "";
-    const supervisorAreaManagerLower = control.supervisor && control.supervisor.area_manager ? control.supervisor.area_manager.toLowerCase() : "";
-  
+    const supervisorNameLower =
+      control.supervisor && control.supervisor.name
+        ? control.supervisor.name.toLowerCase()
+        : "";
+    const supervisorZoneLower =
+      control.supervisor && control.supervisor.zone
+        ? control.supervisor.zone.toLowerCase()
+        : "";
+    const supervisorAreaManagerLower =
+      control.supervisor && control.supervisor.area_manager
+        ? control.supervisor.area_manager.toLowerCase()
+        : "";
+
     return (
       (!filterStatusLower || statusLower.includes(filterStatusLower)) &&
-      (!filterStoreNameLower || storeNameLower.includes(filterStoreNameLower)) &&
+      (!filterStoreNameLower ||
+        storeNameLower.includes(filterStoreNameLower)) &&
       (!filterCompanyLower || companyLower.includes(filterCompanyLower)) &&
       (!filterDvrNameLower || dvrNameLower.includes(filterDvrNameLower)) &&
-      (!filterSupervisorNameLower || supervisorNameLower.includes(filterSupervisorNameLower)) &&
-      (!filterSupervisorZoneLower || supervisorZoneLower.includes(filterSupervisorZoneLower)) &&
-      (!filterSupervisorAreaManagerLower || supervisorAreaManagerLower.includes(filterSupervisorAreaManagerLower))
+      (!filterSupervisorNameLower ||
+        supervisorNameLower.includes(filterSupervisorNameLower)) &&
+      (!filterSupervisorZoneLower ||
+        supervisorZoneLower.includes(filterSupervisorZoneLower)) &&
+      (!filterSupervisorAreaManagerLower ||
+        supervisorAreaManagerLower.includes(filterSupervisorAreaManagerLower))
     );
   });
 
@@ -218,9 +272,16 @@ const DvrControl = () => {
       style: { marginBottom: "-1px" },
     },
     {
+      name: "Ceco",
+      selector: (row) => row.external_id,
+      sortable: true,
+      maxWidth: "50px",
+    },
+    {
       name: "Tienda",
       selector: (row) => row.store_name,
       sortable: true,
+      minWidth: "250px",
     },
     {
       name: "Empresa",
@@ -243,22 +304,38 @@ const DvrControl = () => {
       sortable: true,
     },
     {
-      name: "ID conexión remota",
-      selector: (row) => row.remote_connection_id,
-      sortable: true,
-    },
-
-    {
-      name: "Status",
+      name: "Estado de Configuración",
       cell: (row) => (
         <Form.Check
           type="switch"
           id={`is-active-switch-${row.id}`}
           checked={row.notifications_status}
-          onChange={() => handleToggleActive(row)}
+          onChange={() => confirmStatusChange(row)}
         />
       ),
       sortable: true,
+    },
+    {
+      name: "Status",
+      cell: (row) => (
+        <div>
+          <span
+            className={`badge ${
+              row.status === 1
+                ? "bg-success"
+                : row.status === 2
+                ? "bg-warning"
+                : "bg-secondary"
+            }`}
+          >
+            {row.status === 1
+              ? "Operativo"
+              : row.status === 2
+              ? "Inoperativo"
+              : "Cerrado"}
+          </span>
+        </div>
+      ),
     },
     {
       name: "Actions",
@@ -337,20 +414,20 @@ const DvrControl = () => {
 
   // Exportar a Excel
   const handleExportToExcel = () => {
-    const exportData = dvrControls.map(control => ({      
-      "Tienda": control.store_name,
-      "Empresa": control.company_name,
+    const exportData = dvrControls.map((control) => ({
+      Tienda: control.store_name,
+      Empresa: control.company_name,
       "DVR (Marca)": control.dvr_name,
       "Email de Entrada": control.notification_email_in,
       "Email de Salida": control.notification_email_out,
       "Conexión Remota": control.remote_connection_tool,
       "Conexión Remota ID": control.remote_connection_id,
-      "Estado": control.notifications_status ? "Activado" : "Desactivado",
-      "Notas": control.notes,
-      "Supervisor": control.supervisor.name,
+      Estado: control.notifications_status ? "Activado" : "Desactivado",
+      Notas: control.notes,
+      Supervisor: control.supervisor.name,
       "Telefono Sup.": control.supervisor.phone,
       "Jefe Comercial": control.supervisor.area_manager,
-      "Zona": control.supervisor.zone,
+      Zona: control.supervisor.zone,
     }));
 
     return exportData;
@@ -360,6 +437,39 @@ const DvrControl = () => {
     <Row className="p-4">
       <Col className="p-4 mb-4 bg-dark-subtle rounded-3" md={2}>
         <StatusPieChart data={statusCounts} />
+
+        <table className="table table-striped my-4">
+          <tbody>
+            <tr>
+              <th scope="row">
+                <FaStore className="me-2" />
+                Total de Tiendas:
+              </th>
+              <td>{storeStatusCounts.totalStores}</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <FaCheckCircle className="me-2 text-success" />
+                Operativas:
+              </th>
+              <td>{storeStatusCounts.operational}</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <FaExclamationCircle className="me-2 text-warning" />
+                Inoperativas:
+              </th>
+              <td>{storeStatusCounts.inoperative}</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <FaTimesCircle className="me-2 text-danger" />
+                Cerradas:
+              </th>
+              <td>{storeStatusCounts.closed}</td>
+            </tr>
+          </tbody>
+        </table>
 
         <Button
           className="w-100 mb-3"
@@ -387,8 +497,8 @@ const DvrControl = () => {
                     placeholder="Filtrar por estado"
                   >
                     <option value="">Estado</option>
-                    <option value="active">Activo</option>
-                    <option value="inactive">Inactivo</option>
+                    <option value="true">Activo</option>
+                    <option value="false">Inactivo</option>
                   </Form.Control>
                   <InputGroup.Text>
                     {filterStatus ? (
@@ -512,7 +622,10 @@ const DvrControl = () => {
 
               <Col md={3}>
                 <div className="my-1">
-                  <ExcelExport data={handleExportToExcel()} fileName="dvr_controls" />
+                  <ExcelExport
+                    data={handleExportToExcel()}
+                    fileName="dvr_controls"
+                  />
                 </div>
               </Col>
             </Row>

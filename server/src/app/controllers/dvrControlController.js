@@ -153,15 +153,29 @@ const getStoreStatusCounts = async (req, res) => {
         "notifications_status",
         [Sequelize.fn("COUNT", Sequelize.col("notifications_status")), "count"],
       ],
+      where: {
+        status: 1,
+      },
       group: ["notifications_status"],
     });
+
+    const totalStores = await DvrControl.count();
+    const operationalCount = await DvrControl.count({ where: { status: 1 } });
+    const inoperativeCount = await DvrControl.count({ where: { status: 2 } });
+    const closedCount = await DvrControl.count({ where: { status: 3 } });
 
     const data = statusCounts.map((item) => ({
       status: item.notifications_status ? "Activo" : "Inactivo",
       count: parseInt(item.dataValues.count, 10),
     }));
 
-    res.status(200).json(data);
+    res.status(200).json({
+      totalStores,
+      operational: operationalCount,
+      inoperative: inoperativeCount,
+      closed: closedCount,
+      notificationsStatus: data,
+    });
   } catch (error) {
     console.error("Error in getStoreStatusCounts:", error);
     res.status(500).json({
