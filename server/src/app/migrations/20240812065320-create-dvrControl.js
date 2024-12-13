@@ -63,9 +63,13 @@ module.exports = {
         defaultValue: Sequelize.NOW,
       },
       status: {
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: true,
+      },
+      external_id: {
+        type: Sequelize.STRING,
+        allowNull: true,
       },
     });
   },

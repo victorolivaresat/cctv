@@ -21,8 +21,11 @@ const StatusPieChart = ({ data }) => {
       legend: {
         show: false,
       },
+      theme: {
+        palette: "palette7",
+      },
       responsive: [
-        {
+        {// Extra small devices (portrait phones, less than 576px)
           breakpoint: 480,
           options: {
             chart: {

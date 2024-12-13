@@ -16,7 +16,7 @@ const EventTimeline = ({ events }) => {
 
   useEffect(() => {
     setKey((prevKey) => prevKey + 1);
-  }, [darkMode]);
+  }, [darkMode, events]);
 
   const themeDark = {
     primary: "#4a90e2",

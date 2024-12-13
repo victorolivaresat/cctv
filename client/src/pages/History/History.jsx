@@ -1,29 +1,31 @@
-// pages/History/History.js
 import { getYesterdayDate, getTomorrowDate } from "../../utils/DateUtils";
 import NewNotifications from "../../components/History/NewNotifications";
-import { Row, Col, Spinner, Form, Button, Card } from "react-bootstrap";
 import EventTimeline from "../../components/History/EventTimeline";
+import { Row, Col, Spinner, Form, Card } from "react-bootstrap";
 import EventHistory from "../../components/History/EventHistory";
-import { FaSearch, FaBell } from "react-icons/fa";
+import { FaBell, FaExclamationTriangle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import {
-  getEventSummaryByDateRange,
   getNewNotificationsCountByDate,
+  getEventSummaryByDateRange,
   getEventHistoryTimeline,
 } from "../../api/events";
 
 const History = () => {
-  const [events, setEvents] = useState([]);
-  const [loadingEvents, setLoadingEvents] = useState(true);
+ 
   const [loadingNotifications, setLoadingNotifications] = useState(true);
+  const [startDate, setStartDate] = useState(getYesterdayDate());
   const [loadingTimeline, setLoadingTimeline] = useState(true);
-  const [error, setError] = useState(null);
+  const [endDate, setEndDate] = useState(getTomorrowDate());
+  const [loadingEvents, setLoadingEvents] = useState(true);
   const [notifications, setNotifications] = useState({});
   const [eventTimeline, setEventTimeline] = useState([]);
+  const [error, setError] = useState(null);
+  const [events, setEvents] = useState([]);
 
-  const [startDate, setStartDate] = useState(getYesterdayDate());
-  const [endDate, setEndDate] = useState(getTomorrowDate());
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchEvents(startDate, endDate);
@@ -67,12 +69,6 @@ const History = () => {
     }
   };
 
-  const handleDateSubmit = () => {
-    fetchEvents(startDate, endDate);
-    handleDateChange(startDate, endDate);
-    handleEventTimeline(startDate, endDate);
-  };
-
   if (loadingEvents || loadingNotifications || loadingTimeline) {
     return (
       <div className="text-center">
@@ -83,10 +79,24 @@ const History = () => {
   }
 
   if (error) {
+    setTimeout(() => {
+      navigate("/");
+    }, 5000);
+    
     return (
-      <div className="mt-4 text-center">
-        <span className="bg-danger-subtle px-3 py-2 rounded-3">Sin datos</span>
-      </div>
+      <div className=" d-flex justify-content-center mt-4 text-center">
+      <Card className="shadow-sm">
+        <Card.Body>
+          <div className="bg-danger-subtle p-4 rounded-3">
+            <FaExclamationTriangle size={50} className="text-danger mb-3" />
+            <h4 className="text-danger">Sin datos</h4>
+            <p className="text-muted">
+              No se encontraron datos para el rango de fechas seleccionado.
+            </p>
+          </div>
+        </Card.Body>
+      </Card>
+    </div>
     );
   }
 
@@ -112,17 +122,6 @@ const History = () => {
                     value={endDate}
                     onChange={(e) => setEndDate(e.target.value)}
                   />
-                </Form.Group>
-                <Form.Group>
-                  <Button
-                    variant="primary"
-                    size="sm"
-                    onClick={handleDateSubmit}
-                    className="w-100"
-                  >
-                    <FaSearch className="me-2" />
-                    Consultar
-                  </Button>
                 </Form.Group>
               </Form>
             </Card.Body>

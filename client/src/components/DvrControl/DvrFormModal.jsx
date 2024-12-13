@@ -224,7 +224,7 @@ const DvrFormModal = ({ show, onHide, onSubmit, initialData }) => {
                     required
                   >
                     <option value="">Empresa</option>
-                    <option value="Free Games">Free Games</option>
+                    <option value="FREE GAMES">Free Games</option>
                     <option value="IGH">IGH</option>
                   </Form.Control>
                 </InputGroup>

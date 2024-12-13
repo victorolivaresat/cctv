@@ -81,9 +81,13 @@ DvrControl.init(
       defaultValue: DataTypes.NOW,
     },
     status: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: true,
+      defaultValue: 1,
+    },
+    external_id: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   },
   {
