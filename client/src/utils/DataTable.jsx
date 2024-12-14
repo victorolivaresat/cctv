@@ -67,6 +67,7 @@ const DataTableBase = (props) => {
       paginationRowsPerPageOptions={[5, 10, 20, 50, 100]}
       theme={darkMode ? "myDarkTheme" : "default"}
       {...props}
+      customStyles={{fontSizes: "8px"}}
     />
   );
 }

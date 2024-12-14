@@ -276,35 +276,41 @@ const DvrControl = () => {
       selector: (row) => row.external_id,
       sortable: true,
       maxWidth: "50px",
+      style: { fontSize: "11px" },
     },
     {
       name: "Tienda",
       selector: (row) => row.store_name,
       sortable: true,
       minWidth: "250px",
+      style: { fontSize: "11px" },
     },
     {
       name: "Empresa",
       selector: (row) => row.company_name,
       sortable: true,
+      style: { fontSize: "11px" },
     },
     {
       name: "DVR Marca",
       selector: (row) => row.dvr_name,
       sortable: true,
+      style: { fontSize: "11px" },
     },
     {
       name: "Email de Salida",
       selector: (row) => row.notification_email_out,
       sortable: true,
+      style: { fontSize: "11px" },
     },
     {
       name: "Conexión Remota",
       selector: (row) => row.remote_connection_tool,
       sortable: true,
+      style: { fontSize: "11px" },
     },
     {
-      name: "Estado de Configuración",
+      name: "Configurado",
       cell: (row) => (
         <Form.Check
           type="switch"
@@ -380,7 +386,7 @@ const DvrControl = () => {
 
     return (
       <div className="m-3">
-        <Alert variant="info" style={{ width: "350px" }}>
+        <Alert variant="primary" style={{ width: "350px" }}>
           <div className="d-flex flex-wrap align-items-center">
             <div className="me-4">
               <FaUserTie size={30} />

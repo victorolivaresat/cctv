@@ -150,6 +150,7 @@ const EventHv = () => {
       sortable: true,
       minWidth: "150px",
       maxWidth: "200px",
+      style: { fontSize: "11px" },
     },
     {
       name: "Evento",
@@ -157,6 +158,7 @@ const EventHv = () => {
       sortable: true,
       minWidth: "150px",
       maxWidth: "200px",
+      style: { fontSize: "11px" },
     },
     {
       name: "Camara(s)",
@@ -168,6 +170,7 @@ const EventHv = () => {
           : "-",
       minWidth: "150px",
       maxWidth: "200px",
+      style: { fontSize: "11px" },
     },
     {
       name: "Fecha Evento(DVR)",
@@ -177,11 +180,12 @@ const EventHv = () => {
         const timeDifference = Math.abs(eventTime - inboxDate) / 1000 / 60;
         const isMatch = timeDifference <= 2;
         const className = isMatch ? 'text-success bg-success-subtle ' : 'text-danger bg-danger-subtle';
-        return <span className={ `${className} d-block p-1 rounded-3`}>{formatDate(row.event_time)}</span>;
+        return <span className={ `${className} d-block px-2 py-1 rounded-2`}>{formatDate(row.event_time)}</span>;
       },
       sortable: true,
       minWidth: "150px",
       maxWidth: "180px",
+      style: { fontSize: "11px" },
     },
     {
       name: "Fecha del correo",
@@ -189,6 +193,7 @@ const EventHv = () => {
       sortable: true,
       minWidth: "150px",
       maxWidth: "180px",
+      style: { fontSize: "11px" },
     },
     {
       name: "Estado",
@@ -207,6 +212,7 @@ const EventHv = () => {
       sortable: true,
       minWidth: "80px",
       maxWidth: "120px",
+      style: { fontSize: "11px" },
     },
     {
       name: "",

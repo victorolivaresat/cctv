@@ -112,7 +112,9 @@ const EventSamsung = () => {
 
     return (
       (filterNameLower ? eventNameLower.includes(filterNameLower) : true) &&
-      (filterEventNameLower ? eventEventNameLower.includes(filterEventNameLower) : true) &&
+      (filterEventNameLower
+        ? eventEventNameLower.includes(filterEventNameLower)
+        : true) &&
       (filterStatusLower ? eventStatusLower.includes(filterStatusLower) : true)
     );
   });
@@ -126,10 +128,10 @@ const EventSamsung = () => {
     return statusNames[status];
   };
 
-    // Funciones de actualización
-    const handleClearRows = () => {
-      setToggleClearRows(!toggledClearRows);
-    };
+  // Funciones de actualización
+  const handleClearRows = () => {
+    setToggleClearRows(!toggledClearRows);
+  };
 
   const columns = [
     {
@@ -145,6 +147,7 @@ const EventSamsung = () => {
       sortable: true,
       minWidth: "200px",
       maxWidth: "250px",
+      style: { fontSize: "11px" },
     },
     {
       name: "Evento",
@@ -156,6 +159,7 @@ const EventSamsung = () => {
       sortable: true,
       minWidth: "150px",
       maxWidth: "200px",
+      style: { fontSize: "11px" },
     },
     {
       name: "Fecha Evento(DVR)",
@@ -164,12 +168,19 @@ const EventSamsung = () => {
         const inboxDate = new Date(row.inbox_date);
         const timeDifference = Math.abs(eventTime - inboxDate) / 1000 / 60;
         const isMatch = timeDifference <= 2;
-        const className = isMatch ? 'text-success bg-success-subtle ' : 'text-danger bg-danger-subtle';
-        return <span className={ `${className} d-block p-1 rounded-3`}>{formatDate(row.event_time)}</span>;
+        const className = isMatch
+          ? "text-success bg-success-subtle "
+          : "text-danger bg-danger-subtle";
+        return (
+          <span className={`${className} d-block p-1 rounded-3`}>
+            {formatDate(row.event_time)}
+          </span>
+        );
       },
       sortable: true,
       minWidth: "150px",
       maxWidth: "180px",
+      style: { fontSize: "11px" },
     },
     {
       name: "Fecha del correo",
@@ -177,18 +188,26 @@ const EventSamsung = () => {
       sortable: true,
       minWidth: "150px",
       maxWidth: "200px",
+      style: { fontSize: "11px" },
     },
     {
       name: "Estado",
       cell: (row) => getStatusName(row.status),
       conditionalCellStyles: [
         { when: (row) => row.status === "new", classNames: ["status-new"] },
-        { when: (row) => row.status === "pending", classNames: ["status-pending"] },
-        { when: (row) => row.status === "completed", classNames: ["status-completed"] },
+        {
+          when: (row) => row.status === "pending",
+          classNames: ["status-pending"],
+        },
+        {
+          when: (row) => row.status === "completed",
+          classNames: ["status-completed"],
+        },
       ],
       sortable: true,
       minWidth: "50px",
       maxWidth: "120px",
+      style: { fontSize: "11px" },
     },
     {
       name: "",
@@ -199,7 +218,9 @@ const EventSamsung = () => {
             className="me-2 py-1 px-2 bg-secondary-subtle rounded-3"
             onClick={() => handleShowModal(row)}
           >
-            <FaComment className={row.observations ? "text-warning" : "text-primary"} />
+            <FaComment
+              className={row.observations ? "text-warning" : "text-primary"}
+            />
           </a>
           <a
             href="#!"
@@ -213,12 +234,17 @@ const EventSamsung = () => {
       sortable: true,
       minWidth: "50px",
       maxWidth: "80px",
+      style: { fontSize: "11px" },
     },
   ];
 
   const ExpandedComponent = ({ data }) => {
     return (
-      <Alert className="mx-4 my-2 border-0 shadow-sm" variant="info" style={{ whiteSpace: "pre-line" }}>
+      <Alert
+        className="mx-4 my-2 border-0 shadow-sm"
+        variant="info"
+        style={{ whiteSpace: "pre-line" }}
+      >
         <h6>
           <MdVideocam className="me-2" />
           Event Name
@@ -259,18 +285,22 @@ const EventSamsung = () => {
 
   const handleRowSelection = ({ selectedRows }) => {
     setSelectedRowsId(selectedRows.map((row) => row.id));
-    console.log("Selected rows:", selectedRows.map((row) => row.id));
+    console.log(
+      "Selected rows:",
+      selectedRows.map((row) => row.id)
+    );
   };
 
   const updateStatus = async (status) => {
-
     console.log("Selected rows ID:", selectedRowsId);
     console.log("Selected status:", status);
     console.log("Current user:", currentUser.userId);
 
     try {
       const data = await Promise.all(
-        selectedRowsId.map((id) => updateEventSamsungStatus(id, status, currentUser.userId))
+        selectedRowsId.map((id) =>
+          updateEventSamsungStatus(id, status, currentUser.userId)
+        )
       );
       handleFetchEvents(startDate, endDate);
       handleClearRows();
@@ -302,8 +332,9 @@ const EventSamsung = () => {
 
         <hr className="mb-3" />
 
-        <RemoveDuplicate onUpdate={() => handleFetchEvents(startDate, endDate)} />
-
+        <RemoveDuplicate
+          onUpdate={() => handleFetchEvents(startDate, endDate)}
+        />
       </Col>
       <Col md="10" className="px-4">
         <Row className="d-flex justify-content-between align-items-center bg-body-tertiary p-3 mb-4 rounded-3">
